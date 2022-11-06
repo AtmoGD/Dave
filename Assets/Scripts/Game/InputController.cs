@@ -38,7 +38,7 @@ public class InputController : MonoBehaviour
     public Action<InputData> OnFourthItem;
     public Action<InputData> OnFourthItemEnd;
 
-    private InputData inputData = new InputData();
+    [SerializeField] private InputData inputData = new InputData();
     public InputData InputData { get { return inputData; } }
 
     [SerializeField] private PlayerInput playerInput = null;

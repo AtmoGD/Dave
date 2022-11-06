@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f281a199b79df84bb582fa0db921393, type: 3}
+  m_Name: DemoPortal
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3996061532920296653, guid: 1c00fcdc1091a5941a13ee9bdca61313, type: 3}
+  health: 100
+  waves:
+  - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+    amountMin: 2
+    amountMax: 4
+    cooldown: 5
+  - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+    amountMin: 5
+    amountMax: 15
+    cooldown: 10

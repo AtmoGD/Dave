@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour, IDamagable
     private void UpdateHealthBar()
     {
         healthBar.value = (float)Health / data.health;
+
+        healthCanvas.enabled = healthBar.value < 1f;
     }
 
 

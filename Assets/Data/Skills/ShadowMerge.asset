@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5b199eea908754bbea4732d7509efb, type: 3}
+  m_Name: ShadowMerge
+  m_EditorClassIdentifier: 
+  name: Shadow Merge
+  description: Merge with the shadows
+  manaCosts: 0
+  cooldowns:
+  - name: ShadowMerge
+    duration: 0.3
+  - name: ShadowMergeStack
+    duration: 4
+  speed: 10
+  distance: 5
+  delay: 0.3
+  stackSize: 3
+  colMask:
+    serializedVersion: 2
+    m_Bits: 512
+  colRadius: 0.5

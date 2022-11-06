@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     protected void Start()
     {
-        print("GameManager Start");
         if (startOnLoad) StartGame();
     }
 
