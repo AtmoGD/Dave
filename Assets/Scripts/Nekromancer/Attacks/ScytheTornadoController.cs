@@ -27,9 +27,6 @@ public class ScytheTornadoController : MonoBehaviour
     {
         IDamagable damagable = _collision.GetComponent<IDamagable>();
         if (damagable != null)
-        {
-            Debug.Log("Damagable");
             damagable.TakeDamage(attackData.damage);
-        }
     }
 }

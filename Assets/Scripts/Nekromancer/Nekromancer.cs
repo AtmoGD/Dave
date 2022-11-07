@@ -7,6 +7,8 @@ using Cinemachine;
 
 public class Nekromancer : MonoBehaviour
 {
+    public Action<IInteractable> OnInteract;
+
     #region References
     [SerializeField] public Rigidbody2D rb = null;
     [SerializeField] public Collider2D col = null;
@@ -51,6 +53,7 @@ public class Nekromancer : MonoBehaviour
             return levelManager;
         }
     }
+    public PlayerController PlayerController { get { return playerController; } }
     public InputData CurrentInput { get => currentInput; }
     public IInteractable CanInteractWith { get; private set; }
     public IInteractable CurrentInteractable { get; private set; }
@@ -104,7 +107,7 @@ public class Nekromancer : MonoBehaviour
     #region Check Methods
     private void CheckInteraction()
     {
-        if (LevelManager && LevelManager.CurrentCycleState is Day)
+        if (LevelManager && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
 
         if (currentInput.Interact && CanInteractWith != null)
@@ -124,10 +127,13 @@ public class Nekromancer : MonoBehaviour
 
     private void InteractWithSelection()
     {
-        if (CanInteractWith != null)
+        if (CanInteractWith != null && CanInteractWith != CurrentInteractable)
         {
             CanInteractWith.Interact(this);
             CurrentInteractable = CanInteractWith;
+            OnInteract?.Invoke(CurrentInteractable);
+            inputController.ResetInteract();
+            return;
         }
     }
 

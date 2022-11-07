@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IInteractable
 {
     void Interact(Nekromancer _nekromancer);
+    void InteractEnd();
 }

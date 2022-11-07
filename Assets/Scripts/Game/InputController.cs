@@ -105,6 +105,7 @@ public class InputController : MonoBehaviour
             OnInteractEnd?.Invoke(inputData);
         }
     }
+    public void ResetInteract() => inputData.Interact = false;
 
     public void OnFirstAttackInput(InputAction.CallbackContext _context)
     {

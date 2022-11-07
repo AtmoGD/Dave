@@ -9,8 +9,8 @@ public class ShadowMergeData : SkillData
     public float distance = 5f;
     public float delay = 0.3f;
     public int stackSize = 3;
-    public LayerMask colMask;
-    public float colRadius = 0.5f;
+    public LayerMask collisionMask;
+    public float collisionRadius = 0.5f;
 
     public override bool CanBeUsed(Nekromancer _nekromancer)
     {

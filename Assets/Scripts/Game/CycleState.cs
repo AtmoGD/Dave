@@ -7,14 +7,16 @@ using System;
 public class CycleState
 {
     [SerializeField] private Cycle cycle = Cycle.Day;
+    [SerializeField] private float duration = 60f;
+
     private string dayActionMap = "Building";
     private string nightActionMap = "Combat";
+
     public Cycle Cycle => cycle;
-    [SerializeField] private float duration = 60f;
     public float Duration => duration;
 
     private LevelManager gameManager = null;
-    public float timeLeft = 0f;
+    private float timeLeft = 0f;
 
     public virtual void Enter(LevelManager _gameManager)
     {

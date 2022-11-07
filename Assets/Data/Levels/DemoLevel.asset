@@ -14,17 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 10
-    timeLeft: -0.0018925001
+    duration: 40
   - cycle: 1
     duration: 40
-    timeLeft: -0.00048147724
   - cycle: 1
     duration: 40
-    timeLeft: 31.370579
   - cycle: 0
     duration: 40
-    timeLeft: 0
   - cycle: 1
     duration: 40
-    timeLeft: 0

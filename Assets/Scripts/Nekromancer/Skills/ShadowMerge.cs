@@ -53,9 +53,9 @@ public class ShadowMerge : Skill
         Vector2 origin = nekromancer.transform.position;
         Vector2 target = origin + ((Vector2)direction * shadowMergeData.distance);
 
-        if (Physics2D.OverlapCircle(target, shadowMergeData.colRadius, shadowMergeData.colMask))
+        if (Physics2D.OverlapCircle(target, shadowMergeData.collisionRadius, shadowMergeData.collisionMask))
         {
-            RaycastHit2D hit = Physics2D.Raycast(origin, direction, shadowMergeData.distance, shadowMergeData.colMask);
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, shadowMergeData.distance, shadowMergeData.collisionMask);
             distanceLeft = hit.distance;
         }
         else

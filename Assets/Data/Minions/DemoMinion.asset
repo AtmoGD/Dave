@@ -20,3 +20,4 @@ MonoBehaviour:
   moveSpeed: 5
   farmSpeed: 1
   carryCapacity: 10
+  distanceThreshold: 1.5

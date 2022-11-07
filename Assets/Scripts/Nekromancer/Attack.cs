@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attack", menuName = "Nekromancer/Attack")]
 public class Attack : ScriptableObject
 {
     public new string name = "Attack";

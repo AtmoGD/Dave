@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1164757676767661216}
   - component: {fileID: 3203909175382115267}
   - component: {fileID: 3801543449568538638}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DemoMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3203909175836727964}
   - component: {fileID: 3203909175836727962}
   - component: {fileID: 3203909175836727963}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

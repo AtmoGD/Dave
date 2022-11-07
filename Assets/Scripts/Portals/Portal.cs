@@ -45,6 +45,7 @@ public class Portal : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Enemy enemy = EnemyPool.Instance.GetEnemy(randomWave.enemy);
+            enemy.transform.position = transform.position + Random.insideUnitSphere * data.spawnRadius;
         }
         cooldown = randomWave.cooldown;
     }

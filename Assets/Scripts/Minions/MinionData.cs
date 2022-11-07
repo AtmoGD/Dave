@@ -9,4 +9,5 @@ public class MinionData : Placeable
     public float moveSpeed = 5f;
     public float farmSpeed = 1f;
     public int carryCapacity = 10;
+    public float distanceThreshold = 0.1f;
 }
