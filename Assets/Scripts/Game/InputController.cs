@@ -13,6 +13,9 @@ public class InputController : MonoBehaviour
     public Action<InputData> OnInteractStart;
     public Action<InputData> OnInteract;
     public Action<InputData> OnInteractEnd;
+    public Action<InputData> OnPlaceObjectStart;
+    public Action<InputData> OnPlaceObject;
+    public Action<InputData> OnPlaceObjectEnd;
     public Action<InputData> OnFirstAttackStart;
     public Action<InputData> OnFirstAttack;
     public Action<InputData> OnFirstAttackEnd;
@@ -106,6 +109,25 @@ public class InputController : MonoBehaviour
         }
     }
     public void ResetInteract() => inputData.Interact = false;
+
+    public void OnPlaceObjectInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            inputData.PlaceObject = true;
+            OnPlaceObjectStart?.Invoke(inputData);
+        }
+        if (_context.performed)
+        {
+            OnPlaceObject?.Invoke(inputData);
+        }
+        if (_context.canceled)
+        {
+            inputData.PlaceObject = false;
+            OnPlaceObjectEnd?.Invoke(inputData);
+        }
+    }
+    public void ResetPlaceObject() => inputData.PlaceObject = false;
 
     public void OnFirstAttackInput(InputAction.CallbackContext _context)
     {

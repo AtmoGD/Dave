@@ -52,6 +52,7 @@ MonoBehaviour:
     MoveDir: {x: 0, y: 0}
     LookDir: {x: 0, y: 0}
     Interact: 0
+    PlaceObject: 0
     FirstAttack: 0
     SecondAttack: 0
     FirstSkill: 0
@@ -342,6 +343,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0233bbca-e5a0-4406-9042-59bbd9792608
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6280711167200195582}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnPlaceObjectInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 91e6fd1d-0320-43f7-bc79-b0ff0499585c
+    m_ActionName: Building/PlaceObject[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Combat

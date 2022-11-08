@@ -14,6 +14,8 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Collider2D col = null;
     [SerializeField] public Animator animator = null;
     [SerializeField] public Transform interactPoint = null;
+    [SerializeField] public GameObject placeBuildingUI = null;
+    [SerializeField] public Placeable tower = null;
     #endregion
 
     #region Data
@@ -107,11 +109,27 @@ public class Nekromancer : MonoBehaviour
     #region Check Methods
     private void CheckInteraction()
     {
+        if (currentInput.PlaceObject)
+        {
+            placeBuildingUI.SetActive(true);
+            return;
+        }
+
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
 
         if (currentInput.Interact && CanInteractWith != null)
             InteractWithSelection();
+    }
+
+    public void PlaceBuilding()
+    {
+        if (tower != null)
+        {
+            GameObject newTower = Instantiate(tower.prefab, transform.position + transform.right, Quaternion.identity);
+            inputController.ResetPlaceObject();
+            placeBuildingUI.SetActive(false);
+        }
     }
 
     private void UpdateCanInteractWith()
