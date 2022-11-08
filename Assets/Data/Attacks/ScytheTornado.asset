@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Scythe Tornado
   prefab: {fileID: 4547146478599094421, guid: 51e15cbe59cfe4b419ba8d7953c58ee1, type: 3}
   spawnAsChild: 1
-  damage: 10
+  damage: 120
   cooldown:
     name: Scythe Tornado
     duration: 3

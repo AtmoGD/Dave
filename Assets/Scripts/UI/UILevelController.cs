@@ -20,4 +20,9 @@ public class UILevelController : MonoBehaviour
 
         this.cycleState.text = _cycleState.Cycle.ToString();
     }
+
+    public void SpawnEnemy()
+    {
+
+    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class Portal : MonoBehaviour, IDamagable
 {
     [SerializeField] private PortalData data = null;
     [SerializeField] private int health = 100;
@@ -12,6 +12,7 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         health = data.health;
+        ((LevelManager)GameManager.Instance).AddEnemy(this);
         SpawnEnemy();
     }
 
@@ -20,6 +21,7 @@ public class Portal : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            ((LevelManager)GameManager.Instance).RemoveEnemy(this);
             Destroy(gameObject);
         }
     }

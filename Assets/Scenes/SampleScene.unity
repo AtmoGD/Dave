@@ -1332,6 +1332,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8f80af1654b8c44ba2afbbf667a9fef, type: 3}
+--- !u!1001 &8654333608862059945
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394348098287923802, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735450863373788536, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
+      propertyPath: m_Name
+      value: BookOfMinions
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
 --- !u!1001 &8789931069464931201
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,21 +15,21 @@ public class CycleState
     public Cycle Cycle => cycle;
     public float Duration => duration;
 
-    private LevelManager gameManager = null;
+    private LevelManager levelManager = null;
     private float timeLeft = 0f;
 
     public virtual void Enter(LevelManager _gameManager)
     {
-        this.gameManager = _gameManager;
+        this.levelManager = _gameManager;
         this.timeLeft = this.duration;
 
         switch (this.cycle)
         {
             case Cycle.Day:
-                this.gameManager.InputController.ChangeActionMap(this.dayActionMap);
+                this.levelManager.InputController.ChangeActionMap(this.dayActionMap);
                 break;
             case Cycle.Night:
-                this.gameManager.InputController.ChangeActionMap(this.nightActionMap);
+                this.levelManager.InputController.ChangeActionMap(this.nightActionMap);
                 break;
         }
     }
@@ -37,14 +37,27 @@ public class CycleState
     public virtual void FrameUpdate(float _deltaTime)
     {
         this.timeLeft -= _deltaTime;
-        if (this.timeLeft <= 0f)
+
+        if (this.cycle == Cycle.Night)
         {
-            this.gameManager.NextCycle();
+            if (levelManager.activeEnemies.Count <= 0)
+            {
+                this.levelManager.NextCycle();
+            }
         }
+        else
+        {
+            if (this.timeLeft <= 0f)
+            {
+                this.levelManager.NextCycle();
+            }
+        }
+
+
     }
 
     public virtual void Exit()
     {
-        this.gameManager = null;
+        this.levelManager = null;
     }
 }

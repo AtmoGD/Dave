@@ -107,7 +107,7 @@ public class Nekromancer : MonoBehaviour
     #region Check Methods
     private void CheckInteraction()
     {
-        if (LevelManager && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
+        if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
 
         if (currentInput.Interact && CanInteractWith != null)

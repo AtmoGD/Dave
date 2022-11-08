@@ -6,6 +6,7 @@ using System;
 [Serializable]
 public class PortalWave
 {
+    public Type enemyType;
     public EnemyData enemy = null;
     public int amountMin = 0;
     public int amountMax = 0;

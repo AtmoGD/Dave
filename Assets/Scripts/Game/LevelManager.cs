@@ -7,6 +7,7 @@ public class LevelManager : GameManager
 {
     public Action<CycleState> OnCycleChanged;
     [SerializeField] private LevelData levelData = null;
+    public List<IDamagable> activeEnemies = new List<IDamagable>();
     private int currentCycle = 0;
 
     public CycleState CurrentCycleState
@@ -40,7 +41,7 @@ public class LevelManager : GameManager
 
         this.currentCycle++;
 
-        if (this.currentCycle > this.levelData.cycleStates.Count)
+        if (this.currentCycle >= this.levelData.cycleStates.Count)
         {
             //TO-DO : End of level
             print("End of level");
@@ -50,5 +51,15 @@ public class LevelManager : GameManager
         this.CurrentCycleState?.Enter(this);
 
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
+    }
+
+    public void AddEnemy(IDamagable enemy)
+    {
+        this.activeEnemies.Add(enemy);
+    }
+
+    public void RemoveEnemy(IDamagable enemy)
+    {
+        this.activeEnemies.Remove(enemy);
     }
 }

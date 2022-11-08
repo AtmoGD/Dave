@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Attack
   prefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}
   spawnAsChild: 0
-  damage: 10
+  damage: 50
   cooldown:
-    name: Shadow
+    name: Attack
     duration: 1
   speed: 10
   lifeTime: 5

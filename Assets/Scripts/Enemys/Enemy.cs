@@ -26,6 +26,12 @@ public class Enemy : MonoBehaviour, IDamagable
         Damage = data.damage;
         healthCanvas.worldCamera = Camera.main;
         UpdateHealthBar();
+        ((LevelManager)GameManager.Instance).AddEnemy(this);
+    }
+
+    private void OnDisable()
+    {
+        ((LevelManager)GameManager.Instance).RemoveEnemy(this);
     }
 
     public void TakeDamage(int _damage)

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class Building : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected PlayerController player = null;
+
+    public virtual void Interact(Nekromancer _nekromancer)
     {
-        
+        Debug.Log("Interacting with building");
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void InteractEnd()
     {
-        
+        Debug.Log("Interacting with building");
     }
 }
