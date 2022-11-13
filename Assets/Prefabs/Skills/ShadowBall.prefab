@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efec73d05471f464498cfe318cce2276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackData: {fileID: 11400000, guid: b58e930fb8a0b074990567dbfa958821, type: 2}
+  data: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
 --- !u!58 &3897762472972489508
 CircleCollider2D:
   m_ObjectHideFlags: 0

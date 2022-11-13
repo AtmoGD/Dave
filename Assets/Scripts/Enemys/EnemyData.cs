@@ -9,6 +9,7 @@ public class EnemyData : ScriptableObject
     public new string name = "Enemy";
     public string description = "Enemy description";
     public Enemy enemyPrefab = null;
+    public GameObject prefab = null;
     public int health = 100;
     public int damage = 10;
     public int experience = 10;

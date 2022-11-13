@@ -13,15 +13,18 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Rigidbody2D rb = null;
     [SerializeField] public Collider2D col = null;
     [SerializeField] public Animator animator = null;
+    [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
-    [SerializeField] public GameObject placeBuildingUI = null;
-    [SerializeField] public Placeable tower = null;
+    // [SerializeField] public GameObject placeBuildingUI = null;
+    // [SerializeField] public Placeable tower = null;
     #endregion
 
     #region Data
     [SerializeField] private NekromancerData stats = null;
-    [SerializeField] private Attack firstAttack = null;
-    [SerializeField] private Attack secondAttack = null;
+    // [SerializeField] private Attack firstAttack = null;
+    // [SerializeField] private Attack secondAttack = null;
+    [SerializeField] private SkillData baseSkillData = null;
+    [SerializeField] private SkillData baseChargeSkillData = null;
     [SerializeField] private SkillData firstSkillData = null;
     [SerializeField] private SkillData secondSkillData = null;
     #endregion
@@ -30,6 +33,8 @@ public class Nekromancer : MonoBehaviour
     private PlayerController playerController = null;
     private InputController inputController = null;
     private InputData currentInput = null;
+    private Skill baseSkill = null;
+    private Skill baseChargeSkill = null;
     private Skill firstSkill = null;
     private Skill secondSkill = null;
     private Skill currentSkill = null;
@@ -61,6 +66,7 @@ public class Nekromancer : MonoBehaviour
     public IInteractable CurrentInteractable { get; private set; }
     public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
     public List<Cooldown> Cooldowns { get { return cooldowns; } }
+    public float Damage { get { return stats.baseDamage; } }
     #endregion
 
     public void Init(PlayerController _playerController)
@@ -68,8 +74,12 @@ public class Nekromancer : MonoBehaviour
         playerController = _playerController;
         inputController = playerController.InputController;
 
+        baseSkill = baseSkillData.GetSkillInstance();
+        baseChargeSkill = baseChargeSkillData.GetSkillInstance();
         firstSkill = firstSkillData.GetSkillInstance();
         secondSkill = secondSkillData.GetSkillInstance();
+
+        ChangeSkill(baseSkill, baseSkillData);
     }
 
     private void Update()
@@ -86,10 +96,10 @@ public class Nekromancer : MonoBehaviour
             return;
         }
 
-        CheckInteraction();
-        CheckAttacks();
-        CheckSkills();
-        CheckItems();
+        // CheckInteraction();
+        // // CheckAttacks();
+        // CheckSkills();
+        // CheckItems();
     }
 
     private void FixedUpdate()
@@ -102,18 +112,35 @@ public class Nekromancer : MonoBehaviour
             return;
         }
 
-        Move();
-        Look();
+        // Move();
+        // Look();
     }
+
+    #region State Machine
+    public void ChangeSkill(Skill _skill, SkillData _skillData)
+    {
+        if (currentSkill != null)
+        {
+            currentSkill.Exit();
+            currentSkill = null;
+        }
+
+        if (_skill != null)
+        {
+            currentSkill = _skill;
+            currentSkill.Enter(this, _skillData);
+        }
+    }
+    #endregion
 
     #region Check Methods
     private void CheckInteraction()
     {
-        if (currentInput.PlaceObject)
-        {
-            placeBuildingUI.SetActive(true);
-            return;
-        }
+        // if (currentInput.PlaceObject)
+        // {
+        //     placeBuildingUI.SetActive(true);
+        //     return;
+        // }
 
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
@@ -122,15 +149,15 @@ public class Nekromancer : MonoBehaviour
             InteractWithSelection();
     }
 
-    public void PlaceBuilding()
-    {
-        if (tower != null)
-        {
-            GameObject newTower = Instantiate(tower.prefab, transform.position + transform.right, Quaternion.identity);
-            inputController.ResetPlaceObject();
-            placeBuildingUI.SetActive(false);
-        }
-    }
+    // public void PlaceBuilding()
+    // {
+    //     if (tower != null)
+    //     {
+    //         GameObject newTower = Instantiate(tower.prefab, transform.position + transform.right, Quaternion.identity);
+    //         inputController.ResetPlaceObject();
+    //         placeBuildingUI.SetActive(false);
+    //     }
+    // }
 
     private void UpdateCanInteractWith()
     {
@@ -155,32 +182,32 @@ public class Nekromancer : MonoBehaviour
         }
     }
 
-    private void CheckAttacks()
-    {
-        if (currentInput.FirstAttack && firstAttack.CanBeUsed(this))
-        {
-            firstAttack.Use(this);
-        }
-        if (currentInput.SecondAttack && secondAttack.CanBeUsed(this))
-        {
-            secondAttack.Use(this);
-        }
-    }
+    // private void CheckAttacks()
+    // {
+    //     if (currentInput.FirstAttack && firstAttack.CanBeUsed(this))
+    //     {
+    //         firstAttack.Use(this);
+    //     }
+    //     if (currentInput.SecondAttack && secondAttack.CanBeUsed(this))
+    //     {
+    //         secondAttack.Use(this);
+    //     }
+    // }
 
-    private void CheckSkills()
-    {
-        if (currentInput.FirstSkill && firstSkillData.CanBeUsed(this))
-        {
-            firstSkill.Enter(this, firstSkillData);
-            inputController.ResetFirstSkill();
-        }
+    // private void CheckSkills()
+    // {
+    //     if (currentInput.FirstSkill && firstSkillData.CanBeUsed(this))
+    //     {
+    //         firstSkill.Enter(this, firstSkillData);
+    //         inputController.ResetFirstSkill();
+    //     }
 
-        if (currentInput.SecondSkill && secondSkillData.CanBeUsed(this))
-        {
-            secondSkill.Enter(this, secondSkillData);
-            inputController.ResetSecondSkill();
-        }
-    }
+    //     if (currentInput.SecondSkill && secondSkillData.CanBeUsed(this))
+    //     {
+    //         secondSkill.Enter(this, secondSkillData);
+    //         inputController.ResetSecondSkill();
+    //     }
+    // }
 
     private void CheckItems()
     {
@@ -190,7 +217,11 @@ public class Nekromancer : MonoBehaviour
     #region Movement
     public void Move()
     {
-        rb.velocity = currentInput.MoveDir * stats.moveSpeed;
+        // Vector2 movement = currentInput.MoveDir * stats.moveSpeed * Time.deltaTime;
+        // Vector2 newPos = (Vector2)transform.position;
+        // newPos += currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale * Time.deltaTime;
+        // rb.MovePosition(newPos);
+        rb.velocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
     }
 
     public void Look()

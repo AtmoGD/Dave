@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ShadowBallController : MonoBehaviour
 {
-    [SerializeField] private ShadowBall attackData = null;
+    [SerializeField] private Nekromancer nekromancer = null;
+    public Nekromancer Nekromancer { get { return nekromancer; } set { nekromancer = value; } }
+    [SerializeField] private ShadowGunData data = null;
 
     private float lifeTime = 0f;
 
     private void OnEnable()
     {
-        lifeTime = attackData.lifeTime;
+        lifeTime = data.bulletLifeTime;
     }
 
     private void Update()
@@ -19,12 +21,12 @@ public class ShadowBallController : MonoBehaviour
 
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0f)
-            Destroy(gameObject);
+            Die();
     }
 
     private void Move()
     {
-        transform.position += transform.right * attackData.speed * Time.deltaTime;
+        transform.position += transform.right * data.bulletSpeed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,8 +34,13 @@ public class ShadowBallController : MonoBehaviour
         IDamagable damagable = collision.GetComponent<IDamagable>();
         if (damagable != null)
         {
-            damagable.TakeDamage(attackData.damage);
-            Destroy(gameObject);
+            damagable.TakeDamage((int)(Nekromancer.Damage * data.bulletDamage));
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

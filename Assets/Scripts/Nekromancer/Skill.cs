@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Skill
 {
     protected Nekromancer nekromancer = null;
@@ -13,26 +12,25 @@ public class Skill
         nekromancer = _nekromancer;
         skillData = _skillData;
 
-        nekromancer.CurrentSkill = this;
         foreach (Cooldown cooldown in skillData.cooldowns)
             nekromancer.AddCooldown(cooldown.GetCopy());
-        // nekromancer.AddCooldown(skillData.cooldown.GetCopy(skillData.name));
+
         timer = 0f;
     }
     public virtual void FrameUpdate(float _deltaTime)
     {
         timer += _deltaTime;
-        // Do stuff
     }
 
     public virtual void PhysicsUpdate(float _deltaTime)
     {
-        // Do stuff
+
     }
 
     public virtual void Exit()
     {
-        nekromancer.CurrentSkill = null;
+        Debug.Log("Skill Exit");
+        // nekromancer.CurrentSkill = null;
         nekromancer = null;
     }
 }

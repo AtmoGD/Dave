@@ -16,12 +16,12 @@ public class InputController : MonoBehaviour
     public Action<InputData> OnPlaceObjectStart;
     public Action<InputData> OnPlaceObject;
     public Action<InputData> OnPlaceObjectEnd;
-    public Action<InputData> OnFirstAttackStart;
-    public Action<InputData> OnFirstAttack;
-    public Action<InputData> OnFirstAttackEnd;
-    public Action<InputData> OnSecondAttackStart;
-    public Action<InputData> OnSecondAttack;
-    public Action<InputData> OnSecondAttackEnd;
+    public Action<InputData> OnBaseSkillStart;
+    public Action<InputData> OnBaseSkill;
+    public Action<InputData> OnBaseSkillEnd;
+    public Action<InputData> OnBaseChargeSkillStart;
+    public Action<InputData> OnBaseChargeSkill;
+    public Action<InputData> OnBaseChargeSkillEnd;
     public Action<InputData> OnFirstSkillStart;
     public Action<InputData> OnFirstSkill;
     public Action<InputData> OnFirstSkillEnd;
@@ -129,45 +129,45 @@ public class InputController : MonoBehaviour
     }
     public void ResetPlaceObject() => inputData.PlaceObject = false;
 
-    public void OnFirstAttackInput(InputAction.CallbackContext _context)
+    public void OnBaseSkillInput(InputAction.CallbackContext _context)
     {
         if (_context.started)
         {
-            inputData.FirstAttack = true;
-            OnFirstAttackStart?.Invoke(inputData);
+            inputData.BaseSkill = true;
+            OnBaseSkillStart?.Invoke(inputData);
         }
         else if (_context.performed)
         {
-            OnFirstAttack?.Invoke(inputData);
+            OnBaseSkill?.Invoke(inputData);
         }
         else if (_context.canceled)
         {
-            inputData.FirstAttack = false;
-            OnFirstAttackEnd?.Invoke(inputData);
+            inputData.BaseSkill = false;
+            OnBaseSkillEnd?.Invoke(inputData);
         }
     }
 
-    public void ResetFirstAttack() => inputData.FirstAttack = false;
+    public void ResetFirstAttack() => inputData.BaseSkill = false;
 
     public void OnSecondAttackInput(InputAction.CallbackContext _context)
     {
         if (_context.started)
         {
-            inputData.SecondAttack = true;
-            OnSecondAttackStart?.Invoke(inputData);
+            inputData.BaseSkillCharge = true;
+            OnBaseChargeSkillStart?.Invoke(inputData);
         }
         else if (_context.performed)
         {
-            OnSecondAttack?.Invoke(inputData);
+            OnBaseChargeSkill?.Invoke(inputData);
         }
         else if (_context.canceled)
         {
-            inputData.SecondAttack = false;
-            OnSecondAttackEnd?.Invoke(inputData);
+            inputData.BaseSkillCharge = false;
+            OnBaseChargeSkillEnd?.Invoke(inputData);
         }
     }
 
-    public void ResetSecondAttack() => inputData.SecondAttack = false;
+    public void ResetSecondAttack() => inputData.BaseSkillCharge = false;
 
     public void OnFirstSkillInput(InputAction.CallbackContext _context)
     {

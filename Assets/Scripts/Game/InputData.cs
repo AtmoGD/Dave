@@ -14,8 +14,8 @@ public class InputData
     [SerializeField] public Vector2 LookDir = Vector2.zero;
     [SerializeField] public bool Interact = false;
     [SerializeField] public bool PlaceObject = false;
-    [SerializeField] public bool FirstAttack = false;
-    [SerializeField] public bool SecondAttack = false;
+    [SerializeField] public bool BaseSkill = false;
+    [SerializeField] public bool BaseSkillCharge = false;
     [SerializeField] public bool FirstSkill = false;
     [SerializeField] public bool SecondSkill = false;
     [SerializeField] public bool FirstItem = false;

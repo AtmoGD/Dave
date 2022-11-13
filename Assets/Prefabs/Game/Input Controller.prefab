@@ -53,8 +53,8 @@ MonoBehaviour:
     LookDir: {x: 0, y: 0}
     Interact: 0
     PlaceObject: 0
-    FirstAttack: 0
-    SecondAttack: 0
+    BaseSkill: 0
+    BaseSkillCharge: 0
     FirstSkill: 0
     SecondSkill: 0
     FirstItem: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6280711167200195582}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnFirstAttackInput
+        m_MethodName: OnBaseSkillInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

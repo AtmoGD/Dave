@@ -16,6 +16,7 @@ MonoBehaviour:
   name: DemoEnemy
   description: The mighty Enemy
   enemyPrefab: {fileID: 8840412572578489678, guid: 013ae795b5cb63a4892a3cf6f7d5b237, type: 3}
+  prefab: {fileID: 8840412572578489673, guid: 013ae795b5cb63a4892a3cf6f7d5b237, type: 3}
   health: 100
   damage: 10
   experience: 10

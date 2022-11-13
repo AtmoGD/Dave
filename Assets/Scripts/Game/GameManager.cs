@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public PlayerController PlayerController { get { return playerController; } }
     [SerializeField] private InputController inputController = null;
     public InputController InputController { get { return inputController; } }
+    [SerializeField] private float timeScale = 1f;
+    public float TimeScale { get { return timeScale; } }
 
     [SerializeField] public bool startOnLoad = true;
 
