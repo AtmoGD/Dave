@@ -42,24 +42,6 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    // public T Get<T>()
-    // {
-    //     GameObject obj = pooledObjects.Find(o => o.GetComponent<T>() != null && !o.activeSelf);
-    //     if (obj == null)
-    //     {
-    //         ObjectPoolData objectToPool = objectsToPool.Find(o => o.prefab.GetComponent<T>() != null);
-    //         if (objectToPool == null)
-    //         {
-    //             Debug.LogError("ObjectPool: Object of type " + typeof(T).ToString() + " not found in pool");
-    //             return default;
-    //         }
-    //         obj = Instantiate(objectToPool.prefab, transform);
-    //         pooledObjects.Add(obj);
-    //     }
-    //     obj.SetActive(true);
-    //     return obj.GetComponent<T>();
-    // }
-
     public GameObject Get(GameObject _prefab)
     {
         GameObject obj = pooledObjects.Find(o => o.name == (_prefab.name + "(Clone)") && !o.activeSelf);

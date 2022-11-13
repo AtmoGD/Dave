@@ -9,24 +9,6 @@ public class CursorController : MonoBehaviour
     private PlayerController player = null;
     private InputController inputController = null;
 
-    // private Nekromancer nekromancer = null;
-
-    // private void OnEnable()
-    // {
-    //     if (!nekromancer)
-    //         nekromancer = GetComponent<Nekromancer>();
-
-    //     if (!cursor)
-    //         cursor = Instantiate(cursorPrefab, transform.position, Quaternion.identity).transform;
-
-    //     nekromancer.OnUpdateControlls += OnUpdateControlls;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     nekromancer.OnUpdateControlls -= OnUpdateControlls;
-    // }
-
     public void Init(PlayerController _playerController)
     {
         player = _playerController;

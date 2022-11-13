@@ -15,14 +15,10 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Animator animator = null;
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
-    // [SerializeField] public GameObject placeBuildingUI = null;
-    // [SerializeField] public Placeable tower = null;
     #endregion
 
     #region Data
     [SerializeField] private NekromancerData stats = null;
-    // [SerializeField] private Attack firstAttack = null;
-    // [SerializeField] private Attack secondAttack = null;
     [SerializeField] private SkillData baseSkillData = null;
     [SerializeField] private SkillData baseChargeSkillData = null;
     [SerializeField] private SkillData firstSkillData = null;
@@ -95,11 +91,6 @@ public class Nekromancer : MonoBehaviour
             currentSkill.FrameUpdate(Time.deltaTime);
             return;
         }
-
-        // CheckInteraction();
-        // // CheckAttacks();
-        // CheckSkills();
-        // CheckItems();
     }
 
     private void FixedUpdate()
@@ -111,9 +102,6 @@ public class Nekromancer : MonoBehaviour
             currentSkill.PhysicsUpdate(Time.deltaTime);
             return;
         }
-
-        // Move();
-        // Look();
     }
 
     #region State Machine
@@ -136,28 +124,12 @@ public class Nekromancer : MonoBehaviour
     #region Check Methods
     private void CheckInteraction()
     {
-        // if (currentInput.PlaceObject)
-        // {
-        //     placeBuildingUI.SetActive(true);
-        //     return;
-        // }
-
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
 
         if (currentInput.Interact && CanInteractWith != null)
             InteractWithSelection();
     }
-
-    // public void PlaceBuilding()
-    // {
-    //     if (tower != null)
-    //     {
-    //         GameObject newTower = Instantiate(tower.prefab, transform.position + transform.right, Quaternion.identity);
-    //         inputController.ResetPlaceObject();
-    //         placeBuildingUI.SetActive(false);
-    //     }
-    // }
 
     private void UpdateCanInteractWith()
     {
@@ -182,33 +154,6 @@ public class Nekromancer : MonoBehaviour
         }
     }
 
-    // private void CheckAttacks()
-    // {
-    //     if (currentInput.FirstAttack && firstAttack.CanBeUsed(this))
-    //     {
-    //         firstAttack.Use(this);
-    //     }
-    //     if (currentInput.SecondAttack && secondAttack.CanBeUsed(this))
-    //     {
-    //         secondAttack.Use(this);
-    //     }
-    // }
-
-    // private void CheckSkills()
-    // {
-    //     if (currentInput.FirstSkill && firstSkillData.CanBeUsed(this))
-    //     {
-    //         firstSkill.Enter(this, firstSkillData);
-    //         inputController.ResetFirstSkill();
-    //     }
-
-    //     if (currentInput.SecondSkill && secondSkillData.CanBeUsed(this))
-    //     {
-    //         secondSkill.Enter(this, secondSkillData);
-    //         inputController.ResetSecondSkill();
-    //     }
-    // }
-
     private void CheckItems()
     {
     }
@@ -217,11 +162,9 @@ public class Nekromancer : MonoBehaviour
     #region Movement
     public void Move()
     {
-        // Vector2 movement = currentInput.MoveDir * stats.moveSpeed * Time.deltaTime;
-        // Vector2 newPos = (Vector2)transform.position;
-        // newPos += currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale * Time.deltaTime;
-        // rb.MovePosition(newPos);
-        rb.velocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
+        Vector2 newVelocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
+        newVelocity = Vector2.Lerp(rb.velocity, newVelocity, stats.accleleration * Time.deltaTime);
+        rb.velocity = newVelocity;
     }
 
     public void Look()
@@ -249,8 +192,10 @@ public class Nekromancer : MonoBehaviour
         {
             if (currentInput.LookDir.magnitude > stats.lookThreshold)
                 lookDirection = currentInput.LookDir.normalized;
+            else if (currentInput.MoveDir.magnitude > stats.lookThreshold)
+                lookDirection = currentInput.MoveDir.normalized;
             else
-                lookDirection = currentInput.LookDir.normalized;
+                lookDirection = transform.right;
         }
 
         return lookDirection;

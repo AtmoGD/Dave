@@ -46,10 +46,6 @@ public class Portal : MonoBehaviour, IDamagable
 
         for (int i = 0; i < amount; i++)
         {
-            // GameObject enemy = randomWave.enemy.enemyPrefab.GetComponent<GameObject>();
-            // GameObject obj = ObjectPool.Instance.Get(randomWave.enemy.enemyPrefab.GetComponent<GameObject>());
-            // Enemy enemy = obj.GetComponent<Enemy>();
-            // Enemy enemy = ObjectPool.Instance.Get<Enemy>();
             GameObject enemy = ObjectPool.Instance.Get(randomWave.enemy.prefab);
             enemy.transform.position = transform.position + Random.insideUnitSphere * data.spawnRadius;
         }
