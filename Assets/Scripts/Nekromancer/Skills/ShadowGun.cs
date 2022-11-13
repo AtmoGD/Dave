@@ -22,7 +22,8 @@ public class ShadowGun : Skill
     {
         base.FrameUpdate(_deltaTime);
 
-
+        if (!isCharging && !isReleasing && nekromancer.WantsToUseSkills())
+            return;
 
         if (nekromancer.CurrentInput.BaseSkillCharge)
         {

@@ -25,7 +25,7 @@ public class ShadowMerge : Skill
         base.FrameUpdate(_deltaTime);
 
         if (distanceLeft <= 0f)
-            Exit();
+            nekromancer.ChangeSkill();
     }
 
     public override void PhysicsUpdate(float _deltaTime)

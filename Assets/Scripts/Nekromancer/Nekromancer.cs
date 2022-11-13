@@ -20,9 +20,18 @@ public class Nekromancer : MonoBehaviour
     #region Data
     [SerializeField] private NekromancerData stats = null;
     [SerializeField] private SkillData baseSkillData = null;
-    [SerializeField] private SkillData baseChargeSkillData = null;
     [SerializeField] private SkillData firstSkillData = null;
     [SerializeField] private SkillData secondSkillData = null;
+    #endregion
+
+    #region Stats
+    public int CurrentHealth { get; private set; }
+    public int CurrentMana { get; private set; }
+    public float Damage { get; private set; }
+    public float Speed { get; private set; }
+    public float LookSpeed { get; private set; }
+    public float AttackSpeed { get; private set; }
+    public float AttackRange { get; private set; }
     #endregion
 
     #region Private Variables
@@ -58,11 +67,18 @@ public class Nekromancer : MonoBehaviour
     }
     public PlayerController PlayerController { get { return playerController; } }
     public InputData CurrentInput { get => currentInput; }
+    public Skill BaseSkill { get => baseSkill; }
+    public SkillData BaseSkillData { get => baseSkillData; }
+    public Skill FirstSkill { get => firstSkill; }
+    public SkillData FirstSkillData { get => firstSkillData; }
+    public bool CanUseFirstSkill { get => firstSkillData.CanBeUsed(this); }
+    public Skill SecondSkill { get => secondSkill; }
+    public SkillData SecondSkillData { get => secondSkillData; }
+    public bool CanUseSecondSkill { get => secondSkillData.CanBeUsed(this); }
     public IInteractable CanInteractWith { get; private set; }
     public IInteractable CurrentInteractable { get; private set; }
     public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
     public List<Cooldown> Cooldowns { get { return cooldowns; } }
-    public float Damage { get { return stats.baseDamage; } }
     #endregion
 
     public void Init(PlayerController _playerController)
@@ -70,8 +86,15 @@ public class Nekromancer : MonoBehaviour
         playerController = _playerController;
         inputController = playerController.InputController;
 
+        CurrentHealth = stats.health;
+        CurrentMana = stats.mana;
+        Damage = stats.damage;
+        Speed = stats.moveSpeed;
+        LookSpeed = stats.lookSpeed;
+        AttackSpeed = stats.attackSpeed;
+        AttackRange = stats.attackRange;
+
         baseSkill = baseSkillData.GetSkillInstance();
-        baseChargeSkill = baseChargeSkillData.GetSkillInstance();
         firstSkill = firstSkillData.GetSkillInstance();
         secondSkill = secondSkillData.GetSkillInstance();
 
@@ -105,7 +128,7 @@ public class Nekromancer : MonoBehaviour
     }
 
     #region State Machine
-    public void ChangeSkill(Skill _skill, SkillData _skillData)
+    public void ChangeSkill(Skill _skill = null, SkillData _skillData = null)
     {
         if (currentSkill != null)
         {
@@ -113,15 +136,35 @@ public class Nekromancer : MonoBehaviour
             currentSkill = null;
         }
 
-        if (_skill != null)
+        if (_skill == null)
         {
-            currentSkill = _skill;
-            currentSkill.Enter(this, _skillData);
+            _skill = baseSkill;
+            _skillData = baseSkillData;
         }
+
+        currentSkill = _skill;
+        currentSkill.Enter(this, _skillData);
     }
     #endregion
 
     #region Check Methods
+    public bool WantsToUseSkills()
+    {
+        if (CurrentInput.FirstSkill && CanUseFirstSkill)
+        {
+            ChangeSkill(FirstSkill, FirstSkillData);
+            return true;
+        }
+
+        if (CurrentInput.SecondSkill && CanUseSecondSkill)
+        {
+            ChangeSkill(SecondSkill, SecondSkillData);
+            return true;
+        }
+
+        return false;
+    }
+
     private void CheckInteraction()
     {
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)

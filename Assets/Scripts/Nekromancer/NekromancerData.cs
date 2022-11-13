@@ -8,9 +8,11 @@ public class NekromancerData : ScriptableObject
     public float moveSpeed = 5f;
     public float lookSpeed = 5f;
 
-    public float health = 100f;
-    public float mana = 100f;
-    public float baseDamage = 10f;
+    public int health = 100;
+    public int mana = 100;
+    public float damage = 10f;
+    public float attackSpeed = 1f;
+    public float attackRange = 1f;
 
     public float interactRadius = 1f;
     public float moveThreshold = 0.1f;

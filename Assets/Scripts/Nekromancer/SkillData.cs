@@ -11,7 +11,7 @@ public class SkillData : ScriptableObject
 
     public virtual bool CanBeUsed(Nekromancer _nekromancer)
     {
-        return !_nekromancer.HasCooldown(name);
+        return !_nekromancer.HasCooldown(cooldowns[0].name) && _nekromancer.CurrentMana >= manaCosts;
     }
 
     public virtual Skill GetSkillInstance()
