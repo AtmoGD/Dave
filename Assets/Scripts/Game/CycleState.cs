@@ -40,7 +40,7 @@ public class CycleState
 
         if (this.cycle == Cycle.Night)
         {
-            if (levelManager.activeEnemies.Count <= 0)
+            if (levelManager.activeEnemies.Count <= 0 && this.timeLeft <= 0)
             {
                 this.levelManager.NextCycle();
             }

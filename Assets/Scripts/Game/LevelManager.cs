@@ -25,9 +25,10 @@ public class LevelManager : GameManager
     {
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
-        this.OnCycleChanged?.Invoke(this.CurrentCycleState);
 
         base.Start();
+
+        this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
     public void Update()

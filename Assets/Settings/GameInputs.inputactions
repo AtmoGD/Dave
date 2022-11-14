@@ -339,11 +339,33 @@
                 },
                 {
                     "name": "",
+                    "id": "2e815436-2d38-4be5-8567-8ea0c85960a4",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "FirstSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a37ef3d8-ae53-473c-bb4c-a6df60bd0347",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
+                    "action": "SecondSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f04787fe-8e0d-43e0-b086-56abf6c1a661",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "SecondSkill",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -14,7 +14,7 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Collider2D col = null;
     [SerializeField] public Animator animator = null;
     [SerializeField] public List<Transform> gunPoints = null;
-    [SerializeField] public Transform interactPoint = null;
+    // [SerializeField] public Transform interactPoint = null;
     #endregion
 
     #region Data
@@ -36,7 +36,7 @@ public class Nekromancer : MonoBehaviour
 
     #region Private Variables
     private PlayerController playerController = null;
-    private InputController inputController = null;
+    // private InputController inputController = null;
     private InputData currentInput = null;
     private Skill baseSkill = null;
     private Skill baseChargeSkill = null;
@@ -66,6 +66,7 @@ public class Nekromancer : MonoBehaviour
         }
     }
     public PlayerController PlayerController { get { return playerController; } }
+    public InputController InputController { get; set; }
     public InputData CurrentInput { get => currentInput; }
     public Skill BaseSkill { get => baseSkill; }
     public SkillData BaseSkillData { get => baseSkillData; }
@@ -75,8 +76,8 @@ public class Nekromancer : MonoBehaviour
     public Skill SecondSkill { get => secondSkill; }
     public SkillData SecondSkillData { get => secondSkillData; }
     public bool CanUseSecondSkill { get => secondSkillData.CanBeUsed(this); }
-    public IInteractable CanInteractWith { get; private set; }
-    public IInteractable CurrentInteractable { get; private set; }
+    // public IInteractable CanInteractWith { get; private set; }
+    // public IInteractable CurrentInteractable { get; private set; }
     public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
     public List<Cooldown> Cooldowns { get { return cooldowns; } }
     #endregion
@@ -84,7 +85,7 @@ public class Nekromancer : MonoBehaviour
     public void Init(PlayerController _playerController)
     {
         playerController = _playerController;
-        inputController = playerController.InputController;
+        InputController = playerController.InputController;
 
         CurrentHealth = stats.health;
         CurrentMana = stats.mana;
@@ -103,9 +104,9 @@ public class Nekromancer : MonoBehaviour
 
     private void Update()
     {
-        if (!inputController) return;
+        if (!InputController) return;
 
-        currentInput = inputController.InputData;
+        currentInput = InputController.InputData;
 
         UpdateCooldowns();
 
@@ -118,7 +119,7 @@ public class Nekromancer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!inputController || currentInput == null) return;
+        if (!InputController || currentInput == null) return;
 
         if (currentSkill != null)
         {
@@ -165,37 +166,37 @@ public class Nekromancer : MonoBehaviour
         return false;
     }
 
-    private void CheckInteraction()
-    {
-        if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
-            UpdateCanInteractWith();
+    // private void CheckInteraction()
+    // {
+    //     if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
+    //         UpdateCanInteractWith();
 
-        if (currentInput.Interact && CanInteractWith != null)
-            InteractWithSelection();
-    }
+    //     if (currentInput.Interact && CanInteractWith != null)
+    //         InteractWithSelection();
+    // }
 
-    private void UpdateCanInteractWith()
-    {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(interactPoint.position, stats.interactRadius);
-        foreach (Collider2D col in collider)
-        {
-            IInteractable interactable = col.GetComponent<IInteractable>();
-            if (interactable != null)
-                CanInteractWith = interactable;
-        }
-    }
+    // private void UpdateCanInteractWith()
+    // {
+    //     Collider2D[] collider = Physics2D.OverlapCircleAll(interactPoint.position, stats.interactRadius);
+    //     foreach (Collider2D col in collider)
+    //     {
+    //         IInteractable interactable = col.GetComponent<IInteractable>();
+    //         if (interactable != null)
+    //             CanInteractWith = interactable;
+    //     }
+    // }
 
-    private void InteractWithSelection()
-    {
-        if (CanInteractWith != null && CanInteractWith != CurrentInteractable)
-        {
-            CanInteractWith.Interact(this);
-            CurrentInteractable = CanInteractWith;
-            OnInteract?.Invoke(CurrentInteractable);
-            inputController.ResetInteract();
-            return;
-        }
-    }
+    // private void InteractWithSelection()
+    // {
+    //     if (CanInteractWith != null && CanInteractWith != CurrentInteractable)
+    //     {
+    //         CanInteractWith.Interact(this);
+    //         CurrentInteractable = CanInteractWith;
+    //         OnInteract?.Invoke(CurrentInteractable);
+    //         InputController.ResetInteract();
+    //         return;
+    //     }
+    // }
 
     private void CheckItems()
     {
@@ -277,10 +278,10 @@ public class Nekromancer : MonoBehaviour
     #endregion
 
     #region Gizmos
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(interactPoint.position, stats.interactRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(interactPoint.position, stats.interactRadius);
+    // }
     #endregion
 }

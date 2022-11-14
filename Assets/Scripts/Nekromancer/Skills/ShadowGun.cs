@@ -11,6 +11,8 @@ public class ShadowGun : Skill
     private int currentCharged = 0;
     private float currentChargeTime = 0f;
 
+    private Vector2 lastMovement = Vector2.zero;
+
     public override void Enter(Nekromancer _nekromancer, SkillData _skillData)
     {
         base.Enter(_nekromancer, _skillData);
@@ -25,12 +27,15 @@ public class ShadowGun : Skill
         if (!isCharging && !isReleasing && nekromancer.WantsToUseSkills())
             return;
 
-        if (nekromancer.CurrentInput.BaseSkillCharge)
+        if (nekromancer.CurrentInput.BaseSkillCharge && nekromancer.CurrentInput.BaseSkill)
         {
             if (!isCharging)
             {
                 isCharging = true;
                 currentChargeTime = 0f;
+
+                if (!shadowGunData.canMoveWhileCharging)
+                    lastMovement = nekromancer.CurrentInput.MoveDir;
             }
         }
 
@@ -55,6 +60,12 @@ public class ShadowGun : Skill
             {
                 isCharging = false;
                 isReleasing = true;
+
+                if (!shadowGunData.canMoveWhileCharging)
+                    nekromancer.CurrentInput.MoveDir = lastMovement;
+
+                if (!shadowGunData.canMoveWhileReleasing)
+                    lastMovement = nekromancer.CurrentInput.MoveDir;
             }
         }
         else if (isReleasing)
@@ -73,6 +84,9 @@ public class ShadowGun : Skill
             else
             {
                 isReleasing = false;
+
+                if (!shadowGunData.canMoveWhileReleasing)
+                    nekromancer.CurrentInput.MoveDir = lastMovement;
             }
         }
         else

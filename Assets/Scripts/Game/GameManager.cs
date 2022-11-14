@@ -33,6 +33,6 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        playerController.Init(inputController);
+        playerController.Init(this, inputController);
     }
 }
