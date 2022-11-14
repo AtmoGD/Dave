@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputController inputController = null;
     public InputController InputController { get { return inputController; } }
     [SerializeField] private float timeScale = 1f;
+    [SerializeField] private WorldGrid worldGrid = null;
+    public WorldGrid WorldGrid { get { return worldGrid; } }
     public float TimeScale { get { return timeScale; } }
 
     [SerializeField] public bool startOnLoad = true;
