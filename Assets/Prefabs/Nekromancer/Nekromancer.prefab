@@ -266,7 +266,6 @@ Transform:
   - {fileID: 8789931071268372146}
   - {fileID: 6064844461384702469}
   - {fileID: 7699568949430588085}
-  - {fileID: 8789931070887301987}
   - {fileID: 1763631211428825753}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -289,10 +288,8 @@ MonoBehaviour:
   gunPoints:
   - {fileID: 6064844461384702469}
   - {fileID: 7699568949430588085}
-  interactPoint: {fileID: 8789931070887301987}
   stats: {fileID: 11400000, guid: 0018e4cec6dcd0b4eaa4412f81dcd1d6, type: 2}
   baseSkillData: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
-  baseChargeSkillData: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
   firstSkillData: {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
   secondSkillData: {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
   cooldowns: []
@@ -333,37 +330,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1 &8789931070887301984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8789931070887301987}
-  m_Layer: 6
-  m_Name: InteractPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8789931070887301987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789931070887301984}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8789931070289155579}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8789931070898562531
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3866644808132671728, guid: 08a77359b2aafcb4aa5b400a6378f243, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3866644808132671728, guid: 08a77359b2aafcb4aa5b400a6378f243, type: 3}
       propertyPath: m_AnchorMax.x

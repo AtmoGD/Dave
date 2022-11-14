@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
 
 [CustomEditor(typeof(WorldGrid))]
@@ -27,3 +29,4 @@ public class GridEditor : Editor
         }
     }
 }
+#endif
