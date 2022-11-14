@@ -27,6 +27,11 @@ public class GridEditor : Editor
         {
             worldGrid.ClearGrid();
         }
+
+        if (GUILayout.Button("Delete Children"))
+        {
+            worldGrid.DeleteAllChildren();
+        }
     }
 }
 #endif

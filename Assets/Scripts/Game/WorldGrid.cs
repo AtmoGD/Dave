@@ -15,6 +15,13 @@ public class WorldGrid : MonoBehaviour
     public int ElementCount { get; private set; }
     private Vector2 gridOffset = Vector2.zero;
 
+    private void Start()
+    {
+        gridOffset = new Vector2(-gridSize.x / 2f, -gridSize.y / 2f) * gridElementSize;
+
+        InitGrid();
+    }
+
     [ExecuteAlways]
     public void CreateGrid()
     {
@@ -37,13 +44,49 @@ public class WorldGrid : MonoBehaviour
                 gridElementObject.transform.position = gridElementPosition;
 
                 GridElement gridElement = gridElementObject.GetComponent<GridElement>();
-                gridElement.GridPosition = new Vector2Int(x, y);
-                gridElement.WorldGrid = this;
+                gridElement.gridPosition = new Vector2Int(x, y);
+                gridElement.worldGrid = this;
 
                 grid[x][y] = gridElement;
                 ElementCount++;
             }
         }
+    }
+
+    public void InitGrid()
+    {
+        grid = new GridElement[gridSize.x][];
+        for (int x = 0; x < gridSize.x; x++)
+        {
+            grid[x] = new GridElement[gridSize.y];
+        }
+
+        foreach (Transform child in transform)
+        {
+            GridElement gridElement = child.GetComponent<GridElement>();
+            if (gridElement != null)
+            {
+                grid[gridElement.gridPosition.x][gridElement.gridPosition.y] = gridElement;
+                ElementCount++;
+            }
+        }
+    }
+
+    public GridElement GetGridElement(Vector2 _worldPosition)
+    {
+        Vector2 gridPosition = _worldPosition - gridOffset;
+        gridPosition /= gridElementSize;
+
+        int x = Mathf.RoundToInt(gridPosition.x);
+        int y = Mathf.RoundToInt(gridPosition.y);
+
+        if (x >= 0 && y >= 0 && x < gridSize.x && y < gridSize.y)
+        {
+            GridElement gridElement = grid[x][y];
+            return gridElement;
+        }
+
+        return null;
     }
 
     [ExecuteAlways]
@@ -60,6 +103,15 @@ public class WorldGrid : MonoBehaviour
             }
             grid = null;
             ElementCount = 0;
+        }
+    }
+
+    [ExecuteAlways]
+    public void DeleteAllChildren()
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
         }
     }
 }

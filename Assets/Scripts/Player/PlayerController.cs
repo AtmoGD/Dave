@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera cursorCamera = null;
 
     public LevelManager LevelManager { get; private set; }
+    public WorldGrid WorldGrid { get; private set; }
+    public GridElement CurrentGridElement { get; private set; }
+    public GridElement LastGridElement { get; private set; }
     public InputController InputController { get; private set; }
+    public CursorController Cursor { get { return cursor; } }
     public Crystal Crystal { get => crystal; }
 
     public void Init(GameManager _levelManager, InputController _inputController)
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
         if (levelManager != null)
         {
             LevelManager = levelManager;
+            WorldGrid = levelManager.WorldGrid;
             LevelManager.OnCycleChanged += ChangeDayTime;
         }
 
@@ -51,14 +56,34 @@ public class PlayerController : MonoBehaviour
                 nekromancerCamera.Priority = 0;
                 cursorCamera.Priority = 1;
                 cursor.SetCursorActive(true);
+                cursor.OnCursorMoved += UpdateGrid;
                 nekromancer.InputController = null;
                 break;
+
             case Cycle.Night:
                 nekromancerCamera.Priority = 1;
                 cursorCamera.Priority = 0;
                 cursor.SetCursorActive(false);
+                cursor.OnCursorMoved -= UpdateGrid;
+                UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
                 nekromancer.InputController = InputController;
                 break;
+        }
+    }
+
+    private void UpdateGrid(Vector2 _position)
+    {
+        CurrentGridElement = WorldGrid.GetGridElement(_position);
+
+        if (CurrentGridElement != null)
+        {
+            if (LastGridElement && LastGridElement != CurrentGridElement)
+            {
+                LastGridElement.SetElementActive(false);
+            }
+
+            CurrentGridElement.SetElementActive(true);
+            LastGridElement = CurrentGridElement;
         }
     }
 }

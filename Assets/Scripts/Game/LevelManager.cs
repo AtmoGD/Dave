@@ -31,8 +31,10 @@ public class LevelManager : GameManager
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
-    public void Update()
+    public new void Update()
     {
+        base.Update();
+
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 

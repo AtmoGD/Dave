@@ -46,5 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   inputController: {fileID: 0}
+  timeScale: 1
+  worldGrid: {fileID: 0}
   startOnLoad: 1
   levelData: {fileID: 11400000, guid: bb17b481c64a0e84895b410a6ca0f4bb, type: 2}

@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class CursorController : MonoBehaviour
 {
+    public Action<Vector2> OnCursorMoved;
+
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float controllerSpeed = 10f;
+    [SerializeField] private float moveThreshold = 0.1f;
+    [SerializeField] private LayerMask gridLayer = 12;
 
     private PlayerController player = null;
     public InputController InputController { get; set; }
 
     private bool active = false;
+
+    private GridElement currentGridElement = null;
 
     public void Init(PlayerController _playerController)
     {
@@ -19,6 +26,7 @@ public class CursorController : MonoBehaviour
         InputController = player.InputController;
 
         InputController.OnControllShemeChanged += OnUpdateControlls;
+        // InputController.OnCursorMove += CheckForGridElement;
     }
 
     private void Update()
@@ -39,17 +47,12 @@ public class CursorController : MonoBehaviour
         else
             lerpPos = transform.position + (Vector3)InputController.InputData.MoveDir * controllerSpeed;
 
-        Vector3 newPos = Vector3.Lerp(transform.position, lerpPos, moveSpeed * Time.deltaTime);
-        transform.position = newPos;
 
-        // This is a problem, because when i move the mouse, the controll sheme gets changed to keyboard
-        // This causes the cursor to be very laggy
-
-        // if (InputController.PlayerInput.currentControlScheme == "Controller")
-        // {
-        //     StaticLib.GetScreenPosition(newPos, out Vector2 mousePos);
-        //     Mouse.current.WarpCursorPosition(mousePos);
-        // }
+        if (Vector2.Distance(transform.position, lerpPos) > moveThreshold)
+        {
+            transform.position = Vector3.Lerp(transform.position, lerpPos, moveSpeed * Time.deltaTime);
+            OnCursorMoved?.Invoke(transform.position);
+        }
     }
 
     public void SetCursorActive(bool _active)

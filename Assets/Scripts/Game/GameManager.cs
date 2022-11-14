@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public bool startOnLoad = true;
 
+    GridElement lastHoveredGridElement = null;
+
     private void Awake()
     {
         if (Instance != null)
@@ -29,6 +31,11 @@ public class GameManager : MonoBehaviour
     protected void Start()
     {
         if (startOnLoad) StartGame();
+    }
+
+    public void Update()
+    {
+
     }
 
     private void StartGame()
