@@ -21,11 +21,11 @@ MonoBehaviour:
   - name: ShadowGunCooldownCharged
     duration: 0.025
   bulletPrefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}
-  bulletSpeed: 15
+  bulletSpeed: 50
   bulletLifeTime: 5
   bulletDamage: 1
   canMoveWhileCharging: 0
-  canMoveWhileReleasing: 1
+  canMoveWhileReleasing: 0
   maxChargeAmount: 10
   chargeTime: 0.1
   chargeDamage: 3
