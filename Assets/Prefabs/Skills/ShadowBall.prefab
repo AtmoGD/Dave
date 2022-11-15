@@ -137,7 +137,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.01
+  m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &3897762472972489505
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
   nekromancer: {fileID: 0}
+  trail: {fileID: 1514338275195020631}
   damageMultiplier: 1
 --- !u!58 &3897762472972489508
 CircleCollider2D:

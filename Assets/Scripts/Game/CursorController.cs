@@ -3,16 +3,19 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 using System;
+using Cinemachine;
 
 
 public class CursorController : MonoBehaviour
 {
     public Action<Vector2> OnCursorMoved;
 
+    [SerializeField] private CinemachineVirtualCamera cursorCamera = null;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private RectTransform cursor;
     [SerializeField] private Canvas canvas;
     [SerializeField] private float speed = 1f;
+    [SerializeField] private float cameraSpeed = 1f;
     [SerializeField] private float padding = 35f;
     [SerializeField] private float moveThreshold = 0.1f;
 
@@ -25,6 +28,7 @@ public class CursorController : MonoBehaviour
     private const string gamepadSheme = "Controller";
     private const string mouseSheme = "Keyboard";
     private bool shouldBeActive = false;
+    private Vector2 cameraMoveDirection = Vector2.zero;
 
     private void OnEnable()
     {
@@ -65,6 +69,12 @@ public class CursorController : MonoBehaviour
         if (virtualMouse == null || Gamepad.current == null || !canvas.gameObject.activeSelf)
         {
             return;
+        }
+
+        if (cameraMoveDirection != Vector2.zero && shouldBeActive)
+        {
+            Vector2 dir = cameraMoveDirection * cameraSpeed * Time.deltaTime;
+            cursorCamera.transform.position += new Vector3(dir.x, dir.y, 0f);
         }
 
         if (playerInput.currentControlScheme == gamepadSheme)
@@ -152,5 +162,45 @@ public class CursorController : MonoBehaviour
             canvas.gameObject.SetActive(true);
         else
             canvas.gameObject.SetActive(shouldBeActive);
+    }
+
+    public void MoveUpEnter()
+    {
+        cameraMoveDirection.y = 1f;
+    }
+
+    public void MoveUpExit()
+    {
+        cameraMoveDirection.y = 0f;
+    }
+
+    public void MoveDownEnter()
+    {
+        cameraMoveDirection.y = -1f;
+    }
+
+    public void MoveDownExit()
+    {
+        cameraMoveDirection.y = 0f;
+    }
+
+    public void MoveLeftEnter()
+    {
+        cameraMoveDirection.x = -1f;
+    }
+
+    public void MoveLeftExit()
+    {
+        cameraMoveDirection.x = 0f;
+    }
+
+    public void MoveRightEnter()
+    {
+        cameraMoveDirection.x = 1f;
+    }
+
+    public void MoveRightExit()
+    {
+        cameraMoveDirection.x = 0f;
     }
 }
