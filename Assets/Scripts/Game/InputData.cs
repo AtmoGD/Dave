@@ -13,7 +13,10 @@ public class InputData
     [SerializeField] public Vector2 MoveDir = Vector2.zero;
     [SerializeField] public Vector2 LookDir = Vector2.zero;
     [SerializeField] public bool Interact = false;
+    [SerializeField] public bool Cancel = false;
     [SerializeField] public bool PlaceObject = false;
+    [SerializeField] public bool OpenBuildingsMenu = false;
+    [SerializeField] public bool OpenMinionsMenu = false;
     [SerializeField] public bool BaseSkill = false;
     [SerializeField] public bool BaseSkillCharge = false;
     [SerializeField] public bool FirstSkill = false;

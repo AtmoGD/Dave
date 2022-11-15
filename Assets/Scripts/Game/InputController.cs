@@ -13,9 +13,12 @@ public class InputController : MonoBehaviour
     public Action<InputData> OnInteractStart;
     public Action<InputData> OnInteract;
     public Action<InputData> OnInteractEnd;
+    public Action<InputData> OnCancel;
     public Action<InputData> OnPlaceObjectStart;
     public Action<InputData> OnPlaceObject;
     public Action<InputData> OnPlaceObjectEnd;
+    public Action<InputData> OnOpenBuildMenu;
+    public Action<InputData> OnOpenMinionMenu;
     public Action<InputData> OnBaseSkillStart;
     public Action<InputData> OnBaseSkill;
     public Action<InputData> OnBaseSkillEnd;
@@ -110,6 +113,21 @@ public class InputController : MonoBehaviour
     }
     public void ResetInteract() => inputData.Interact = false;
 
+    public void OnCancelInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            inputData.Cancel = true;
+            OnCancel?.Invoke(inputData);
+        }
+        if (_context.canceled)
+        {
+            inputData.Cancel = false;
+            OnCancel?.Invoke(inputData);
+        }
+    }
+    public void ResetCancel() => inputData.Cancel = false;
+
     public void OnPlaceObjectInput(InputAction.CallbackContext _context)
     {
         if (_context.started)
@@ -128,6 +146,34 @@ public class InputController : MonoBehaviour
         }
     }
     public void ResetPlaceObject() => inputData.PlaceObject = false;
+
+    public void OnOpenBuildMenuInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            inputData.OpenBuildingsMenu = true;
+            OnOpenBuildMenu?.Invoke(inputData);
+        }
+        if (_context.canceled)
+        {
+            inputData.OpenBuildingsMenu = false;
+        }
+    }
+    public void ResetOpenBuildMenu() => inputData.OpenBuildingsMenu = false;
+
+    public void OnOpenMinionMenuInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            inputData.OpenMinionsMenu = true;
+            OnOpenMinionMenu?.Invoke(inputData);
+        }
+        if (_context.canceled)
+        {
+            inputData.OpenMinionsMenu = false;
+        }
+    }
+    public void ResetOpenMinionMenu() => inputData.OpenMinionsMenu = false;
 
     public void OnBaseSkillInput(InputAction.CallbackContext _context)
     {

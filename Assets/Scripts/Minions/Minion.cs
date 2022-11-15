@@ -8,7 +8,7 @@ public class Minion : MonoBehaviour, IInteractable
 
     private Nekromancer master = null;
     [SerializeField] private FarmTower farmTower = null;
-    private Crystal crystal = null;
+    // private Crystal crystal = null;
     private float currentFarmAmount = 0;
 
     private void Start()
@@ -18,8 +18,10 @@ public class Minion : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (!master || !crystal || !farmTower)
+        if (!master || !farmTower)
             return;
+        // if (!master || !crystal || !farmTower)
+        // return;
 
         if (currentFarmAmount < data.carryCapacity)
         {
@@ -34,14 +36,14 @@ public class Minion : MonoBehaviour, IInteractable
         }
         else
         {
-            if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
-            }
-            else
-            {
-                currentFarmAmount = 0;
-            }
+            // if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold)
+            // {
+            //     transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
+            // }
+            // else
+            // {
+            //     currentFarmAmount = 0;
+            // }
         }
     }
 
@@ -58,7 +60,7 @@ public class Minion : MonoBehaviour, IInteractable
     public void Interact(Nekromancer _nekromancer)
     {
         master = _nekromancer;
-        crystal = _nekromancer.PlayerController.Crystal;
+        // crystal = _nekromancer.PlayerController.Crystal;
 
         master.OnInteract += MasterInteracted;
         print("Interacting with minion");

@@ -420,6 +420,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenBuildings",
+                    "type": "Button",
+                    "id": "9af62252-90f2-4347-9890-8d698dc82258",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMinions",
+                    "type": "Button",
+                    "id": "a044af6e-58d2-4fd5-94b8-58b19d05ad53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "96d13a76-b0a2-452a-b688-d30df7c3d9c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -535,12 +562,67 @@
                 },
                 {
                     "name": "",
-                    "id": "407a29de-21fa-4a2a-be31-87cbc5f8c2da",
+                    "id": "2a6c7d99-4e1e-4528-9d4c-60f38afaa217",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "OpenBuildings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19fbdca7-8341-4f10-91a6-0fe4e2d028a3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "OpenBuildings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "456171bc-d728-4a6e-a566-d9dbe0dacae6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "OpenMinions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d342d088-1f46-4c8c-91af-71148063f114",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "OpenMinions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6acc7585-05ce-4b06-a374-ca2bdfa6bae9",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb13f8af-fdfb-48b5-aea9-f01c9d565e7a",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "PlaceObject",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

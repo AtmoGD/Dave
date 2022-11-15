@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; protected set; }
     [SerializeField] private PlayerController playerController = null;
     public PlayerController PlayerController { get { return playerController; } }
-    [SerializeField] private InputController inputController = null;
-    public InputController InputController { get { return inputController; } }
     [SerializeField] private float timeScale = 1f;
     [SerializeField] private WorldGrid worldGrid = null;
     public WorldGrid WorldGrid { get { return worldGrid; } }
@@ -40,6 +38,6 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        playerController.Init(this, inputController);
+        playerController.Init(this);
     }
 }

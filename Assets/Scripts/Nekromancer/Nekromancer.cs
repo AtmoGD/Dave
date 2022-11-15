@@ -76,8 +76,6 @@ public class Nekromancer : MonoBehaviour
     public Skill SecondSkill { get => secondSkill; }
     public SkillData SecondSkillData { get => secondSkillData; }
     public bool CanUseSecondSkill { get => secondSkillData.CanBeUsed(this); }
-    // public IInteractable CanInteractWith { get; private set; }
-    // public IInteractable CurrentInteractable { get; private set; }
     public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
     public List<Cooldown> Cooldowns { get { return cooldowns; } }
     #endregion
@@ -85,7 +83,6 @@ public class Nekromancer : MonoBehaviour
     public void Init(PlayerController _playerController)
     {
         playerController = _playerController;
-        InputController = playerController.InputController;
 
         CurrentHealth = stats.health;
         CurrentMana = stats.mana;

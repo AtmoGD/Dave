@@ -9,9 +9,6 @@ public class CycleState
     [SerializeField] private Cycle cycle = Cycle.Day;
     [SerializeField] private float duration = 60f;
 
-    private string dayActionMap = "Building";
-    private string nightActionMap = "Combat";
-
     public Cycle Cycle => cycle;
     public float Duration => duration;
 
@@ -22,16 +19,6 @@ public class CycleState
     {
         this.levelManager = _gameManager;
         this.timeLeft = this.duration;
-
-        switch (this.cycle)
-        {
-            case Cycle.Day:
-                this.levelManager.InputController.ChangeActionMap(this.dayActionMap);
-                break;
-            case Cycle.Night:
-                this.levelManager.InputController.ChangeActionMap(this.nightActionMap);
-                break;
-        }
     }
 
     public virtual void FrameUpdate(float _deltaTime)
@@ -52,8 +39,6 @@ public class CycleState
                 this.levelManager.NextCycle();
             }
         }
-
-
     }
 
     public virtual void Exit()

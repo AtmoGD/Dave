@@ -52,7 +52,10 @@ MonoBehaviour:
     MoveDir: {x: 0, y: 0}
     LookDir: {x: 0, y: 0}
     Interact: 0
+    Cancel: 0
     PlaceObject: 0
+    OpenBuildingsMenu: 0
+    OpenMinionsMenu: 0
     BaseSkill: 0
     BaseSkillCharge: 0
     FirstSkill: 0
@@ -89,6 +92,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6280711167200195582}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
         m_MethodName: OnControllsChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CursorController, Assembly-CSharp
+        m_MethodName: OnControlsChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -359,6 +374,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 91e6fd1d-0320-43f7-bc79-b0ff0499585c
     m_ActionName: Building/PlaceObject[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6280711167200195582}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnOpenBuildMenuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9af62252-90f2-4347-9890-8d698dc82258
+    m_ActionName: Building/OpenBuildings[/Keyboard/q,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6280711167200195582}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnOpenMinionMenuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a044af6e-58d2-4fd5-94b8-58b19d05ad53
+    m_ActionName: Building/OpenMinions[/Keyboard/e,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6280711167200195582}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCancelInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 96d13a76-b0a2-452a-b688-d30df7c3d9c8
+    m_ActionName: Building/Cancel[/Keyboard/f,/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Combat

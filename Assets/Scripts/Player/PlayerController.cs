@@ -6,23 +6,26 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData = null;
-    [SerializeField] private Crystal crystal = null;
+    [SerializeField] private InputController inputController = null;
     [SerializeField] public Nekromancer nekromancer = null;
     [SerializeField] private Nekromancer nekromancerPrefab = null;
     [SerializeField] private Transform spawnPoint = null;
     [SerializeField] private CursorController cursor = null;
     [SerializeField] private CinemachineVirtualCamera nekromancerCamera = null;
     [SerializeField] private CinemachineVirtualCamera cursorCamera = null;
+    [SerializeField] private GameObject buildMenu = null;
+    [SerializeField] private GameObject minionMenu = null;
 
     public LevelManager LevelManager { get; private set; }
     public WorldGrid WorldGrid { get; private set; }
     public GridElement CurrentGridElement { get; private set; }
     public GridElement LastGridElement { get; private set; }
-    public InputController InputController { get; private set; }
     public CursorController Cursor { get { return cursor; } }
-    public Crystal Crystal { get => crystal; }
 
-    public void Init(GameManager _levelManager, InputController _inputController)
+    private const string dayActionMap = "Building";
+    private const string nightActionMap = "Combat";
+
+    public void Init(GameManager _levelManager)
     {
         LevelManager levelManager = _levelManager as LevelManager;
         if (levelManager != null)
@@ -32,20 +35,11 @@ public class PlayerController : MonoBehaviour
             LevelManager.OnCycleChanged += ChangeDayTime;
         }
 
-        InputController = _inputController;
-
         if (!nekromancer)
             nekromancer = Instantiate(nekromancerPrefab, spawnPoint.position, Quaternion.identity);
 
+        nekromancer.InputController = inputController;
         nekromancer.Init(this);
-        // cursor.Init(this);
-
-        crystal.OnCrystalDestroyed += CrystalDestroyed;
-    }
-
-    public void CrystalDestroyed()
-    {
-        print("Crystal destroyed");
     }
 
     public void ChangeDayTime(CycleState _cycleState)
@@ -53,22 +47,56 @@ public class PlayerController : MonoBehaviour
         switch (_cycleState.Cycle)
         {
             case Cycle.Day:
-                nekromancerCamera.Priority = 0;
-                cursorCamera.Priority = 1;
-                cursor.SetCursorActive(true);
-                cursor.OnCursorMoved += UpdateGrid;
-                nekromancer.InputController = null;
+                StartDay();
                 break;
 
             case Cycle.Night:
-                nekromancerCamera.Priority = 1;
-                cursorCamera.Priority = 0;
-                cursor.SetCursorActive(false);
-                cursor.OnCursorMoved -= UpdateGrid;
-                UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
-                nekromancer.InputController = InputController;
+                StartNight();
                 break;
         }
+    }
+
+    private void StartDay()
+    {
+        inputController.ChangeActionMap(dayActionMap);
+
+        nekromancerCamera.Priority = 0;
+        nekromancer.InputController = null;
+
+        cursorCamera.Priority = 1;
+        cursor.SetCursorActive(true);
+
+        cursor.OnCursorMoved += UpdateGrid;
+
+        inputController.OnInteract += Interact;
+        inputController.OnOpenBuildMenu += OpenBuildingsMenu;
+        inputController.OnOpenMinionMenu += OpenMinionsMenu;
+        inputController.OnCancel += Cancel;
+
+    }
+
+    private void StartNight()
+    {
+        inputController.ChangeActionMap(nightActionMap);
+
+        nekromancerCamera.Priority = 1;
+        nekromancer.InputController = inputController;
+
+        cursorCamera.Priority = 0;
+        cursor.SetCursorActive(false);
+
+        // This will reset the selected GridElement
+        UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
+
+        cursor.OnCursorMoved -= UpdateGrid;
+
+        inputController.OnInteract -= Interact;
+        inputController.OnOpenBuildMenu -= OpenBuildingsMenu;
+        inputController.OnOpenMinionMenu -= OpenMinionsMenu;
+        inputController.OnCancel -= Cancel;
+
+        // Close menus if the night startet while they were open
+        Cancel(null);
     }
 
     private void UpdateGrid(Vector2 _position)
@@ -93,5 +121,27 @@ public class PlayerController : MonoBehaviour
             if (LastGridElement)
                 LastGridElement.SetElementActive(false);
         }
+    }
+
+
+    private void Interact(InputData _inputData)
+    {
+
+    }
+
+    private void OpenBuildingsMenu(InputData _input)
+    {
+        buildMenu.SetActive(true);
+    }
+
+    private void OpenMinionsMenu(InputData _input)
+    {
+        minionMenu.SetActive(true);
+    }
+
+    private void Cancel(InputData _input)
+    {
+        buildMenu.SetActive(false);
+        minionMenu.SetActive(false);
     }
 }
