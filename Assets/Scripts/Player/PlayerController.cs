@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             nekromancer = Instantiate(nekromancerPrefab, spawnPoint.position, Quaternion.identity);
 
         nekromancer.Init(this);
-        cursor.Init(this);
+        // cursor.Init(this);
 
         crystal.OnCrystalDestroyed += CrystalDestroyed;
     }
@@ -73,7 +73,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGrid(Vector2 _position)
     {
-        CurrentGridElement = WorldGrid.GetGridElement(_position);
+        Vector3 worldPos;
+        StaticLib.GetWorldPosition(_position, out worldPos);
+
+        CurrentGridElement = WorldGrid.GetGridElement(worldPos);
 
         if (CurrentGridElement != null)
         {
@@ -84,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
             CurrentGridElement.SetElementActive(true);
             LastGridElement = CurrentGridElement;
+        }
+        else
+        {
+            if (LastGridElement)
+                LastGridElement.SetElementActive(false);
         }
     }
 }

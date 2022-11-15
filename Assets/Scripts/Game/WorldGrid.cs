@@ -81,10 +81,7 @@ public class WorldGrid : MonoBehaviour
         int y = Mathf.RoundToInt(gridPosition.y);
 
         if (x >= 0 && y >= 0 && x < gridSize.x && y < gridSize.y)
-        {
-            GridElement gridElement = grid[x][y];
-            return gridElement;
-        }
+            return grid[x][y];
 
         return null;
     }
