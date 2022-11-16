@@ -66,7 +66,7 @@ public class CursorController : MonoBehaviour
 
     private void UpdateMotion()
     {
-        if (virtualMouse == null || Gamepad.current == null || !canvas.gameObject.activeSelf)
+        if (virtualMouse == null || !canvas.gameObject.activeSelf)
         {
             return;
         }
