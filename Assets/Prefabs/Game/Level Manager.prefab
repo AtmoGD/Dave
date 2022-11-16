@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754453432431992644}
   - component: {fileID: 754453432431992647}
+  - component: {fileID: 1902688015}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -45,8 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  inputController: {fileID: 0}
+  dataList: {fileID: 11400000, guid: f6574da3c7b0285449798a41cfc01ca0, type: 2}
   timeScale: 1
   worldGrid: {fileID: 0}
   startOnLoad: 1
   levelData: {fileID: 11400000, guid: bb17b481c64a0e84895b410a6ca0f4bb, type: 2}
+--- !u!114 &1902688015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754453432431992646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37f2d7623354e24ea8abdb9464ecfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_refreshTime: 0.5

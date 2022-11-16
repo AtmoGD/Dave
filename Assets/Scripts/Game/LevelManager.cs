@@ -6,6 +6,8 @@ using System;
 public class LevelManager : GameManager
 {
     public Action<CycleState> OnCycleChanged;
+
+    [Header("Level Manager")]
     [SerializeField] private LevelData levelData = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     private int currentCycle = 0;

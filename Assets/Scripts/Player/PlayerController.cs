@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject minionMenu = null;
 
     public LevelManager LevelManager { get; private set; }
+    public PlayerData PlayerData { get; set; }
     public WorldGrid WorldGrid { get; private set; }
     public GridElement CurrentGridElement { get; private set; }
     public GridElement LastGridElement { get; private set; }

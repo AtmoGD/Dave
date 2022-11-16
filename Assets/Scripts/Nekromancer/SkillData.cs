@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkillData : ScriptableObject
 {
+    public string id = "";
     public new string name = "Skill";
     public string description = "Skill description";
     public int manaCosts = 0;

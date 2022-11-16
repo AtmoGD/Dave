@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 public class PlayerData
 {
-    [SerializeField] private string name = "Dave";
-    [SerializeField] private int level = 1;
-    [SerializeField] private int experience = 0;
-    [SerializeField] private List<string> collectables = new List<string>();
-    [SerializeField] private List<string> equippedItems = new List<string>();
-    [SerializeField] private List<string> upgrades = new List<string>();
-    [SerializeField] private List<string> unlockedObjects = new List<string>();
-    [SerializeField] private List<string> unlockedAttacks = new List<string>();
-    [SerializeField] private List<string> unlockedSkills = new List<string>();
-    [SerializeField] private List<string> unlockedMinions = new List<string>();
-    [SerializeField] private List<string> unlockedRecipes = new List<string>();
-    [SerializeField] private List<CampObjectData> placedObjects = new List<CampObjectData>();
+    public string name = "Dave";
+    public int level = 1;
+    public int experience = 0;
+    public List<string> collectables = new List<string>();
+    public List<string> equippedItems = new List<string>();
+    public List<string> upgrades = new List<string>();
+    public List<string> unlockedObjects = new List<string>();
+    public List<string> unlockedAttacks = new List<string>();
+    public List<string> unlockedSkills = new List<string>();
+    public List<string> unlockedMinions = new List<string>();
+    public List<string> unlockedRecipes = new List<string>();
+    public List<CampObjectData> placedObjects = new List<CampObjectData>();
 }
