@@ -13,8 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CursorController cursor = null;
     [SerializeField] private CinemachineVirtualCamera nekromancerCamera = null;
     [SerializeField] private CinemachineVirtualCamera cursorCamera = null;
-    [SerializeField] private GameObject buildMenu = null;
-    [SerializeField] private GameObject minionMenu = null;
+    [SerializeField] private PlayerUIController UIController = null;
 
     public LevelManager LevelManager { get; private set; }
     public PlayerData PlayerData { get; set; }
@@ -132,17 +131,16 @@ public class PlayerController : MonoBehaviour
 
     private void OpenBuildingsMenu(InputData _input)
     {
-        buildMenu.SetActive(true);
+        UIController.OpenBuildingsMenu();
     }
 
     private void OpenMinionsMenu(InputData _input)
     {
-        minionMenu.SetActive(true);
+        UIController.OpenMinionsMenu();
     }
 
     private void Cancel(InputData _input)
     {
-        buildMenu.SetActive(false);
-        minionMenu.SetActive(false);
+        UIController.CLoseAllMenus();
     }
 }
