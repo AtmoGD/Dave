@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridElementPrefab: {fileID: 7037534421590848978, guid: 8d0ad881a27bfa7498cdec0f0b7a6541, type: 3}
   gridSize: {x: 45, y: 150}
-  gridElementSize: {x: 3, y: 1.5}
-  isometricMultiplier: {x: 1, y: 0.578}
+  gridElementSize: {x: 1, y: 0.5}
+  isometricRatio: {x: 2, y: 1}

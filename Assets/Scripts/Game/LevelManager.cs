@@ -10,7 +10,10 @@ public class LevelManager : GameManager
     [Header("Level Manager")]
     [SerializeField] private LevelData levelData = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
+    private int enemyCount = 0;
     private int currentCycle = 0;
+
+    public float PercentOfActiveEnemies { get { return (float)activeEnemies.Count / (float)enemyCount; } }
 
     public CycleState CurrentCycleState
     {
@@ -44,6 +47,8 @@ public class LevelManager : GameManager
     {
         this.CurrentCycleState?.Exit();
 
+        this.enemyCount = 0;
+
         this.currentCycle++;
 
         if (this.currentCycle >= this.levelData.cycleStates.Count)
@@ -61,6 +66,7 @@ public class LevelManager : GameManager
     public void AddEnemy(IDamagable enemy)
     {
         this.activeEnemies.Add(enemy);
+        this.enemyCount++;
     }
 
     public void RemoveEnemy(IDamagable enemy)
