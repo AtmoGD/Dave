@@ -15,4 +15,6 @@ MonoBehaviour:
   placeables:
   - {fileID: 11400000, guid: e19bd33f88dafea45b21f572ad9c54a4, type: 2}
   minions: []
-  skills: []
+  skills:
+  - {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
+  - {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}

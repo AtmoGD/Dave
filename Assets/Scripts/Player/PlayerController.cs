@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private string dataPath = "player.dave";
     [SerializeField] private PlayerData playerData = null;
     [SerializeField] private InputController inputController = null;
     [SerializeField] public Nekromancer nekromancer = null;
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerUIController UIController = null;
 
     public LevelManager LevelManager { get; private set; }
-    public PlayerData PlayerData { get; set; }
+    public PlayerData PlayerData => playerData;
     public WorldGrid WorldGrid { get; private set; }
     public GridElement CurrentGridElement { get; private set; }
     public GridElement LastGridElement { get; private set; }
@@ -27,6 +28,13 @@ public class PlayerController : MonoBehaviour
 
     public void Init(GameManager _levelManager)
     {
+        playerData = DataLoader.LoadData<PlayerData>(dataPath);
+        if (playerData == null)
+        {
+            playerData = new PlayerData();
+            DataLoader.SaveData(playerData, dataPath);
+        }
+
         LevelManager levelManager = _levelManager as LevelManager;
         if (levelManager != null)
         {
@@ -40,6 +48,21 @@ public class PlayerController : MonoBehaviour
 
         nekromancer.InputController = inputController;
         nekromancer.Init(this);
+    }
+
+    public void LoadData(string _path)
+    {
+        playerData = DataLoader.LoadData<PlayerData>(_path);
+        if (playerData == null)
+        {
+            playerData = new PlayerData();
+            DataLoader.SaveData(playerData, _path);
+        }
+    }
+
+    public void SaveData(string _path)
+    {
+        DataLoader.SaveData<PlayerData>(playerData, _path);
     }
 
     public void ChangeDayTime(CycleState _cycleState)

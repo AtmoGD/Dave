@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5b199eea908754bbea4732d7509efb, type: 3}
   m_Name: ShadowMerge
   m_EditorClassIdentifier: 
+  id: nekro002
   name: Shadow Merge
   description: Merge with the shadows
   manaCosts: 0

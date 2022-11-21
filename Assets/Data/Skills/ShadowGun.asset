@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5370d0b130287045903d37da5d81a62, type: 3}
   m_Name: ShadowGun
   m_EditorClassIdentifier: 
+  id: nekro001
   name: Gun
   description: This is a gun
   manaCosts: 0

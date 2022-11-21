@@ -93,6 +93,9 @@ public class Nekromancer : MonoBehaviour
         AttackRange = stats.attackRange;
 
         baseSkill = baseSkillData.GetSkillInstance();
+
+        firstSkillData = playerController.LevelManager.DataList.GetSkill(playerController.PlayerData.equippedSkills[0]);
+        secondSkillData = playerController.LevelManager.DataList.GetSkill(playerController.PlayerData.equippedSkills[1]);
         firstSkill = firstSkillData.GetSkillInstance();
         secondSkill = secondSkillData.GetSkillInstance();
 
@@ -107,11 +110,7 @@ public class Nekromancer : MonoBehaviour
 
         UpdateCooldowns();
 
-        if (currentSkill != null)
-        {
-            currentSkill.FrameUpdate(Time.deltaTime);
-            return;
-        }
+        currentSkill?.FrameUpdate(Time.deltaTime);
     }
 
     private void FixedUpdate()
