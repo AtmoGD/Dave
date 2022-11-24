@@ -59,8 +59,11 @@ public class WorldGrid : MonoBehaviour
         }
     }
 
+    [ExecuteAlways]
     public void InitGrid()
     {
+        ElementCount = 0;
+
         grid = new GridElement[gridSize.x][];
         for (int x = 0; x < gridSize.x; x++)
         {
@@ -76,6 +79,27 @@ public class WorldGrid : MonoBehaviour
                 ElementCount++;
             }
         }
+    }
+
+    public void PlaceObject(GameObject _object, List<GridElement> _gridElements)
+    {
+        foreach (GridElement gridElement in _gridElements)
+        {
+            gridElement.objectOnGrid = _object;
+        }
+    }
+
+    public bool IsObjectPlaceable(Placeable _object, List<GridElement> _gridElements)
+    {
+        foreach (GridElement gridElement in _gridElements)
+        {
+            if (gridElement.objectOnGrid != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public List<GridElement> GetGridElements(Vector2 _gridPosition, Vector2Int _size)
@@ -139,6 +163,8 @@ public class WorldGrid : MonoBehaviour
 
     public Vector2 GetObjectOffset(Placeable _object)
     {
+        elementSize = new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
+
         Vector2 offset = Vector2.zero;
 
         offset.x = (_object.size.x - 1) * (elementSize.x / 2f);

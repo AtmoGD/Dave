@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
             List<GridElement> newGridElements = WorldGrid.GetGridElements(CurrentGridElement.transform.position, CurrentPlaceable.size);
 
-            bool isPlaceable = IsObjectPlaceable(CurrentPlaceable, newGridElements);
+            bool isPlaceable = LevelManager.WorldGrid.IsObjectPlaceable(CurrentPlaceable, newGridElements);
 
             VizualizerAnimator.SetBool("IsPlaceable", isPlaceable);
 
@@ -191,22 +191,13 @@ public class PlayerController : MonoBehaviour
         VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
     }
 
-    public bool IsObjectPlaceable(Placeable _object, List<GridElement> _gridElements)
-    {
-        foreach (GridElement gridElement in _gridElements)
-        {
-            if (gridElement.objectOnGrid != null)
-            {
-                return false;
-            }
-        }
 
-        return true;
-    }
 
     private void Interact(InputData _inputData)
     {
-        if (CurrentPlaceable && CurrentGridElement && IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
+        if (CurrentPlaceable &&
+        CurrentGridElement &&
+        LevelManager.WorldGrid.IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
         {
             Vector3 objectOffset = LevelManager.WorldGrid.GetObjectOffset(CurrentPlaceable);
 
