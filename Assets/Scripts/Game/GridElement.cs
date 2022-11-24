@@ -9,7 +9,7 @@ public class GridElement : MonoBehaviour
     [SerializeField] private Animator animator = null;
     [SerializeField] public WorldGrid worldGrid = null;
     [SerializeField] public Vector2Int gridPosition = Vector2Int.zero;
-    [SerializeField] public Placeable objectOnGrid = null;
+    [SerializeField] public GameObject objectOnGrid = null;
 
     public void SetElementActive(bool _active)
     {
@@ -25,8 +25,20 @@ public class GridElement : MonoBehaviour
         // animator.SetFloat("Active", _active ? 1f : 0f);
     }
 
+    public void IndicateIsPlaceable()
+    {
+        animator.SetBool("IsPlaceable", true);
+    }
+
+    public void IndicateIsNotPlaceable()
+    {
+        animator.SetBool("IsNotPlaceable", true);
+    }
+
     public void DeactivateElement()
     {
+        animator.SetBool("IsPlaceable", false);
+        animator.SetBool("IsNotPlaceable", false);
         gameObject.SetActive(false);
     }
 }

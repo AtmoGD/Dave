@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 84132325325737213}
   - component: {fileID: 9150448252079790383}
   - component: {fileID: 6723753210283916479}
+  - component: {fileID: 3736115409456944674}
   m_Layer: 0
   m_Name: MinionPanel
   m_TagString: Untagged
@@ -427,6 +428,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3736115409456944674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697610678158836466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d80369c8b9ae24bb5ed655547c7648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  data: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
+  placeableName: {fileID: 1525708234482007909}
+  placeableDescription: {fileID: 4215857242302200082}
+  placeableCost: {fileID: 2433306221273236222}
+  placeButton: {fileID: 6273868156147279257}
 --- !u!1 &6278031146324572299
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ddcdaed8de0d4648a95696b06fa6dfc, type: 3}
   m_Color: {r: 0.6880108, g: 0.1981132, b: 0.7924528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1394348098287923802}
   - component: {fileID: 5719900452482402902}
   - component: {fileID: 2452735469617825875}
-  - component: {fileID: 6659803731241409556}
+  - component: {fileID: 110182661514853895}
   m_Layer: 0
   m_Name: BookOfMinions
   m_TagString: Untagged
@@ -156,8 +156,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6659803731241409556
-BoxCollider2D:
+--- !u!60 &110182661514853895
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,9 +179,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.009583473, y: 0.5016823}
+      - {x: -0.998972, y: 0.0119436085}
+      - {x: 0.006362498, y: -0.5023612}
+      - {x: 0.98068964, y: 0.005539179}
 --- !u!1001 &4063710763792740500
 PrefabInstance:
   m_ObjectHideFlags: 0

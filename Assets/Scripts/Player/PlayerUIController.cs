@@ -43,4 +43,14 @@ public class PlayerUIController : MonoBehaviour
         CloseBuildingsMenu();
         CloseMinionsMenu();
     }
+
+    public void PlaceObject(string _id)
+    {
+
+    }
+
+    public void PlaceObjectData(Placeable _placeable)
+    {
+
+    }
 }

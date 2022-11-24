@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     public GridElement CurrentGridElement { get; private set; }
     public GridElement LastGridElement { get; private set; }
     public CursorController Cursor { get { return cursor; } }
+    public Placeable CurrentPlaceable { get; private set; }
+    public GameObject CurrentPlaceableVizualizer { get; private set; }
+    public Animator VizualizerAnimator { get; private set; }
+    public List<GridElement> CurrentPlaceableGridElements { get; private set; }
 
     private const string dayActionMap = "Building";
     private const string nightActionMap = "Combat";
@@ -46,6 +50,8 @@ public class PlayerController : MonoBehaviour
         if (!nekromancer)
             nekromancer = Instantiate(nekromancerPrefab, spawnPoint.position, Quaternion.identity);
 
+        CurrentPlaceable = null;
+        CurrentPlaceableGridElements = new List<GridElement>();
         nekromancer.InputController = inputController;
         nekromancer.Init(this);
     }
@@ -127,7 +133,7 @@ public class PlayerController : MonoBehaviour
         Vector3 worldPos;
         StaticLib.GetWorldPosition(_position, out worldPos);
 
-        CurrentGridElement = WorldGrid.GetGridElement(worldPos);
+        CurrentGridElement = WorldGrid.GetGridElement(worldPos, true);
 
         if (CurrentGridElement != null)
         {
@@ -144,12 +150,195 @@ public class PlayerController : MonoBehaviour
             if (LastGridElement)
                 LastGridElement.SetElementActive(false);
         }
+
+        if (CurrentPlaceable)
+        {
+            CurrentPlaceableVizualizer.transform.position = CurrentGridElement.transform.position;
+
+            VizualizerAnimator.SetBool("IsPlaceable", IsObjectPlaceable());
+
+            foreach (GridElement gridElement in CurrentPlaceableGridElements)
+            {
+                gridElement.SetElementActive(false);
+            }
+
+            CurrentPlaceableGridElements.Clear();
+
+            CurrentPlaceableGridElements = GetGridElementsInRange(CurrentGridElement.gridPosition, CurrentPlaceable.size);
+
+            foreach (GridElement gridElement in CurrentPlaceableGridElements)
+            {
+                gridElement.SetElementActive(true);
+            }
+        }
     }
 
+    public void PlaceObject(Placeable _object)
+    {
+        CurrentPlaceable = _object;
+
+        // if (!CurrentGridElement) return;
+
+        CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position, Quaternion.identity);
+        VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
+
+        // if (CurrentGridElement)
+        // {
+        //     if (CurrentGridElement.objectOnGrid == null)
+        //     {
+        //         CurrentGridElement.IndicateIsPlaceable();
+        //     }
+        //     else
+        //     {
+        //         CurrentGridElement.IndicateIsNotPlaceable();
+        //     }
+        // }
+    }
+
+    public List<GridElement> GetGridElementsInRange(Vector2Int _pos, Vector2Int _size)
+    {
+        List<GridElement> gridElements = new List<GridElement>();
+
+        // int xStart = _pos.x;
+        // int xEnd = _pos.x + _size.x;
+
+        // int yStart = _pos.y;
+        // int yEnd = _pos.y + _size.y;
+
+        // int xMiddle = xStart + (_size.x / 2);
+        // int yMiddle = yStart + (_size.y / 2);
+
+        // int collums = _size.x;
+        // int rows = _size.y;
+
+        // int currentX = _pos.x;
+        // int currentY = _pos.y;
+
+        // for (int x = 0; x < collums; x++)
+        // {
+        //     for (int y = 0; y < rows; y++)
+        //     {
+        //         Vector2Int pos = new Vector2Int(currentX, currentY + y);
+        //         GridElement gridElement = WorldGrid.GetGridElement(pos);
+        //         if (gridElement)
+        //         {
+        //             gridElements.Add(gridElement);
+        //         }
+
+        //         currentY++;
+        //     }
+
+        //     currentX++;
+        //     currentY--;
+        // }
+
+
+
+        // for (int x = _pos.x; x < _pos.x + _size.x; x++)
+        // {
+        //     for (int y = _pos.y; y < _pos.y + _size.y; y++)
+        //     {
+        //         gridElements.Add(WorldGrid.GetGridElement(x, y));
+        //     }
+        // }
+
+
+
+        // Vector2Int currentPos = _pos;
+        // for (int x = _pos.x + 1; x < _pos.x + _size.x; x++)
+        // {
+        //     currentPos.x = x;
+        //     for (int y = _pos.y; y < _pos.y + _size.y; y++)
+        //     {
+        //         currentPos.y = y;
+        //         gridElements.Add(WorldGrid.GetGridElement(currentPos));
+        //     }
+        // }
+
+        // for (int i = -range; i <= range; i++)
+        // {
+        //     for (int j = -range; j <= range; j++)
+        //     {
+        //         Vector2Int gridPos = new Vector2Int(pos.x + i, pos.y + j);
+        //         GridElement gridElement = WorldGrid.GetGridElement(gridPos);
+        //         if (gridElement)
+        //         {
+        //             gridElements.Add(gridElement);
+        //         }
+        //     }
+        // }
+
+        // for (int x = pos.x - range; x <= pos.x + range; x++)
+        // {
+        //     for (int y = pos.y - range; y <= pos.y + range; y++)
+        //     {
+        //         Vector2Int gridPos = new Vector2Int(x, y);
+        //         GridElement gridElement = WorldGrid.GetGridElement(gridPos);
+        //         if (gridElement)
+        //         {
+        //             gridElements.Add(gridElement);
+        //         }
+        //     }
+        // }
+
+        return gridElements;
+    }
+
+    public bool IsObjectPlaceable()
+    {
+        Vector2Int size = CurrentPlaceable.size;
+        GridElement[][] grid = LevelManager.WorldGrid.Grid;
+        Vector2Int gridPos = CurrentGridElement.gridPosition;
+
+        List<GridElement> gridElements = GetGridElementsInRange(gridPos, size);
+
+        foreach (GridElement gridElement in gridElements)
+        {
+            if (gridElement.objectOnGrid != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+
+        // if (size > 1)
+        // {
+        //     size--;
+        //     for (int i = 0; i < size; i++)
+        //     {
+        //         for (int j = 0; j < size; j++)
+        //         {
+        //             if (grid[gridPos.x + i][gridPos.y + j].objectOnGrid != null)
+        //             {
+        //                 return false;
+        //             }
+        //         }
+        //     }
+        // }
+        // else if (CurrentGridElement.objectOnGrid == null)
+        // {
+        //     return true;
+        // }
+        // else
+        // {
+        //     return false;
+        // }
+
+        // return true;
+    }
 
     private void Interact(InputData _inputData)
     {
+        if (CurrentPlaceable && CurrentGridElement && IsObjectPlaceable())
+        {
+            GameObject newObject = Instantiate(CurrentPlaceable.prefab, CurrentGridElement.transform.position, Quaternion.identity);
+            CurrentGridElement.objectOnGrid = newObject;
 
+            Destroy(CurrentPlaceableVizualizer);
+            CurrentPlaceable = null;
+
+        }
     }
 
     private void OpenBuildingsMenu(InputData _input)
@@ -165,5 +354,6 @@ public class PlayerController : MonoBehaviour
     private void Cancel(InputData _input)
     {
         UIController.CLoseAllMenus();
+        CurrentPlaceable = null;
     }
 }
