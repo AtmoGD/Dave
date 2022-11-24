@@ -153,8 +153,9 @@ public class PlayerController : MonoBehaviour
 
         if (CurrentPlaceable)
         {
-            // Vector2 objectOffset
-            CurrentPlaceableVizualizer.transform.position = CurrentGridElement.transform.position;
+            Vector3 objectOffset = LevelManager.WorldGrid.GetObjectOffset(CurrentPlaceable);
+
+            CurrentPlaceableVizualizer.transform.position = CurrentGridElement.transform.position + objectOffset;
 
             List<GridElement> newGridElements = WorldGrid.GetGridElements(CurrentGridElement.transform.position, CurrentPlaceable.size);
 
@@ -184,8 +185,9 @@ public class PlayerController : MonoBehaviour
     public void PlaceObject(Placeable _object)
     {
         CurrentPlaceable = _object;
+        Vector3 objectOffset = LevelManager.WorldGrid.GetObjectOffset(CurrentPlaceable);
 
-        CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position, Quaternion.identity);
+        CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position + objectOffset, Quaternion.identity);
         VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
     }
 
@@ -206,11 +208,20 @@ public class PlayerController : MonoBehaviour
     {
         if (CurrentPlaceable && CurrentGridElement && IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
         {
-            GameObject newObject = Instantiate(CurrentPlaceable.prefab, CurrentGridElement.transform.position, Quaternion.identity);
-            CurrentGridElement.objectOnGrid = newObject;
+            Vector3 objectOffset = LevelManager.WorldGrid.GetObjectOffset(CurrentPlaceable);
+
+            GameObject newObject = Instantiate(CurrentPlaceable.prefab, CurrentGridElement.transform.position + objectOffset, Quaternion.identity);
+
+            foreach (GridElement gridElement in CurrentPlaceableGridElements)
+            {
+                gridElement.objectOnGrid = newObject;
+            }
 
             Destroy(CurrentPlaceableVizualizer);
+
+            CurrentPlaceableVizualizer = null;
             CurrentPlaceable = null;
+            CurrentPlaceableGridElements.Clear();
         }
     }
 

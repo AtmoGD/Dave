@@ -15,13 +15,10 @@ public class WorldGrid : MonoBehaviour
     [SerializeField] public GridElement[][] Grid { get { return grid; } }
     public int ElementCount { get; private set; }
     private Vector2 elementSize = Vector2.zero;
-    private Vector2 gridOffset = Vector2.zero;
 
     private void Start()
     {
         elementSize = new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
-
-        gridOffset = new Vector2(elementSize.x / 2f, gridSize.y * elementSize.y);
 
         InitGrid();
     }
@@ -33,36 +30,22 @@ public class WorldGrid : MonoBehaviour
 
         elementSize = new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
 
-        // gridOffset = new Vector2(elementSize.x / 2f, gridSize.y * elementSize.y);
-
         grid = new GridElement[gridSize.x][];
-
-        // Vector2 currentPos = Vector2.zero;
 
         for (int x = 0; x < gridSize.x; x++)
         {
             grid[x] = new GridElement[gridSize.y];
-
-            // currentPos.x = x * (elementSize.x / 2f);
-            // currentPos.y = x * -(elementSize.y);
 
             for (int y = 0; y < gridSize.y; y++)
             {
                 GameObject gridElementObject = Instantiate(gridElementPrefab, transform);
                 gridElementObject.name = "Grid Element " + x + ", " + y;
 
-                // Vector2 offset = currentPos;
-                // offset.x = x * elementSize.x + ((x * elementSize.x) / 2);
-                // offset.y = y * elementSize.y - (((y * elementSize.y) / 2));
-
-                // offset.x = 
                 Vector2 offset = new Vector2(x * elementSize.x, y * elementSize.y);
                 if (y % 2 == 1)
                 {
                     offset.x += elementSize.x / 2f;
                 }
-
-                // Vector3 gridElementPosition = (Vector3)offset + (Vector3)gridOffset;
                 Vector3 gridElementPosition = (Vector3)offset;
                 gridElementObject.transform.position = gridElementPosition;
 
@@ -72,11 +55,6 @@ public class WorldGrid : MonoBehaviour
 
                 grid[x][y] = gridElement;
                 ElementCount++;
-
-
-
-                // currentPos.x += (elementSize.x / 2f);
-                // currentPos.y += elementSize.y;
             }
         }
     }
@@ -147,55 +125,6 @@ public class WorldGrid : MonoBehaviour
         }
 
         return grid[x][y];
-        // Vector2 gridPosition = _worldPosition - gridOffset;
-
-        // currentPos.x = x * (elementSize.x / 2f);
-        // currentPos.y = x * -(elementSize.y);
-
-
-        // float x = gridPosition.x - (y * (elementSize.x / 2f));
-        // gridPosition.x /= elementSize.x;
-        // gridPosition.y /= elementSize.y;
-        // float y = (gridPosition.y / (elementSize.y)) + (elementSize.y / ((gridPosition.y == 0f ? 1f : gridPosition.y) / 2f));
-        // // float y = (gridPosition.y / (elementSize.y / 2f)) - (gridPosition.x / (elementSize.x / 2f));
-        // float x = (gridPosition.x / (elementSize.x / 2f)) - ((int)y * elementSize.y);
-        // // float x = (gridPosition.x / (elementSize.x / 2f)) - (elementSize.x / 4f);
-        // // float y = (gridPosition.y / (elementSize.y / 2f)) - (elementSize.y / 4f);
-        // // float y = (gridPosition.y / (elementSize.y / 2f)) - (x * (elementSize.y / 2f));
-
-
-        // int gridX = Mathf.RoundToInt(x);
-        // int gridY = Mathf.RoundToInt(y);
-
-        // // gridY = 0;
-
-        // // gridX -= (int)gridOffset.x;
-        // // gridY -= (int)gridOffset.y;
-
-
-        // return grid[gridX][gridY];
-
-        // Vector2 gridPosition = _worldPosition;
-
-        // int y = Mathf.RoundToInt(gridPosition.y / elementSize.y);
-
-        // if (y % 2 == 1)
-        //     gridPosition.x -= elementSize.x / 2f;
-
-        // int x = Mathf.RoundToInt(gridPosition.x / elementSize.x);
-
-        // if (_forceToGetElement)
-        // {
-        //     x = Mathf.Clamp(x, 0, gridSize.x - 1);
-        //     y = Mathf.Clamp(y, 0, gridSize.y - 1);
-        // }
-        // else if (x < 0 || x >= gridSize.x || y < 0 || y >= gridSize.y)
-        // {
-        //     return null;
-        // }
-
-
-        // return grid[x][y];
     }
 
     public GridElement GetGridElement(Vector2Int _gridPosition)
@@ -208,22 +137,15 @@ public class WorldGrid : MonoBehaviour
         return grid[_gridPosition.x][_gridPosition.y];
     }
 
-    // [ExecuteAlways]
-    // public void ClearGrid()
-    // {
-    //     if (grid != null)
-    //     {
-    //         for (int x = 0; x < grid.Length; x++)
-    //         {
-    //             for (int y = 0; y < grid[x].Length; y++)
-    //             {
-    //                 DestroyImmediate(grid[x][y].gameObject);
-    //             }
-    //         }
-    //         grid = null;
-    //         ElementCount = 0;
-    //     }
-    // }
+    public Vector2 GetObjectOffset(Placeable _object)
+    {
+        Vector2 offset = Vector2.zero;
+
+        offset.x = (_object.size.x - 1) * (elementSize.x / 2f);
+        // offset.y = (_object.size.x - 1) * -(elementSize.y);
+
+        return offset;
+    }
 
     [ExecuteAlways]
     public void DeleteAllChildren()
