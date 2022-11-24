@@ -153,9 +153,14 @@ public class PlayerController : MonoBehaviour
 
         if (CurrentPlaceable)
         {
+            // Vector2 objectOffset
             CurrentPlaceableVizualizer.transform.position = CurrentGridElement.transform.position;
 
-            VizualizerAnimator.SetBool("IsPlaceable", IsObjectPlaceable());
+            List<GridElement> newGridElements = WorldGrid.GetGridElements(CurrentGridElement.transform.position, CurrentPlaceable.size);
+
+            bool isPlaceable = IsObjectPlaceable(CurrentPlaceable, newGridElements);
+
+            VizualizerAnimator.SetBool("IsPlaceable", isPlaceable);
 
             foreach (GridElement gridElement in CurrentPlaceableGridElements)
             {
@@ -164,10 +169,13 @@ public class PlayerController : MonoBehaviour
 
             CurrentPlaceableGridElements.Clear();
 
-            CurrentPlaceableGridElements = GetGridElementsInRange(CurrentGridElement.gridPosition, CurrentPlaceable.size);
+            CurrentPlaceableGridElements = newGridElements;
 
             foreach (GridElement gridElement in CurrentPlaceableGridElements)
             {
+                if (gridElement == CurrentGridElement)
+                    continue;
+
                 gridElement.SetElementActive(true);
             }
         }
@@ -177,122 +185,13 @@ public class PlayerController : MonoBehaviour
     {
         CurrentPlaceable = _object;
 
-        // if (!CurrentGridElement) return;
-
         CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position, Quaternion.identity);
         VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
-
-        // if (CurrentGridElement)
-        // {
-        //     if (CurrentGridElement.objectOnGrid == null)
-        //     {
-        //         CurrentGridElement.IndicateIsPlaceable();
-        //     }
-        //     else
-        //     {
-        //         CurrentGridElement.IndicateIsNotPlaceable();
-        //     }
-        // }
     }
 
-    public List<GridElement> GetGridElementsInRange(Vector2Int _pos, Vector2Int _size)
+    public bool IsObjectPlaceable(Placeable _object, List<GridElement> _gridElements)
     {
-        List<GridElement> gridElements = new List<GridElement>();
-
-        // int xStart = _pos.x;
-        // int xEnd = _pos.x + _size.x;
-
-        // int yStart = _pos.y;
-        // int yEnd = _pos.y + _size.y;
-
-        // int xMiddle = xStart + (_size.x / 2);
-        // int yMiddle = yStart + (_size.y / 2);
-
-        // int collums = _size.x;
-        // int rows = _size.y;
-
-        // int currentX = _pos.x;
-        // int currentY = _pos.y;
-
-        // for (int x = 0; x < collums; x++)
-        // {
-        //     for (int y = 0; y < rows; y++)
-        //     {
-        //         Vector2Int pos = new Vector2Int(currentX, currentY + y);
-        //         GridElement gridElement = WorldGrid.GetGridElement(pos);
-        //         if (gridElement)
-        //         {
-        //             gridElements.Add(gridElement);
-        //         }
-
-        //         currentY++;
-        //     }
-
-        //     currentX++;
-        //     currentY--;
-        // }
-
-
-
-        // for (int x = _pos.x; x < _pos.x + _size.x; x++)
-        // {
-        //     for (int y = _pos.y; y < _pos.y + _size.y; y++)
-        //     {
-        //         gridElements.Add(WorldGrid.GetGridElement(x, y));
-        //     }
-        // }
-
-
-
-        // Vector2Int currentPos = _pos;
-        // for (int x = _pos.x + 1; x < _pos.x + _size.x; x++)
-        // {
-        //     currentPos.x = x;
-        //     for (int y = _pos.y; y < _pos.y + _size.y; y++)
-        //     {
-        //         currentPos.y = y;
-        //         gridElements.Add(WorldGrid.GetGridElement(currentPos));
-        //     }
-        // }
-
-        // for (int i = -range; i <= range; i++)
-        // {
-        //     for (int j = -range; j <= range; j++)
-        //     {
-        //         Vector2Int gridPos = new Vector2Int(pos.x + i, pos.y + j);
-        //         GridElement gridElement = WorldGrid.GetGridElement(gridPos);
-        //         if (gridElement)
-        //         {
-        //             gridElements.Add(gridElement);
-        //         }
-        //     }
-        // }
-
-        // for (int x = pos.x - range; x <= pos.x + range; x++)
-        // {
-        //     for (int y = pos.y - range; y <= pos.y + range; y++)
-        //     {
-        //         Vector2Int gridPos = new Vector2Int(x, y);
-        //         GridElement gridElement = WorldGrid.GetGridElement(gridPos);
-        //         if (gridElement)
-        //         {
-        //             gridElements.Add(gridElement);
-        //         }
-        //     }
-        // }
-
-        return gridElements;
-    }
-
-    public bool IsObjectPlaceable()
-    {
-        Vector2Int size = CurrentPlaceable.size;
-        GridElement[][] grid = LevelManager.WorldGrid.Grid;
-        Vector2Int gridPos = CurrentGridElement.gridPosition;
-
-        List<GridElement> gridElements = GetGridElementsInRange(gridPos, size);
-
-        foreach (GridElement gridElement in gridElements)
+        foreach (GridElement gridElement in _gridElements)
         {
             if (gridElement.objectOnGrid != null)
             {
@@ -301,43 +200,17 @@ public class PlayerController : MonoBehaviour
         }
 
         return true;
-
-        // if (size > 1)
-        // {
-        //     size--;
-        //     for (int i = 0; i < size; i++)
-        //     {
-        //         for (int j = 0; j < size; j++)
-        //         {
-        //             if (grid[gridPos.x + i][gridPos.y + j].objectOnGrid != null)
-        //             {
-        //                 return false;
-        //             }
-        //         }
-        //     }
-        // }
-        // else if (CurrentGridElement.objectOnGrid == null)
-        // {
-        //     return true;
-        // }
-        // else
-        // {
-        //     return false;
-        // }
-
-        // return true;
     }
 
     private void Interact(InputData _inputData)
     {
-        if (CurrentPlaceable && CurrentGridElement && IsObjectPlaceable())
+        if (CurrentPlaceable && CurrentGridElement && IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
         {
             GameObject newObject = Instantiate(CurrentPlaceable.prefab, CurrentGridElement.transform.position, Quaternion.identity);
             CurrentGridElement.objectOnGrid = newObject;
 
             Destroy(CurrentPlaceableVizualizer);
             CurrentPlaceable = null;
-
         }
     }
 
