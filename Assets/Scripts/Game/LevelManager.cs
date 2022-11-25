@@ -8,7 +8,7 @@ public class LevelManager : GameManager
     public Action<CycleState> OnCycleChanged;
 
     [Header("Level Manager")]
-    [SerializeField] private LevelData levelData = null;
+    private LevelData levelData = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     private int enemyCount = 0;
     private int currentCycle = 0;
@@ -28,6 +28,8 @@ public class LevelManager : GameManager
 
     public new void Start()
     {
+        levelData = WorldGrid.LevelData;
+        WorldGrid.LoadLevel();
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
 

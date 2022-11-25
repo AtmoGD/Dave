@@ -6,14 +6,16 @@ using System;
 [Serializable]
 public class WorldGrid : MonoBehaviour
 {
+    [field: SerializeField] public LevelData LevelData { get; private set; } = null;
+    // [field: SerializeField] public GameObject ObjectParent { get; private set; } = null;
     [SerializeField] private GameObject gridElementPrefab = null;
-    [SerializeField] private GridElement[][] grid = null;
-    [SerializeField] private Vector2Int gridSize = Vector2Int.zero;
     [SerializeField] private Vector2 gridElementSize = new Vector2(2f, 1f);
     [SerializeField] private Vector2 isometricRatio = new Vector2(2f, 1f);
 
-    [SerializeField] public GridElement[][] Grid { get { return grid; } }
+    public GridElement[][] Grid { get; private set; } = null;
+    public Vector2Int GridSize => LevelData.levelSize;
     public int ElementCount { get; private set; }
+
     private Vector2 elementSize = Vector2.zero;
 
     private void Start()
@@ -24,19 +26,36 @@ public class WorldGrid : MonoBehaviour
     }
 
     [ExecuteAlways]
+    public void LoadLevel()
+    {
+        DeleteAllChildren();
+        CreateGrid();
+        PlaceLevelObjects();
+    }
+
+    [ExecuteAlways]
+    public void PlaceLevelObjects()
+    {
+        foreach (PlacedObject placedObject in LevelData.placedObjects)
+        {
+            PlaceObject(placedObject.placeable, placedObject.gridPosition);
+        }
+    }
+
+    [ExecuteAlways]
     public void CreateGrid()
     {
         DeleteAllChildren();
 
         elementSize = new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
 
-        grid = new GridElement[gridSize.x][];
+        Grid = new GridElement[GridSize.x][];
 
-        for (int x = 0; x < gridSize.x; x++)
+        for (int x = 0; x < GridSize.x; x++)
         {
-            grid[x] = new GridElement[gridSize.y];
+            Grid[x] = new GridElement[GridSize.y];
 
-            for (int y = 0; y < gridSize.y; y++)
+            for (int y = 0; y < GridSize.y; y++)
             {
                 GameObject gridElementObject = Instantiate(gridElementPrefab, transform);
                 gridElementObject.name = "Grid Element " + x + ", " + y;
@@ -53,7 +72,7 @@ public class WorldGrid : MonoBehaviour
                 gridElement.gridPosition = new Vector2Int(x, y);
                 gridElement.worldGrid = this;
 
-                grid[x][y] = gridElement;
+                Grid[x][y] = gridElement;
                 ElementCount++;
             }
         }
@@ -64,10 +83,10 @@ public class WorldGrid : MonoBehaviour
     {
         ElementCount = 0;
 
-        grid = new GridElement[gridSize.x][];
-        for (int x = 0; x < gridSize.x; x++)
+        Grid = new GridElement[GridSize.x][];
+        for (int x = 0; x < GridSize.x; x++)
         {
-            grid[x] = new GridElement[gridSize.y];
+            Grid[x] = new GridElement[GridSize.y];
         }
 
         foreach (Transform child in transform)
@@ -75,25 +94,48 @@ public class WorldGrid : MonoBehaviour
             GridElement gridElement = child.GetComponent<GridElement>();
             if (gridElement != null)
             {
-                grid[gridElement.gridPosition.x][gridElement.gridPosition.y] = gridElement;
+                Grid[gridElement.gridPosition.x][gridElement.gridPosition.y] = gridElement;
                 ElementCount++;
             }
+
+            PlaceableObject placedObject = child.GetComponent<PlaceableObject>();
+            if (placedObject != null)
+            {
+                foreach (GridElement elem in placedObject.placedOnGridElements)
+                {
+                    elem.ObjectOnGrid = placedObject.gameObject;
+                }
+            }
         }
+
+
     }
 
     public void PlaceObject(GameObject _object, List<GridElement> _gridElements)
     {
         foreach (GridElement gridElement in _gridElements)
         {
-            gridElement.objectOnGrid = _object;
+            gridElement.ObjectOnGrid = _object;
         }
+
+        PlaceableObject placeableObject = _object.GetComponent<PlaceableObject>();
+        if (placeableObject != null)
+            placeableObject.placedOnGridElements = _gridElements;
+    }
+
+    public void PlaceObject(Placeable _object, Vector2Int _gridPosition)
+    {
+        GridElement gridElement = GetGridElement(_gridPosition);
+        GameObject newObj = Instantiate(_object.prefab, gridElement.transform.position + (Vector3)GetObjectOffset(_object), Quaternion.identity, transform);
+        List<GridElement> gridElements = GetGridElements(_gridPosition, _object.size);
+        PlaceObject(newObj, gridElements);
     }
 
     public bool IsObjectPlaceable(Placeable _object, List<GridElement> _gridElements)
     {
         foreach (GridElement gridElement in _gridElements)
         {
-            if (gridElement.objectOnGrid != null)
+            if (gridElement.ObjectOnGrid != null)
             {
                 return false;
             }
@@ -140,25 +182,25 @@ public class WorldGrid : MonoBehaviour
 
         if (_forceToGetElement)
         {
-            x = Mathf.Clamp(x, 0, gridSize.x - 1);
-            y = Mathf.Clamp(y, 0, gridSize.y - 1);
+            x = Mathf.Clamp(x, 0, GridSize.x - 1);
+            y = Mathf.Clamp(y, 0, GridSize.y - 1);
         }
-        else if (x < 0 || x >= gridSize.x || y < 0 || y >= gridSize.y)
+        else if (x < 0 || x >= GridSize.x || y < 0 || y >= GridSize.y)
         {
             return null;
         }
 
-        return grid[x][y];
+        return Grid[x][y];
     }
 
     public GridElement GetGridElement(Vector2Int _gridPosition)
     {
-        if (_gridPosition.x < 0 || _gridPosition.x >= gridSize.x || _gridPosition.y < 0 || _gridPosition.y >= gridSize.y)
+        if (_gridPosition.x < 0 || _gridPosition.x >= GridSize.x || _gridPosition.y < 0 || _gridPosition.y >= GridSize.y)
         {
             return null;
         }
 
-        return grid[_gridPosition.x][_gridPosition.y];
+        return Grid[_gridPosition.x][_gridPosition.y];
     }
 
     public Vector2 GetObjectOffset(Placeable _object)
@@ -181,7 +223,7 @@ public class WorldGrid : MonoBehaviour
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
 
-        grid = null;
+        Grid = null;
         ElementCount = 0;
     }
 }

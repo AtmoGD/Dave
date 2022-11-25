@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
 
             foreach (GridElement gridElement in CurrentPlaceableGridElements)
             {
-                gridElement.objectOnGrid = newObject;
+                gridElement.ObjectOnGrid = newObject;
             }
 
             Destroy(CurrentPlaceableVizualizer);

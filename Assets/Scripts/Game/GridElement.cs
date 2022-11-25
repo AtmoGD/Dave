@@ -9,7 +9,7 @@ public class GridElement : MonoBehaviour
     [SerializeField] private Animator animator = null;
     [SerializeField] public WorldGrid worldGrid = null;
     [SerializeField] public Vector2Int gridPosition = Vector2Int.zero;
-    [SerializeField] public GameObject objectOnGrid = null;
+    [field: SerializeField] public GameObject ObjectOnGrid { get; set; } = null;
 
     public void SetElementActive(bool _active)
     {

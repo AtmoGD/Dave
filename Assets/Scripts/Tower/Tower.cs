@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour, IDamagable, IInteractable
+public class Tower : PlaceableObject, IDamagable, IInteractable
 {
     [SerializeField] private TowerData towerData = null;
 
