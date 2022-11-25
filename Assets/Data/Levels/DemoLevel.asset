@@ -28,4 +28,6 @@ MonoBehaviour:
   levelSize: {x: 15, y: 45}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
-    gridPosition: {x: 12, y: 36}
+    gridPosition: {x: 4, y: 37}
+  - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
+    gridPosition: {x: 13, y: 26}

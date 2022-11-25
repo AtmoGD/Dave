@@ -12,13 +12,11 @@ public class GridEditor : Editor
     [SerializeField] private GameObject objectToPlace = null;
     public override void OnInspectorGUI()
     {
-
         base.OnInspectorGUI();
 
         WorldGrid worldGrid = (WorldGrid)target;
 
-        if (worldGrid.ElementCount <= 0)
-            worldGrid.InitGrid();
+        worldGrid.InitGrid();
 
         EditorGUILayout.LabelField("Number of Elements", worldGrid.ElementCount.ToString());
 
@@ -64,6 +62,7 @@ public class GridEditor : Editor
 
                 if (IsPlacing)
                 {
+                    IsDeleting = false;
                     objectToPlace = Instantiate(((Placeable)source).prefab, worldGrid.transform);
                 }
                 else
@@ -80,6 +79,11 @@ public class GridEditor : Editor
         if (GUILayout.Button("Delete Object"))
         {
             IsDeleting = !IsDeleting;
+
+            if (IsDeleting)
+            {
+                IsPlacing = false;
+            }
         }
 
         if (IsPlacing)
@@ -92,6 +96,7 @@ public class GridEditor : Editor
             GUILayout.Label("DELETING ACTIVE");
         }
 
+        ActiveEditorTracker.sharedTracker.isLocked = IsPlacing || IsDeleting;
     }
 
     public void OnSceneGUI()
@@ -109,73 +114,65 @@ public class GridEditor : Editor
 
         WorldGrid worldGrid = (WorldGrid)target;
 
-        if (PlaceObject != null && objectToPlace != null && IsPlacing)
+        worldGrid.InitGrid();
+
+        if (IsPlacing)
         {
-            Vector2 mousePosition = Event.current.mousePosition;
-            Vector2 worldPosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
-
-            worldGrid.InitGrid();
-
-            GridElement gridElement = worldGrid.GetGridElement(worldPosition, true);
-
-            objectToPlace.transform.position = gridElement.transform.position + (Vector3)worldGrid.GetObjectOffset(PlaceObject);
-
-            if (Event.current.type == EventType.MouseDown && IsPlacing)
+            if (PlaceObject)
             {
-                List<GridElement> gridElements = worldGrid.GetGridElements(gridElement.transform.position, PlaceObject.size);
+                Vector2 mousePosition = Event.current.mousePosition;
+                mousePosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
 
-                bool isPlaceable = worldGrid.IsObjectPlaceable(PlaceObject, gridElements);
+                GridElement gridElement = worldGrid.GetGridElement(mousePosition);
 
-                if (isPlaceable)
+                if (gridElement)
                 {
-                    objectToPlace.transform.parent = worldGrid.transform;
-                    worldGrid.PlaceObject(objectToPlace, gridElements);
-                    PlacedObject placedObject = new PlacedObject(PlaceObject, gridElement.gridPosition);
-                    worldGrid.LevelData.placedObjects.Add(placedObject);
+                    if (!objectToPlace)
+                        objectToPlace = Instantiate(((Placeable)source).prefab, worldGrid.transform);
+
+                    Vector2Int gridPosition = gridElement.gridPosition;
+
+                    Vector2 gridPositionWorld = gridElement.transform.position + (Vector3)worldGrid.GetObjectOffset(PlaceObject);
+
+                    objectToPlace.transform.position = gridPositionWorld;
+
+                    if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                    {
+                        worldGrid.PlaceObject(PlaceObject, gridPosition);
+                        worldGrid.LevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
+                        Event.current.Use();
+                    }
                 }
-                Event.current.Use();
+                else
+                {
+                    DestroyImmediate(objectToPlace);
+                }
             }
         }
-
-        if (IsDeleting)
+        else if (IsDeleting)
         {
-
-            Vector2 mousePosition = Event.current.mousePosition;
-            Vector2 worldPosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
-
-            worldGrid.InitGrid();
-
-            GridElement gridElement = worldGrid.GetGridElement(worldPosition, true);
-
-
-            if (Event.current.type == EventType.MouseDown || Event.current.type == EventType.MouseUp)
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
             {
-                Event.current.Use();
-                if (gridElement != null && gridElement.ObjectOnGrid != null)
+                Vector2 mousePosition = Event.current.mousePosition;
+                mousePosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
+
+                GridElement gridElement = worldGrid.GetGridElement(mousePosition);
+
+                if (gridElement && gridElement.ObjectOnGrid)
                 {
-                    GameObject objectToDelete = gridElement.ObjectOnGrid;
-
                     PlaceableObject placeableObject = gridElement.ObjectOnGrid.GetComponent<PlaceableObject>();
-                    if (placeableObject != null)
+                    if (placeableObject)
                     {
-                        foreach (GridElement gridElem in placeableObject.placedOnGridElements)
+                        PlacedObject placed = worldGrid.LevelData.placedObjects.Find(x => x.gridPosition == placeableObject.gridElement.gridPosition);
+                        if (placed != null)
                         {
-                            gridElem.ObjectOnGrid = null;
+                            worldGrid.LevelData.placedObjects.Remove(placed);
+                            DestroyImmediate(placeableObject.gameObject);
+                            worldGrid.LoadLevel();
                         }
                     }
-
-                    foreach (PlacedObject placedObject in worldGrid.LevelData.placedObjects)
-                    {
-                        List<GridElement> placedGridElements = worldGrid.GetGridElements(placedObject.gridPosition, placedObject.placeable.size);
-                        if (placedGridElements.Contains(gridElement))
-                        {
-                            worldGrid.LevelData.placedObjects.Remove(placedObject);
-                            break;
-                        }
-                    }
-
-                    DestroyImmediate(objectToDelete);
                 }
+                Event.current.Use();
             }
         }
     }

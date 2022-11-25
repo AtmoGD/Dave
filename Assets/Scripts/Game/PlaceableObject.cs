@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class PlaceableObject : MonoBehaviour
 {
+    public GridElement gridElement = null;
     public List<GridElement> placedOnGridElements = new List<GridElement>();
 }
