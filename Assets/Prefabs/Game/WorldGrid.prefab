@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644506921571621018}
   - component: {fileID: 8619884047830169670}
+  - component: {fileID: 7237744973109106303}
   m_Layer: 0
   m_Name: WorldGrid
   m_TagString: Untagged
@@ -50,9 +51,22 @@ MonoBehaviour:
   <PlacedObjects>k__BackingField: []
   <GridElementsParent>k__BackingField: {fileID: 1098587909022831156}
   <ObjectParent>k__BackingField: {fileID: 1773259980877728074}
+  <Pathfinder>k__BackingField: {fileID: 7237744973109106303}
   gridElementPrefab: {fileID: 7037534421590848978, guid: 8d0ad881a27bfa7498cdec0f0b7a6541, type: 3}
   gridElementSize: {x: 2, y: 1}
   isometricRatio: {x: 2, y: 1}
+--- !u!114 &7237744973109106303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419935735643700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c85069b9089a042935e46a70cded3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6830887807467288957
 GameObject:
   m_ObjectHideFlags: 0
