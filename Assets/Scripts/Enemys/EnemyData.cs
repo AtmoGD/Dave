@@ -13,4 +13,7 @@ public class EnemyData : ScriptableObject
     public int health = 100;
     public int damage = 10;
     public int experience = 10;
+    public float speed = 3f;
+    public float moveThreshold = 1f;
+    public float recalculatePathTime = 0.5f;
 }

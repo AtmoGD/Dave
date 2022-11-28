@@ -17,10 +17,10 @@ MonoBehaviour:
   spawnRadius: 2
   waves:
   - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
-    amountMin: 2
-    amountMax: 4
+    amountMin: 1
+    amountMax: 3
     cooldown: 15
   - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
     amountMin: 1
-    amountMax: 5
+    amountMax: 8
     cooldown: 20

@@ -8,6 +8,7 @@ using Cinemachine;
 public class Nekromancer : MonoBehaviour
 {
     public Action<IInteractable> OnInteract;
+    public Action<Vector2> OnMove;
 
     #region References
     [SerializeField] public Rigidbody2D rb = null;
@@ -217,6 +218,9 @@ public class Nekromancer : MonoBehaviour
         Vector2 newVelocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
         newVelocity = Vector2.Lerp(rb.velocity, newVelocity, stats.accleleration * Time.deltaTime);
         rb.velocity = newVelocity;
+
+        if (rb.velocity.magnitude > stats.velocityActionThreshold)
+            OnMove?.Invoke(rb.velocity);
     }
 
     public void Look()

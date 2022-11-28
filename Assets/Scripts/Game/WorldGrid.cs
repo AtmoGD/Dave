@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
+using Unity.Collections;
 using System;
+using Unity.Jobs;
+
 
 [Serializable]
 public class WorldGrid : MonoBehaviour
@@ -10,6 +14,7 @@ public class WorldGrid : MonoBehaviour
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
+    [field: SerializeField] public Pathfinding Pathfinder { get; private set; } = null;
     [SerializeField] private GameObject gridElementPrefab = null;
     [SerializeField] private Vector2 gridElementSize = new Vector2(2f, 1f);
     [SerializeField] private Vector2 isometricRatio = new Vector2(2f, 1f);
@@ -18,6 +23,41 @@ public class WorldGrid : MonoBehaviour
     public Vector2Int GridSize => LevelData.levelSize;
     public int ElementCount { get; private set; }
     public Vector2 ElementSize => new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
+
+    // private void Start()
+    // {
+    //     InitGrid();
+    // }
+
+    public List<Vector2Int> FindPath(Vector2Int _startPos, Vector2Int _targetPos)
+    {
+        NativeArray<Pathfinding.GridStruct> gridElems = Pathfinder.ConvertGridToPathNodes(Grid);
+        NativeList<int2> pathList = new NativeList<int2>(gridElems.Length, Allocator.Persistent);
+
+        Pathfinding.FindPathJob findPathJob = new Pathfinding.FindPathJob
+        {
+            startPos = new int2(_startPos.x, _startPos.y),
+            targetPos = new int2(_targetPos.x, _targetPos.y),
+            gridElements = gridElems,
+            gridSize = new int2(GridSize.x, GridSize.y),
+            path = pathList
+        };
+
+        findPathJob.Run();
+
+        List<Vector2Int> path = new List<Vector2Int>();
+
+        for (int i = 0; i < findPathJob.path.Length; i++)
+        {
+            path.Add(new Vector2Int(findPathJob.path[i].x, findPathJob.path[i].y));
+        }
+
+        findPathJob.path.Dispose();
+        findPathJob.gridElements.Dispose();
+
+        return path;
+    }
+
 
     [ExecuteAlways]
     public void LoadLevel()

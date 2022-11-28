@@ -16,6 +16,7 @@ public class NekromancerData : ScriptableObject
 
     public float interactRadius = 1f;
     public float moveThreshold = 0.1f;
+    public float velocityActionThreshold = 0.1f;
     public float lookThreshold = 0.1f;
     public float accleleration = 0.1f;
 }
