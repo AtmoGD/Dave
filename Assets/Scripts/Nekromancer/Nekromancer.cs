@@ -14,7 +14,6 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Collider2D col = null;
     [SerializeField] public Animator animator = null;
     [SerializeField] public List<Transform> gunPoints = null;
-    // [SerializeField] public Transform interactPoint = null;
     #endregion
 
     #region Data
@@ -36,7 +35,6 @@ public class Nekromancer : MonoBehaviour
 
     #region Private Variables
     private PlayerController playerController = null;
-    // private InputController inputController = null;
     private InputData currentInput = null;
     private Skill baseSkill = null;
     private Skill baseChargeSkill = null;
@@ -68,14 +66,18 @@ public class Nekromancer : MonoBehaviour
     public PlayerController PlayerController { get { return playerController; } }
     public InputController InputController { get; set; }
     public InputData CurrentInput { get => currentInput; }
+
     public Skill BaseSkill { get => baseSkill; }
     public SkillData BaseSkillData { get => baseSkillData; }
+
     public Skill FirstSkill { get => firstSkill; }
     public SkillData FirstSkillData { get => firstSkillData; }
     public bool CanUseFirstSkill { get => firstSkillData.CanBeUsed(this); }
+
     public Skill SecondSkill { get => secondSkill; }
     public SkillData SecondSkillData { get => secondSkillData; }
     public bool CanUseSecondSkill { get => secondSkillData.CanBeUsed(this); }
+
     public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
     public List<Cooldown> Cooldowns { get { return cooldowns; } }
     #endregion
@@ -142,6 +144,16 @@ public class Nekromancer : MonoBehaviour
         currentSkill = _skill;
         currentSkill.Enter(this, _skillData);
     }
+    #endregion
+
+    #region Update Stats
+    public void AddMaxHealth(int _amount) { stats.health += _amount; }
+    public void AddMaxMana(int _amount) { stats.mana += _amount; }
+    public void AddDamage(float _damage) { Damage += _damage; }
+    public void AddSpeed(float _speed) { Speed += _speed; }
+    public void AddLookSpeed(float _lookSpeed) { LookSpeed += _lookSpeed; }
+    public void AddAttackSpeed(float _attackSpeed) { AttackSpeed += _attackSpeed; }
+    public void AddAttackRange(float _attackRange) { AttackRange += _attackRange; }
     #endregion
 
     #region Check Methods

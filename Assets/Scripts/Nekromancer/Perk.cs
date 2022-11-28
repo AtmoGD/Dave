@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Perk : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string perkName;
+    public string perkDescription;
 
-    // Update is called once per frame
-    void Update()
+    protected PlayerController player;
+
+    public virtual void ActivatePerk(PlayerController _player)
     {
-        
+        player = _player;
     }
 }

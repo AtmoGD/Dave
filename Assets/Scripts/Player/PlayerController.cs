@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GridElement CurrentGridElement { get; private set; }
     public GridElement LastGridElement { get; private set; }
     public CursorController Cursor { get { return cursor; } }
+    public List<Perk> Perks { get; private set; } = new List<Perk>();
     public Placeable CurrentPlaceable { get; private set; }
     public GameObject CurrentPlaceableVizualizer { get; private set; }
     public Animator VizualizerAnimator { get; private set; }
