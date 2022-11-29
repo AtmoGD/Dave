@@ -210,6 +210,8 @@ public class PlayerController : MonoBehaviour
 
         inputController.OnInteract += Interact;
         inputController.OnCancel += Cancel;
+
+        UpdateGrid(inputController.InputData.CursorPosition);
     }
 
     public void StartCombatMode()

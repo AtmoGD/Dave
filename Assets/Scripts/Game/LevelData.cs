@@ -12,15 +12,14 @@ public class PlacedObject
         this.gridPosition = gridPosition;
     }
 
-    public Placeable placeable = null;
-    public Vector2Int gridPosition = Vector2Int.zero;
+    [SerializeField] public Placeable placeable = null;
+    [SerializeField] public Vector2Int gridPosition = Vector2Int.zero;
 }
 
-[CreateAssetMenu(fileName = "Level", menuName = "Game/Level")]
+[CreateAssetMenu(fileName = "Level", menuName = "Game/Level"), Serializable]
 public class LevelData : ScriptableObject
 {
-    public List<CycleState> cycleStates = new List<CycleState>();
-
-    public Vector2Int levelSize = new Vector2Int(10, 10);
-    public List<PlacedObject> placedObjects = new List<PlacedObject>();
+    [SerializeField] public List<CycleState> cycleStates = new List<CycleState>();
+    [SerializeField] public Vector2Int levelSize = new Vector2Int(10, 10);
+    [SerializeField] public List<PlacedObject> placedObjects = new List<PlacedObject>();
 }

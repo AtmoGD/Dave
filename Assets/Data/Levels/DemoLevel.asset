@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 10
+    duration: 50
   - cycle: 1
     duration: 10
   - cycle: 0
@@ -29,5 +29,7 @@ MonoBehaviour:
   placedObjects:
   - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
     gridPosition: {x: 4, y: 37}
-  - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
-    gridPosition: {x: 13, y: 26}
+  - placeable: {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
+    gridPosition: {x: 6, y: 31}
+  - placeable: {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
+    gridPosition: {x: 3, y: 32}
