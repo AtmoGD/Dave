@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
         CurrentPlaceableGridElements = new List<GridElement>();
         nekromancer.InputController = inputController;
         nekromancer.Init(this);
+
+        StartCombatMode();
     }
 
     public void LoadData(string _path)
