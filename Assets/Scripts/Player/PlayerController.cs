@@ -44,6 +44,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Error during load data: " + e);
         }
 
+        if (playerData == null)
+        {
+            playerData = new PlayerData();
+            DataLoader.SaveData(playerData, dataPath);
+            Debug.LogError("Player data is null");
+        }
+
         LevelManager levelManager = _levelManager as LevelManager;
         if (levelManager != null)
         {
