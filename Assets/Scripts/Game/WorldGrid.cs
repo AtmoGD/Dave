@@ -24,10 +24,10 @@ public class WorldGrid : MonoBehaviour
     public int ElementCount { get; private set; }
     public Vector2 ElementSize => new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
 
-    // private void Start()
-    // {
-    //     InitGrid();
-    // }
+    private void Start()
+    {
+        LoadLevel();
+    }
 
     public List<Vector2Int> FindPath(Vector2Int _startPos, Vector2Int _targetPos)
     {
