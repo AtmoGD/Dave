@@ -49,14 +49,14 @@ public class Enemy : MonoBehaviour, IDamagable
         levelManager.RemoveEnemy(this);
     }
 
-    // private void Update()
-    // {
-    //     UpdatePath();
-    //     MoveToPath();
+    private void Update()
+    {
+        UpdatePath();
+        MoveToPath();
 
-    //     if (visualizePath)
-    //         VisualizePath();
-    // }
+        if (visualizePath)
+            VisualizePath();
+    }
 
     public void MoveToNekromancer()
     {
@@ -64,62 +64,62 @@ public class Enemy : MonoBehaviour, IDamagable
         rb.velocity = direction * data.speed;
     }
 
-    // public void MoveToPath()
-    // {
-    //     if (path.Count == 0)
-    //         return;
+    public void MoveToPath()
+    {
+        if (path.Count == 0)
+            return;
 
-    //     Vector2 direction = (currentTarget - (Vector2)transform.position).normalized;
-    //     rb.velocity = direction * data.speed;
+        Vector2 direction = (currentTarget - (Vector2)transform.position).normalized;
+        rb.velocity = direction * data.speed;
 
-    //     if (Vector2.Distance(transform.position, currentTarget) < data.moveThreshold)
-    //     {
-    //         pathIndex--;
+        if (Vector2.Distance(transform.position, currentTarget) < data.moveThreshold)
+        {
+            pathIndex--;
 
-    //         CalculateTarget();
-    //     }
-    // }
+            CalculateTarget();
+        }
+    }
 
-    // public void VisualizePath()
-    // {
-    //     for (int i = 0; i < path.Count - 1; i++)
-    //     {
-    //         Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
-    //         Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
+    public void VisualizePath()
+    {
+        for (int i = 0; i < path.Count - 1; i++)
+        {
+            Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
+            Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
 
-    //         Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
-    //         Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
+            Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
+            Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
 
-    //         Debug.DrawLine(pos, nextPos, Color.red);
-    //     }
-    // }
+            Debug.DrawLine(pos, nextPos, Color.red);
+        }
+    }
 
-    // public void UpdatePath()
-    // {
-    //     if (Time.time - lastRecalculate < data.recalculatePathTime)
-    //         return;
+    public void UpdatePath()
+    {
+        if (Time.time - lastRecalculate < data.recalculatePathTime)
+            return;
 
-    //     GridElement enemyGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
-    //     GridElement nekromancerGrid = levelManager.WorldGrid.GetGridElement(nekromancer.transform.position, true);
-    //     path = levelManager.WorldGrid.FindPath(enemyGrid.gridPosition, nekromancerGrid.gridPosition);
-    //     pathIndex = path.Count - 1;
-    //     lastRecalculate = Time.time;
-    //     CalculateTarget();
-    // }
+        GridElement enemyGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
+        GridElement nekromancerGrid = levelManager.WorldGrid.GetGridElement(nekromancer.transform.position, true);
+        path = levelManager.WorldGrid.FindPath(enemyGrid.gridPosition, nekromancerGrid.gridPosition);
+        pathIndex = path.Count - 1;
+        lastRecalculate = Time.time;
+        CalculateTarget();
+    }
 
-    // public void CalculateTarget()
-    // {
-    //     if (pathIndex > 0)
-    //     {
-    //         Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
-    //         Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
-    //         currentTarget = (newTarget + secondNewTarget) / 2;
-    //     }
-    //     else
-    //     {
-    //         currentTarget = nekromancer.transform.position;
-    //     }
-    // }
+    public void CalculateTarget()
+    {
+        if (pathIndex > 0)
+        {
+            Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
+            Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
+            currentTarget = (newTarget + secondNewTarget) / 2;
+        }
+        else
+        {
+            currentTarget = nekromancer.transform.position;
+        }
+    }
 
     public void TakeDamage(int _damage)
     {
