@@ -12,6 +12,9 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private GameObject minionContent = null;
     [SerializeField] private GameObject minionPanelPrefab = null;
 
+    bool buildMenuOpen = false;
+    bool minionMenuOpen = false;
+
     private void Start()
     {
         buildMenu.SetActive(false);
@@ -21,21 +24,25 @@ public class PlayerUIController : MonoBehaviour
     public void OpenBuildingsMenu()
     {
         buildMenu.SetActive(true);
+        buildMenuOpen = true;
     }
 
     public void CloseBuildingsMenu()
     {
         buildMenu.SetActive(false);
+        buildMenuOpen = false;
     }
 
     public void OpenMinionsMenu()
     {
         minionMenu.SetActive(true);
+        minionMenuOpen = true;
     }
 
     public void CloseMinionsMenu()
     {
         minionMenu.SetActive(false);
+        minionMenuOpen = false;
     }
 
     public void CLoseAllMenus()

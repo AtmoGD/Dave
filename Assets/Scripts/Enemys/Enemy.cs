@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
+    [SerializeField] private bool visualizePath = true;
+
     [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected Animator animator = null;
     [SerializeField] private EnemyData data = null;
@@ -22,6 +24,8 @@ public class Enemy : MonoBehaviour, IDamagable
 
     Vector2 currentTarget = Vector2.zero;
     float lastRecalculate = 0f;
+
+    List<GridElement> gridElements = new List<GridElement>();
 
     public void Init(EnemyData _data)
     {
@@ -49,6 +53,9 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         UpdatePath();
         MoveToPath();
+
+        if (visualizePath)
+            VisualizePath();
     }
 
     public void MoveToNekromancer()
@@ -73,13 +80,27 @@ public class Enemy : MonoBehaviour, IDamagable
         }
     }
 
+    public void VisualizePath()
+    {
+        for (int i = 0; i < path.Count - 1; i++)
+        {
+            Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
+            Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
+
+            Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
+            Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
+
+            Debug.DrawLine(pos, nextPos, Color.red);
+        }
+    }
+
     public void UpdatePath()
     {
         if (Time.time - lastRecalculate < data.recalculatePathTime)
             return;
 
-        GridElement enemyGrid = levelManager.WorldGrid.GetGridElement(transform.position);
-        GridElement nekromancerGrid = levelManager.WorldGrid.GetGridElement(nekromancer.transform.position);
+        GridElement enemyGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
+        GridElement nekromancerGrid = levelManager.WorldGrid.GetGridElement(nekromancer.transform.position, true);
         path = levelManager.WorldGrid.FindPath(enemyGrid.gridPosition, nekromancerGrid.gridPosition);
         pathIndex = path.Count - 1;
         lastRecalculate = Time.time;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141802126518186974}
   - component: {fileID: 4486701263951520860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 3926431052614429297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1394348098287923802}
   m_RootOrder: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5719900452482402902}
   - component: {fileID: 2452735469617825875}
   - component: {fileID: 110182661514853895}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BookOfMinions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 141802126518186974}
-  - {fileID: 2862253463652615877}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,8 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  minion: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
-  spawnMinionUI: {fileID: 8004726594103054169}
 --- !u!50 &2452735469617825875
 Rigidbody2D:
   serializedVersion: 4
@@ -181,174 +178,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.009583473, y: 0.5016823}
-      - {x: -0.998972, y: 0.0119436085}
-      - {x: 0.006362498, y: -0.5023612}
-      - {x: 0.98068964, y: 0.005539179}
---- !u!1001 &4063710763792740500
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1394348098287923802}
-    m_Modifications:
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5719900452482402902}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnMinion
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BookOfMinions, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309007091815024969, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5719900452482402902}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnMinion
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BookOfMinions, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735336962892561551, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6301577141644345293, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_Name
-      value: SpawnMinionUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6301577141644345293, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
---- !u!224 &2862253463652615877 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2296263192032671313, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-  m_PrefabInstance: {fileID: 4063710763792740500}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8004726594103054169 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6301577141644345293, guid: f228eb9d8358cc2498c3e246773bf9d4, type: 3}
-  m_PrefabInstance: {fileID: 4063710763792740500}
-  m_PrefabAsset: {fileID: 0}
+    - - {x: 0.009834707, y: 0.8771008}
+      - {x: -1.7886453, y: -0.0010018796}
+      - {x: -0.019528449, y: -0.8777796}
+      - {x: 1.7833084, y: 0.012011901}

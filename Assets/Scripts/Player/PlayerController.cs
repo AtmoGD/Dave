@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CursorController cursor = null;
     [SerializeField] private CinemachineVirtualCamera nekromancerCamera = null;
     [SerializeField] private CinemachineVirtualCamera cursorCamera = null;
-    [SerializeField] private PlayerUIController UIController = null;
+    [field: SerializeField] public PlayerUIController UIController { get; private set; } = null;
 
     public LevelManager LevelManager { get; private set; }
     public PlayerData PlayerData => playerData;
@@ -33,11 +33,15 @@ public class PlayerController : MonoBehaviour
 
     public void Init(GameManager _levelManager)
     {
-        playerData = DataLoader.LoadData<PlayerData>(dataPath);
-        if (playerData == null)
+        try
+        {
+            playerData = DataLoader.LoadData<PlayerData>(dataPath);
+        }
+        catch (System.Exception e)
         {
             playerData = new PlayerData();
             DataLoader.SaveData(playerData, dataPath);
+            Debug.Log("Error during load data: " + e);
         }
 
         LevelManager levelManager = _levelManager as LevelManager;
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager = levelManager;
             WorldGrid = levelManager.WorldGrid;
-            LevelManager.OnCycleChanged += ChangeDayTime;
+            // LevelManager.OnCycleChanged += ChangeDayTime;
         }
 
         if (!nekromancer)
@@ -72,62 +76,62 @@ public class PlayerController : MonoBehaviour
         DataLoader.SaveData<PlayerData>(playerData, _path);
     }
 
-    public void ChangeDayTime(CycleState _cycleState)
-    {
-        switch (_cycleState.Cycle)
-        {
-            case Cycle.Day:
-                StartDay();
-                break;
+    // public void ChangeDayTime(CycleState _cycleState)
+    // {
+    //     switch (_cycleState.Cycle)
+    //     {
+    //         case Cycle.Day:
+    //             StartDay();
+    //             break;
 
-            case Cycle.Night:
-                StartNight();
-                break;
-        }
-    }
+    //         case Cycle.Night:
+    //             StartNight();
+    //             break;
+    //     }
+    // }
 
-    private void StartDay()
-    {
-        inputController.ChangeActionMap(dayActionMap);
+    // private void StartDay()
+    // {
+    //     inputController.ChangeActionMap(dayActionMap);
 
-        nekromancerCamera.Priority = 0;
-        nekromancer.InputController = null;
+    //     nekromancerCamera.Priority = 0;
+    //     nekromancer.InputController = null;
 
-        cursorCamera.Priority = 1;
-        cursor.SetCursorActive(true);
+    //     cursorCamera.Priority = 1;
+    //     cursor.SetCursorActive(true);
 
-        cursor.OnCursorMoved += UpdateGrid;
+    //     cursor.OnCursorMoved += UpdateGrid;
 
-        inputController.OnInteract += Interact;
-        inputController.OnOpenBuildMenu += OpenBuildingsMenu;
-        inputController.OnOpenMinionMenu += OpenMinionsMenu;
-        inputController.OnCancel += Cancel;
+    //     inputController.OnInteract += Interact;
+    //     inputController.OnOpenBuildMenu += OpenBuildingsMenu;
+    //     inputController.OnOpenMinionMenu += OpenMinionsMenu;
+    //     inputController.OnCancel += Cancel;
 
-    }
+    // }
 
-    private void StartNight()
-    {
-        inputController.ChangeActionMap(nightActionMap);
+    // private void StartNight()
+    // {
+    //     inputController.ChangeActionMap(nightActionMap);
 
-        nekromancerCamera.Priority = 1;
-        nekromancer.InputController = inputController;
+    //     nekromancerCamera.Priority = 1;
+    //     nekromancer.InputController = inputController;
 
-        cursorCamera.Priority = 0;
-        cursor.SetCursorActive(false);
+    //     cursorCamera.Priority = 0;
+    //     cursor.SetCursorActive(false);
 
-        // This will reset the selected GridElement
-        UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
+    //     // This will reset the selected GridElement
+    //     UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
 
-        cursor.OnCursorMoved -= UpdateGrid;
+    //     cursor.OnCursorMoved -= UpdateGrid;
 
-        inputController.OnInteract -= Interact;
-        inputController.OnOpenBuildMenu -= OpenBuildingsMenu;
-        inputController.OnOpenMinionMenu -= OpenMinionsMenu;
-        inputController.OnCancel -= Cancel;
+    //     inputController.OnInteract -= Interact;
+    //     inputController.OnOpenBuildMenu -= OpenBuildingsMenu;
+    //     inputController.OnOpenMinionMenu -= OpenMinionsMenu;
+    //     inputController.OnCancel -= Cancel;
 
-        // Close menus if the night startet while they were open
-        Cancel(null);
-    }
+    //     // Close menus if the night startet while they were open
+    //     Cancel(null);
+    // }
 
     private void UpdateGrid(Vector2 _position)
     {
@@ -183,8 +187,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StartBuildingMode()
+    {
+        inputController.ChangeActionMap(dayActionMap);
+
+        nekromancerCamera.Priority = 0;
+        nekromancer.InputController = null;
+
+        cursorCamera.Priority = 1;
+        cursor.SetCursorActive(true);
+
+        cursor.OnCursorMoved += UpdateGrid;
+
+        inputController.OnInteract += Interact;
+        inputController.OnCancel += Cancel;
+    }
+
+    public void StartCombatMode()
+    {
+        inputController.ChangeActionMap(nightActionMap);
+
+        nekromancerCamera.Priority = 1;
+        nekromancer.InputController = inputController;
+
+        cursorCamera.Priority = 0;
+        cursor.SetCursorActive(false);
+
+        // This will reset the selected GridElement
+        UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
+
+        cursor.OnCursorMoved -= UpdateGrid;
+
+        inputController.OnInteract -= Interact;
+        inputController.OnCancel -= Cancel;
+
+        // Close menus if the night startet while they were open
+        Cancel(null);
+    }
+
     public void PlaceObject(Placeable _object)
     {
+        StartBuildingMode();
+
         CurrentPlaceable = _object;
         Vector3 objectOffset = LevelManager.WorldGrid.GetObjectOffset(CurrentPlaceable);
 
@@ -214,18 +258,20 @@ public class PlayerController : MonoBehaviour
             CurrentPlaceableVizualizer = null;
             CurrentPlaceable = null;
             CurrentPlaceableGridElements.Clear();
+
+            StartCombatMode();
         }
     }
 
-    private void OpenBuildingsMenu(InputData _input)
-    {
-        UIController.OpenBuildingsMenu();
-    }
+    // private void OpenBuildingsMenu(InputData _input)
+    // {
+    //     UIController.OpenBuildingsMenu();
+    // }
 
-    private void OpenMinionsMenu(InputData _input)
-    {
-        UIController.OpenMinionsMenu();
-    }
+    // private void OpenMinionsMenu(InputData _input)
+    // {
+    //     UIController.OpenMinionsMenu();
+    // }
 
     private void Cancel(InputData _input)
     {
