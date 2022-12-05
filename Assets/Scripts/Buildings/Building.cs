@@ -15,4 +15,9 @@ public class Building : MonoBehaviour, IInteractable
     {
         Debug.Log("Interacting with building");
     }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
 }

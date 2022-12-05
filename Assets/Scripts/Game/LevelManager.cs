@@ -6,10 +6,26 @@ using System;
 public class LevelManager : GameManager
 {
     public Action<CycleState> OnCycleChanged;
+    public Action AddedTower;
 
     [Header("Level Manager")]
     private LevelData levelData = null;
+    public Crystal crystal = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
+    public List<PlaceableObject> towers = new List<PlaceableObject>();
+    public List<FarmTower> FarmTower { get { return towers.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
+
+    // public List<FarmTower> FarmTower {
+    //     get {
+    //         List<FarmTower> farmTowers = new List<FarmTower>();
+    //         foreach (PlaceableObject tower in towers) {
+    //             if (tower is FarmTower) {
+    //                 farmTowers.Add(tower as FarmTower);
+    //             }
+    //         }
+    //         return  farmTowers;
+    //     }
+    // }
     private int enemyCount = 0;
     private int currentCycle = 0;
 
@@ -65,6 +81,21 @@ public class LevelManager : GameManager
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
+    public void AddCrystal(Crystal crystal)
+    {
+        if(this.crystal != null)
+        {
+            Debug.LogError("LevelManager: Crystal already exists");
+        }
+        
+        this.crystal = crystal;
+    }
+
+    public void RemoveCrystal(Crystal crystal)
+    {
+        this.crystal = null;
+    }
+
     public void AddEnemy(IDamagable enemy)
     {
         this.activeEnemies.Add(enemy);
@@ -74,5 +105,16 @@ public class LevelManager : GameManager
     public void RemoveEnemy(IDamagable enemy)
     {
         this.activeEnemies.Remove(enemy);
+    }
+
+    public void AddTower(PlaceableObject tower)
+    {
+        this.towers.Add(tower);
+        this.AddedTower?.Invoke();
+    }
+
+    public void RemoveTower(PlaceableObject tower)
+    {
+        this.towers.Remove(tower);
     }
 }

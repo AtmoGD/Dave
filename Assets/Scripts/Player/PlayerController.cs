@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager = levelManager;
             WorldGrid = levelManager.WorldGrid;
-            // LevelManager.OnCycleChanged += ChangeDayTime;
+            LevelManager.OnCycleChanged += ChangeDayTime;
         }
 
         if (!nekromancer)
@@ -85,62 +85,63 @@ public class PlayerController : MonoBehaviour
         DataLoader.SaveData<PlayerData>(playerData, _path);
     }
 
-    // public void ChangeDayTime(CycleState _cycleState)
-    // {
-    //     switch (_cycleState.Cycle)
-    //     {
-    //         case Cycle.Day:
-    //             StartDay();
-    //             break;
+    public void ChangeDayTime(CycleState _cycleState)
+    {
+        switch (_cycleState.Cycle)
+        {
+            case Cycle.Day:
+                StartDay();
+                break;
 
-    //         case Cycle.Night:
-    //             StartNight();
-    //             break;
-    //     }
-    // }
+            case Cycle.Night:
+                StartNight();
+                break;
+        }
+    }
 
-    // private void StartDay()
-    // {
-    //     inputController.ChangeActionMap(dayActionMap);
+    private void StartDay()
+    {
+        // inputController.ChangeActionMap(dayActionMap);
 
-    //     nekromancerCamera.Priority = 0;
-    //     nekromancer.InputController = null;
+        // nekromancerCamera.Priority = 0;
+        // nekromancer.InputController = null;
 
-    //     cursorCamera.Priority = 1;
-    //     cursor.SetCursorActive(true);
+        // cursorCamera.Priority = 1;
+        // cursor.SetCursorActive(true);
 
-    //     cursor.OnCursorMoved += UpdateGrid;
+        // cursor.OnCursorMoved += UpdateGrid;
 
-    //     inputController.OnInteract += Interact;
-    //     inputController.OnOpenBuildMenu += OpenBuildingsMenu;
-    //     inputController.OnOpenMinionMenu += OpenMinionsMenu;
-    //     inputController.OnCancel += Cancel;
+        // inputController.OnInteract += Interact;
+        // inputController.OnOpenBuildMenu += OpenBuildingsMenu;
+        // inputController.OnOpenMinionMenu += OpenMinionsMenu;
+        // inputController.OnCancel += Cancel;
 
-    // }
+    }
 
-    // private void StartNight()
-    // {
-    //     inputController.ChangeActionMap(nightActionMap);
+    private void StartNight()
+    {
+        StartCombatMode();
+        // inputController.ChangeActionMap(nightActionMap);
 
-    //     nekromancerCamera.Priority = 1;
-    //     nekromancer.InputController = inputController;
+        // nekromancerCamera.Priority = 1;
+        // nekromancer.InputController = inputController;
 
-    //     cursorCamera.Priority = 0;
-    //     cursor.SetCursorActive(false);
+        // cursorCamera.Priority = 0;
+        // cursor.SetCursorActive(false);
 
-    //     // This will reset the selected GridElement
-    //     UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
+        // // This will reset the selected GridElement
+        // UpdateGrid(new Vector2(int.MaxValue, int.MaxValue));
 
-    //     cursor.OnCursorMoved -= UpdateGrid;
+        // cursor.OnCursorMoved -= UpdateGrid;
 
-    //     inputController.OnInteract -= Interact;
-    //     inputController.OnOpenBuildMenu -= OpenBuildingsMenu;
-    //     inputController.OnOpenMinionMenu -= OpenMinionsMenu;
-    //     inputController.OnCancel -= Cancel;
+        // inputController.OnInteract -= Interact;
+        // inputController.OnOpenBuildMenu -= OpenBuildingsMenu;
+        // inputController.OnOpenMinionMenu -= OpenMinionsMenu;
+        // inputController.OnCancel -= Cancel;
 
-    //     // Close menus if the night startet while they were open
-    //     Cancel(null);
-    // }
+        // Close menus if the night startet while they were open
+        Cancel(null);
+    }
 
     private void UpdateGrid(Vector2 _position)
     {
@@ -208,8 +209,8 @@ public class PlayerController : MonoBehaviour
 
         cursor.OnCursorMoved += UpdateGrid;
 
-        inputController.OnInteract += Interact;
-        inputController.OnCancel += Cancel;
+        inputController.OnInteractStart += Interact;
+        // inputController.OnCancel += Cancel;
 
         UpdateGrid(inputController.InputData.CursorPosition);
     }
@@ -229,8 +230,8 @@ public class PlayerController : MonoBehaviour
 
         cursor.OnCursorMoved -= UpdateGrid;
 
-        inputController.OnInteract -= Interact;
-        inputController.OnCancel -= Cancel;
+        inputController.OnInteractStart -= Interact;
+        // inputController.OnCancel -= Cancel;
 
         // Close menus if the night startet while they were open
         Cancel(null);
@@ -245,6 +246,20 @@ public class PlayerController : MonoBehaviour
 
         CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position + objectOffset, Quaternion.identity);
         VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
+    }
+
+    public void PlaceMinion(MinionData _minionData)
+    {
+        Vector3 position = nekromancer.CurrentInteractable.GetTransform().position + Random.insideUnitSphere * _minionData.spawnRadiusAroundTower;
+        GameObject placeableObject = Instantiate(_minionData.prefab, position, Quaternion.identity);
+
+        nekromancer.ResetInteractable();
+
+        nekromancer.AddCooldown(new Cooldown("Interact", 0.5f));
+
+        Cursor.SetCursorActive(false);
+
+        Cancel(null);
     }
 
 
@@ -270,23 +285,40 @@ public class PlayerController : MonoBehaviour
             CurrentPlaceable = null;
             CurrentPlaceableGridElements.Clear();
 
+            nekromancer.ResetInteractable();
+
             StartCombatMode();
         }
     }
 
-    // private void OpenBuildingsMenu(InputData _input)
-    // {
-    //     UIController.OpenBuildingsMenu();
-    // }
+    public void OpenBuildingsMenu(InputData _input = null)
+    {
+        UIController.OpenBuildingsMenu();
 
-    // private void OpenMinionsMenu(InputData _input)
-    // {
-    //     UIController.OpenMinionsMenu();
-    // }
+        inputController.ResetInteract();
+
+        cursor.SetCursorActive(true);
+
+        inputController.OnCancel += Cancel;
+    }
+
+    public void OpenMinionsMenu(InputData _input = null)
+    {
+        UIController.OpenMinionsMenu();
+
+        inputController.ResetInteract();
+
+        cursor.SetCursorActive(true);
+
+        inputController.OnCancel += Cancel;
+    }
 
     private void Cancel(InputData _input)
     {
         UIController.CLoseAllMenus();
+
         CurrentPlaceable = null;
+
+        inputController.OnCancel -= Cancel;
     }
 }

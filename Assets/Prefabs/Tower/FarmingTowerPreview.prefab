@@ -111,7 +111,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1813519139595572924}
   - component: {fileID: 1524357658366308315}
-  - component: {fileID: 1127315458166481553}
   - component: {fileID: 7081614333116687673}
   - component: {fileID: -2762735643393063094}
   m_Layer: 11
@@ -158,21 +157,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1127315458166481553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3865669036092226653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce6fbc7be54c6f42ac4256aa447f2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridElement: {fileID: 0}
-  placedOnGridElements: []
-  towerData: {fileID: 11400000, guid: e19bd33f88dafea45b21f572ad9c54a4, type: 2}
 --- !u!60 &7081614333116687673
 PolygonCollider2D:
   m_ObjectHideFlags: 0

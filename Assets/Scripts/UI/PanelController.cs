@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class PanelController : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private PlayerUIController playerUIController;
-    [SerializeField] private Placeable data;
-    [SerializeField] private TMP_Text placeableName;
-    [SerializeField] private TMP_Text placeableDescription;
-    [SerializeField] private TMP_Text placeableCost;
-    [SerializeField] private Button placeButton;
+    [SerializeField] protected PlayerController playerController;
+    [SerializeField] protected PlayerUIController playerUIController;
+    [SerializeField] protected Placeable data;
+    [SerializeField] protected TMP_Text placeableName;
+    [SerializeField] protected TMP_Text placeableDescription;
+    [SerializeField] protected TMP_Text placeableCost;
+    [SerializeField] protected Button placeButton;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class PanelController : MonoBehaviour
         placeableCost.text = data.cost.ToString();
     }
 
-    public void PlaceObject()
+    public virtual void PlaceObject()
     {
         // playerController.PlaceObjectData(data);
 

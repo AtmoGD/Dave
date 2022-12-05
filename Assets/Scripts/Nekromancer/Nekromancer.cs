@@ -44,6 +44,8 @@ public class Nekromancer : MonoBehaviour
     private Skill secondSkill = null;
     private Skill currentSkill = null;
     [SerializeField] private List<Cooldown> cooldowns = new List<Cooldown>();
+    private bool blocked = false;
+    private float blockInteractionTime = 0f;
     #endregion
 
     #region Properties
@@ -111,7 +113,7 @@ public class Nekromancer : MonoBehaviour
 
     private void Update()
     {
-        if (!InputController) return;
+        if (!InputController || blocked) return;
 
         currentInput = InputController.InputData;
 
@@ -125,7 +127,7 @@ public class Nekromancer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!InputController || currentInput == null) return;
+        if (!InputController || currentInput == null || blocked) return;
 
         if (currentSkill != null)
         {
@@ -162,6 +164,7 @@ public class Nekromancer : MonoBehaviour
     public void AddLookSpeed(float _lookSpeed) { LookSpeed += _lookSpeed; }
     public void AddAttackSpeed(float _attackSpeed) { AttackSpeed += _attackSpeed; }
     public void AddAttackRange(float _attackRange) { AttackRange += _attackRange; }
+    public void BlockNekromancer(bool _block) { blocked = _block; }
     #endregion
 
     #region Check Methods
@@ -184,6 +187,8 @@ public class Nekromancer : MonoBehaviour
 
     private void CheckInteraction()
     {
+        if(HasCooldown("Interact")) return;
+
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
 
@@ -212,6 +217,12 @@ public class Nekromancer : MonoBehaviour
             InputController.ResetInteract();
             return;
         }
+    }
+
+    public void ResetInteractable()
+    {
+        CanInteractWith = null;
+        CurrentInteractable = null;
     }
 
     private void CheckItems()

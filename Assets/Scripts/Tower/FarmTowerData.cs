@@ -6,4 +6,5 @@ using UnityEngine;
 public class FarmTowerData : TowerData
 {
     public Ressource ressource;
+    public int maxWorkers = 5;
 }

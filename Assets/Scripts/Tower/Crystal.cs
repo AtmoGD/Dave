@@ -7,6 +7,13 @@ public class Crystal : AttackTower
 {
     public Action OnCrystalDestroyed;
 
+    public override void Start()
+    {
+        base.Start();
+
+        levelManager.AddCrystal(this);
+    }
+
     public override void Die()
     {
         OnCrystalDestroyed?.Invoke();

@@ -10,4 +10,5 @@ public class MinionData : Placeable
     public float farmSpeed = 1f;
     public int carryCapacity = 10;
     public float distanceThreshold = 0.1f;
+    public float spawnRadiusAroundTower = 3f;
 }

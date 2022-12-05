@@ -13,6 +13,13 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
         Health = towerData.health;
     }
 
+    public override void Start()
+    {
+        base.Start();
+
+        levelManager.AddTower(this);
+    }
+
     public virtual void TakeDamage(int _damage)
     {
         Health -= _damage;
@@ -33,5 +40,10 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
     public virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }

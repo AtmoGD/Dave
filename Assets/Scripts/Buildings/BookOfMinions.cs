@@ -8,7 +8,7 @@ public class BookOfMinions : Building
     {
         base.Interact(_nekromancer);
 
-        _nekromancer.PlayerController.UIController.OpenMinionsMenu();
+        _nekromancer.PlayerController.OpenMinionsMenu();
     }
 
 }

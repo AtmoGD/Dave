@@ -5,20 +5,37 @@ using UnityEngine;
 public class Minion : MonoBehaviour, IInteractable
 {
     [SerializeField] private MinionData data = null;
-
+    private LevelManager levelManager = null;
     private Nekromancer master = null;
-    [SerializeField] private FarmTower farmTower = null;
-    // private Crystal crystal = null;
+    private FarmTower farmTower = null;
+    private Crystal crystal = null;
     private float currentFarmAmount = 0;
-
     private void Start()
     {
-        ((LevelManager)GameManager.Instance).OnCycleChanged += OnCycleChanged;
+        levelManager = GameManager.Instance as LevelManager;
+
+        levelManager.OnCycleChanged += OnCycleChanged;
+
+        FindTower();
+    }
+
+    public void FindTower() {
+        List<FarmTower> farmTowers = levelManager.FarmTower;
+        if(farmTowers.Count > 0)
+        {
+            farmTower = levelManager.FarmTower[Random.Range(0, farmTowers.Count)];
+        }
     }
 
     private void Update()
     {
-        if (!master || !farmTower)
+        if(!farmTower)
+            FindTower();
+
+        if(!crystal)
+            crystal = levelManager.crystal;
+
+        if (!farmTower || !crystal)
             return;
         // if (!master || !crystal || !farmTower)
         // return;
@@ -36,14 +53,14 @@ public class Minion : MonoBehaviour, IInteractable
         }
         else
         {
-            // if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold)
-            // {
-            //     transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
-            // }
-            // else
-            // {
-            //     currentFarmAmount = 0;
-            // }
+            if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold * 3)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                currentFarmAmount = 0;
+            }
         }
     }
 
@@ -81,5 +98,9 @@ public class Minion : MonoBehaviour, IInteractable
     {
         master.OnInteract -= MasterInteracted;
         print("Stopped interacting with minion");
+    }
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }

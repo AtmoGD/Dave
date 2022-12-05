@@ -18,6 +18,7 @@ public class CursorController : MonoBehaviour
     [SerializeField] private float cameraSpeed = 1f;
     [SerializeField] private float padding = 35f;
     [SerializeField] private float moveThreshold = 0.1f;
+    [SerializeField] private float clickTimeout = 0.5f;
 
     private Camera cam;
     private RectTransform canvasRect;
@@ -29,6 +30,7 @@ public class CursorController : MonoBehaviour
     private const string mouseSheme = "Keyboard";
     private bool shouldBeActive = false;
     private Vector2 cameraMoveDirection = Vector2.zero;
+    private float lastClickTime = 0f;
 
     private void OnEnable()
     {
@@ -91,7 +93,7 @@ public class CursorController : MonoBehaviour
             InputState.Change(virtualMouse.position, newPosition);
             InputState.Change(virtualMouse.delta, delta);
 
-            bool southPressed = Gamepad.current.buttonSouth.isPressed;
+            bool southPressed = Gamepad.current.buttonSouth.isPressed && Time.time - lastClickTime > clickTimeout;
 
             if (previousMouseState != southPressed)
             {
@@ -99,6 +101,7 @@ public class CursorController : MonoBehaviour
                 mouseState.WithButton(MouseButton.Left, southPressed);
                 InputState.Change(virtualMouse, mouseState);
                 previousMouseState = southPressed;
+                lastClickTime = Time.time;
             }
 
             AnchorCursor(newPosition);
@@ -162,6 +165,8 @@ public class CursorController : MonoBehaviour
             canvas.gameObject.SetActive(true);
         else
             canvas.gameObject.SetActive(shouldBeActive);
+
+        lastClickTime = Time.time;
     }
 
     public void MoveUpEnter()

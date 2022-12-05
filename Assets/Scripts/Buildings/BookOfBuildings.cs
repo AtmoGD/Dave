@@ -8,7 +8,7 @@ public class BookOfBuildings : Building
     {
         base.Interact(_nekromancer);
 
-        _nekromancer.PlayerController.UIController.OpenBuildingsMenu();
+        _nekromancer.PlayerController.OpenBuildingsMenu();
     }
 
 }
