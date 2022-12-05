@@ -24,8 +24,10 @@ public class ShadowMerge : Skill
     {
         base.FrameUpdate(_deltaTime);
 
-        if (distanceLeft <= 0f)
+        if (distanceLeft <= 0f) {
+            Debug.Log("ShadowMerge Exit");
             nekromancer.ChangeSkill();
+        }
     }
 
     public override void PhysicsUpdate(float _deltaTime)
@@ -44,6 +46,8 @@ public class ShadowMerge : Skill
     public override void Exit()
     {
         nekromancer.col.isTrigger = false;
+
+        Debug.Log("Exit ShadowMerge");
 
         base.Exit();
     }

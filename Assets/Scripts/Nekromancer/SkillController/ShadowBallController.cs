@@ -10,6 +10,7 @@ public class ShadowBallController : MonoBehaviour
     public Nekromancer Nekromancer { get { return nekromancer; } set { nekromancer = value; } }
     [SerializeField] private float damageMultiplier = 1f;
     public float DamageMultiplier { get { return damageMultiplier; } set { damageMultiplier = value; } }
+    private float baseDamage = 1f;
 
     private float lifeTime = 0f;
 
@@ -27,6 +28,11 @@ public class ShadowBallController : MonoBehaviour
             Die();
     }
 
+    public void UpdateBaseDamage(float _damage)
+    {
+        baseDamage = _damage;
+    }
+
     private void Move()
     {
         transform.position += transform.right * data.bulletSpeed * Time.deltaTime;
@@ -37,7 +43,7 @@ public class ShadowBallController : MonoBehaviour
         IDamagable damagable = collision.GetComponent<IDamagable>();
         if (damagable != null)
         {
-            damagable.TakeDamage((int)(Nekromancer.Damage * data.bulletDamage * damageMultiplier));
+            damagable.TakeDamage((int)(baseDamage * data.bulletDamage * damageMultiplier));
             Die();
         }
     }

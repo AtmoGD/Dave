@@ -537,10 +537,11 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   cursor: {fileID: 8321600584540411311}
   canvas: {fileID: 8321600584547565220}
-  speed: 750
+  speed: 1000
   cameraSpeed: 10
   padding: 10
   moveThreshold: 0.1
+  clickTimeout: 0.5
 --- !u!1 &8321600584540411308
 GameObject:
   m_ObjectHideFlags: 0

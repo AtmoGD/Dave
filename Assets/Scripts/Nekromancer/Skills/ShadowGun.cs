@@ -112,6 +112,7 @@ public class ShadowGun : Skill
         bullet.transform.position = GetCurrentBulletPosition();
         bullet.transform.right = nekromancer.transform.right;
         bullet.Nekromancer = nekromancer;
+        bullet.UpdateBaseDamage(nekromancer.Damage);
 
         if (_charged)
         {

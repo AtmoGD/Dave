@@ -29,7 +29,7 @@ public class Skill
 
     public virtual void Exit()
     {
-        Debug.Log("Skill Exit");
+        // Debug.Log("Skill Exit");
         nekromancer = null;
     }
 }

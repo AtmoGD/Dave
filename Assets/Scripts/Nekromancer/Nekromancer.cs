@@ -113,14 +113,14 @@ public class Nekromancer : MonoBehaviour
 
     private void Update()
     {
+        UpdateCooldowns();
+
         if (!InputController || blocked) return;
 
         currentInput = InputController.InputData;
 
         if (LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             CheckInteraction();
-
-        UpdateCooldowns();
 
         currentSkill?.FrameUpdate(Time.deltaTime);
     }
@@ -129,8 +129,10 @@ public class Nekromancer : MonoBehaviour
     {
         if (!InputController || currentInput == null || blocked) return;
 
+
         if (currentSkill != null)
         {
+            Debug.Log(currentSkill.GetType());
             currentSkill.PhysicsUpdate(Time.deltaTime);
             return;
         }
@@ -187,7 +189,9 @@ public class Nekromancer : MonoBehaviour
 
     private void CheckInteraction()
     {
-        if(HasCooldown("Interact")) return;
+        if(HasCooldown("Interact"))  {
+            Debug.Log("Has Interact cooldown");
+            return;}
 
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();

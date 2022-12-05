@@ -158,7 +158,7 @@ public class Pathfinding : MonoBehaviour
             PathNode endNode = pathNodeArray[endNodeIndex];
             if (endNode.cameFromNodeIndex == -1)
             {
-                Debug.Log("No Path Found");
+                // Debug.Log("No Path Found");
             }
             else
             {

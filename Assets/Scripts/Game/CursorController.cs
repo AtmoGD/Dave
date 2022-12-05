@@ -73,7 +73,7 @@ public class CursorController : MonoBehaviour
             return;
         }
 
-        if (cameraMoveDirection != Vector2.zero && shouldBeActive)
+        if (cameraMoveDirection != Vector2.zero && canvas.gameObject.activeSelf)
         {
             Vector2 dir = cameraMoveDirection * cameraSpeed * Time.deltaTime;
             cursorCamera.transform.position += new Vector3(dir.x, dir.y, 0f);

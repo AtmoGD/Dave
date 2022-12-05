@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d314c0b29522cb438f9c445e12a27fd, type: 3}
+  m_Name: SecondFarmTower
+  m_EditorClassIdentifier: 
+  id: SecondFarmTower001
+  name: A second demo FarmTower tower
+  description: Farm farm farm!!!!!! 222222
+  cost: []
+  size: {x: 2, y: 2}
+  prefab: {fileID: 6771092046683064759, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+  preview: {fileID: 647518721206799825, guid: 6ee0c122bbc09fb4ca94dd4bafa505bc, type: 3}
+  health: 100
+  ressource: {fileID: 0}
+  maxWorkers: 5

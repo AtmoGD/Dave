@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6128188048891315302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 476668302335102414, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893203224232847076, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.30588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771092046683064759, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_Name
+      value: SecondFarmTowerPreview Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176487271083795286, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670693035830632368, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9040350494170896945, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+    - {fileID: 7491556256077141883, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+    - {fileID: 726398274855538899, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+--- !u!1 &647518721206799825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6771092046683064759, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+  m_PrefabInstance: {fileID: 6128188048891315302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5140343578735109999
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647518721206799825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b5143c3e6bfb794d99cb5cf76b95149, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

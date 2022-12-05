@@ -150,21 +150,21 @@ public class PlayerController : MonoBehaviour
 
         CurrentGridElement = WorldGrid.GetGridElement(worldPos, true);
 
-        if (CurrentGridElement != null)
-        {
-            if (LastGridElement && LastGridElement != CurrentGridElement)
-            {
-                LastGridElement.SetElementActive(false);
-            }
+        // if (CurrentGridElement != null)
+        // {
+        //     if (LastGridElement && LastGridElement != CurrentGridElement)
+        //     {
+        //         LastGridElement.SetElementActive(false);
+        //     }
 
-            CurrentGridElement.SetElementActive(true);
-            LastGridElement = CurrentGridElement;
-        }
-        else
-        {
-            if (LastGridElement)
-                LastGridElement.SetElementActive(false);
-        }
+        //     CurrentGridElement.SetElementActive(true);
+        //     LastGridElement = CurrentGridElement;
+        // }
+        // else
+        // {
+        //     if (LastGridElement)
+        //         LastGridElement.SetElementActive(false);
+        // }
 
         if (CurrentPlaceable)
         {
@@ -178,22 +178,22 @@ public class PlayerController : MonoBehaviour
 
             VizualizerAnimator.SetBool("IsPlaceable", isPlaceable);
 
-            foreach (GridElement gridElement in CurrentPlaceableGridElements)
-            {
-                gridElement.SetElementActive(false);
-            }
+            // foreach (GridElement gridElement in CurrentPlaceableGridElements)
+            // {
+            //     gridElement.SetElementActive(false);
+            // }
 
             CurrentPlaceableGridElements.Clear();
 
             CurrentPlaceableGridElements = newGridElements;
 
-            foreach (GridElement gridElement in CurrentPlaceableGridElements)
-            {
-                if (gridElement == CurrentGridElement)
-                    continue;
+            // foreach (GridElement gridElement in CurrentPlaceableGridElements)
+            // {
+            //     if (gridElement == CurrentGridElement)
+            //         continue;
 
-                gridElement.SetElementActive(true);
-            }
+            //     gridElement.SetElementActive(true);
+            // }
         }
     }
 
