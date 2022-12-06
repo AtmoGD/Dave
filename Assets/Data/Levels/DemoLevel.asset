@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 50
+    duration: 60
   - cycle: 1
     duration: 10
   - cycle: 0
-    duration: 10
+    duration: 40
   - cycle: 1
     duration: 10
   - cycle: 0
