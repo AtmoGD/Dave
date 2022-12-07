@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3203909175382115268}
   - component: {fileID: 1164757676767661216}
+  - component: {fileID: 4932949136714485088}
   - component: {fileID: 3203909175382115267}
   - component: {fileID: 3801543449568538638}
   m_Layer: 10
@@ -48,6 +49,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
+  movingEntity: {fileID: 4932949136714485088}
+--- !u!114 &4932949136714485088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203909175382115269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7ba52c05534664b935e0f229fe6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizePath: 1
+  rb: {fileID: 3203909175382115267}
+  speed: 3
+  moveThreshold: 0.1
+  recalculatePathTime: 0.5
 --- !u!50 &3203909175382115267
 Rigidbody2D:
   serializedVersion: 4

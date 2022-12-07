@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Tower : PlaceableObject, IDamagable, IInteractable
 {
-    [SerializeField] private TowerData towerData = null;
+    [SerializeField] protected TowerData towerData = null;
+    [SerializeField] protected List<Transform> neighbourGridElements = new List<Transform>();
 
     public int Health { get; private set; }
 
@@ -26,6 +27,22 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
         if (Health <= 0)
             Die();
     }
+
+    public Transform GetFreeNeighbour()
+    {
+        List<Transform> freeNeighbours = StaticLib.ShuffleList<Transform>(neighbourGridElements);
+
+        foreach (Transform neighbour in freeNeighbours)
+        {
+            GridElement gridElement = levelManager.WorldGrid.GetGridElement(neighbour.position);
+            if(gridElement != null && gridElement.ObjectOnGrid == null)
+                return neighbour;
+        }
+
+        return null;
+    }
+
+
 
     public void Interact(Nekromancer _nekromancer)
     {

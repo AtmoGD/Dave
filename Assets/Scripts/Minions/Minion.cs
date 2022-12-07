@@ -5,6 +5,17 @@ using UnityEngine;
 public class Minion : MonoBehaviour, IInteractable
 {
     [SerializeField] private MinionData data = null;
+    [SerializeField] private MovementController movementController = null;
+
+    protected MinionState currentState = null;
+    protected MinionIdle idleState = null;
+    protected MinionDelivering deliveringState = null;
+    protected MinionGoDelivering goDeliveringState = null;
+    protected MinionFarming farmingState = null;
+    protected MinionGoFarming goFarmingState = null;
+    protected MinionBuilding buildingState = null;
+    protected MinionGoBuilding goBuildingState = null;
+
     private LevelManager levelManager = null;
     private Nekromancer master = null;
     private FarmTower farmTower = null;
@@ -13,6 +24,8 @@ public class Minion : MonoBehaviour, IInteractable
     private void Start()
     {
         levelManager = GameManager.Instance as LevelManager;
+
+        movementController = GetComponent<MovementController>();
 
         levelManager.OnCycleChanged += OnCycleChanged;
 
@@ -44,7 +57,13 @@ public class Minion : MonoBehaviour, IInteractable
         {
             if (Vector3.Distance(transform.position, farmTower.transform.position) > data.distanceThreshold)
             {
-                transform.position = Vector3.MoveTowards(transform.position, farmTower.transform.position, data.moveSpeed * Time.deltaTime);
+                Transform freeNeighbour = farmTower.GetFreeNeighbour();
+                if(freeNeighbour)
+                    movementController.TargetPosition = freeNeighbour.position;
+                else 
+                    print("No free neighbour");
+                // movingEntity.TargetPosition = farmTower.GetFreeNeighbour().position;
+                // movingEntity.Move();
             }
             else
             {
@@ -55,14 +74,39 @@ public class Minion : MonoBehaviour, IInteractable
         {
             if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold * 3)
             {
-                transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
+                movementController.TargetPosition = crystal.GetFreeNeighbour().position;
+                // transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
             }
             else
             {
                 currentFarmAmount = 0;
             }
         }
+
+        // if (currentFarmAmount < data.carryCapacity)
+        // {
+        //     if (Vector3.Distance(transform.position, farmTower.transform.position) > data.distanceThreshold)
+        //     {
+        //         transform.position = Vector3.MoveTowards(transform.position, farmTower.transform.position, data.moveSpeed * Time.deltaTime);
+        //     }
+        //     else
+        //     {
+        //         currentFarmAmount += data.farmSpeed * Time.deltaTime;
+        //     }
+        // }
+        // else
+        // {
+        //     if (Vector3.Distance(transform.position, crystal.transform.position) > data.distanceThreshold * 3)
+        //     {
+        //         transform.position = Vector3.MoveTowards(transform.position, crystal.transform.position, data.moveSpeed * Time.deltaTime);
+        //     }
+        //     else
+        //     {
+        //         currentFarmAmount = 0;
+        //     }
+        // }
     }
+
 
     private void OnCycleChanged(CycleState _cycle)
     {
