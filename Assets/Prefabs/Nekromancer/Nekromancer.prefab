@@ -240,7 +240,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 1
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -434,8 +434,8 @@ MonoBehaviour:
   interactPoint: {fileID: 5134688878714503059}
   stats: {fileID: 11400000, guid: 0018e4cec6dcd0b4eaa4412f81dcd1d6, type: 2}
   baseSkillData: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
-  firstSkillData: {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
-  secondSkillData: {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
+  firstSkillData: {fileID: 0}
+  secondSkillData: {fileID: 0}
   cooldowns: []
 --- !u!50 &8789931070289155577
 Rigidbody2D:

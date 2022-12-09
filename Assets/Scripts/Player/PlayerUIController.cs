@@ -6,11 +6,7 @@ public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private GameObject buildMenu = null;
-    [SerializeField] private GameObject buildContent = null;
-    [SerializeField] private GameObject buildPanelPrefab = null;
     [SerializeField] private GameObject minionMenu = null;
-    [SerializeField] private GameObject minionContent = null;
-    [SerializeField] private GameObject minionPanelPrefab = null;
 
     bool buildMenuOpen = false;
     bool minionMenuOpen = false;
