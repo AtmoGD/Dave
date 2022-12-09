@@ -46,7 +46,7 @@ public class Minion : MonoBehaviour, IInteractable
             FindTower();
 
         if(!crystal)
-            crystal = levelManager.crystal;
+            crystal = levelManager.Crystal;
 
         if (!farmTower || !crystal)
             return;

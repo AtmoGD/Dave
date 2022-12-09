@@ -11,6 +11,7 @@ using Unity.Jobs;
 public class WorldGrid : MonoBehaviour
 {
     [field: SerializeField] public LevelData LevelData { get; private set; } = null;
+    [field: SerializeField] public LevelManager LevelManager { get; private set; } = null;
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
@@ -26,6 +27,14 @@ public class WorldGrid : MonoBehaviour
 
     private void Start()
     {
+        LevelManager = GameManager.Instance as LevelManager;
+
+        if(LevelManager == null)
+        {
+            Debug.LogError("LevelManager is null");
+            return;
+        }
+
         LoadLevel();
     }
 

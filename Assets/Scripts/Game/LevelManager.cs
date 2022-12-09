@@ -10,7 +10,7 @@ public class LevelManager : GameManager
 
     [Header("Level Manager")]
     private LevelData levelData = null;
-    public Crystal crystal = null;
+    public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     public List<PlaceableObject> towers = new List<PlaceableObject>();
     public List<FarmTower> FarmTower { get { return towers.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
@@ -46,6 +46,8 @@ public class LevelManager : GameManager
     {
         levelData = WorldGrid.LevelData;
         WorldGrid.LoadLevel();
+
+
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
 
@@ -81,19 +83,19 @@ public class LevelManager : GameManager
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
-    public void AddCrystal(Crystal crystal)
+    public void SetCrystal(Crystal crystal)
     {
-        if(this.crystal != null)
+        if(this.Crystal != null)
         {
             Debug.LogError("LevelManager: Crystal already exists");
         }
         
-        this.crystal = crystal;
+        this.Crystal = crystal;
     }
 
     public void RemoveCrystal(Crystal crystal)
     {
-        this.crystal = null;
+        this.Crystal = null;
     }
 
     public void AddEnemy(IDamagable enemy)
