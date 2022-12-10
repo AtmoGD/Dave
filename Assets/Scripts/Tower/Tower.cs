@@ -18,7 +18,7 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
     {
         base.Start();
 
-        levelManager.AddTower(this);
+        LevelManager.AddTower(this);
     }
 
     public virtual void TakeDamage(int _damage)
@@ -34,8 +34,8 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
 
         foreach (Transform neighbour in freeNeighbours)
         {
-            GridElement gridElement = levelManager.WorldGrid.GetGridElement(neighbour.position);
-            if(gridElement != null && gridElement.ObjectOnGrid == null)
+            GridElement gridElement = LevelManager.WorldGrid.GetGridElement(neighbour.position);
+            if (gridElement != null && gridElement.ObjectOnGrid == null)
                 return neighbour;
         }
 

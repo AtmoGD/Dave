@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7880999455236170461}
   - component: {fileID: 4970512199488305372}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457366694089035692}
   - component: {fileID: 4110817408142132879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8488169987190648457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3640810253326558679}
   - component: {fileID: 2726924772407995813}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4767279285201752718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2696971920768886280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7706321139560757686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 6791228170895719002}
   - component: {fileID: 4953350818265659152}
   - component: {fileID: 2980859086275391672}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: FirstFarmTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,9 +481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce6fbc7be54c6f42ac4256aa447f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
-  gridElement: {fileID: 0}
-  placedOnGridElements: []
   towerData: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
   neighbourGridElements:
   - {fileID: 2696971920768886280}
@@ -574,6 +571,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Right
       objectReference: {fileID: 0}
+    - target: {fileID: 3235069674274173854, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483246434142095932, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
 --- !u!4 &2986294639017946190 stripped
@@ -636,6 +641,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Right (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3235069674274173854, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483246434142095932, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9781419d571762c4a9aad77b6241a65a, type: 3}
 --- !u!4 &6574972996182339174 stripped
@@ -653,6 +666,10 @@ PrefabInstance:
     - target: {fileID: 1772675677624373082, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
       propertyPath: m_Name
       value: Fire_Left (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772675677624373082, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3047906361591559685, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
       propertyPath: m_RootOrder
@@ -698,6 +715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8675320522209310456, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
 --- !u!4 &6978409580832224172 stripped
@@ -715,6 +736,10 @@ PrefabInstance:
     - target: {fileID: 1772675677624373082, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
       propertyPath: m_Name
       value: Fire_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772675677624373082, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3047906361591559685, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
       propertyPath: m_RootOrder
@@ -759,6 +784,10 @@ PrefabInstance:
     - target: {fileID: 3047906361591559685, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675320522209310456, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbacb0ca6da11b4b8d307862bc8485f, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1197548458163846788}
   - component: {fileID: 1197548458163846786}
   - component: {fileID: 1197548458163846787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Inner_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 4807086108327050872}
   - component: {fileID: 708764764364358772}
   - component: {fileID: 7898694637192008067}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

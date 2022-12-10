@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8763460197033029718}
   - component: {fileID: 7984647518415484964}
   - component: {fileID: 452615755335597118}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3ddcdaed8de0d4648a95696b06fa6dfc, type: 3}
   m_Color: {r: 0, g: 0.7026216, b: 0.8773585, a: 1}
   m_FlipX: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1524357658366308315}
   - component: {fileID: 7081614333116687673}
   - component: {fileID: -2762735643393063094}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: FarmingTowerPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}

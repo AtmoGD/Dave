@@ -47,6 +47,6 @@ Material:
     - _StepThreshold: 0.8
     - _VoronoiScale: 5
     m_Colors:
-    - _BaseColor: {r: 2.594582, g: 2.6082377, b: 0.491605, a: 1}
-    - _Speed: {r: 0.5, g: -0.5, b: 0, a: 0}
+    - _BaseColor: {r: 1.9663254, g: 1.9766746, b: 0.37256694, a: 1}
+    - _Speed: {r: 0.1, g: -0.75, b: 0, a: 0}
   m_BuildTextureStacks: []

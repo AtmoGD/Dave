@@ -110,7 +110,7 @@ public class ShadowGun : Skill
         ShadowBallController bullet = ObjectPool.Instance.Get(shadowGunData.bulletPrefab).GetComponent<ShadowBallController>();
 
         bullet.transform.position = GetCurrentBulletPosition();
-        bullet.transform.right = nekromancer.transform.right;
+        bullet.transform.right = nekromancer.Model.right;
         bullet.Nekromancer = nekromancer;
         bullet.UpdateBaseDamage(nekromancer.Damage);
 

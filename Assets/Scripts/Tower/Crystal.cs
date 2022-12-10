@@ -11,7 +11,7 @@ public class Crystal : AttackTower
     {
         base.Start();
 
-        levelManager.SetCrystal(this);
+        LevelManager.SetCrystal(this);
     }
 
     public override void Die()

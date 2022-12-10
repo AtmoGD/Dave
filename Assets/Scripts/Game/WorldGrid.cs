@@ -29,7 +29,7 @@ public class WorldGrid : MonoBehaviour
     {
         LevelManager = GameManager.Instance as LevelManager;
 
-        if(LevelManager == null)
+        if (LevelManager == null)
         {
             Debug.LogError("LevelManager is null");
             return;
@@ -155,8 +155,8 @@ public class WorldGrid : MonoBehaviour
 
         if (placeableObject != null)
         {
-            placeableObject.gridElement = gridElement;
-            placeableObject.placedOnGridElements = gridElements;
+            placeableObject.GridElement = gridElement;
+            placeableObject.PlacedOnGridElements = gridElements;
         }
     }
 
@@ -167,7 +167,7 @@ public class WorldGrid : MonoBehaviour
             PlaceableObject placeableObject = _object.GetComponent<PlaceableObject>();
             if (placeableObject != null)
             {
-                foreach (GridElement gridElement in placeableObject.placedOnGridElements)
+                foreach (GridElement gridElement in placeableObject.PlacedOnGridElements)
                 {
                     gridElement.ObjectOnGrid = null;
                 }

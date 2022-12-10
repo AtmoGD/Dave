@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8333169229410105838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8763460197033029718}
   - component: {fileID: 7984647518415484964}
   - component: {fileID: 452615755335597118}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 810679413118045446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69541125002874355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 1524357658366308315}
   - component: {fileID: 1127315458166481553}
   - component: {fileID: 7081614333116687673}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: FarmingTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,9 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce6fbc7be54c6f42ac4256aa447f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
-  gridElement: {fileID: 0}
-  placedOnGridElements: []
   towerData: {fileID: 11400000, guid: e19bd33f88dafea45b21f572ad9c54a4, type: 2}
   neighbourGridElements:
   - {fileID: 69541125002874355}
@@ -313,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5418759004318261635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

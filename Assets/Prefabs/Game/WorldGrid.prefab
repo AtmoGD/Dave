@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1644506921571621018}
   - component: {fileID: 8619884047830169670}
   - component: {fileID: 7237744973109106303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WorldGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LevelData>k__BackingField: {fileID: 11400000, guid: bb17b481c64a0e84895b410a6ca0f4bb, type: 2}
+  <LevelManager>k__BackingField: {fileID: 0}
   <PlacedObjects>k__BackingField: []
   <GridElementsParent>k__BackingField: {fileID: 1098587909022831156}
   <ObjectParent>k__BackingField: {fileID: 1773259980877728074}
@@ -76,7 +77,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1098587909022831156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GridElements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773259980877728074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3996061532618051168}
   - component: {fileID: 3996061532618051170}
   - component: {fileID: 3996061532618051171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3996061532920296654}
   - component: {fileID: 3996061532920296655}
   - component: {fileID: 3996061532920296652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DemoPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

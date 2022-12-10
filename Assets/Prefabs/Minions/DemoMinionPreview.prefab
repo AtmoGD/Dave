@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3203909175382115267}
   - component: {fileID: 3801543449568538638}
   - component: {fileID: -8235529895570818005}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: DemoMinionPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
-  farmTower: {fileID: 0}
+  movementController: {fileID: 0}
 --- !u!50 &3203909175382115267
 Rigidbody2D:
   serializedVersion: 4
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3203909175836727964}
   - component: {fileID: 3203909175836727962}
   - component: {fileID: 3203909175836727963}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -213,6 +213,18 @@ public class PlayerController : MonoBehaviour
         // inputController.OnCancel += Cancel;
 
         UpdateGrid(inputController.InputData.CursorPosition);
+
+        // for (int x = 0; x < WorldGrid.GridSize.x; x++)
+        // {
+        //     for (int y = 0; y < WorldGrid.GridSize.y; y++)
+        //     {
+        //         GridElement gridElement = WorldGrid.Grid[x][y];
+        //         if (gridElement == null)
+        //             continue;
+
+        //         gridElement.SetElementActive(true);
+        //     }
+        // }
     }
 
     public void StartCombatMode()
@@ -235,6 +247,18 @@ public class PlayerController : MonoBehaviour
 
         // Close menus if the night startet while they were open
         Cancel(null);
+
+        // for (int x = 0; x < WorldGrid.GridSize.x; x++)
+        // {
+        //     for (int y = 0; y < WorldGrid.GridSize.y; y++)
+        //     {
+        //         GridElement gridElement = WorldGrid.Grid[x][y];
+        //         if (gridElement == null)
+        //             continue;
+
+        //         gridElement.SetElementActive(false);
+        //     }
+        // }
     }
 
     public void PlaceObject(Placeable _object)
@@ -318,6 +342,8 @@ public class PlayerController : MonoBehaviour
         UIController.CLoseAllMenus();
 
         CurrentPlaceable = null;
+
+        nekromancer.ResetInteractable();
 
         inputController.OnCancel -= Cancel;
     }

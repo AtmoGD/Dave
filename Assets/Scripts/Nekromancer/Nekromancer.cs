@@ -14,6 +14,7 @@ public class Nekromancer : MonoBehaviour
     [SerializeField] public Rigidbody2D rb = null;
     [SerializeField] public Collider2D col = null;
     [SerializeField] public Animator animator = null;
+    [field: SerializeField] public Transform Model { get; private set; } = null;
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
     #endregion
@@ -189,9 +190,11 @@ public class Nekromancer : MonoBehaviour
 
     private void CheckInteraction()
     {
-        if(HasCooldown("Interact"))  {
+        if (HasCooldown("Interact"))
+        {
             Debug.Log("Has Interact cooldown");
-            return;}
+            return;
+        }
 
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
@@ -253,9 +256,9 @@ public class Nekromancer : MonoBehaviour
 
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        rotation = Quaternion.Slerp(transform.rotation, rotation, stats.lookSpeed * Time.deltaTime);
+        rotation = Quaternion.Slerp(Model.rotation, rotation, stats.lookSpeed * Time.deltaTime);
 
-        transform.rotation = rotation;
+        Model.rotation = rotation;
     }
 
     public Vector2 GetLookDirection()
@@ -264,7 +267,7 @@ public class Nekromancer : MonoBehaviour
 
         if (currentInput.ControllSheme == "Keyboard")
         {
-            lookDirection = currentInput.CursorWorldPosition - transform.position;
+            lookDirection = currentInput.CursorWorldPosition - Model.position;
         }
         else
         {
@@ -273,7 +276,7 @@ public class Nekromancer : MonoBehaviour
             else if (currentInput.MoveDir.magnitude > stats.lookThreshold)
                 lookDirection = currentInput.MoveDir.normalized;
             else
-                lookDirection = transform.right;
+                lookDirection = Model.right;
         }
 
         return lookDirection;

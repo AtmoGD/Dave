@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.30588236
       objectReference: {fileID: 0}
+    - target: {fileID: 1893203224232847076, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6771092046683064759, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}
       propertyPath: m_Name
       value: SecondFarmTowerPreview Variant

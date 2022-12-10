@@ -109,6 +109,7 @@ public class GridEditor : Editor
         }
         catch (System.Exception)
         {
+            Debug.LogError("ERROR: No Placeable Selected");
             PlaceObject = null;
         }
 
@@ -163,7 +164,7 @@ public class GridEditor : Editor
                     PlaceableObject placeableObject = gridElement.ObjectOnGrid.GetComponent<PlaceableObject>();
                     if (placeableObject)
                     {
-                        PlacedObject placed = worldGrid.LevelData.placedObjects.Find(x => x.gridPosition == placeableObject.gridElement.gridPosition);
+                        PlacedObject placed = worldGrid.LevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
                         if (placed != null)
                         {
                             worldGrid.LevelData.placedObjects.Remove(placed);

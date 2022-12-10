@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7991861060915141454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2219917318499670610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4251805148961825713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6718423843536544898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6940113331553519086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4223892895302202669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2499612372079142478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3727783124116490627}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neighbour (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 9040350494170896945}
   - component: {fileID: 7491556256077141883}
   - component: {fileID: 726398274855538899}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SecondFarmTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,9 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce6fbc7be54c6f42ac4256aa447f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
-  gridElement: {fileID: 0}
-  placedOnGridElements: []
   towerData: {fileID: 11400000, guid: de7229b985cc09749998054feef32044, type: 2}
   neighbourGridElements:
   - {fileID: 4251805148961825713}
@@ -377,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3995563284267904967}
   - component: {fileID: 1893203224232847076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282484969367209404}
   - component: {fileID: 476668302335102414}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
