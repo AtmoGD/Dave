@@ -55,7 +55,7 @@ public class MovementController : MonoBehaviour
         {
             pathIndex--;
 
-            if (pathIndex <= 0)
+            if (pathIndex < 0)
             {
                 path.Clear();
                 OnPathComplete?.Invoke();
@@ -87,7 +87,7 @@ public class MovementController : MonoBehaviour
 
     public void CalculateTarget()
     {
-        if (pathIndex > 0)
+        if (pathIndex >= 0)
         {
             Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
             // Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
@@ -98,10 +98,28 @@ public class MovementController : MonoBehaviour
 
     public void VisualizePath()
     {
+        // for (int i = 0; i < path.Count - 1; i++)
+        // {
+        //     Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
+        //     Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
+
+        //     Gizmos.DrawSphere(pos, 0.1f);
+
+        //     Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
+        //     Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
+
+        //     Debug.DrawLine(pos, nextPos, Color.red);
+        // }
+    }
+
+    private void OnDrawGizmos()
+    {
         for (int i = 0; i < path.Count - 1; i++)
         {
             Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
             Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
+
+            Gizmos.DrawSphere(pos, 0.1f);
 
             Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
             Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;

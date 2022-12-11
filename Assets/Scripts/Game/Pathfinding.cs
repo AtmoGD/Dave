@@ -12,8 +12,8 @@ using Unity.Burst;
 
 public class Pathfinding : MonoBehaviour
 {
-    public const int MOVE_STRAIGHT_COST = 14;
-    public const int MOVE_DIAGONAL_COST = 10;
+    public const int MOVE_STRAIGHT_COST = 10;
+    public const int MOVE_DIAGONAL_COST = 14;
 
     public NativeArray<GridStruct> ConvertGridToPathNodes(GridElement[][] _grid)
     {
