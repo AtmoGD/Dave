@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e277b74ab579e44ae480e514fcadc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
-  movementController: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
+  <MoveController>k__BackingField: {fileID: 4932949136714485088}
 --- !u!114 &4932949136714485088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   speed: 3
   moveThreshold: 0.1
   recalculatePathTime: 0.5
+  constantlyUpdatePath: 0
 --- !u!50 &3203909175382115267
 Rigidbody2D:
   serializedVersion: 4

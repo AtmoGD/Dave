@@ -12,8 +12,8 @@ using Unity.Burst;
 
 public class Pathfinding : MonoBehaviour
 {
-    public const int MOVE_STRAIGHT_COST = 10;
-    public const int MOVE_DIAGONAL_COST = 14;
+    public const int MOVE_STRAIGHT_COST = 14;
+    public const int MOVE_DIAGONAL_COST = 10;
 
     public NativeArray<GridStruct> ConvertGridToPathNodes(GridElement[][] _grid)
     {
@@ -76,10 +76,10 @@ public class Pathfinding : MonoBehaviour
             neighbourOffsets[1] = new int2(+1, 0);  // Right
             neighbourOffsets[2] = new int2(0, +1);  // Up
             neighbourOffsets[3] = new int2(0, -1);  // Down
-            // neighbourOffsets[4] = new int2(-1, -1); // Down Left
-            // neighbourOffsets[5] = new int2(+1, -1); // Down Right
-            // neighbourOffsets[6] = new int2(-1, +1); // Up Left
-            // neighbourOffsets[7] = new int2(+1, +1); // Up Right
+            neighbourOffsets[4] = new int2(-1, -1); // Down Left
+            neighbourOffsets[5] = new int2(+1, -1); // Down Right
+            neighbourOffsets[6] = new int2(-1, +1); // Up Left
+            neighbourOffsets[7] = new int2(+1, +1); // Up Right
 
             int endNodeIndex = CalculateIndex(_endPosition.x, _endPosition.y, gridSize.x);
 
@@ -208,6 +208,7 @@ public class Pathfinding : MonoBehaviour
             int yDistance = math.abs(_a.y - _b.y);
             int remaining = math.abs(xDistance - yDistance);
             return MOVE_STRAIGHT_COST * math.min(xDistance, yDistance) + MOVE_DIAGONAL_COST * remaining;
+            // return MOVE_DIAGONAL_COST * math.min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
         }
 
         public int GetLowestCostFNodeIndex(NativeList<int> _openList, NativeArray<PathNode> _pathNodeArray)

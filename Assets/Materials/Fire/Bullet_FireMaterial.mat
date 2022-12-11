@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base_FireMaterialInner 1
+  m_Name: Bullet_FireMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 3ff0b5d48f0a34a4c876431bf17237fa, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -42,11 +42,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Flatten: 1
-    - _NoiseScale: 50
+    - _Flatten: 0.5
+    - _NoiseScale: 60
     - _StepThreshold: 0.8
     - _VoronoiScale: 5
     m_Colors:
-    - _BaseColor: {r: 1.9663254, g: 1.9766746, b: 0.37256694, a: 1}
-    - _Speed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _BaseColor: {r: 0.47140452, g: 1.0592737, b: 0.0776431, a: 1}
+    - _Speed: {r: 0, g: -2, b: 0, a: 0}
   m_BuildTextureStacks: []

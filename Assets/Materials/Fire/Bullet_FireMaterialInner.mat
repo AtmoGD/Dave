@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Left_FireMaterial
+  m_Name: Bullet_FireMaterialInner
   m_Shader: {fileID: -6465566751694194690, guid: 3ff0b5d48f0a34a4c876431bf17237fa, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5d80d8f67e9ea504b8771a5d1e6c414b, type: 3}
+        m_Texture: {fileID: 2800000, guid: f3be1ffbd5a50db4f943321b673fb207, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
@@ -42,11 +42,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Flatten: 1
-    - _NoiseScale: 50
+    - _Flatten: 0.5
+    - _NoiseScale: 60
     - _StepThreshold: 0.8
     - _VoronoiScale: 5
     m_Colors:
-    - _BaseColor: {r: 0.47140452, g: 1.0592737, b: 0.0776431, a: 1}
-    - _Speed: {r: 0.1, g: -0.75, b: 0, a: 0}
+    - _BaseColor: {r: 1.9663254, g: 1.9766746, b: 0.37256694, a: 1}
+    - _Speed: {r: 0, g: -1, b: 0, a: 0}
   m_BuildTextureStacks: []

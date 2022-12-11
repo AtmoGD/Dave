@@ -19,13 +19,14 @@ public static class StaticLib
 
     public static List<T> ShuffleList<T>(List<T> _list)
     {
+        List<T> tempList = new List<T>(_list);
         List<T> newList = new List<T>();
         int randomIndex = 0;
-        while (_list.Count > 0)
+        while (tempList.Count > 0)
         {
-            randomIndex = UnityEngine.Random.Range(0, _list.Count);
-            newList.Add(_list[randomIndex]);
-            _list.RemoveAt(randomIndex);
+            randomIndex = UnityEngine.Random.Range(0, tempList.Count);
+            newList.Add(tempList[randomIndex]);
+            tempList.RemoveAt(randomIndex);
         }
         return newList;
     }

@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionDelivering : MonoBehaviour
+public class MinionDelivering : MinionState
 {
-    // Start is called before the first frame update
-    void Start()
+    float timer = 0f;
+
+    public override void Enter(Minion _minion)
     {
-        
+        base.Enter(_minion);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FrameUpdate()
     {
-        
+        base.FrameUpdate();
+
+        timer += Time.deltaTime;
+
+        if (timer >= minion.Data.deliverSpeed)
+        {
+            // TO DO: Deliver the goods
+
+            minion.CurrentFarmAmount = 0;
+            minion.TargetTower = minion.TargetFarmTower;
+            minion.ChangeState(minion.MovingState);
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }

@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovementController : MonoBehaviour
 {
+    public Action OnPathComplete;
+
     [SerializeField] private bool visualizePath = true;
     [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected float speed = 3f;
     [SerializeField] protected float moveThreshold = 0.1f;
     [SerializeField] protected float recalculatePathTime = 0.5f;
+    [SerializeField] protected bool constantlyUpdatePath = false;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -18,15 +22,22 @@ public class MovementController : MonoBehaviour
     private Vector2 currentTarget = Vector2.zero;
     private float lastRecalculate = 0f;
 
-    private void Start() {
+    private void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         levelManager = (LevelManager)GameManager.Instance;
     }
 
     private void Update()
     {
-        UpdatePath();
-        Move();
+        if (constantlyUpdatePath)
+        {
+            if (Time.time - lastRecalculate > recalculatePathTime)
+            {
+                UpdatePath();
+                lastRecalculate = Time.time;
+            }
+        }
 
         if (visualizePath)
             VisualizePath();
@@ -34,8 +45,7 @@ public class MovementController : MonoBehaviour
 
     public void Move()
     {
-
-    if (path.Count == 0)
+        if (path.Count == 0)
             return;
 
         Vector2 direction = (currentTarget - (Vector2)transform.position).normalized;
@@ -45,20 +55,33 @@ public class MovementController : MonoBehaviour
         {
             pathIndex--;
 
+            if (pathIndex <= 0)
+            {
+                path.Clear();
+                OnPathComplete?.Invoke();
+                return;
+            }
+
             CalculateTarget();
         }
     }
 
+    public void StopMoving()
+    {
+        path.Clear();
+        rb.velocity = Vector2.zero;
+    }
+
     public void UpdatePath()
     {
-        if (Time.time - lastRecalculate < recalculatePathTime)
-            return;
+
 
         GridElement currentGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
         GridElement targetGrid = levelManager.WorldGrid.GetGridElement(TargetPosition, true);
         path = levelManager.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
         pathIndex = path.Count - 1;
-        lastRecalculate = Time.time;
+
+        // lastRecalculate = Time.time;
         CalculateTarget();
     }
 
@@ -67,8 +90,9 @@ public class MovementController : MonoBehaviour
         if (pathIndex > 0)
         {
             Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
-            Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
-            currentTarget = (newTarget + secondNewTarget) / 2;
+            // Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
+            // currentTarget = (newTarget + secondNewTarget) / 2;
+            currentTarget = newTarget;
         }
     }
 

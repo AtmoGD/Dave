@@ -18,9 +18,13 @@ MonoBehaviour:
   cost: []
   size: {x: 1, y: 1}
   prefab: {fileID: 3203909175382115269, guid: e67b35cd1c09da841871094087693337, type: 3}
-  preview: {fileID: 3203909175382115269, guid: 481d55d9b72302645a37e5bb27852dc3, type: 3}
+  preview: {fileID: 0}
   portal: {fileID: 11400000, guid: 7847476167851f543985f04d4e4b761f, type: 2}
+  preferredWork: 0
   moveSpeed: 5
   farmSpeed: 1
+  buildSpeed: 1
+  deliverSpeed: 1
   carryCapacity: 10
   distanceThreshold: 1.5
+  spawnRadiusAroundTower: 3

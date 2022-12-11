@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionBuilding : MonoBehaviour
+public class MinionBuilding : MinionState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Enter(Minion _minion)
     {
-        
+        base.Enter(_minion);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FrameUpdate()
     {
-        
+        base.FrameUpdate();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }
