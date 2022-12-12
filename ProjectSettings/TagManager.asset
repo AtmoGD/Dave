@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Nekromancer
+    uniqueID: 674278223
+    locked: 0
+  - name: World
+    uniqueID: 4216947315
+    locked: 0

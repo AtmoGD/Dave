@@ -120,7 +120,7 @@ public class Nekromancer : MonoBehaviour
 
         currentInput = InputController.InputData;
 
-        if (LevelManager.CurrentCycleState.Cycle == Cycle.Day)
+        if (LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             CheckInteraction();
 
         currentSkill?.FrameUpdate(Time.deltaTime);
