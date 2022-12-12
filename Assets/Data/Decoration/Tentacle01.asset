@@ -17,5 +17,5 @@ MonoBehaviour:
   description: A Tentacle of the death
   cost: []
   size: {x: 1, y: 1}
-  prefab: {fileID: 2182126892748540352, guid: 4e354d377f01cb647bfe60803efb3bc6, type: 3}
-  preview: {fileID: 1341286035390881480, guid: 45ebf4abad06bc44597b78b3cd47a323, type: 3}
+  prefab: {fileID: 121855561135099919, guid: 0287810bb0585804b977e1a45c3da534, type: 3}
+  preview: {fileID: 7538901620446315276, guid: 2a2352e7d9757884e8b7667056e50113, type: 3}

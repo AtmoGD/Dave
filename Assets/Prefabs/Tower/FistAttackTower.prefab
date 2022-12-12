@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 701380788807390276}
   - component: {fileID: 9140802686605074086}
   - component: {fileID: 4429586389289077104}
+  - component: {fileID: 138631925603663126}
   m_Layer: 8
   m_Name: FistAttackTower
   m_TagString: Untagged
@@ -432,6 +433,33 @@ MonoBehaviour:
   damage: 20
   fireRate: 3
   projectilePrefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}
+--- !u!114 &138631925603663126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970626068462225346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000004fab3028738259fb
+  m_ShapePath:
+  - {x: 0.03267765, y: -2.0387375, z: 0}
+  - {x: -3.4021354, y: -0.11931515, z: 0}
+  - {x: -0.10246086, y: 1.712585, z: 0}
+  - {x: 3.5405226, y: -0.040301085, z: 0}
+  m_ShapePathHash: 171269347
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -916978
 --- !u!1 &4091710019628846587
 GameObject:
   m_ObjectHideFlags: 0

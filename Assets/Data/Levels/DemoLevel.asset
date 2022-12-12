@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 60
+    duration: 180
   - cycle: 1
     duration: 10
   - cycle: 0

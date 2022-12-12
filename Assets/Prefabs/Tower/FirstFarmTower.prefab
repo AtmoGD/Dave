@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 6791228170895719002}
   - component: {fileID: 4953350818265659152}
   - component: {fileID: 2980859086275391672}
+  - component: {fileID: 3609569224678811801}
   m_Layer: 8
   m_Name: FirstFarmTower
   m_TagString: Untagged
@@ -852,6 +853,33 @@ PolygonCollider2D:
       - {x: -1.5423791, y: 0.013355643}
       - {x: -0.013854444, y: -0.79162526}
       - {x: 1.5704242, y: -0.008992314}
+--- !u!114 &3609569224678811801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132539994694248924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000004fab3028738259fb
+  m_ShapePath:
+  - {x: 0.078427434, y: -0.9073973, z: 0}
+  - {x: -1.472916, y: -0.08856845, z: 0}
+  - {x: 0.06538963, y: 0.7912979, z: 0}
+  - {x: 1.5009611, y: -0.050685167, z: 0}
+  m_ShapePathHash: 768748016
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -921094
 --- !u!1001 &3981652732473157263
 PrefabInstance:
   m_ObjectHideFlags: 0
