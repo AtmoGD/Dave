@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour, IDamagable
         UpdateHealthBar();
         levelManager = (LevelManager)GameManager.Instance;
         levelManager.AddEnemy(this);
-        nekromancer = levelManager.PlayerController.nekromancer;
+        nekromancer = levelManager.PlayerController.Nekromancer;
         currentTarget = transform.position;
     }
 

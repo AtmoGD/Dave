@@ -9,6 +9,6 @@ public class AttackSpeedPerk : Perk
     {
         base.ActivatePerk(_player);
 
-        player.nekromancer.AddAttackSpeed(attackSpeedIncrease);
+        player.Nekromancer.AddAttackSpeed(attackSpeedIncrease);
     }
 }

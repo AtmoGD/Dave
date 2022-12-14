@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871276861324866334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.19, y: 28.43, z: -10}
+  m_LocalPosition: {x: 23.96, y: 28.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -71,6 +71,50 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 440056235553771093}
+--- !u!1 &2520270348105973050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5862868172546906761}
+  - component: {fileID: 3504213900379381252}
+  m_Layer: 0
+  m_Name: PlayerBuildController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5862868172546906761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520270348105973050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4807954931303665724}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3504213900379381252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520270348105973050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb11ff16f6d5cd4290bad3df70ad492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4807954931303665714
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +148,7 @@ Transform:
   m_Children:
   - {fileID: 3392537130774404601}
   - {fileID: 5629285577613988877}
+  - {fileID: 5862868172546906761}
   - {fileID: 3330447178894423419}
   - {fileID: 4807954931063556571}
   - {fileID: 4807954931287481406}
@@ -140,13 +185,13 @@ MonoBehaviour:
     unlockedRecipes: []
     placedObjects: []
   inputController: {fileID: 6219180567500532692}
-  nekromancer: {fileID: 4807954931287481405}
-  nekromancerPrefab: {fileID: 8789931070289155576, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
   spawnPoint: {fileID: 4807954931303665724}
-  cursor: {fileID: 4807954931063556580}
-  nekromancerCamera: {fileID: 8082934700095067792}
-  cursorCamera: {fileID: 1847541786177484705}
+  <NekromancerCamera>k__BackingField: {fileID: 8082934700095067792}
+  <BuildingCamera>k__BackingField: {fileID: 1847541786177484705}
+  <Nekromancer>k__BackingField: {fileID: 4807954931287481405}
   <UIController>k__BackingField: {fileID: 5494878834600046498}
+  <BuildController>k__BackingField: {fileID: 3504213900379381252}
+  <PlayerInput>k__BackingField: {fileID: 2650636640014596890}
 --- !u!114 &6219180567500532692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,26 +450,14 @@ MonoBehaviour:
     m_ActionId: 8318416c-6292-4bcb-8f98-c4fe788e4fc2
     m_ActionName: Combat/FourthItem[/XInputControllerWindows/buttonWest,/Keyboard/4]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnMouseMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: aca94a25-f864-4b21-9a47-defe9648cf6b
     m_ActionName: Building/MouseMove[/Mouse/position]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnMoveInput
+      - m_Target: {fileID: 4807954931303665715}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: MovePlaceable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -437,26 +470,14 @@ MonoBehaviour:
     m_ActionId: fe4faa3d-f21d-435c-9f20-30fb0be93dd9
     m_ActionName: Building/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnLookInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 7ab315ff-3912-468f-a901-c5804587d3f1
     m_ActionName: Building/Rotate[/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnInteractInput
+      - m_Target: {fileID: 5494878834600046498}
+        m_TargetAssemblyTypeName: PlayerUIController, Assembly-CSharp
+        m_MethodName: NextItem
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -466,17 +487,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c8da211c-7e38-4d09-b62b-e585148e4733
-    m_ActionName: Building/Interact[/Mouse/leftButton,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 0233bbca-e5a0-4406-9042-59bbd9792608
     m_ActionName: UI/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnPlaceObjectInput
+      - m_Target: {fileID: 4807954931303665715}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: FinalPlaceObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -489,51 +506,15 @@ MonoBehaviour:
     m_ActionId: 91e6fd1d-0320-43f7-bc79-b0ff0499585c
     m_ActionName: Building/PlaceObject[/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnOpenBuildMenuInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9af62252-90f2-4347-9890-8d698dc82258
     m_ActionName: Building/OpenBuildings[/Keyboard/q,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnOpenMinionMenuInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: a044af6e-58d2-4fd5-94b8-58b19d05ad53
     m_ActionName: Building/OpenMinions[/Keyboard/e,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6219180567500532692}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnCancelInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 96d13a76-b0a2-452a-b688-d30df7c3d9c8
     m_ActionName: Building/Cancel[/Keyboard/f,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
@@ -568,9 +549,37 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 71848013-7c32-4ec3-9fc2-21bad4b4633c
     m_ActionName: Combat/Cancel[/Keyboard/r,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5494878834600046498}
+        m_TargetAssemblyTypeName: PlayerUIController, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 493e19f5-0b99-406f-ac1c-e14d1896cde5
+    m_ActionName: UI/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9a442ed8-86d2-4e51-ae13-4afa53000491
+    m_ActionName: UI/Cancel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b903ce3c-9a00-4a88-a6aa-7730fa180c1a
+    m_ActionName: UI/MoveMenu
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2bace3c7-cd04-45f5-ab1d-a8551acdf4e3
+    m_ActionName: UI/MoveMenuLeft[/XInputControllerWindows/leftShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Combat
+  m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &5179365498049991481
@@ -584,7 +593,7 @@ GameObject:
   - component: {fileID: 5629285577613988877}
   - component: {fileID: 1847541786177484705}
   m_Layer: 0
-  m_Name: CursorCameraBrain
+  m_Name: BuildingCameraBrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -800,11 +809,11 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.75
-  m_DeadZoneHeight: 0.69
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 1.82
+  m_SoftZoneWidth: 2
   m_SoftZoneHeight: 2
   m_BiasX: 0
   m_BiasY: 0
@@ -839,9 +848,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cursor
       objectReference: {fileID: 0}
+    - target: {fileID: 8321600584365201340, guid: 48b7c6aee8b60f84ba3b1af5d4cd4ec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8321600584365201342, guid: 48b7c6aee8b60f84ba3b1af5d4cd4ec1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8321600584365201342, guid: 48b7c6aee8b60f84ba3b1af5d4cd4ec1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,21 +925,25 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
+      propertyPath: m_InstanceId
+      value: -60214
+      objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
       value: Nekromancer
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155579, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155579, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.19
+      value: 23.96
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155579, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.43
+      value: 28.94
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155579, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1175,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7628708859989876296, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7628708859989876296, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchorMax.x

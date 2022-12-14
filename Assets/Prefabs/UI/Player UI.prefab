@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3778040082346474148}
+  - component: {fileID: 1074348384}
   m_Layer: 0
   m_Name: MinionUI
   m_TagString: Untagged
@@ -37,6 +38,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1074348384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368527873949803121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85b745555e0fdf4ca66132ab795f480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentObject: {fileID: 6725917807303532711}
 --- !u!1 &1177751239397792889
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,6 +60,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3671965278595549284}
+  - component: {fileID: 935984229}
   m_Layer: 0
   m_Name: BuildingUI
   m_TagString: Untagged
@@ -74,6 +89,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &935984229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177751239397792889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85b745555e0fdf4ca66132ab795f480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentObject: {fileID: 1254954796795511238}
 --- !u!1 &1254954796795511238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000019073486, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5160218983835815626
@@ -1718,8 +1746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  buildMenu: {fileID: 1177751239397792889}
-  minionMenu: {fileID: 368527873949803121}
+  buildMenu: {fileID: 935984229}
+  minionMenu: {fileID: 1074348384}
+  menuInputDelay: 0.2
 --- !u!1 &8826069657505512362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,10 +2522,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3736115409456944674, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
     - target: {fileID: 5697610678158836466, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
       propertyPath: m_Name
       value: BuildingPanel
@@ -2603,7 +2628,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7239801475969798162, guid: 634aec5d7f6a577468e9bcd9b66fa601, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239801475969798162, guid: 634aec5d7f6a577468e9bcd9b66fa601, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239801475969798162, guid: 634aec5d7f6a577468e9bcd9b66fa601, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1549628838153765516, guid: 634aec5d7f6a577468e9bcd9b66fa601, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 634aec5d7f6a577468e9bcd9b66fa601, type: 3}
 --- !u!224 &3703902996179825318 stripped
 RectTransform:

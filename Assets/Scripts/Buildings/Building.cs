@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected PlayerController player = null;
-
     public virtual void Interact(Nekromancer _nekromancer)
     {
         Debug.Log("Interacting with building");

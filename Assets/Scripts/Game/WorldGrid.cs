@@ -6,7 +6,6 @@ using Unity.Collections;
 using System;
 using Unity.Jobs;
 
-
 [Serializable]
 public class WorldGrid : MonoBehaviour
 {
@@ -247,6 +246,16 @@ public class WorldGrid : MonoBehaviour
         }
 
         return Grid[_gridPosition.x][_gridPosition.y];
+    }
+
+    public GridElement GetGridElement(GridElement _element, Vector2 _dir)
+    {
+        Vector2 gridPosition = _element.transform.position;
+
+        gridPosition.x += _dir.x * ElementSize.x;
+        gridPosition.y += _dir.y * ElementSize.y;
+
+        return GetGridElement(gridPosition, true);
     }
 
     public Vector2 GetObjectOffset(Placeable _object)

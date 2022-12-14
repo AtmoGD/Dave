@@ -16,17 +16,7 @@ public class LevelManager : GameManager
     public List<Tower> Tower { get { return placedObjects.FindAll(x => x is Tower).ConvertAll(x => x as Tower); } }
     public List<FarmTower> FarmTower { get { return placedObjects.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
     public List<AttackTower> AttackTower { get { return placedObjects.FindAll(x => x is AttackTower).ConvertAll(x => x as AttackTower); } }
-    // public List<FarmTower> FarmTower {
-    //     get {
-    //         List<FarmTower> farmTowers = new List<FarmTower>();
-    //         foreach (PlaceableObject tower in towers) {
-    //             if (tower is FarmTower) {
-    //                 farmTowers.Add(tower as FarmTower);
-    //             }
-    //         }
-    //         return  farmTowers;
-    //     }
-    // }
+
     private int enemyCount = 0;
     private int currentCycle = 0;
 

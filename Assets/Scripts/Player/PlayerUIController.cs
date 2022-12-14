@@ -1,56 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerUIController : MonoBehaviour
 {
-    [SerializeField] private PlayerController player;
-    [SerializeField] private GameObject buildMenu = null;
-    [SerializeField] private GameObject minionMenu = null;
+    public PlayerController Player { get; private set; } = null;
 
-    bool buildMenuOpen = false;
-    bool minionMenuOpen = false;
+    [SerializeField] private UIMenuController buildMenu = null;
+    [SerializeField] private UIMenuController minionMenu = null;
+    [SerializeField] private float menuInputDelay = 0.2f;
 
-    bool AnyMenuOpen { get { return buildMenuOpen || minionMenuOpen; } }
+    UIMenuController currentMenu = null;
 
-    private void Start()
+    bool AnyMenuOpen { get { return currentMenu; } }
+
+    float lastMenuInput = 0f;
+
+    public void Init(PlayerController _player)
     {
-        buildMenu.SetActive(false);
-        minionMenu.SetActive(false);
+        Player = _player;
+
+        buildMenu.gameObject.SetActive(false);
+        minionMenu.gameObject.SetActive(false);
     }
 
     public void OpenBuildingsMenu()
     {
-        buildMenu.SetActive(true);
-        buildMenuOpen = true;
+        buildMenu.gameObject.SetActive(true);
 
-        player.nekromancer.BlockNekromancer(AnyMenuOpen);
+        currentMenu = buildMenu;
+
+        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
     public void CloseBuildingsMenu()
     {
-        buildMenu.SetActive(false);
-        buildMenuOpen = false;
+        buildMenu.gameObject.SetActive(false);
 
-        player.nekromancer.BlockNekromancer(AnyMenuOpen);
+        currentMenu = null;
+
+        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
     public void OpenMinionsMenu()
     {
-        minionMenu.SetActive(true);
-        minionMenuOpen = true;
+        minionMenu.gameObject.SetActive(true);
 
-        player.nekromancer.BlockNekromancer(AnyMenuOpen);
+        currentMenu = minionMenu;
+
+        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
     public void CloseMinionsMenu()
     {
-        minionMenu.SetActive(false);
-        minionMenuOpen = false;
+        minionMenu.gameObject.SetActive(false);
 
-        // player.Cursor.SetCursorActive(false);
+        currentMenu = null;
 
-        player.nekromancer.BlockNekromancer(AnyMenuOpen);
+        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
     public void CLoseAllMenus()
@@ -58,16 +66,31 @@ public class PlayerUIController : MonoBehaviour
         CloseBuildingsMenu();
         CloseMinionsMenu();
 
-        player.nekromancer.BlockNekromancer(AnyMenuOpen);
+        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
-    public void PlaceObject(string _id)
+    public void NextItem(InputAction.CallbackContext _context)
     {
+        if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
 
+        lastMenuInput = Time.time;
+
+        Vector2 dir = _context.ReadValue<Vector2>();
+
+        if (Mathf.Abs(dir.x) >= 0.5f)
+        {
+            int val = dir.x > 0 ? 1 : -1;
+
+            currentMenu.UpdateSelection(val);
+        }
     }
 
-    public void PlaceObjectData(Placeable _placeable)
+    public void Interact(InputAction.CallbackContext _context)
     {
+        if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
 
+        lastMenuInput = Time.time;
+
+        currentMenu.InteractWithSelection();
     }
 }

@@ -130,13 +130,7 @@ public class Nekromancer : MonoBehaviour
     {
         if (!InputController || currentInput == null || blocked) return;
 
-
-        if (currentSkill != null)
-        {
-            Debug.Log(currentSkill.GetType());
-            currentSkill.PhysicsUpdate(Time.deltaTime);
-            return;
-        }
+        currentSkill?.PhysicsUpdate(Time.deltaTime);
     }
 
     #region State Machine

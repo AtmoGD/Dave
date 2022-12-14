@@ -4,15 +4,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class PanelController : MonoBehaviour
+public class PanelController : UIMenuItem
 {
-    [SerializeField] protected PlayerController playerController;
-    [SerializeField] protected PlayerUIController playerUIController;
     [SerializeField] protected Placeable data;
     [SerializeField] protected TMP_Text placeableName;
     [SerializeField] protected TMP_Text placeableDescription;
     [SerializeField] protected TMP_Text placeableCost;
     [SerializeField] protected Button placeButton;
+
+    protected PlayerController playerController;
+    protected PlayerUIController playerUIController;
 
     private void Start()
     {
@@ -38,9 +39,14 @@ public class PanelController : MonoBehaviour
 
     public virtual void PlaceObject()
     {
-        // playerController.PlaceObjectData(data);
-
         playerController.PlaceObject(data);
         playerUIController.CLoseAllMenus();
+    }
+
+    public override void Interact()
+    {
+        base.Interact();
+
+        PlaceObject();
     }
 }
