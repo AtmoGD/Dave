@@ -107,25 +107,25 @@ public class PlayerController : MonoBehaviour
     {
         UIController.OpenBuildingsMenu();
 
-        inputController.ResetInteract();
+        // inputController.ResetInteract();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
 
-        inputController.OnCancel += Cancel;
+        // inputController.OnCancel += Cancel;
     }
 
     public void OpenMinionsMenu(InputData _input = null)
     {
         UIController.OpenMinionsMenu();
 
-        inputController.ResetInteract();
+        // inputController.ResetInteract();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
 
-        inputController.OnCancel += Cancel;
+        // inputController.OnCancel += Cancel;
     }
 
-    private void Cancel(InputData _input)
+    public void Cancel(InputData _input = null)
     {
         UIController.CLoseAllMenus();
 
@@ -133,6 +133,6 @@ public class PlayerController : MonoBehaviour
 
         PlayerInput.SwitchCurrentActionMap(gameActionMap);
 
-        inputController.OnCancel -= Cancel;
+        // inputController.OnCancel -= Cancel;
     }
 }

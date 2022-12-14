@@ -9,7 +9,7 @@ public class UIMenuController : MonoBehaviour
     int currentIndex = 0;
     UIMenuItem currentItem = null;
 
-    private void Start()
+    private void Awake()
     {
         if (contentObject)
         {
@@ -22,8 +22,6 @@ public class UIMenuController : MonoBehaviour
                     contentItems.Add(item);
             }
         }
-
-        UpdateSelection(-1);
     }
 
     public void UpdateSelection(int _dir)

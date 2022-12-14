@@ -93,4 +93,13 @@ public class PlayerUIController : MonoBehaviour
 
         currentMenu.InteractWithSelection();
     }
+
+    public void Cancel(InputAction.CallbackContext _context)
+    {
+        if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
+
+        lastMenuInput = Time.time;
+
+        Player.Cancel();
+    }
 }
