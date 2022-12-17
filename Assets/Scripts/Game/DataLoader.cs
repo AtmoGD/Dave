@@ -22,16 +22,16 @@ public static class DataLoader
 
     public static T LoadData<T>(string _path)
     {
-        try
-        {
-            return Deserialize<T>(_path);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("CAN'T LOAD DATA! - REASON: " + e.Message);
-        }
-        T result = default(T);
-        return result;
+        // try
+        // {
+        return Deserialize<T>(_path);
+        // }
+        // catch (Exception e)
+        // {
+        //     Debug.LogError("CAN'T LOAD DATA! - REASON: " + e.Message);
+        // }
+        // T result = default(T);
+        // return result;
     }
 
     public static bool DeleteData(string _path)
@@ -64,10 +64,12 @@ public static class DataLoader
             stream.Close();
             return data;
         }
-        else
-            Debug.LogError("FILE DOESN'T EXISTS ON GIVEN PATH!");
 
-        T result = default(T);
-        return result;
+        throw new Exception("FILE DOESN'T EXISTS ON GIVEN PATH!");
+        // else
+        //     Debug.LogError("FILE DOESN'T EXISTS ON GIVEN PATH!");
+
+        // T result = default(T);
+        // return result;
     }
 }

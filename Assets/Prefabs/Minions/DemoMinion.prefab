@@ -67,7 +67,7 @@ MonoBehaviour:
   rb: {fileID: 3203909175382115267}
   speed: 3
   moveThreshold: 0.1
-  recalculatePathTime: 0.5
+  recalculatePathTime: 1
   constantlyUpdatePath: 1
   smoothenPath: 1
 --- !u!50 &3203909175382115267
