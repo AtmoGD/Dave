@@ -118,22 +118,29 @@ public class WorldGrid : MonoBehaviour
     [ExecuteAlways]
     public void InitGrid()
     {
-        ElementCount = 0;
-
-        Grid = new GridElement[GridSize.x][];
-        for (int x = 0; x < GridSize.x; x++)
+        try
         {
-            Grid[x] = new GridElement[GridSize.y];
-        }
+            ElementCount = 0;
 
-        foreach (Transform child in GridElementsParent.transform)
-        {
-            GridElement gridElement = child.GetComponent<GridElement>();
-            if (gridElement != null)
+            Grid = new GridElement[GridSize.x][];
+            for (int x = 0; x < GridSize.x; x++)
             {
-                Grid[gridElement.gridPosition.x][gridElement.gridPosition.y] = gridElement;
-                ElementCount++;
+                Grid[x] = new GridElement[GridSize.y];
             }
+
+            foreach (Transform child in GridElementsParent.transform)
+            {
+                GridElement gridElement = child.GetComponent<GridElement>();
+                if (gridElement != null)
+                {
+                    Grid[gridElement.gridPosition.x][gridElement.gridPosition.y] = gridElement;
+                    ElementCount++;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            LoadLevel();
         }
     }
 

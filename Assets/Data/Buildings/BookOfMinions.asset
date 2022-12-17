@@ -16,6 +16,6 @@ MonoBehaviour:
   name: Book of Minions
   description: The mighty book of minions
   cost: []
-  size: {x: 1, y: 1}
+  size: {x: 2, y: 2}
   prefab: {fileID: 4735450863373788536, guid: 834cab93eeb16e044b85882155f520dc, type: 3}
   preview: {fileID: 4735450863373788536, guid: 834cab93eeb16e044b85882155f520dc, type: 3}

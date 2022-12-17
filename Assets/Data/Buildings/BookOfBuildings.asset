@@ -16,6 +16,6 @@ MonoBehaviour:
   name: Book of Buildings
   description: The mighty book of buildings
   cost: []
-  size: {x: 1, y: 1}
+  size: {x: 2, y: 2}
   prefab: {fileID: 4735450863373788536, guid: 6379e9d2837265a42bc6503dd9f48dfb, type: 3}
   preview: {fileID: 4735450863373788536, guid: 6379e9d2837265a42bc6503dd9f48dfb, type: 3}

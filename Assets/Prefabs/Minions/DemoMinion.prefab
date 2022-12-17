@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4932949136714485088}
   - component: {fileID: 3203909175382115267}
   - component: {fileID: 3801543449568538638}
+  - component: {fileID: 105394851221692234}
   m_Layer: 8
   m_Name: DemoMinion
   m_TagString: Untagged
@@ -67,7 +68,8 @@ MonoBehaviour:
   speed: 3
   moveThreshold: 0.1
   recalculatePathTime: 0.5
-  constantlyUpdatePath: 0
+  constantlyUpdatePath: 1
+  smoothenPath: 1
 --- !u!50 &3203909175382115267
 Rigidbody2D:
   serializedVersion: 4
@@ -105,6 +107,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &105394851221692234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203909175382115269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a4ac30dd6ee3c4e9fb14c964c98ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpdateTime>k__BackingField: 0.5
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0

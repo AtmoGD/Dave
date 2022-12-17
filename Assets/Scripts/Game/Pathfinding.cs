@@ -12,8 +12,11 @@ using Unity.Burst;
 
 public class Pathfinding : MonoBehaviour
 {
-    public const int MOVE_STRAIGHT_COST = 10;
-    public const int MOVE_DIAGONAL_COST = 14;
+    // public const int MOVE_STRAIGHT_COST = 10;
+    // public const int MOVE_DIAGONAL_COST = 14;
+
+    public const int MOVE_STRAIGHT_COST = 14;
+    public const int MOVE_DIAGONAL_COST = 10;
 
     public NativeArray<GridStruct> ConvertGridToPathNodes(GridElement[][] _grid)
     {
@@ -72,14 +75,23 @@ public class Pathfinding : MonoBehaviour
             }
 
             NativeArray<int2> neighbourOffsets = new NativeArray<int2>(8, Allocator.Temp);
+            // neighbourOffsets[0] = new int2(-1, 0);  // Left
+            // neighbourOffsets[1] = new int2(+1, 0);  // Right
+            // neighbourOffsets[2] = new int2(0, +2);  // Up
+            // neighbourOffsets[3] = new int2(0, -2);  // Down
+            // neighbourOffsets[4] = new int2(0, -1); // Down Left
+            // neighbourOffsets[5] = new int2(+1, -1); // Down Right
+            // neighbourOffsets[6] = new int2(-1, +1); // Up Left
+            // neighbourOffsets[7] = new int2(0, +1); // Up Right
+
             neighbourOffsets[0] = new int2(-1, 0);  // Left
             neighbourOffsets[1] = new int2(+1, 0);  // Right
-            neighbourOffsets[2] = new int2(0, +2);  // Up
-            neighbourOffsets[3] = new int2(0, -2);  // Down
-            neighbourOffsets[4] = new int2(0, -1); // Down Left
+            neighbourOffsets[2] = new int2(0, +1);  // Up
+            neighbourOffsets[3] = new int2(0, -1);  // Down
+            neighbourOffsets[4] = new int2(-1, -1); // Down Left
             neighbourOffsets[5] = new int2(+1, -1); // Down Right
             neighbourOffsets[6] = new int2(-1, +1); // Up Left
-            neighbourOffsets[7] = new int2(0, +1); // Up Right
+            neighbourOffsets[7] = new int2(+1, +1); // Up Right
 
             int endNodeIndex = CalculateIndex(_endPosition.x, _endPosition.y, gridSize.x);
 

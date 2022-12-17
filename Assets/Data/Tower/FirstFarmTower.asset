@@ -16,9 +16,10 @@ MonoBehaviour:
   name: A demo FarmTower tower
   description: Farm farm farm!!!!!!
   cost: []
-  size: {x: 1, y: 1}
+  size: {x: 2, y: 2}
   prefab: {fileID: 9132539994694248924, guid: 0b3c3a1b1257467449c8979f42257c04, type: 3}
   preview: {fileID: 8371365873896107099, guid: d59c5a483c7011a499a03c8c81c69cd0, type: 3}
   health: 100
+  buildTime: 5
   ressource: {fileID: 0}
   maxWorkers: 5

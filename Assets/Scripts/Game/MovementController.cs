@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] protected float moveThreshold = 0.1f;
     [SerializeField] protected float recalculatePathTime = 0.5f;
     [SerializeField] protected bool constantlyUpdatePath = false;
+    [SerializeField] protected bool smoothenPath = true;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -90,9 +91,13 @@ public class MovementController : MonoBehaviour
         if (pathIndex >= 0)
         {
             Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
-            // Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
-            // currentTarget = (newTarget + secondNewTarget) / 2;
-            currentTarget = newTarget;
+            if (smoothenPath && pathIndex > 0)
+            {
+                Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
+                currentTarget = (newTarget + secondNewTarget) / 2;
+            }
+            else
+                currentTarget = newTarget;
         }
     }
 
