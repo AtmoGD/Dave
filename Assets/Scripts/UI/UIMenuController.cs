@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIMenuController : MonoBehaviour
 {
+    [SerializeField] Animator animator = null;
     [SerializeField] GameObject contentObject = null;
     List<UIMenuItem> contentItems = new List<UIMenuItem>();
     int currentIndex = 0;
@@ -24,6 +25,11 @@ public class UIMenuController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateSelection(0);
+    }
+
     public void UpdateSelection(int _dir)
     {
         if (contentItems.Count == 0) return;
@@ -41,6 +47,11 @@ public class UIMenuController : MonoBehaviour
             currentItem?.Select();
         }
 
+    }
+
+    public void SetIsActive(bool _active)
+    {
+        animator.SetBool("Active", _active);
     }
 
     public void InteractWithSelection()

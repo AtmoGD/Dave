@@ -21,13 +21,6 @@ public class PanelController : UIMenuItem
         if (!playerUIController) playerUIController = GetComponentInParent<PlayerUIController>();
 
         if (data) UpdatePanel();
-
-        placeButton.onClick.AddListener(PlaceObject);
-    }
-
-    private void OnDestroy()
-    {
-        placeButton.onClick.RemoveListener(PlaceObject);
     }
 
     void UpdatePanel()

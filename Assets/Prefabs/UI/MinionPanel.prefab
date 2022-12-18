@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedVizualizer: {fileID: 6150285552464245279}
+  selectSpeed: 2
   data: {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
   placeableName: {fileID: 5024340225406763825}
   placeableDescription: {fileID: 7644814796148016454}
