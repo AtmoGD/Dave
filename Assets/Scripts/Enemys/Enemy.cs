@@ -5,118 +5,68 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    [SerializeField] private bool visualizePath = true;
+    [field: SerializeField] public EnemyData Data { get; private set; } = null;
+    [field: SerializeField] public MovementController MoveController { get; private set; } = null;
 
-    [SerializeField] protected Rigidbody2D rb = null;
-    [SerializeField] protected Animator animator = null;
-    [SerializeField] private EnemyData data = null;
-    [SerializeField] private MovementController movementController = null;
-    public EnemyData Data { get { return data; } }
     public int Health { get; private set; }
-    public int MaxHealth { get { return data.health; } }
+    public int MaxHealth { get { return Data.health; } }
     public int Damage { get; private set; }
 
-    private LevelManager levelManager = null;
-    private Nekromancer nekromancer;
+    public EnemyState CurrentState { get; private set; } = null;
+    public EnemyIdle IdleState { get; private set; } = new EnemyIdle();
+    public EnemyMoving MovingState { get; private set; } = new EnemyMoving();
+    public EnemyAttacking AttackingState { get; private set; } = new EnemyAttacking();
 
-    private List<Vector2Int> path = new List<Vector2Int>();
-    private int pathIndex = 0;
+    public LevelManager LevelManager { get; private set; } = null;
+    public Transform Target { get; set; } = null;
 
-    Vector2 currentTarget = Vector2.zero;
-    float lastRecalculate = 0f;
+    bool active = false;
 
-    List<GridElement> gridElements = new List<GridElement>();
-
-    public void Init(EnemyData _data)
+    private void Awake()
     {
-
+        active = false;
     }
 
     private void OnEnable()
     {
-        Health = data.health;
-        Damage = data.damage;
-        levelManager = (LevelManager)GameManager.Instance;
-        levelManager.AddEnemy(this);
-        nekromancer = levelManager.PlayerController.Nekromancer;
-        currentTarget = transform.position;
+        Health = Data.health;
+        Damage = Data.damage;
+        LevelManager = (LevelManager)GameManager.Instance;
+        LevelManager.AddEnemy(this);
+
+        ChangeState(IdleState);
+
+        active = true;
     }
 
     private void OnDisable()
     {
-        levelManager.RemoveEnemy(this);
+        LevelManager.RemoveEnemy(this);
+
+        active = false;
     }
 
     private void Update()
     {
-        UpdatePath();
-        MoveToPath();
+        if (!active) return;
 
-        if (visualizePath)
-            VisualizePath();
+        CurrentState?.FrameUpdate();
     }
 
-    public void MoveToNekromancer()
+    private void FixedUpdate()
     {
-        Vector2 direction = (nekromancer.transform.position - transform.position).normalized;
-        rb.velocity = direction * data.speed;
+        if (!active) return;
+
+        CurrentState?.PhysicsUpdate();
     }
 
-    public void MoveToPath()
+    public void ChangeState(EnemyState _newState)
     {
-        if (path.Count == 0)
-            return;
+        CurrentState?.Exit();
 
-        Vector2 direction = (currentTarget - (Vector2)transform.position).normalized;
-        rb.velocity = direction * data.speed;
+        CurrentState = _newState;
 
-        if (Vector2.Distance(transform.position, currentTarget) < data.moveThreshold)
-        {
-            pathIndex--;
-
-            CalculateTarget();
-        }
-    }
-
-    public void VisualizePath()
-    {
-        for (int i = 0; i < path.Count - 1; i++)
-        {
-            Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
-            Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
-
-            Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
-            Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
-
-            Debug.DrawLine(pos, nextPos, Color.red);
-        }
-    }
-
-    public void UpdatePath()
-    {
-        if (Time.time - lastRecalculate < data.recalculatePathTime)
-            return;
-
-        GridElement enemyGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
-        GridElement nekromancerGrid = levelManager.WorldGrid.GetGridElement(nekromancer.transform.position, true);
-        path = levelManager.WorldGrid.FindPath(enemyGrid.gridPosition, nekromancerGrid.gridPosition);
-        pathIndex = path.Count - 1;
-        lastRecalculate = Time.time;
-        CalculateTarget();
-    }
-
-    public void CalculateTarget()
-    {
-        if (pathIndex > 0)
-        {
-            Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
-            Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
-            currentTarget = (newTarget + secondNewTarget) / 2;
-        }
-        else
-        {
-            currentTarget = nekromancer.transform.position;
-        }
+        CurrentState?.Enter(this);
     }
 
     public void TakeDamage(int _damage)
@@ -125,5 +75,35 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (Health <= 0)
             gameObject.SetActive(false);
+    }
+
+    public Tower FindNearestTower<T>(List<T> _tower) where T : Tower
+    {
+        Tower nearestTower = null;
+
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (Tower tower in _tower)
+        {
+            float distance = Vector3.Distance(transform.position, tower.transform.position);
+
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestTower = tower;
+            }
+        }
+
+        return nearestTower;
+    }
+
+    public void Attack()
+    {
+
+    }
+
+    public void ApplyDamage()
+    {
+
     }
 }

@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 8840412572578489678}
   - component: {fileID: 8840412572578489679}
   - component: {fileID: 838226070246348594}
+  - component: {fileID: 8355268347544386042}
   m_Layer: 0
   m_Name: DemoEnemy
   m_TagString: Untagged
@@ -153,11 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1ab2eccae65134eb4a26f7651caba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualizePath: 1
-  rb: {fileID: 8840412572578489679}
-  animator: {fileID: 8840412572527688727}
-  data: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
-  movementController: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+  <MoveController>k__BackingField: {fileID: 8355268347544386042}
 --- !u!50 &8840412572578489679
 Rigidbody2D:
   serializedVersion: 4
@@ -195,6 +193,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &8355268347544386042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840412572578489673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7ba52c05534664b935e0f229fe6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizePath: 1
+  rb: {fileID: 8840412572578489679}
+  speed: 3
+  moveThreshold: 0.1
+  recalculatePathTime: 0.5
+  constantlyUpdatePath: 0
+  smoothenPath: 1
 --- !u!1001 &1322062350697132458
 PrefabInstance:
   m_ObjectHideFlags: 0

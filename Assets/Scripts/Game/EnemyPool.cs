@@ -44,7 +44,6 @@ public class EnemyPool : MonoBehaviour
         for (int i = 0; i < _pool.size; i++)
         {
             Enemy enemy = Instantiate(_pool.data.enemyPrefab, transform);
-            enemy.Init(_pool.data);
             enemy.gameObject.SetActive(false);
             enemyList.Add(enemy);
         }

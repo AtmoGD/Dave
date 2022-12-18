@@ -30,7 +30,6 @@ public class EnemySpawnController : MonoBehaviour
         Vector2 spawnPosition = Random.insideUnitCircle * spawnRadius;
         EnemyData enemyData = enemyDatas[Random.Range(0, enemyDatas.Count)];
         Enemy enemy = EnemyPool.Instance.GetEnemy(enemyData);
-        enemy.Init(enemyData);
         enemy.transform.position = spawnPosition;
     }
 }

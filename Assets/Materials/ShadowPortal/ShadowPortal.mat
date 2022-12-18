@@ -39,10 +39,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Flatten: 1
-    - _NoiseScale: 20
-    - _StepThreshold: 0.6
+    - _NoiseScale: 50
+    - _StepThreshold: 0.4
     - _VoronoiScale: 15
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Speed: {r: 0, g: -0.3, b: 0, a: 0}
+    - _Speed: {r: 0, g: -0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
