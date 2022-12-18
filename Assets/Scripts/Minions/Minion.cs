@@ -33,7 +33,11 @@ public class Minion : MonoBehaviour, IInteractable
     private void Update()
     {
         CurrentState?.FrameUpdate();
+
+        if (LevelManager.CurrentCycleState.Cycle == Cycle.Night)
+            EvaluateTurnIntoPortal();
     }
+
     private void FixedUpdate()
     {
         CurrentState?.PhysicsUpdate();
@@ -46,6 +50,18 @@ public class Minion : MonoBehaviour, IInteractable
         CurrentState = _newState;
 
         CurrentState?.Enter(this);
+    }
+
+    public void EvaluateTurnIntoPortal()
+    {
+        float chance = Data.chanceToTurnIntoPortal.Evaluate(LevelManager.CurrentCycleState.TimeInCycle) * 100;
+        float roll = Random.Range(0, 100);
+
+        if (roll < chance)
+        {
+            Instantiate(Data.portal.prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     public void Interact(Nekromancer _nekromancer)

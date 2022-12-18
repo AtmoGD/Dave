@@ -101,24 +101,23 @@ public class GridEditor : Editor
 
     public void OnSceneGUI()
     {
-
-        Placeable PlaceObject = null;
-        try
-        {
-            PlaceObject = (Placeable)source;
-        }
-        catch (System.Exception)
-        {
-            Debug.LogError("ERROR: No Placeable Selected");
-            PlaceObject = null;
-        }
-
         WorldGrid worldGrid = (WorldGrid)target;
 
         worldGrid.InitGrid();
 
         if (IsPlacing)
         {
+            Placeable PlaceObject = null;
+            try
+            {
+                PlaceObject = (Placeable)source;
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("ERROR: No Placeable Selected");
+                PlaceObject = null;
+            }
+
             if (PlaceObject)
             {
                 Vector2 mousePosition = Event.current.mousePosition;
@@ -154,6 +153,8 @@ public class GridEditor : Editor
         {
             if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
             {
+                Event.current.Use();
+
                 Vector2 mousePosition = Event.current.mousePosition;
                 mousePosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
 
@@ -173,7 +174,6 @@ public class GridEditor : Editor
                         }
                     }
                 }
-                Event.current.Use();
             }
         }
     }

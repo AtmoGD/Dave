@@ -14,6 +14,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] protected float recalculatePathTime = 0.5f;
     [SerializeField] protected bool constantlyUpdatePath = false;
     [SerializeField] protected bool smoothenPath = true;
+    // bool askedForPath = false;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -36,12 +37,13 @@ public class MovementController : MonoBehaviour
             if (Time.time - lastRecalculate > recalculatePathTime)
             {
                 UpdatePath();
+                // AskForPath();
                 lastRecalculate = Time.time;
             }
         }
 
-        if (visualizePath)
-            VisualizePath();
+        // if (visualizePath)
+        //     VisualizePath();
     }
 
     public void Move()
@@ -86,6 +88,33 @@ public class MovementController : MonoBehaviour
         CalculateTarget();
     }
 
+    // public void AskForPath()
+    // {
+    //     if (askedForPath)
+    //         return;
+
+    //     GridElement currentGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
+    //     GridElement targetGrid = levelManager.WorldGrid.GetGridElement(TargetPosition, true);
+
+    //     PathJob job = new PathJob();
+    //     job.movementController = this;
+    //     job.startPos = currentGrid.gridPosition;
+    //     job.endPos = targetGrid.gridPosition;
+
+    //     levelManager.WorldGrid.Pathfinder.AddPathJob(job);
+
+    //     askedForPath = true;
+    // }
+
+    // public void TakePath(List<Vector2Int> newPath)
+    // {
+    //     print("Taking path");
+    //     path = newPath;
+    //     pathIndex = path.Count - 1;
+    //     CalculateTarget();
+    //     askedForPath = false;
+    // }
+
     public void CalculateTarget()
     {
         if (pathIndex >= 0)
@@ -119,6 +148,9 @@ public class MovementController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!visualizePath)
+            return;
+
         for (int i = 0; i < path.Count - 1; i++)
         {
             Vector2Int tile = new Vector2Int(path[i].x, path[i].y);

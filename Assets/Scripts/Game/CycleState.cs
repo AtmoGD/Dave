@@ -13,6 +13,7 @@ public class CycleState
     public float Duration => duration;
     public float TimeLeft => timeLeft;
     public float PercentOfTimeLeft => timeLeft / duration;
+    public float TimeInCycle => duration - timeLeft;
 
     private LevelManager levelManager = null;
     private float timeLeft = 0f;

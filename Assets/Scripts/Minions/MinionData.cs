@@ -23,4 +23,6 @@ public class MinionData : Placeable
 
     public float distanceThreshold = 0.1f;
     public float spawnRadiusAroundTower = 3f;
+
+    public AnimationCurve chanceToTurnIntoPortal = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
 }
