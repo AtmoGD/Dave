@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3996061532618051168}
   - component: {fileID: 3996061532618051170}
-  - component: {fileID: 3996061532618051171}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -26,9 +25,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3996061532618051169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3996061532920296625}
   m_RootOrder: 0
@@ -53,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b0aa141a40879084e9233f91a1787ddc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.1981132, g: 0.0999911, b: 0.0999911, a: 0.54509807}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1bf1c00047924eb4191f2866a56ae842, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,26 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3996061532618051171
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996061532618051169}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3996061532920296653
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +167,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.7}
+  m_Size: {x: 0.8, y: 1.6}
   m_Direction: 0
 --- !u!1001 &8863546033119933197
 PrefabInstance:
@@ -268,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.361
+      value: 2.111
       objectReference: {fileID: 0}
     - target: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
