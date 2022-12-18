@@ -14,7 +14,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] protected float recalculatePathTime = 0.5f;
     [SerializeField] protected bool constantlyUpdatePath = false;
     [SerializeField] protected bool smoothenPath = true;
-    // bool askedForPath = false;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -37,13 +36,9 @@ public class MovementController : MonoBehaviour
             if (Time.time - lastRecalculate > recalculatePathTime)
             {
                 UpdatePath();
-                // AskForPath();
                 lastRecalculate = Time.time;
             }
         }
-
-        // if (visualizePath)
-        //     VisualizePath();
     }
 
     public void Move()
@@ -84,36 +79,8 @@ public class MovementController : MonoBehaviour
         path = levelManager.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
         pathIndex = path.Count - 1;
 
-        // lastRecalculate = Time.time;
         CalculateTarget();
     }
-
-    // public void AskForPath()
-    // {
-    //     if (askedForPath)
-    //         return;
-
-    //     GridElement currentGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
-    //     GridElement targetGrid = levelManager.WorldGrid.GetGridElement(TargetPosition, true);
-
-    //     PathJob job = new PathJob();
-    //     job.movementController = this;
-    //     job.startPos = currentGrid.gridPosition;
-    //     job.endPos = targetGrid.gridPosition;
-
-    //     levelManager.WorldGrid.Pathfinder.AddPathJob(job);
-
-    //     askedForPath = true;
-    // }
-
-    // public void TakePath(List<Vector2Int> newPath)
-    // {
-    //     print("Taking path");
-    //     path = newPath;
-    //     pathIndex = path.Count - 1;
-    //     CalculateTarget();
-    //     askedForPath = false;
-    // }
 
     public void CalculateTarget()
     {
@@ -128,22 +95,6 @@ public class MovementController : MonoBehaviour
             else
                 currentTarget = newTarget;
         }
-    }
-
-    public void VisualizePath()
-    {
-        // for (int i = 0; i < path.Count - 1; i++)
-        // {
-        //     Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
-        //     Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
-
-        //     Gizmos.DrawSphere(pos, 0.1f);
-
-        //     Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
-        //     Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
-
-        //     Debug.DrawLine(pos, nextPos, Color.red);
-        // }
     }
 
     private void OnDrawGizmos()

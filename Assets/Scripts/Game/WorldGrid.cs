@@ -18,6 +18,7 @@ public class WorldGrid : MonoBehaviour
     [SerializeField] private GameObject gridElementPrefab = null;
     [SerializeField] private Vector2 gridElementSize = new Vector2(2f, 1f);
     [SerializeField] private Vector2 isometricRatio = new Vector2(2f, 1f);
+    [SerializeField] private bool logErrors = true;
 
     public GridElement[][] Grid { get; private set; } = null;
     public Vector2Int GridSize => LevelData.levelSize;
@@ -140,6 +141,9 @@ public class WorldGrid : MonoBehaviour
         }
         catch (Exception e)
         {
+            if (logErrors)
+                Debug.LogError("Error during InitGrid: " + e);
+
             LoadLevel();
         }
     }

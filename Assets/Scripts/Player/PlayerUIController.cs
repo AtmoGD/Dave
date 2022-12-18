@@ -21,15 +21,12 @@ public class PlayerUIController : MonoBehaviour
     {
         Player = _player;
 
-        // buildMenu.gameObject.SetActive(false);
-        // minionMenu.gameObject.SetActive(false);
         buildMenu.SetIsActive(false);
         minionMenu.SetIsActive(false);
     }
 
     public void OpenBuildingsMenu()
     {
-        // buildMenu.gameObject.SetActive(true);
         buildMenu.SetIsActive(true);
 
         currentMenu = buildMenu;
@@ -39,7 +36,6 @@ public class PlayerUIController : MonoBehaviour
 
     public void CloseBuildingsMenu()
     {
-        // buildMenu.gameObject.SetActive(false);
         buildMenu.SetIsActive(false);
 
         currentMenu = null;
@@ -49,7 +45,6 @@ public class PlayerUIController : MonoBehaviour
 
     public void OpenMinionsMenu()
     {
-        // minionMenu.gameObject.SetActive(true);
         minionMenu.SetIsActive(true);
 
         currentMenu = minionMenu;
@@ -59,7 +54,6 @@ public class PlayerUIController : MonoBehaviour
 
     public void CloseMinionsMenu()
     {
-        // minionMenu.gameObject.SetActive(false);
         minionMenu.SetIsActive(false);
 
         currentMenu = null;

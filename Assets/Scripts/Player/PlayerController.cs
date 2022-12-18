@@ -107,22 +107,14 @@ public class PlayerController : MonoBehaviour
     {
         UIController.OpenBuildingsMenu();
 
-        // inputController.ResetInteract();
-
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
-
-        // inputController.OnCancel += Cancel;
     }
 
     public void OpenMinionsMenu(InputData _input = null)
     {
         UIController.OpenMinionsMenu();
 
-        // inputController.ResetInteract();
-
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
-
-        // inputController.OnCancel += Cancel;
     }
 
     public void Cancel(InputData _input = null)
@@ -132,7 +124,5 @@ public class PlayerController : MonoBehaviour
         Nekromancer.ResetInteractable();
 
         PlayerInput.SwitchCurrentActionMap(gameActionMap);
-
-        // inputController.OnCancel -= Cancel;
     }
 }

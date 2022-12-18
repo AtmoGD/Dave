@@ -248,7 +248,7 @@
                 {
                     "name": "",
                     "id": "5c0d00fb-cfda-4dfa-9eba-f4a322b0e726",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -358,7 +358,7 @@
                 {
                     "name": "",
                     "id": "2e815436-2d38-4be5-8567-8ea0c85960a4",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -369,7 +369,7 @@
                 {
                     "name": "",
                     "id": "a37ef3d8-ae53-473c-bb4c-a6df60bd0347",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -468,36 +468,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Rotate",
-                    "type": "PassThrough",
-                    "id": "7ab315ff-3912-468f-a901-c5804587d3f1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PlaceObject",
                     "type": "Button",
                     "id": "91e6fd1d-0320-43f7-bc79-b0ff0499585c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenBuildings",
-                    "type": "Button",
-                    "id": "9af62252-90f2-4347-9890-8d698dc82258",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenMinions",
-                    "type": "Button",
-                    "id": "a044af6e-58d2-4fd5-94b8-58b19d05ad53",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -593,63 +566,8 @@
                 },
                 {
                     "name": "",
-                    "id": "b637260e-69a6-44f6-907f-10384b4a4317",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2a6c7d99-4e1e-4528-9d4c-60f38afaa217",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "OpenBuildings",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "19fbdca7-8341-4f10-91a6-0fe4e2d028a3",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "OpenBuildings",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "456171bc-d728-4a6e-a566-d9dbe0dacae6",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "OpenMinions",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d342d088-1f46-4c8c-91af-71148063f114",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "OpenMinions",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6acc7585-05ce-4b06-a374-ca2bdfa6bae9",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -675,6 +593,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
+                    "action": "PlaceObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b479a3b7-a417-4c8e-b60e-316b24d0a5c5",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "PlaceObject",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -744,12 +673,78 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "WASD",
+                    "id": "a4f87ad4-cf77-45dc-8bf4-e409772c0a6f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveItem",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "dbe0ba99-50c7-40a6-939b-d587e54c6d4e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MoveItem",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d4755416-8186-4211-9577-2f605dff3160",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MoveItem",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "25090461-774b-4f98-ad1c-624a983f9d2e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MoveItem",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "81df2a5e-0d77-4f38-8764-b1fc2ed28780",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MoveItem",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "1f71f28a-6d5b-411e-9d78-be5c73460aa1",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb8322b2-f4a0-426d-907d-7b5608c4cf01",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -767,6 +762,17 @@
                 },
                 {
                     "name": "",
+                    "id": "75b301ce-0bb2-4f48-ac65-9028959a3f29",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c45c94b2-c303-482f-bb54-929970e88885",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -778,11 +784,33 @@
                 },
                 {
                     "name": "",
+                    "id": "7ea51afc-70f8-487c-aa60-b82b9e2dfd2b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MoveMenuRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d3884a08-1299-4340-8b89-04e6560ee13d",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
+                    "action": "MoveMenuLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92f2f07f-1031-4bab-a10b-05ff09967331",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "MoveMenuLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
