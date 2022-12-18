@@ -8,6 +8,7 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
     [SerializeField] protected List<Transform> neighbourGridElements = new List<Transform>();
 
     public int Health { get; private set; }
+    public int MaxHealth { get { return towerData.health; } }
     public float BuildPercentage { get; private set; } = 0f;
     public bool IsBuilt { get { return BuildPercentage >= 1f; } }
 

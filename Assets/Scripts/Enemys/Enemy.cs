@@ -10,10 +10,10 @@ public class Enemy : MonoBehaviour, IDamagable
     [SerializeField] protected Rigidbody2D rb = null;
     [SerializeField] protected Animator animator = null;
     [SerializeField] private EnemyData data = null;
-    [SerializeField] private Canvas healthCanvas = null;
-    [SerializeField] private Slider healthBar = null;
+    [SerializeField] private MovementController movementController = null;
     public EnemyData Data { get { return data; } }
     public int Health { get; private set; }
+    public int MaxHealth { get { return data.health; } }
     public int Damage { get; private set; }
 
     private LevelManager levelManager = null;
@@ -36,8 +36,6 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health = data.health;
         Damage = data.damage;
-        healthCanvas.worldCamera = Camera.main;
-        UpdateHealthBar();
         levelManager = (LevelManager)GameManager.Instance;
         levelManager.AddEnemy(this);
         nekromancer = levelManager.PlayerController.Nekromancer;
@@ -124,18 +122,8 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakeDamage(int _damage)
     {
         Health -= _damage;
-        UpdateHealthBar();
 
         if (Health <= 0)
             gameObject.SetActive(false);
     }
-
-    private void UpdateHealthBar()
-    {
-        healthBar.value = (float)Health / data.health;
-
-        healthCanvas.enabled = healthBar.value < 1f;
-    }
-
-
 }

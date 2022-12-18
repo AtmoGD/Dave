@@ -5,21 +5,22 @@ using UnityEngine;
 public class Portal : MonoBehaviour, IDamagable
 {
     [SerializeField] private PortalData data = null;
-    [SerializeField] private int health = 100;
+    public int Health { get; set; } = 100;
+    public int MaxHealth { get { return data.health; } }
 
     private float cooldown = 0f;
 
     private void Start()
     {
-        health = data.health;
+        Health = data.health;
         ((LevelManager)GameManager.Instance).AddEnemy(this);
         SpawnEnemy();
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        Health -= damage;
+        if (Health <= 0)
         {
             ((LevelManager)GameManager.Instance).RemoveEnemy(this);
             Destroy(gameObject);
