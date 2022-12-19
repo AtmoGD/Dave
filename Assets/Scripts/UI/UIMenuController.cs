@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class UIMenuController : MonoBehaviour
 {
-    [SerializeField] Animator animator = null;
-    [SerializeField] GameObject contentObject = null;
-    List<UIMenuItem> contentItems = new List<UIMenuItem>();
-    int currentIndex = 0;
-    UIMenuItem currentItem = null;
+    [SerializeField] protected Animator animator = null;
+    [SerializeField] protected GameObject contentObject = null;
+    [SerializeField] protected int startingIndex = 0;
+    protected List<UIMenuItem> contentItems = new List<UIMenuItem>();
+    protected int currentIndex = 0;
+    protected UIMenuItem currentItem = null;
 
-    private void Awake()
+    public void Awake()
     {
+        currentIndex = startingIndex;
+
         if (contentObject)
         {
             contentItems.Clear();
@@ -25,7 +28,7 @@ public class UIMenuController : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         UpdateSelection(0);
     }

@@ -114,16 +114,20 @@ public class ShadowGun : Skill
         bullet.Nekromancer = nekromancer;
         bullet.UpdateBaseDamage(nekromancer.Damage);
 
+        Cooldown cooldown;
         if (_charged)
         {
             bullet.DamageMultiplier = shadowGunData.chargeDamage;
-            nekromancer.AddCooldown(shadowGunData.cooldowns[1].GetCopy());
+            cooldown = shadowGunData.cooldowns[1].GetCopy();
         }
         else
         {
             bullet.DamageMultiplier = 1f;
-            nekromancer.AddCooldown(shadowGunData.cooldowns[0].GetCopy());
+            cooldown = shadowGunData.cooldowns[0].GetCopy();
         }
+
+        cooldown.SetDuration(cooldown.duration / nekromancer.AttackSpeed);
+        nekromancer.AddCooldown(cooldown);
     }
 
     private Vector3 GetCurrentBulletPosition()

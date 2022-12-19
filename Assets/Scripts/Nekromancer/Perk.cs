@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Perk : MonoBehaviour
+public class Perk : ScriptableObject
 {
+    public Sprite perkIcon;
+    public string id;
     public string perkName;
     public string perkDescription;
 
-    protected PlayerController player;
-
     public virtual void ActivatePerk(PlayerController _player)
     {
-        player = _player;
+        _player.AddPerk(this);
     }
 }

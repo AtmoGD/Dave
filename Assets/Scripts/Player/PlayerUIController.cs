@@ -9,6 +9,7 @@ public class PlayerUIController : MonoBehaviour
 
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
+    [SerializeField] private UIMenuController choosePerkMenu = null;
     [SerializeField] private float menuInputDelay = 0.2f;
 
     UIMenuController currentMenu = null;
@@ -25,48 +26,38 @@ public class PlayerUIController : MonoBehaviour
         minionMenu.SetIsActive(false);
     }
 
-    public void OpenBuildingsMenu()
+    public void OpenMenu(UIMenuController _menu)
     {
-        buildMenu.SetIsActive(true);
+        _menu.SetIsActive(true);
 
-        currentMenu = buildMenu;
+        currentMenu = _menu;
 
         Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
     }
 
-    public void CloseBuildingsMenu()
+    public void CloseMenu()
     {
-        buildMenu.SetIsActive(false);
+        currentMenu?.SetIsActive(false);
 
         currentMenu = null;
 
         Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
+    }
+
+    public void OpenBuildingsMenu()
+    {
+        OpenMenu(buildMenu);
     }
 
     public void OpenMinionsMenu()
     {
-        minionMenu.SetIsActive(true);
-
-        currentMenu = minionMenu;
-
-        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
+        OpenMenu(minionMenu);
     }
 
-    public void CloseMinionsMenu()
+    public void OpenChoosePerkMenu()
     {
-        minionMenu.SetIsActive(false);
-
-        currentMenu = null;
-
-        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
-    }
-
-    public void CLoseAllMenus()
-    {
-        CloseBuildingsMenu();
-        CloseMinionsMenu();
-
-        Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
+        ((PerkMenuController)choosePerkMenu).UpdatePerkCards();
+        OpenMenu(choosePerkMenu);
     }
 
     public void NextItem(InputAction.CallbackContext _context)

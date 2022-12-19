@@ -15,16 +15,22 @@ MonoBehaviour:
   cycleStates:
   - cycle: 0
     duration: 20
+    choosePerk: 1
   - cycle: 1
     duration: 10
+    choosePerk: 0
   - cycle: 0
     duration: 40
+    choosePerk: 1
   - cycle: 1
     duration: 10
+    choosePerk: 0
   - cycle: 0
     duration: 100
+    choosePerk: 1
   - cycle: 1
     duration: 10
+    choosePerk: 0
   levelSize: {x: 30, y: 90}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}

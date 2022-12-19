@@ -755,7 +755,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false

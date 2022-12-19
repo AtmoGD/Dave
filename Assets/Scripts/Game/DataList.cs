@@ -5,22 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Data List", menuName = "Data/DataList")]
 public class DataList : ScriptableObject
 {
-    [SerializeField] private List<Placeable> placeables = new List<Placeable>();
-    [SerializeField] private List<MinionData> minions = new List<MinionData>();
-    [SerializeField] private List<SkillData> skills = new List<SkillData>();
+    [field: SerializeField] public List<Placeable> Placeables { get; private set; } = new List<Placeable>();
+    [field: SerializeField] public List<MinionData> Minions { get; private set; } = new List<MinionData>();
+    [field: SerializeField] public List<SkillData> Skills { get; private set; } = new List<SkillData>();
+    [field: SerializeField] public List<Perk> Perks { get; private set; } = new List<Perk>();
 
     public Placeable GetPlaceable(string _id)
     {
-        return placeables.Find(x => x.id == _id);
+        return Placeables.Find(x => x.id == _id);
     }
 
     public MinionData GetMinion(string _id)
     {
-        return minions.Find(x => x.id == _id);
+        return Minions.Find(x => x.id == _id);
     }
 
     public SkillData GetSkill(string _id)
     {
-        return skills.Find(x => x.id == _id);
+        return Skills.Find(x => x.id == _id);
+    }
+
+    public Perk GetPerk(string _id)
+    {
+        return Perks.Find(x => x.id == _id);
     }
 }

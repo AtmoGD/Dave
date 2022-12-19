@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c75ae5c21ea94418ec8fc62dcbce67, type: 3}
   m_Name: DataList
   m_EditorClassIdentifier: 
-  placeables:
-  - {fileID: 11400000, guid: e19bd33f88dafea45b21f572ad9c54a4, type: 2}
+  <Placeables>k__BackingField:
+  - {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
   - {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
   - {fileID: 11400000, guid: de7229b985cc09749998054feef32044, type: 2}
-  - {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
-  minions:
+  - {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+  - {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
+  - {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+  - {fileID: 11400000, guid: 1dc1676ed68626f498b5891bf4fa93a3, type: 2}
+  <Minions>k__BackingField:
   - {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
-  skills:
-  - {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
+  <Skills>k__BackingField:
   - {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
+  <Perks>k__BackingField:
+  - {fileID: 11400000, guid: beaad32633feed74e8472e4b0b4e89c2, type: 2}
+  - {fileID: 11400000, guid: c9dd6039e2d8f664e900da2b7f7fda3d, type: 2}
+  - {fileID: 11400000, guid: ac9912ccacdde9a4f9e3e5f45c28ea0d, type: 2}
+  - {fileID: 11400000, guid: 33bddd105d63b1e4cb6cf4470cfccb78, type: 2}

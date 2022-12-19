@@ -33,7 +33,7 @@ public class PanelController : UIMenuItem
     public virtual void PlaceObject()
     {
         playerController.PlaceObject(data);
-        playerUIController.CLoseAllMenus();
+        playerUIController.CloseMenu();
     }
 
     public override void Interact()

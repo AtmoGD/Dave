@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerUIController UIController { get; private set; } = null;
     [field: SerializeField] public PlayerBuildController BuildController { get; private set; } = null;
     [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
-
-    public LevelManager LevelManager { get; private set; }
+    [field: SerializeField] public LevelManager LevelManager { get; private set; }
 
     public List<Perk> Perks { get; private set; } = new List<Perk>();
 
@@ -63,6 +62,16 @@ public class PlayerController : MonoBehaviour
     public void SaveData(string _path)
     {
         DataLoader.SaveData<PlayerData>(playerData, _path);
+    }
+
+    public void ChoosePerk()
+    {
+        UIController.OpenChoosePerkMenu();
+    }
+
+    public void AddPerk(Perk _perk)
+    {
+        Perks.Add(_perk);
     }
 
     public void StartBuildingMode()
@@ -110,6 +119,13 @@ public class PlayerController : MonoBehaviour
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
     }
 
+    public void OpenPerksMenu(InputData _input = null)
+    {
+        UIController.OpenChoosePerkMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+    }
+
     public void OpenMinionsMenu(InputData _input = null)
     {
         UIController.OpenMinionsMenu();
@@ -119,7 +135,7 @@ public class PlayerController : MonoBehaviour
 
     public void Cancel(InputData _input = null)
     {
-        UIController.CLoseAllMenus();
+        UIController.CloseMenu();
 
         Nekromancer.ResetInteractable();
 

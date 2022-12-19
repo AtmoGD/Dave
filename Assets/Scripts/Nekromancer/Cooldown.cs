@@ -33,6 +33,12 @@ public class Cooldown
         name = _name;
     }
 
+    public void SetDuration(float _duration)
+    {
+        duration = _duration;
+        timeLeft = duration;
+    }
+
     public Cooldown GetCopy()
     {
         Cooldown copy = new Cooldown(name, duration);

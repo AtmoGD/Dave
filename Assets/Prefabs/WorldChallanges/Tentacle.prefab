@@ -506,7 +506,7 @@ MonoBehaviour:
   - {x: 0.04467106, y: -0.32967782, z: 0}
   m_ShapePathHash: -1613756799
   m_Mesh: {fileID: 0}
-  m_InstanceId: 131308
+  m_InstanceId: 85392
 --- !u!61 &1478014677789447169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -670,6 +670,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3910322755639804523, guid: f2ede34f860698244b29b0b72486ed10, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910322755639804526, guid: f2ede34f860698244b29b0b72486ed10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910322755910831241, guid: f2ede34f860698244b29b0b72486ed10, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3910322756234176958, guid: f2ede34f860698244b29b0b72486ed10, type: 3}

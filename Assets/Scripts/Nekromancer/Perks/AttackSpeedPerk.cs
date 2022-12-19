@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Attack Speed Perk", menuName = "Perk/Attack Speed Perk")]
 public class AttackSpeedPerk : Perk
 {
     public float attackSpeedIncrease;
@@ -9,6 +10,6 @@ public class AttackSpeedPerk : Perk
     {
         base.ActivatePerk(_player);
 
-        player.Nekromancer.AddAttackSpeed(attackSpeedIncrease);
+        _player.Nekromancer.AddAttackSpeed(attackSpeedIncrease);
     }
 }

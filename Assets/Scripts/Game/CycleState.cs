@@ -8,6 +8,7 @@ public class CycleState
 {
     [SerializeField] private Cycle cycle = Cycle.Day;
     [SerializeField] private float duration = 60f;
+    [SerializeField] private bool choosePerk = false;
 
     public Cycle Cycle => cycle;
     public float Duration => duration;
@@ -46,6 +47,9 @@ public class CycleState
 
     public virtual void Exit()
     {
+        if (choosePerk)
+            levelManager.PlayerController.OpenPerksMenu();
+
         this.levelManager = null;
     }
 }

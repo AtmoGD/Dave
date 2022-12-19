@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class MinionPanelController : PanelController {
+public class MinionPanelController : PanelController
+{
 
     public override void PlaceObject()
     {
         MinionData minionData = (MinionData)data;
-        if(minionData)
+        if (minionData)
         {
             playerController.PlaceMinion(minionData);
-            playerUIController.CLoseAllMenus();
+            playerUIController.CloseMenu();
         }
     }
 }
