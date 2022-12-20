@@ -9,6 +9,8 @@ public class DataList : ScriptableObject
     [field: SerializeField] public List<MinionData> Minions { get; private set; } = new List<MinionData>();
     [field: SerializeField] public List<SkillData> Skills { get; private set; } = new List<SkillData>();
     [field: SerializeField] public List<Perk> Perks { get; private set; } = new List<Perk>();
+    [field: SerializeField] public List<Perk> UnPerks { get; private set; } = new List<Perk>();
+
 
     public Placeable GetPlaceable(string _id)
     {
@@ -28,5 +30,10 @@ public class DataList : ScriptableObject
     public Perk GetPerk(string _id)
     {
         return Perks.Find(x => x.id == _id);
+    }
+
+    public Perk GetUnPerk(string _id)
+    {
+        return UnPerks.Find(x => x.id == _id);
     }
 }
