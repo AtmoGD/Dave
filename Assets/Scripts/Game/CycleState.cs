@@ -48,7 +48,7 @@ public class CycleState
     public virtual void Exit()
     {
         if (choosePerk)
-            levelManager.PlayerController.OpenPerksMenu();
+            levelManager.PlayerController.PerkPoints++;
 
         this.levelManager = null;
     }

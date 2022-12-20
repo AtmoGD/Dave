@@ -15,7 +15,7 @@ MonoBehaviour:
   cycleStates:
   - cycle: 0
     duration: 40
-    choosePerk: 0
+    choosePerk: 1
   - cycle: 1
     duration: 10
     choosePerk: 0

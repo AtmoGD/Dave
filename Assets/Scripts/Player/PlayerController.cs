@@ -23,9 +23,11 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
     [field: SerializeField] public LevelManager LevelManager { get; private set; }
 
+    public int PerkPoints { get; set; } = 0;
     public List<Perk> Perks { get; private set; } = new List<Perk>();
+    public List<Perk> UnPerks { get; private set; } = new List<Perk>();
 
-    private const string gameActionMap = "Game";
+    private const string combatActionMap = "Combat";
     private const string buildActionMap = "Building";
     private const string uiActionMap = "UI";
 
@@ -64,10 +66,19 @@ public class PlayerController : MonoBehaviour
         DataLoader.SaveData<PlayerData>(playerData, _path);
     }
 
-    public void ChoosePerk()
+    public void ChoosePerkInput(InputAction.CallbackContext _context)
     {
-        UIController.OpenChoosePerkMenu();
+        if (_context.performed && PerkPoints > 0 && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
+        {
+            OpenPerksMenu();
+            // ChoosePerk();
+        }
     }
+
+    // public void ChoosePerk()
+    // {
+    //     UIController.OpenChoosePerkMenu();
+    // }
 
     public void AddPerk(Perk _perk)
     {
@@ -85,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartCombatMode()
     {
-        PlayerInput.SwitchCurrentActionMap(gameActionMap);
+        PlayerInput.SwitchCurrentActionMap(combatActionMap);
 
         NekromancerCamera.Priority = 1;
 
@@ -139,6 +150,6 @@ public class PlayerController : MonoBehaviour
 
         Nekromancer.ResetInteractable();
 
-        PlayerInput.SwitchCurrentActionMap(gameActionMap);
+        PlayerInput.SwitchCurrentActionMap(combatActionMap);
     }
 }

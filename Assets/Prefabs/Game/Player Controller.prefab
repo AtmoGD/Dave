@@ -591,9 +591,29 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2bace3c7-cd04-45f5-ab1d-a8551acdf4e3
     m_ActionName: UI/MoveMenuLeft[/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4807954931303665715}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChoosePerkInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 368df304-40d2-4aa3-a7a8-342e7afc16db
+    m_ActionName: Combat/ChoosePerk[/SwitchProControllerHID/start,/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 003d7a42-fdbd-4631-9c2c-4cc1ab8ebc2a
+    m_ActionName: BaseMap/Pause[/SwitchProControllerHID/select,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Game
+  m_DefaultActionMap: Combat
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &5179365498049991481
@@ -938,6 +958,10 @@ PrefabInstance:
     - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
+      propertyPath: m_InstanceId
+      value: -38864
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name

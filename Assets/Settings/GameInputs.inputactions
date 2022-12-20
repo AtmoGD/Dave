@@ -2,7 +2,7 @@
     "name": "GameInputs",
     "maps": [
         {
-            "name": "Game",
+            "name": "Combat",
             "id": "2d50eaf4-7df2-48c0-aea1-4b6214c26729",
             "actions": [
                 {
@@ -117,6 +117,15 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "71848013-7c32-4ec3-9fc2-21bad4b4633c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChoosePerk",
+                    "type": "Button",
+                    "id": "368df304-40d2-4aa3-a7a8-342e7afc16db",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -440,6 +449,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30f0d96e-99f0-4606-9724-5c6d70b2d3f9",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "ChoosePerk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c44ad45c-2bb9-46c0-ba7d-7e73c69a13e4",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ChoosePerk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -812,6 +843,45 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "MoveMenuLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "BaseMap",
+            "id": "e0734c39-b796-49ea-a7ac-e9e98a34bf4d",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "003d7a42-fdbd-4631-9c2c-4cc1ab8ebc2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cb06c91c-b5c9-42fc-a3b2-dd2a0766ea1a",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5193d70-6f71-42f2-9006-e8e3ecf4fa5b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
