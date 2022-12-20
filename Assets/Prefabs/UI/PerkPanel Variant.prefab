@@ -124,6 +124,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PerkPanelController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6364275295464048149, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364275295464048149, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3736115409456944674, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
@@ -146,9 +154,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedVizualizer: {fileID: 8863253896284782320}
   selectSpeed: 2
+  perkCardAnimator: {fileID: 7982505989523920588}
+  perkMenuController: {fileID: 0}
   perkIcon: {fileID: 3904812550773376750}
   perkName: {fileID: 8369668460270829057}
   perkDescription: {fileID: 6596319091234289782}
+--- !u!95 &7982505989523920588
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3322130583134061462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa382c37e9932cf4f91dd2f42da39566, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3904812550773376750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6285829648917858186, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}

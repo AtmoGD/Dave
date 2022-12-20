@@ -6,6 +6,7 @@ public class UIMenuController : MonoBehaviour
 {
     [SerializeField] protected Animator animator = null;
     [SerializeField] protected GameObject contentObject = null;
+    [SerializeField] protected bool selectOnStart = true;
     [SerializeField] protected int startingIndex = 0;
     protected List<UIMenuItem> contentItems = new List<UIMenuItem>();
     protected int currentIndex = 0;
@@ -30,14 +31,15 @@ public class UIMenuController : MonoBehaviour
 
     public void Start()
     {
-        UpdateSelection(0);
+        if (selectOnStart)
+            UpdateSelection(Vector2.zero);
     }
 
-    public void UpdateSelection(int _dir)
+    public virtual void UpdateSelection(Vector2 _dir)
     {
         if (contentItems.Count == 0) return;
 
-        currentIndex += _dir;
+        currentIndex += (int)_dir.x;
 
         currentIndex = Mathf.Clamp(currentIndex, 0, contentItems.Count - 1);
 
@@ -52,12 +54,12 @@ public class UIMenuController : MonoBehaviour
 
     }
 
-    public void SetIsActive(bool _active)
+    public virtual void SetIsActive(bool _active)
     {
         animator.SetBool("Active", _active);
     }
 
-    public void InteractWithSelection()
+    public virtual void InteractWithSelection()
     {
         currentItem?.Interact();
     }

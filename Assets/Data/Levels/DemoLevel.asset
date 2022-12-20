@@ -15,21 +15,30 @@ MonoBehaviour:
   cycleStates:
   - cycle: 0
     duration: 40
-    choosePerk: 1
-  - cycle: 1
-    duration: 10
     choosePerk: 0
+  - cycle: 1
+    duration: 2
+    choosePerk: 1
   - cycle: 0
     duration: 40
-    choosePerk: 1
-  - cycle: 1
-    duration: 10
     choosePerk: 0
-  - cycle: 0
-    duration: 100
-    choosePerk: 1
   - cycle: 1
-    duration: 10
+    duration: 2
+    choosePerk: 1
+  - cycle: 0
+    duration: 40
+    choosePerk: 0
+  - cycle: 1
+    duration: 2
+    choosePerk: 1
+  - cycle: 0
+    duration: 40
+    choosePerk: 0
+  - cycle: 1
+    duration: 2
+    choosePerk: 1
+  - cycle: 0
+    duration: 150
     choosePerk: 0
   levelSize: {x: 30, y: 90}
   placedObjects:

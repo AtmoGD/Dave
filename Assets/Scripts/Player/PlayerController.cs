@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         LevelManager = _levelManager as LevelManager;
 
-        UIController.Init(this);
+        UIController.Init();
 
         BuildController.Init(this);
 

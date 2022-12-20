@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerUIController : MonoBehaviour
 {
-    public PlayerController Player { get; private set; } = null;
+    [field: SerializeField] public PlayerController Player { get; private set; } = null;
 
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
@@ -18,9 +18,9 @@ public class PlayerUIController : MonoBehaviour
 
     float lastMenuInput = 0f;
 
-    public void Init(PlayerController _player)
+    public void Init()
     {
-        Player = _player;
+        // Player = _player;
 
         buildMenu.SetIsActive(false);
         minionMenu.SetIsActive(false);
@@ -70,9 +70,9 @@ public class PlayerUIController : MonoBehaviour
 
         if (Mathf.Abs(dir.x) >= 0.5f)
         {
-            int val = dir.x > 0 ? 1 : -1;
+            dir.x = dir.x > 0 ? 1 : -1;
 
-            currentMenu.UpdateSelection(val);
+            currentMenu.UpdateSelection(dir);
         }
     }
 
@@ -91,6 +91,11 @@ public class PlayerUIController : MonoBehaviour
 
         lastMenuInput = Time.time;
 
+        Cancel();
+    }
+
+    public void Cancel()
+    {
         Player.Cancel();
     }
 }
