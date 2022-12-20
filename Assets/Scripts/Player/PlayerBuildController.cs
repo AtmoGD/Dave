@@ -108,4 +108,22 @@ public class PlayerBuildController : MonoBehaviour
             CurrentPlaceableGridElements = newGridElements;
         }
     }
+
+    public void Cancel(InputAction.CallbackContext _context)
+    {
+        if (!CurrentPlaceable || !CurrentPlaceableVizualizer) return;
+
+        if (_context.performed)
+        {
+            Destroy(CurrentPlaceableVizualizer);
+
+            CurrentPlaceableVizualizer = null;
+            CurrentPlaceable = null;
+            CurrentPlaceableGridElements.Clear();
+
+            Player.Nekromancer.ResetInteractable();
+
+            Player.StartCombatMode();
+        }
+    }
 }
