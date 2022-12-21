@@ -13,8 +13,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("Level Manager")]
     private LevelData levelData = null;
-    [SerializeField] private float timeScale = 1f;
-    public float TimeScale { get { return timeScale; } }
+    // [SerializeField] private float timeScale = 1f;
+    [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     public List<PlaceableObject> placedObjects = new List<PlaceableObject>();
@@ -22,10 +22,13 @@ public class LevelManager : MonoBehaviour
     public List<FarmTower> FarmTower { get { return placedObjects.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
     public List<AttackTower> AttackTower { get { return placedObjects.FindAll(x => x is AttackTower).ConvertAll(x => x as AttackTower); } }
 
+
     private int enemyCount = 0;
     private int currentCycle = 0;
 
     public float PercentOfActiveEnemies { get { return (float)activeEnemies.Count / (float)enemyCount; } }
+
+    [field: SerializeField] public bool CrystalFull { get; private set; } = false;
 
     public CycleState CurrentCycleState
     {
@@ -34,7 +37,7 @@ public class LevelManager : MonoBehaviour
             if (currentCycle < levelData.cycleStates.Count)
                 return levelData.cycleStates[currentCycle];
             else
-                return null;
+                return levelData.cycleStatesLateGame[currentCycle % levelData.cycleStatesLateGame.Count];
         }
     }
 
@@ -82,8 +85,9 @@ public class LevelManager : MonoBehaviour
         if (this.currentCycle >= this.levelData.cycleStates.Count)
         {
             //TO-DO : End of level
+            CrystalFull = true;
             print("End of level");
-            return;
+            // return;
         }
 
         this.CurrentCycleState?.Enter(this);
@@ -99,6 +103,16 @@ public class LevelManager : MonoBehaviour
         }
 
         this.Crystal = crystal;
+    }
+
+    public void StopTime()
+    {
+        TimeScale = 0f;
+    }
+
+    public void StartTime()
+    {
+        TimeScale = 1f;
     }
 
     public void RemoveCrystal(Crystal crystal)

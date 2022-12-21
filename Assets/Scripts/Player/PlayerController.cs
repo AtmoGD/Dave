@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private const string buildActionMap = "Building";
     private const string uiActionMap = "UI";
 
+    bool stoppedTime = false;
+
     public void Init()
     {
         LoadData(dataPath);
@@ -125,6 +127,8 @@ public class PlayerController : MonoBehaviour
         UIController.OpenBuildingsMenu();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
     public void OpenPerksMenu(InputData _input = null)
@@ -132,6 +136,8 @@ public class PlayerController : MonoBehaviour
         UIController.OpenChoosePerkMenu();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
     public void OpenMinionsMenu(InputData _input = null)
@@ -139,6 +145,8 @@ public class PlayerController : MonoBehaviour
         UIController.OpenMinionsMenu();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
     public void Cancel(InputData _input = null)
@@ -148,5 +156,7 @@ public class PlayerController : MonoBehaviour
         Nekromancer.ResetInteractable();
 
         PlayerInput.SwitchCurrentActionMap(combatActionMap);
+
+        if (stoppedTime) LevelManager.Instance.StartTime();
     }
 }

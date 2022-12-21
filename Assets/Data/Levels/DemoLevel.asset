@@ -26,19 +26,26 @@ MonoBehaviour:
     duration: 10
     choosePerk: 1
   - cycle: 0
-    duration: 40
+    duration: 20
     choosePerk: 0
   - cycle: 1
     duration: 15
     choosePerk: 1
   - cycle: 0
-    duration: 80
+    duration: 30
     choosePerk: 0
   - cycle: 1
     duration: 25
     choosePerk: 1
   - cycle: 0
-    duration: 150
+    duration: 30
+    choosePerk: 0
+  cycleStatesLateGame:
+  - cycle: 1
+    duration: 10
+    choosePerk: 0
+  - cycle: 0
+    duration: 40
     choosePerk: 0
   levelSize: {x: 30, y: 90}
   placedObjects:

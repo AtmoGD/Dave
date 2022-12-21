@@ -7,7 +7,6 @@ using System;
 public class Cooldown
 {
     public Action OnCooldownEnd;
-
     public string name;
     public float duration;
     private float timeLeft;

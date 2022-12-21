@@ -52,12 +52,16 @@ public class PlayerBuildController : MonoBehaviour
                 Player.Nekromancer.ResetInteractable();
 
                 Player.StartCombatMode();
+
+                LevelManager.Instance.StartTime();
             }
         }
     }
 
     public void PlaceObject(Placeable _object)
     {
+        LevelManager.Instance.StopTime();
+
         CurrentPlaceable = _object;
         Vector3 objectOffset = WorldGrid.GetObjectOffset(CurrentPlaceable);
 
@@ -75,6 +79,8 @@ public class PlayerBuildController : MonoBehaviour
 
     public void MovePlaceable(InputAction.CallbackContext _context)
     {
+        LevelManager.Instance.StopTime();
+
         if (!CurrentPlaceable || !CurrentPlaceableVizualizer || (Time.time - lastMove) < moveTimeout) return;
 
         lastMove = Time.time;
@@ -124,6 +130,8 @@ public class PlayerBuildController : MonoBehaviour
             Player.Nekromancer.ResetInteractable();
 
             Player.StartCombatMode();
+
+            LevelManager.Instance.StartTime();
         }
     }
 }

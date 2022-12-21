@@ -33,6 +33,8 @@ public class PlayerUIController : MonoBehaviour
         currentMenu = _menu;
 
         Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
+
+        LevelManager.Instance.StopTime();
     }
 
     public void CloseMenu()
@@ -42,6 +44,8 @@ public class PlayerUIController : MonoBehaviour
         currentMenu = null;
 
         Player.Nekromancer.BlockNekromancer(AnyMenuOpen);
+
+        LevelManager.Instance.StartTime();
     }
 
     public void OpenBuildingsMenu()

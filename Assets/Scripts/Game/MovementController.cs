@@ -47,7 +47,7 @@ public class MovementController : MonoBehaviour
             return;
 
         Vector2 direction = (currentTarget - (Vector2)transform.position).normalized;
-        rb.velocity = direction * speed;
+        rb.velocity = direction * speed * LevelManager.Instance.TimeScale;
 
         if (Vector2.Distance(transform.position, currentTarget) < moveThreshold)
         {

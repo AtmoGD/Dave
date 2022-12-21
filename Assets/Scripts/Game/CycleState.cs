@@ -27,7 +27,7 @@ public class CycleState
 
     public virtual void FrameUpdate(float _deltaTime)
     {
-        this.timeLeft -= _deltaTime;
+        this.timeLeft -= _deltaTime * this.levelManager.TimeScale;
 
         if (this.cycle == Cycle.Night)
         {
