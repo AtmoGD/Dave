@@ -34,7 +34,7 @@ public class EnemyIdle : EnemyState
         switch (enemy.Data.prefferedAttackTarget)
         {
             case AttackTarget.Player:
-                enemy.Target = enemy.LevelManager.PlayerController.Nekromancer.transform;
+                enemy.Target = enemy.LevelManager.GM.PlayerController.Nekromancer.transform;
                 break;
             case AttackTarget.Tower:
                 List<Tower> _towers = enemy.LevelManager.Tower;

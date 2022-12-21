@@ -21,7 +21,7 @@ public class PlayerBuildController : MonoBehaviour
     public void Init(PlayerController _player)
     {
         this.Player = _player;
-        this.WorldGrid = Player.LevelManager.WorldGrid;
+        this.WorldGrid = GameManager.Instance.WorldGrid;
     }
 
     public void FinalPlaceObject(InputAction.CallbackContext _context)

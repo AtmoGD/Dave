@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    MainMenu,
+    Camp,
+    Level
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; protected set; }
     [Header("Game Manager")]
+    [SerializeField] private GameState gameState = GameState.Level;
     [SerializeField] private PlayerController playerController = null;
     public PlayerController PlayerController { get { return playerController; } }
     [SerializeField] private DataList dataList = null;
     public DataList DataList { get { return dataList; } }
-    [SerializeField] private float timeScale = 1f;
+
     [SerializeField] private WorldGrid worldGrid = null;
     public WorldGrid WorldGrid { get { return worldGrid; } }
-    public float TimeScale { get { return timeScale; } }
+
     [SerializeField] public bool startOnLoad = true;
     [Space(20)]
 
@@ -41,6 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        playerController.Init(this);
+        playerController.Init();
     }
 }

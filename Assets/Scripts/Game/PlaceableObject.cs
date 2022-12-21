@@ -10,6 +10,6 @@ public class PlaceableObject : MonoBehaviour
 
     public virtual void Start()
     {
-        this.LevelManager = GameManager.Instance as LevelManager;
+        this.LevelManager = LevelManager.Instance;
     }
 }

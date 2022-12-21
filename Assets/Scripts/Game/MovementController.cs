@@ -26,7 +26,7 @@ public class MovementController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        levelManager = (LevelManager)GameManager.Instance;
+        levelManager = LevelManager.Instance;
     }
 
     private void Update()
@@ -72,9 +72,9 @@ public class MovementController : MonoBehaviour
 
     public void UpdatePath()
     {
-        GridElement currentGrid = levelManager.WorldGrid.GetGridElement(transform.position, true);
-        GridElement targetGrid = levelManager.WorldGrid.GetGridElement(TargetPosition, true);
-        path = levelManager.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
+        GridElement currentGrid = GameManager.Instance.WorldGrid.GetGridElement(transform.position, true);
+        GridElement targetGrid = GameManager.Instance.WorldGrid.GetGridElement(TargetPosition, true);
+        path = GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
         pathIndex = path.Count - 1;
 
         CalculateTarget();
@@ -84,10 +84,10 @@ public class MovementController : MonoBehaviour
     {
         if (pathIndex >= 0)
         {
-            Vector2 newTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
+            Vector2 newTarget = GameManager.Instance.WorldGrid.GetGridElement(path[pathIndex]).transform.position;
             if (smoothenPath && pathIndex > 0)
             {
-                Vector2 secondNewTarget = levelManager.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
+                Vector2 secondNewTarget = GameManager.Instance.WorldGrid.GetGridElement(path[pathIndex - 1]).transform.position;
                 currentTarget = (newTarget + secondNewTarget) / 2;
             }
             else
@@ -103,12 +103,12 @@ public class MovementController : MonoBehaviour
         for (int i = 0; i < path.Count - 1; i++)
         {
             Vector2Int tile = new Vector2Int(path[i].x, path[i].y);
-            Vector2 pos = levelManager.WorldGrid.GetGridElement(tile).transform.position;
+            Vector2 pos = GameManager.Instance.WorldGrid.GetGridElement(tile).transform.position;
 
             Gizmos.DrawSphere(pos, 0.1f);
 
             Vector2Int nextTile = new Vector2Int(path[i + 1].x, path[i + 1].y);
-            Vector2 nextPos = levelManager.WorldGrid.GetGridElement(nextTile).transform.position;
+            Vector2 nextPos = GameManager.Instance.WorldGrid.GetGridElement(nextTile).transform.position;
 
             Debug.DrawLine(pos, nextPos, Color.red);
         }

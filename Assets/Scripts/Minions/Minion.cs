@@ -23,7 +23,7 @@ public class Minion : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        LevelManager = GameManager.Instance as LevelManager;
+        LevelManager = LevelManager.Instance;
 
         MoveController = GetComponent<MovementController>();
 

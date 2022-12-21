@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 40
+    duration: 10
     choosePerk: 0
   - cycle: 1
-    duration: 2
+    duration: 5
+    choosePerk: 1
+  - cycle: 0
+    duration: 20
+    choosePerk: 0
+  - cycle: 1
+    duration: 10
     choosePerk: 1
   - cycle: 0
     duration: 40
     choosePerk: 0
   - cycle: 1
-    duration: 2
+    duration: 15
     choosePerk: 1
   - cycle: 0
-    duration: 40
+    duration: 80
     choosePerk: 0
   - cycle: 1
-    duration: 2
-    choosePerk: 1
-  - cycle: 0
-    duration: 40
-    choosePerk: 0
-  - cycle: 1
-    duration: 2
+    duration: 25
     choosePerk: 1
   - cycle: 0
     duration: 150

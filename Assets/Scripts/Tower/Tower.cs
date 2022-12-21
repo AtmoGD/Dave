@@ -39,7 +39,7 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
 
         foreach (Transform neighbour in freeNeighbours)
         {
-            GridElement gridElement = LevelManager.WorldGrid.GetGridElement(neighbour.position);
+            GridElement gridElement = GameManager.Instance.WorldGrid.GetGridElement(neighbour.position);
             if (gridElement != null && gridElement.ObjectOnGrid == null)
                 return neighbour;
         }

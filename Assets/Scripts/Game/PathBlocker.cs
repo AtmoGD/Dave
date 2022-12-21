@@ -13,7 +13,7 @@ public class PathBlocker : MonoBehaviour
 
     private void Start()
     {
-        Grid = ((LevelManager)GameManager.Instance).WorldGrid;
+        Grid = GameManager.Instance.WorldGrid;
         lastUpdate = Time.time;
     }
 

@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class LevelManager : GameManager
+public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; protected set; }
     public Action<CycleState> OnCycleChanged;
     public Action AddedTower;
 
+    [field: SerializeField] public GameManager GM { get; private set; } = null;
+
     [Header("Level Manager")]
     private LevelData levelData = null;
+    [SerializeField] private float timeScale = 1f;
+    public float TimeScale { get { return timeScale; } }
     public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     public List<PlaceableObject> placedObjects = new List<PlaceableObject>();
@@ -33,23 +38,35 @@ public class LevelManager : GameManager
         }
     }
 
-    public new void Start()
+    public bool IsDay { get { return CurrentCycleState.Cycle == Cycle.Day; } }
+    public bool IsNight { get { return CurrentCycleState.Cycle == Cycle.Night; } }
+
+    private void Awake()
     {
-        levelData = WorldGrid.LevelData;
-        WorldGrid.LoadLevel();
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+    public void Start()
+    {
+        levelData = GM.WorldGrid.LevelData;
+        GM.WorldGrid.LoadLevel();
 
 
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
 
-        base.Start();
+        // base.Start();
 
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
-    public new void Update()
+    public void Update()
     {
-        base.Update();
+        // base.Update();
 
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }

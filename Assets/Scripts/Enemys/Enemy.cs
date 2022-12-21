@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health = Data.health;
         Damage = Data.damage;
-        LevelManager = (LevelManager)GameManager.Instance;
+        LevelManager = LevelManager.Instance;
         LevelManager.AddEnemy(this);
 
         ChangeState(IdleState);

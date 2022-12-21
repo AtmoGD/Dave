@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerUIController UIController { get; private set; } = null;
     [field: SerializeField] public PlayerBuildController BuildController { get; private set; } = null;
     [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
-    [field: SerializeField] public LevelManager LevelManager { get; private set; }
 
     public int PerkPoints { get; set; } = 0;
     public List<Perk> Perks { get; private set; } = new List<Perk>();
@@ -31,11 +30,9 @@ public class PlayerController : MonoBehaviour
     private const string buildActionMap = "Building";
     private const string uiActionMap = "UI";
 
-    public void Init(GameManager _levelManager)
+    public void Init()
     {
         LoadData(dataPath);
-
-        LevelManager = _levelManager as LevelManager;
 
         UIController.Init();
 
@@ -68,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChoosePerkInput(InputAction.CallbackContext _context)
     {
-        if (_context.performed && PerkPoints > 0 && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
+        if (_context.performed && PerkPoints > 0 && LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day)
         {
             OpenPerksMenu();
             // ChoosePerk();

@@ -27,7 +27,7 @@ public class WorldGrid : MonoBehaviour
 
     private void Start()
     {
-        LevelManager = GameManager.Instance as LevelManager;
+        LevelManager = LevelManager.Instance;
 
         if (LevelManager == null)
         {

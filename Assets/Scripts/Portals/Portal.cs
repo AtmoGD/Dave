@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour, IDamagable
     private void Start()
     {
         Health = data.health;
-        ((LevelManager)GameManager.Instance).AddEnemy(this);
+        LevelManager.Instance.AddEnemy(this);
         SpawnEnemy();
     }
 
@@ -22,7 +22,7 @@ public class Portal : MonoBehaviour, IDamagable
         Health -= damage;
         if (Health <= 0)
         {
-            ((LevelManager)GameManager.Instance).RemoveEnemy(this);
+            LevelManager.Instance.RemoveEnemy(this);
             Destroy(gameObject);
         }
     }

@@ -57,7 +57,7 @@ public class Nekromancer : MonoBehaviour
         {
             if (levelManager == null)
             {
-                levelManager = (LevelManager)GameManager.Instance;
+                levelManager = LevelManager.Instance;
                 if (levelManager == null)
                 {
                     Debug.LogError("LevelManager is null");
@@ -104,8 +104,8 @@ public class Nekromancer : MonoBehaviour
 
         baseSkill = baseSkillData.GetSkillInstance();
 
-        firstSkillData = playerController.LevelManager.DataList.GetSkill(playerController.PlayerData.equippedSkills[0]);
-        secondSkillData = playerController.LevelManager.DataList.GetSkill(playerController.PlayerData.equippedSkills[1]);
+        firstSkillData = GameManager.Instance.DataList.GetSkill(playerController.PlayerData.equippedSkills[0]);
+        secondSkillData = GameManager.Instance.DataList.GetSkill(playerController.PlayerData.equippedSkills[1]);
         firstSkill = firstSkillData.GetSkillInstance();
         secondSkill = secondSkillData.GetSkillInstance();
 
