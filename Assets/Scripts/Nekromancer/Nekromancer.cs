@@ -234,6 +234,8 @@ public class Nekromancer : MonoBehaviour
     #region Movement
     public void Move()
     {
+        print("CurrentInput.MoveDir: " + currentInput.MoveDir + " stats.moveSpeed: " + stats.moveSpeed + " LevelManager.TimeScale: " + LevelManager.TimeScale);
+
         Vector2 newVelocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
         newVelocity = Vector2.Lerp(rb.velocity, newVelocity, stats.accleleration * Time.deltaTime);
         rb.velocity = newVelocity;

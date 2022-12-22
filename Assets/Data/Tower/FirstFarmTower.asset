@@ -21,5 +21,5 @@ MonoBehaviour:
   preview: {fileID: 8371365873896107099, guid: d59c5a483c7011a499a03c8c81c69cd0, type: 3}
   health: 100
   buildTime: 5
-  ressource: {fileID: 0}
+  ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
   maxWorkers: 5

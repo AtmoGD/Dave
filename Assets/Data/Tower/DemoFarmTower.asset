@@ -20,4 +20,6 @@ MonoBehaviour:
   prefab: {fileID: 3865669036092226653, guid: aed74a96b9eb31b4c80e5b0fc7a94bd8, type: 3}
   preview: {fileID: 3865669036092226653, guid: 1e0411b9afdbc2645a69f2f20567275e, type: 3}
   health: 100
-  ressource: {fileID: 0}
+  buildTime: 5
+  ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  maxWorkers: 5
