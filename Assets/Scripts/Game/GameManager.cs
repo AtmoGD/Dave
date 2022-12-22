@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum GameState
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     GridElement lastHoveredGridElement = null;
 
+    [field: SerializeField] public bool IsPaused { get; private set; } = false;
+
     private void Awake()
     {
         if (Instance != null)
@@ -50,5 +53,30 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         playerController.Init();
+    }
+
+    public void PauseGame(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            if (IsPaused)
+            {
+                IsPaused = false;
+                LevelManager.Instance.StartTime();
+            }
+            else
+            {
+                IsPaused = true;
+                LevelManager.Instance.StopTime();
+            }
+        }
+    }
+
+    public void ReloadScene(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
     }
 }
