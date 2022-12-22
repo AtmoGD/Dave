@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MinionFarming : MinionState
 {
+    private float farmAmount = 0;
+
     public override void Enter(Minion _minion)
     {
         base.Enter(_minion);
@@ -16,10 +18,22 @@ public class MinionFarming : MinionState
     {
         base.FrameUpdate();
 
-        minion.CurrentFarmAmount += minion.Data.farmSpeed * Time.deltaTime;
-        minion.CurrentFarmAmount = Mathf.Clamp(minion.CurrentFarmAmount, 0, minion.Data.carryCapacity);
+        farmAmount += minion.Data.farmSpeed * Time.deltaTime;
 
-        if (minion.CurrentFarmAmount >= minion.Data.carryCapacity)
+        if (farmAmount >= 1f)
+        {
+            CollectedRessource ressource = new CollectedRessource();
+            ressource.ressource = minion.TargetFarmTower.GetRessource();
+            ressource.amount = 1;
+
+            minion.AddRessource(ressource);
+            farmAmount = 0;
+        }
+
+        // minion.CurrentFarmAmount += minion.Data.farmSpeed * Time.deltaTime;
+        // minion.CurrentFarmAmount = Mathf.Clamp(minion.CurrentFarmAmount, 0, minion.Data.carryCapacity);
+
+        if (minion.CurrentCarryAmount >= minion.Data.carryCapacity)
         {
             if (minion.LevelManager.Crystal)
             {

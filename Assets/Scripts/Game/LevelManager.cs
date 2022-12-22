@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public List<Tower> Tower { get { return placedObjects.FindAll(x => x is Tower).ConvertAll(x => x as Tower); } }
     public List<FarmTower> FarmTower { get { return placedObjects.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
     public List<AttackTower> AttackTower { get { return placedObjects.FindAll(x => x is AttackTower).ConvertAll(x => x as AttackTower); } }
+    [field: SerializeField] public List<CollectedRessource> GatheredRessources { get; private set; } = new List<CollectedRessource>();
 
 
     private int enemyCount = 0;
@@ -72,6 +73,19 @@ public class LevelManager : MonoBehaviour
         // base.Update();
 
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
+    }
+
+    public void GatherRessource(CollectedRessource _ressource)
+    {
+        GatheredRessources.Add(_ressource);
+    }
+
+    public void GatherRessource(List<CollectedRessource> _ressources)
+    {
+        foreach (CollectedRessource ressource in _ressources)
+        {
+            GatherRessource(ressource);
+        }
     }
 
     public void NextCycle()

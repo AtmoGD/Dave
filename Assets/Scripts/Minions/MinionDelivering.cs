@@ -20,6 +20,8 @@ public class MinionDelivering : MinionState
         if (timer >= minion.Data.deliverSpeed)
         {
             // TO DO: Deliver the goods
+            LevelManager.Instance.GatherRessource(minion.Ressources);
+            minion.RemoveRessources();
 
             minion.CurrentFarmAmount = 0;
             minion.TargetTower = minion.TargetFarmTower;

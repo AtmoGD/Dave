@@ -21,6 +21,17 @@ public class Minion : MonoBehaviour, IInteractable
     public Tower TargetTower { get; set; } = null;
     public float CurrentFarmAmount { get; set; } = 0f;
 
+    public List<CollectedRessource> Ressources { get; set; } = new List<CollectedRessource>();
+    public float CurrentCarryAmount
+    {
+        get
+        {
+            float amount = 0;
+            foreach (CollectedRessource ressource in Ressources)
+                amount += ressource.ressource.weight * ressource.amount;
+            return amount;
+        }
+    }
     private void Start()
     {
         LevelManager = LevelManager.Instance;
@@ -62,6 +73,21 @@ public class Minion : MonoBehaviour, IInteractable
             Instantiate(Data.portal.prefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    public void AddRessource(CollectedRessource _ressource)
+    {
+        Ressources.Add(_ressource);
+    }
+
+    public void RemoveRessource(CollectedRessource _ressource)
+    {
+        Ressources.Remove(_ressource);
+    }
+
+    public void RemoveRessources()
+    {
+        Ressources = new List<CollectedRessource>();
     }
 
     public void Interact(Nekromancer _nekromancer)

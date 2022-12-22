@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Collectable : MonoBehaviour
+[Serializable]
+public class Collectable : ScriptableObject
 {
     public string id = "";
     public new string name = "";
