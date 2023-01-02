@@ -10,6 +10,8 @@ public class MinionMoving : MinionState
 
         Transform _target = minion.TargetTower.GetFreeNeighbour();
 
+        minion.SoundEmitter.Play();
+
         if (_target)
         {
             minion.MoveController.TargetPosition = _target.position;
@@ -39,6 +41,8 @@ public class MinionMoving : MinionState
         base.Exit();
 
         minion.MoveController.StopMoving();
+
+        minion.SoundEmitter.Stop();
     }
 
     public void ReachedTarget()

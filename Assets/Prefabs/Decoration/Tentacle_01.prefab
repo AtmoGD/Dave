@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5320844412849098148}
   - component: {fileID: 3083510763470254659}
+  - component: {fileID: 8168037148304487099}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -130,6 +131,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8168037148304487099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396191391647080979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  runOnlyOnce: 1
+  runInEditor: 1
 --- !u!1 &7981859447766245167
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +157,7 @@ GameObject:
   - component: {fileID: 8873071894578768837}
   - component: {fileID: 2470285678284070525}
   - component: {fileID: 7069800931358452162}
+  - component: {fileID: 6840167401045506767}
   m_Layer: 8
   m_Name: Tentacle Skin
   m_TagString: Untagged
@@ -242,4 +259,19 @@ MonoBehaviour:
   - {x: -1.3121567, y: -2.5941696, z: 0}
   m_ShapePathHash: 1565190479
   m_Mesh: {fileID: 0}
-  m_InstanceId: 734398
+  m_InstanceId: 174654
+--- !u!114 &6840167401045506767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981859447766245167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  runOnlyOnce: 1
+  runInEditor: 1

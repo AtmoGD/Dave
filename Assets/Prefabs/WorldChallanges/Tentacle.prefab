@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3778140227257758409}
   - component: {fileID: 8486748687499513583}
+  - component: {fileID: 5845640862001894234}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -117,6 +118,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5845640862001894234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279350042792895652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 325
+  runOnlyOnce: 1
+  runInEditor: 1
 --- !u!1 &1848994965339417488
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +207,7 @@ GameObject:
   - component: {fileID: 2466038309967016948}
   - component: {fileID: 910251195926505517}
   - component: {fileID: 6427404859803511267}
+  - component: {fileID: 3575020317750193421}
   m_Layer: 0
   m_Name: tentacle
   m_TagString: Untagged
@@ -293,6 +310,21 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!114 &3575020317750193421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384293240733837304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 200
+  runOnlyOnce: 1
+  runInEditor: 1
 --- !u!1 &3010361595184588909
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +466,7 @@ GameObject:
   - component: {fileID: 4590578008918301656}
   - component: {fileID: 1478014677789447169}
   - component: {fileID: 7072735872693995211}
+  - component: {fileID: 5525571729372998277}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -506,7 +539,7 @@ MonoBehaviour:
   - {x: 0.04467106, y: -0.32967782, z: 0}
   m_ShapePathHash: -1613756799
   m_Mesh: {fileID: 0}
-  m_InstanceId: 85392
+  m_InstanceId: 1264422
 --- !u!61 &1478014677789447169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -514,7 +547,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5902835813816112963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -545,6 +578,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdbef6409b4fb74ebf607d0ba0868d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5525571729372998277
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5902835813816112963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21}
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!1 &8268748890645966009
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7482593690081961728}
   - component: {fileID: 1919935620885090762}
+  - component: {fileID: 1165641551934451056}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -629,6 +679,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1165641551934451056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268748890645966009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  runOnlyOnce: 1
+  runInEditor: 1
 --- !u!1 &8907176848714938349
 GameObject:
   m_ObjectHideFlags: 0

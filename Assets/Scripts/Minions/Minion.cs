@@ -6,6 +6,7 @@ public class Minion : MonoBehaviour, IInteractable
 {
     [field: SerializeField] public MinionData Data { get; private set; } = null;
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
+    [field: SerializeField] public FMODUnity.StudioEventEmitter SoundEmitter { get; private set; } = null;
 
     public MinionState CurrentState = null;
     public MinionIdle IdleState { get; private set; } = new MinionIdle();

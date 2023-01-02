@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5644735647894269479}
   - component: {fileID: 7975281962185041514}
   - component: {fileID: 5598558915019367619}
+  - component: {fileID: 2596339763784439366}
   m_Layer: 8
   m_Name: Right Hand
   m_TagString: Untagged
@@ -103,6 +104,21 @@ MonoBehaviour:
   sourceAxis: 2
   targetAxis: 1
   invert: 0
+--- !u!114 &2596339763784439366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272822585950396702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 50
+  runOnlyOnce: 0
+  runInEditor: 1
 --- !u!1 &2488433957876171382
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +130,7 @@ GameObject:
   - component: {fileID: 424090016830337357}
   - component: {fileID: 8256671252835636180}
   - component: {fileID: 3434357537081276585}
+  - component: {fileID: 1709359002475051161}
   m_Layer: 8
   m_Name: Left Hand
   m_TagString: Untagged
@@ -206,6 +223,21 @@ MonoBehaviour:
   sourceAxis: 2
   targetAxis: 1
   invert: 0
+--- !u!114 &1709359002475051161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488433957876171382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 50
+  runOnlyOnce: 0
+  runInEditor: 1
 --- !u!1 &4242061425816040510
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +327,7 @@ MonoBehaviour:
   - {x: 0.18583107, y: -0.40092468, z: 0}
   m_ShapePathHash: -1998327659
   m_Mesh: {fileID: 0}
-  m_InstanceId: -446320
+  m_InstanceId: 2569508
 --- !u!1 &5402133771090986432
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,8 +570,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.38}
-  m_Size: {x: 0.5, y: 1.75}
+  m_Offset: {x: 0, y: -0.85376054}
+  m_Size: {x: 0.5, y: 0.8024789}
   m_Direction: 0
 --- !u!1 &8789931070898562531
 GameObject:
@@ -636,6 +668,7 @@ GameObject:
   - component: {fileID: 8789931071268372146}
   - component: {fileID: 8789931071268372147}
   - component: {fileID: 8789931071268372144}
+  - component: {fileID: 4892585623791264809}
   m_Layer: 8
   m_Name: Skin
   m_TagString: Untagged
@@ -732,6 +765,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4892585623791264809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931071268372145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 175
+  runOnlyOnce: 0
+  runInEditor: 1
 --- !u!1001 &3441624709129439510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,6 +787,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5644735647894269479}
     m_Modifications:
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1197548458163846787, guid: a77b489fbd6753845a3e47e512258286, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -853,6 +917,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8789931071268372146}
     m_Modifications:
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1197548458163846787, guid: a77b489fbd6753845a3e47e512258286, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -971,6 +1051,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 424090016830337357}
     m_Modifications:
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 382761013597081256, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: offset
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 894290302154217851, guid: a77b489fbd6753845a3e47e512258286, type: 3}
+      propertyPath: runOnlyOnce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1197548458163846787, guid: a77b489fbd6753845a3e47e512258286, type: 3}
       propertyPath: m_SortingLayer
       value: 0
