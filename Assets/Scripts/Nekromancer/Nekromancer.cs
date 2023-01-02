@@ -13,7 +13,7 @@ public class Nekromancer : MonoBehaviour
     #region References
     [SerializeField] public Rigidbody2D rb = null;
     [SerializeField] public Collider2D col = null;
-    [SerializeField] public Animator animator = null;
+    [SerializeField] public Animator skinAnimator = null;
     [field: SerializeField] public Transform Model { get; private set; } = null;
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
@@ -242,6 +242,13 @@ public class Nekromancer : MonoBehaviour
 
         if (rb.velocity.magnitude > stats.velocityActionThreshold)
             OnMove?.Invoke(rb.velocity);
+
+        if (skinAnimator)
+        {
+            float speed = currentInput.MoveDir.magnitude;
+            speed = rb.velocity.x > 0f ? speed : rb.velocity.x < 0f ? -speed : 0f;
+            skinAnimator.SetFloat("Speed", speed);
+        }
     }
 
     public void Look()

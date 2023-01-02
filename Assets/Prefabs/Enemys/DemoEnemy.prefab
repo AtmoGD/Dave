@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -199049563
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b96ed3a37c9a104408348df2e8d1c444, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 8840412572578489679}
   - component: {fileID: 838226070246348594}
   - component: {fileID: 8355268347544386042}
+  - component: {fileID: 7044322063683810336}
   m_Layer: 0
   m_Name: DemoEnemy
   m_TagString: Untagged
@@ -212,6 +213,33 @@ MonoBehaviour:
   recalculatePathTime: 0.5
   constantlyUpdatePath: 0
   smoothenPath: 1
+--- !u!114 &7044322063683810336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840412572578489673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: f55e843b
+  m_ShapePath:
+  - {x: -0.080789626, y: -0.5740297, z: 0}
+  - {x: -0.07550168, y: -0.19799322, z: 0}
+  - {x: 0.2923025, y: -0.17684188, z: 0}
+  - {x: 0.30816603, y: -0.4947122, z: 0}
+  m_ShapePathHash: 469765997
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -3754152
 --- !u!1001 &1322062350697132458
 PrefabInstance:
   m_ObjectHideFlags: 0

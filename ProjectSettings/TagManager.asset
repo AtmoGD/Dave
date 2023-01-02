@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Shadow
+    uniqueID: 998530805
+    locked: 0
+  - name: World
+    uniqueID: 4095917733
+    locked: 0
+  - name: Top
+    uniqueID: 133770833
+    locked: 0

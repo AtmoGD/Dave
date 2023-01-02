@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 105394851221692234}
   - component: {fileID: 207632233211461828}
   - component: {fileID: 8809048431418530860}
+  - component: {fileID: 3061471727999374253}
   m_Layer: 8
   m_Name: DemoMinion
   m_TagString: Untagged
@@ -68,9 +69,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualizePath: 1
   rb: {fileID: 3203909175382115267}
-  speed: 3
+  speed: 1
   moveThreshold: 0.1
-  recalculatePathTime: 1
+  recalculatePathTime: 2
   constantlyUpdatePath: 1
   smoothenPath: 1
 --- !u!50 &3203909175382115267
@@ -150,9 +151,36 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 40
+--- !u!114 &3061471727999374253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203909175382115269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: f55e843b
+  m_ShapePath:
+  - {x: -0.5, y: 0, z: 0}
+  - {x: -0.47607183, y: 0.4686011, z: 0}
+  - {x: 0.42821646, y: 0.44467282, z: 0}
+  - {x: 0.5, y: 0, z: 0}
+  m_ShapePathHash: 2050307877
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -3756150
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,8 +253,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -199049563
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2b470e1899090c49a0d9bd9884ea6ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
