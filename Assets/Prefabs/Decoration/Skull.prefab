@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  offset: 140
   runOnlyOnce: 1
   runInEditor: 1
 --- !u!1 &3784343916871531260
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  offset: 140
   runOnlyOnce: 1
   runInEditor: 1
 --- !u!1 &4482493872652470373
@@ -326,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5037531277923415416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.74, y: 0.41, z: 0}
+  m_LocalPosition: {x: -0.74, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  offset: 130
   runOnlyOnce: 1
   runInEditor: 1
 --- !u!1 &5328332466120693706
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  offset: 130
   runOnlyOnce: 1
   runInEditor: 1
 --- !u!1 &5650347320550704292
@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 6950378625346969854}
   - component: {fileID: -2689281042663719943}
   - component: {fileID: 4383469855727258548}
+  - component: {fileID: 5640512570720174877}
   m_Layer: 8
   m_Name: Skull
   m_TagString: Untagged
@@ -733,7 +734,7 @@ MonoBehaviour:
   - {x: -2.913432, y: -0.9298827, z: 0}
   m_ShapePathHash: -1185114036
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1677482
+  m_InstanceId: 392572
 --- !u!114 &-2689281042663719943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +759,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  offset: 120
   runOnlyOnce: 1
   runInEditor: 1
+--- !u!60 &5640512570720174877
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891574029840525273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.97, y: 8.71}
+    newSize: {x: 9.97, y: 8.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.9341362, y: -0.95087755}
+      - {x: -2.8114078, y: 1.1838874}
+      - {x: -0.5344365, y: 1.786565}
+      - {x: 1.915339, y: 0.79624057}
+      - {x: 2.127469, y: 0.11704236}
+      - {x: -0.29171717, y: -2.4662027}
