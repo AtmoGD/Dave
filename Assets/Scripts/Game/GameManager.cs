@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame(InputAction.CallbackContext _context)
     {
+        print("Pause Game");
+
         if (_context.performed)
         {
             if (IsPaused)
@@ -74,9 +76,11 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene(InputAction.CallbackContext _context)
     {
+        print("Reload Scene");
+
         if (_context.performed)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
