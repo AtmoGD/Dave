@@ -12,6 +12,8 @@ public class UICycleState : MonoBehaviour
     [SerializeField] private Light2D light2D = null;
     [SerializeField] private AnimationCurve alphaCurve = null;
     [SerializeField] private AnimationCurve widthCurve = null;
+    [SerializeField] private AnimationCurve xScaleCurve = null;
+    [SerializeField] private AnimationCurve yScaleCurve = null;
     [SerializeField] private AnimationCurve heightCurve = null;
     [SerializeField] private AnimationCurve volumeHeightCurve = null;
     [SerializeField] private AnimationCurve LightIntensityCurve = null;
@@ -37,11 +39,16 @@ public class UICycleState : MonoBehaviour
             Vector2 size = fillTransform.sizeDelta;
             size.x = widthCurve.Evaluate(percent);
 
+            float xScale = xScaleCurve.Evaluate(percent);
+            float yScale = yScaleCurve.Evaluate(percent);
+
             // float width = widthCurve.Evaluate(percent);
             // float height = heightCurve.Evaluate(percent);
 
             // fillTransform.sizeDelta = new Vector2(width, height);
-            fillTransform.sizeDelta = size;
+            // fillTransform.sizeDelta = size;
+            // fillTransform.localScale = new Vector3(xScale, 1, 1f);
+            fillTransform.localScale = new Vector3(xScale, yScale, 1f);
             fillTransform.anchoredPosition = new Vector2(0f, posY);
             fillImage.color = new Color(fillImage.color.r, fillImage.color.g, fillImage.color.b, alpha);
 

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         LoadData(dataPath);
 
+        UIController.gameObject.SetActive(true);
         UIController.Init();
 
         BuildController.Init(this);
