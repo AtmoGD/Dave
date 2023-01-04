@@ -450,7 +450,7 @@ MonoBehaviour:
   - {x: 0.18583107, y: -0.40092468, z: 0}
   m_ShapePathHash: -1998327659
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1678538
+  m_InstanceId: 119582
 --- !u!1 &5402133771090986432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 110
+  offset: 50
   runOnlyOnce: 0
   runInEditor: 1
 --- !u!4 &5483399499734160650 stripped
@@ -1863,6 +1863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 110
+  offset: 50
   runOnlyOnce: 0
   runInEditor: 1
