@@ -466,7 +466,7 @@
                 {
                     "name": "",
                     "id": "30f0d96e-99f0-4606-9724-5c6d70b2d3f9",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -620,7 +620,7 @@
                 {
                     "name": "",
                     "id": "fb13f8af-fdfb-48b5-aea9-f01c9d565e7a",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<XboxOneGampadiOS>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -631,7 +631,7 @@
                 {
                     "name": "",
                     "id": "c6c6a39e-7f16-4a67-a1ab-421eaa8e0831",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<XboxOneGampadiOS>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -772,7 +772,7 @@
                 {
                     "name": "",
                     "id": "1f71f28a-6d5b-411e-9d78-be5c73460aa1",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<XboxOneGampadiOS>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -794,7 +794,7 @@
                 {
                     "name": "",
                     "id": "666eefae-d401-414a-a803-08fcde9d3d43",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<XboxOneGampadiOS>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -886,7 +886,7 @@
                 {
                     "name": "",
                     "id": "cb06c91c-b5c9-42fc-a3b2-dd2a0766ea1a",
-                    "path": "<Gamepad>/select",
+                    "path": "<XboxOneGampadiOS>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -919,7 +919,7 @@
                 {
                     "name": "",
                     "id": "82f22847-129b-4538-8b7a-5b5df11432b1",
-                    "path": "<Gamepad>/start",
+                    "path": "<XboxOneGampadiOS>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
