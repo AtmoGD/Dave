@@ -27,13 +27,14 @@ public class Nekromancer : MonoBehaviour
     #endregion
 
     #region Stats
-    public int CurrentHealth { get; private set; }
-    public int CurrentMana { get; private set; }
-    public float Damage { get; private set; }
-    public float Speed { get; private set; }
-    public float LookSpeed { get; private set; }
-    public float AttackSpeed { get; private set; }
-    public float AttackRange { get; private set; }
+    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public int MaxHealth { get; private set; }
+    [field: SerializeField] public int CurrentMana { get; private set; }
+    [field: SerializeField] public float Damage { get; private set; }
+    [field: SerializeField] public float Speed { get; private set; }
+    [field: SerializeField] public float LookSpeed { get; private set; }
+    [field: SerializeField] public float AttackSpeed { get; private set; }
+    [field: SerializeField] public float AttackRange { get; private set; }
     #endregion
 
     #region Private Variables
@@ -95,6 +96,7 @@ public class Nekromancer : MonoBehaviour
         playerController = _playerController;
 
         CurrentHealth = stats.health;
+        MaxHealth = stats.health;
         CurrentMana = stats.mana;
         Damage = stats.damage;
         Speed = stats.moveSpeed;

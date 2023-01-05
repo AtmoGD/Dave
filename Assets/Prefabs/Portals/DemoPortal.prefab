@@ -285,12 +285,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988878743140426526, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -199049563
+      objectReference: {fileID: 0}
     - target: {fileID: 8874180555371170086, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_Name
       value: Healthbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
+--- !u!1 &10916043413027371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8874180555371170086, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
+  m_PrefabInstance: {fileID: 8863546033119933197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822606615961033047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10916043413027371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0662d33e649fd4b9ae1a18efe4a336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  runOnlyOnce: 0
+  runInEditor: 1
 --- !u!224 &9169257421235624652 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}

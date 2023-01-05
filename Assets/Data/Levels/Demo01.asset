@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec74cb2d6ebbe349932101d5b77fb27, type: 3}
+  m_Name: Demo01
+  m_EditorClassIdentifier: 
+  cycleStates: []
+  cycleStatesLateGame:
+  - cycle: 0
+    duration: 60
+    choosePerk: 0
+  - cycle: 1
+    duration: 30
+    choosePerk: 1
+  levelSize: {x: 100, y: 100}
+  placedObjects:
+  - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
+    gridPosition: {x: 10, y: 47}
+  - placeable: {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
+    gridPosition: {x: 7, y: 47}
+  - placeable: {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
+    gridPosition: {x: 15, y: 47}
+  - placeable: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
+    gridPosition: {x: 11, y: 70}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 14, y: 76}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 8, y: 80}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 28, y: 60}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 30, y: 47}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 21, y: 21}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 16, y: 12}
+  - placeable: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
+    gridPosition: {x: 18, y: 24}
+  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
+    gridPosition: {x: 13, y: 69}
+  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
+    gridPosition: {x: 10, y: 72}
+  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+    gridPosition: {x: 18, y: 89}
+  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+    gridPosition: {x: 3, y: 26}
+  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+    gridPosition: {x: 3, y: 31}
+  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+    gridPosition: {x: 30, y: 75}
+  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
+    gridPosition: {x: 2, y: 69}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 27, y: 48}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 10, y: 30}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 19, y: 83}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 23, y: 10}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 0, y: 73}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 2, y: 9}
+  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
+    gridPosition: {x: 33, y: 88}

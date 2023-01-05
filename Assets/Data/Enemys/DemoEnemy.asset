@@ -15,8 +15,14 @@ MonoBehaviour:
   id: DemoEnemy001
   name: DemoEnemy
   description: The mighty Enemy
+  prefferedAttackTarget: 0
   enemyPrefab: {fileID: 8840412572578489678, guid: 013ae795b5cb63a4892a3cf6f7d5b237, type: 3}
   prefab: {fileID: 8840412572578489673, guid: 013ae795b5cb63a4892a3cf6f7d5b237, type: 3}
+  updateNekromancerPositionTime: 0.5
   health: 100
   damage: 10
+  attackSpeed: 1
+  attackRange: 1
   experience: 10
+  speed: 1
+  moveThreshold: 1

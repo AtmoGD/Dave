@@ -18,9 +18,25 @@ MonoBehaviour:
   waves:
   - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
     amountMin: 1
-    amountMax: 3
-    cooldown: 15
+    amountMax: 2
+    cooldown: 4
   - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
     amountMin: 1
-    amountMax: 8
-    cooldown: 20
+    amountMax: 1
+    cooldown: 2
+  - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+    amountMin: 1
+    amountMax: 2
+    cooldown: 6
+  - enemy: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+    amountMin: 1
+    amountMax: 1
+    cooldown: 3
+  - enemy: {fileID: 11400000, guid: 413c73662472ace4a88d468148978253, type: 2}
+    amountMin: 1
+    amountMax: 1
+    cooldown: 6
+  - enemy: {fileID: 11400000, guid: 413c73662472ace4a88d468148978253, type: 2}
+    amountMin: 1
+    amountMax: 2
+    cooldown: 10
