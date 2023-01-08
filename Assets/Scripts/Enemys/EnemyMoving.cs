@@ -42,12 +42,12 @@ public class EnemyMoving : EnemyState
 
         timeSinceLastPathUpdate += Time.deltaTime;
 
-        if (constantlyUpdatePath && timeSinceLastPathUpdate > enemy.Data.updateNekromancerPositionTime)
-        {
-            enemy.MoveController.TargetPosition = target.position;
-            enemy.MoveController.UpdatePath();
-            timeSinceLastPathUpdate = 0;
-        }
+        // if (constantlyUpdatePath && timeSinceLastPathUpdate > enemy.MoveController.UpdatePath)
+        // {
+        //     enemy.MoveController.TargetPosition = target.position;
+        //     enemy.MoveController.UpdatePath();
+        //     timeSinceLastPathUpdate = 0;
+        // }
 
         enemy.MoveController.Move();
     }

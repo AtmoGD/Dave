@@ -14,7 +14,7 @@ public class EnemyData : ScriptableObject
     public AttackTarget prefferedAttackTarget = AttackTarget.Player;
     public Enemy enemyPrefab = null;
     public GameObject prefab = null;
-    public float updateNekromancerPositionTime = 0.5f;
+    // public float updateNekromancerPositionTime = 0.5f;
     public int health = 100;
     public int damage = 10;
     public float attackSpeed = 1f;
