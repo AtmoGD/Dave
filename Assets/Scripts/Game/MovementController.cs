@@ -73,7 +73,12 @@ public class MovementController : MonoBehaviour
     public void UpdatePath()
     {
         GridElement currentGrid = GameManager.Instance.WorldGrid.GetGridElement(transform.position, true);
-        GridElement targetGrid = GameManager.Instance.WorldGrid.GetGridElement(TargetPosition, true);
+        GridElement targetGrid = GameManager.Instance.WorldGrid.GetGridElement(TargetPosition, false);
+        if (!targetGrid)
+        {
+            Debug.LogError("Target grid is null");
+            return;
+        }
         path = GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
         pathIndex = path.Count - 1;
 

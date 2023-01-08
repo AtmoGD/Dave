@@ -18,8 +18,8 @@ public class Minion : MonoBehaviour, IInteractable
     public LevelManager LevelManager { get; private set; } = null;
 
     public Nekromancer Master { get; set; } = null;
-    public FarmTower TargetFarmTower { get; set; } = null;
-    public Tower TargetTower { get; set; } = null;
+    [field: SerializeField] public FarmTower TargetFarmTower { get; set; } = null;
+    [field: SerializeField] public Tower TargetTower { get; set; } = null;
     public float CurrentFarmAmount { get; set; } = 0f;
 
     public List<CollectedRessource> Ressources { get; set; } = new List<CollectedRessource>();
