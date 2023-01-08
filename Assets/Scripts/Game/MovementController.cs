@@ -79,7 +79,16 @@ public class MovementController : MonoBehaviour
             Debug.LogError("Target grid is null");
             return;
         }
-        path = GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
+        GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition, this);
+        // path = GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition);
+        // pathIndex = path.Count - 1;
+
+        // CalculateTarget();
+    }
+
+    public void TakePath(List<Vector2Int> newPath)
+    {
+        path = newPath;
         pathIndex = path.Count - 1;
 
         CalculateTarget();

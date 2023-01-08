@@ -38,6 +38,35 @@ public class WorldGrid : MonoBehaviour
         LoadLevel();
     }
 
+    public void FindPath(Vector2Int _startPos, Vector2Int _targetPos, MovementController _controller)
+    {
+        NativeArray<Pathfinding.GridStruct> gridElems = Pathfinder.ConvertGridToPathNodes(Grid);
+        NativeList<int2> pathList = new NativeList<int2>(gridElems.Length, Allocator.Persistent);
+
+        Pathfinding.FindPathJob findPathJob = new Pathfinding.FindPathJob
+        {
+            startPos = new int2(_startPos.x, _startPos.y),
+            targetPos = new int2(_targetPos.x, _targetPos.y),
+            gridElements = gridElems,
+            gridSize = new int2(GridSize.x, GridSize.y),
+            path = pathList
+        };
+
+        findPathJob.Run();
+
+        List<Vector2Int> path = new List<Vector2Int>();
+
+        for (int i = 0; i < findPathJob.path.Length; i++)
+        {
+            path.Add(new Vector2Int(findPathJob.path[i].x, findPathJob.path[i].y));
+        }
+
+        findPathJob.path.Dispose();
+        findPathJob.gridElements.Dispose();
+
+        _controller.TakePath(path);
+    }
+
     public List<Vector2Int> FindPath(Vector2Int _startPos, Vector2Int _targetPos)
     {
         NativeArray<Pathfinding.GridStruct> gridElems = Pathfinder.ConvertGridToPathNodes(Grid);
