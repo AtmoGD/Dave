@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; protected set; }
     [Header("Game Manager")]
     [SerializeField] private GameState gameState = GameState.Level;
-    // [SerializeField] private LevelManager levelManager = null;
-    // public LevelManager LevelManager { get { return levelManager; } }
+    [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
     public PlayerController PlayerController { get { return playerController; } }
     [SerializeField] private DataList dataList = null;
@@ -73,11 +72,13 @@ public class GameManager : MonoBehaviour
         {
             IsPaused = true;
             LevelManager.Instance.StopTime();
+            gameUIController.Pause(true);
         }
         else
         {
             IsPaused = false;
             LevelManager.Instance.StartTime();
+            gameUIController.Pause(false);
         }
     }
 

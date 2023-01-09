@@ -66,6 +66,7 @@ public class MovementController : MonoBehaviour
 
     public void StopMoving()
     {
+        print("Stop moving");
         path.Clear();
         rb.velocity = Vector2.zero;
     }
