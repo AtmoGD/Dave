@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Follow: {fileID: 4807954931287481406}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 8
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 15
     Dutch: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   <UIController>k__BackingField: {fileID: 5494878834600046498}
   <BuildController>k__BackingField: {fileID: 3504213900379381252}
   <PlayerInput>k__BackingField: {fileID: 2650636640014596890}
-  <LevelManager>k__BackingField: {fileID: 0}
 --- !u!114 &6219180567500532692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +610,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 003d7a42-fdbd-4631-9c2c-4cc1ab8ebc2a
     m_ActionName: BaseMap/Pause[/SwitchProControllerHID/select,/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e29f29a4-1114-43ea-9938-323335488e02
+    m_ActionName: BaseMap/ReloadScene[/Keyboard/g,/SwitchProControllerHID/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4807954931303665715}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OpenPauseMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_ActionId: bb8f8bcb-c93d-4fda-88bd-c715b0560d6c
+    m_ActionName: Combat/Pause[/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Combat
@@ -961,7 +980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_InstanceId
-      value: -1909816
+      value: -5278266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483399499734160650, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 99.5
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
@@ -1180,6 +1203,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4835724634596545900, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4807954931303665715}
     - target: {fileID: 5181376183649868551, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

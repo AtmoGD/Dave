@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
             if (!stoppedTime) LevelManager.Instance.StopTime();
         }
     }
-    public void Cancel()
+    public void OnCancel()
     {
         Cancel(null);
     }
