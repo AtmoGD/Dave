@@ -150,6 +150,21 @@ public class PlayerController : MonoBehaviour
         if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
+    public void OpenPauseMenu(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            UIController.OpenPauseMenu();
+
+            PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+            if (!stoppedTime) LevelManager.Instance.StopTime();
+        }
+    }
+    public void Cancel()
+    {
+        Cancel(null);
+    }
     public void Cancel(InputData _input = null)
     {
         UIController.CloseMenu();

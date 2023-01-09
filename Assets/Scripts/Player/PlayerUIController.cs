@@ -10,6 +10,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
     [SerializeField] private UIMenuController choosePerkMenu = null;
+    [SerializeField] private UIMenuController pauseUI = null;
     [SerializeField] private float menuInputDelay = 0.2f;
 
     UIMenuController currentMenu = null;
@@ -24,6 +25,8 @@ public class PlayerUIController : MonoBehaviour
 
         buildMenu.SetIsActive(false);
         minionMenu.SetIsActive(false);
+        // choosePerkMenu.SetIsActive(false);
+        // pauseUI.SetIsActive(false);
     }
 
     public void OpenMenu(UIMenuController _menu)
@@ -64,6 +67,11 @@ public class PlayerUIController : MonoBehaviour
         OpenMenu(choosePerkMenu);
     }
 
+    public void OpenPauseMenu()
+    {
+        OpenMenu(pauseUI);
+    }
+
     public void NextItem(InputAction.CallbackContext _context)
     {
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
@@ -72,10 +80,8 @@ public class PlayerUIController : MonoBehaviour
 
         Vector2 dir = _context.ReadValue<Vector2>();
 
-        if (Mathf.Abs(dir.x) >= 0.5f)
+        if (dir.magnitude >= 0.5f)
         {
-            dir.x = dir.x > 0 ? 1 : -1;
-
             currentMenu.UpdateSelection(dir);
         }
     }
@@ -90,6 +96,12 @@ public class PlayerUIController : MonoBehaviour
     {
         if (_context.started)
             Cancel();
+    }
+
+    public void OpenPauseMenu(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+            OpenPauseMenu();
     }
 
     public void Cancel()

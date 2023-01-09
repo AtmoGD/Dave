@@ -56,31 +56,31 @@ public class GameManager : MonoBehaviour
         playerController.Init();
     }
 
-    public void PauseGame(InputAction.CallbackContext _context)
-    {
-        print("Pause Game");
+    // public void PauseGame(InputAction.CallbackContext _context)
+    // {
+    //     print("Pause Game");
 
-        if (_context.performed)
-        {
-            PauseGame(!IsPaused);
-        }
-    }
+    //     if (_context.performed)
+    //     {
+    //         PauseGame(!IsPaused);
+    //     }
+    // }
 
-    public void PauseGame(bool _pause)
-    {
-        if (_pause)
-        {
-            IsPaused = true;
-            LevelManager.Instance.StopTime();
-            gameUIController.Pause(true);
-        }
-        else
-        {
-            IsPaused = false;
-            LevelManager.Instance.StartTime();
-            gameUIController.Pause(false);
-        }
-    }
+    // public void PauseGame(bool _pause)
+    // {
+    //     if (_pause)
+    //     {
+    //         IsPaused = true;
+    //         LevelManager.Instance.StopTime();
+    //         // gameUIController.Pause(true);
+    //     }
+    //     else
+    //     {
+    //         IsPaused = false;
+    //         LevelManager.Instance.StartTime();
+    //         // gameUIController.Pause(false);
+    //     }
+    // }
 
     public void ReloadScene(InputAction.CallbackContext _context)
     {
