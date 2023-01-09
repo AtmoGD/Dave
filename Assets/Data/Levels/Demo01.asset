@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates: []
   cycleStatesLateGame:
+  - cycle: 1
+    duration: 10
+    choosePerk: 1
   - cycle: 0
     duration: 60
     choosePerk: 0
   - cycle: 1
     duration: 30
     choosePerk: 1
+  - cycle: 0
+    duration: 120
+    choosePerk: 0
   levelSize: {x: 100, y: 100}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}

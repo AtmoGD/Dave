@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; protected set; }
     [Header("Game Manager")]
     [SerializeField] private GameState gameState = GameState.Level;
+    // [SerializeField] private LevelManager levelManager = null;
+    // public LevelManager LevelManager { get { return levelManager; } }
     [SerializeField] private PlayerController playerController = null;
     public PlayerController PlayerController { get { return playerController; } }
     [SerializeField] private DataList dataList = null;
@@ -61,16 +63,21 @@ public class GameManager : MonoBehaviour
 
         if (_context.performed)
         {
-            if (IsPaused)
-            {
-                IsPaused = false;
-                LevelManager.Instance.StartTime();
-            }
-            else
-            {
-                IsPaused = true;
-                LevelManager.Instance.StopTime();
-            }
+            PauseGame(!IsPaused);
+        }
+    }
+
+    public void PauseGame(bool _pause)
+    {
+        if (_pause)
+        {
+            IsPaused = true;
+            LevelManager.Instance.StopTime();
+        }
+        else
+        {
+            IsPaused = false;
+            LevelManager.Instance.StartTime();
         }
     }
 
@@ -80,7 +87,12 @@ public class GameManager : MonoBehaviour
 
         if (_context.performed)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            ReloadGame();
         }
+    }
+
+    public void ReloadGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }

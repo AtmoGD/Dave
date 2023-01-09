@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UILevelController : MonoBehaviour
 {
-    [SerializeField] private LevelManager levelManager = null;
+    // [SerializeField] private LevelManager levelManager = null;
+    // [SerializeField] private GameManager gameManager = null;
 
     [SerializeField] private TMP_Text collectedSoulsText = null;
     [SerializeField] private Ressource soulRessource = null;
@@ -30,11 +31,21 @@ public class UILevelController : MonoBehaviour
 
     private void Update()
     {
-        if (!collectedSoulsText || !levelManager) return;
+        if (!collectedSoulsText) return;
 
-        collectedSoulsText.text = levelManager.GatheredRessources.Count.ToString();
+        collectedSoulsText.text = LevelManager.Instance.GatheredRessources.Count.ToString();
 
     }
+
+    // public void ResumeGame()
+    // {
+    //     GameManager.Instance.PauseGame(false);
+    // }
+
+    // public void ReloadGame()
+    // {
+    //     GameManager.Instance.ReloadGame();
+    // }
 
     // public void SpawnEnemy()
     // {

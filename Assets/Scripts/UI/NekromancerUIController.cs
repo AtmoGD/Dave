@@ -8,13 +8,6 @@ public class NekromancerUIController : MonoBehaviour
     [SerializeField] private Nekromancer nekromancer = null;
     [SerializeField] private Slider healthBar = null;
 
-    private void Start()
-    {
-        UpdateBar();
-
-        nekromancer = GameManager.Instance.PlayerController.Nekromancer;
-    }
-
     private void Update()
     {
         UpdateBar();

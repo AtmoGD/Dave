@@ -6,6 +6,12 @@ public class UIMenuItem : MonoBehaviour
 {
     [SerializeField] private Animator selectedVizualizer = null;
     [SerializeField] private float selectSpeed = 2f;
+
+    [SerializeField] public UIMenuItem up = null;
+    [SerializeField] public UIMenuItem down = null;
+    [SerializeField] public UIMenuItem left = null;
+    [SerializeField] public UIMenuItem right = null;
+
     bool selected = false;
 
     public void Select()
