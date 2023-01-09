@@ -6,7 +6,6 @@ public class EnemyMoving : EnemyState
 {
     Transform target;
     bool constantlyUpdatePath = false;
-    float timeSinceLastPathUpdate = 0;
 
     public override void Enter(Enemy _enemy)
     {
@@ -39,15 +38,6 @@ public class EnemyMoving : EnemyState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-
-        timeSinceLastPathUpdate += Time.deltaTime;
-
-        // if (constantlyUpdatePath && timeSinceLastPathUpdate > enemy.MoveController.UpdatePath)
-        // {
-        //     enemy.MoveController.TargetPosition = target.position;
-        //     enemy.MoveController.UpdatePath();
-        //     timeSinceLastPathUpdate = 0;
-        // }
 
         enemy.MoveController.Move();
     }

@@ -8,16 +8,13 @@ public class SortCanvasLayer : MonoBehaviour
     [SerializeField] private bool runOnlyOnce = false;
     [SerializeField] private bool runInEditor = false;
 
-    // private SpriteRenderer spriteRenderer = null;
     private Canvas canvas = null;
     private int startSortingOrder = 0;
     private float startSortingOrderFloat = 0f;
 
     private void Awake()
     {
-        // spriteRenderer = GetComponent<SpriteRenderer>();
         canvas = GetComponent<Canvas>();
-        // startSortingOrder = spriteRenderer.sortingOrder;
         canvas.sortingOrder = startSortingOrder;
     }
 

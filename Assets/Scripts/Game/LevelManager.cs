@@ -9,12 +9,9 @@ public class LevelManager : MonoBehaviour
     public Action<CycleState> OnCycleChanged;
     public Action AddedTower;
 
-    // [field: SerializeField] public GameManager GM { get; private set; } = null;
 
     [Header("Level Manager")]
     private LevelData levelData = null;
-    // [SerializeField] private float timeScale = 1f;
-    // [SerializeField] public UILevelController uiLevelController = null;
     [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
@@ -64,15 +61,11 @@ public class LevelManager : MonoBehaviour
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
 
-        // base.Start();
-
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
     }
 
     public void Update()
     {
-        // base.Update();
-
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 

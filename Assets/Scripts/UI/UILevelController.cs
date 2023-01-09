@@ -6,29 +6,8 @@ using UnityEngine.UI;
 
 public class UILevelController : MonoBehaviour
 {
-    // [SerializeField] private LevelManager levelManager = null;
-    // [SerializeField] private GameManager gameManager = null;
-
     [SerializeField] private TMP_Text collectedSoulsText = null;
     [SerializeField] private Ressource soulRessource = null;
-    // [SerializeField] private Slider cycleSlider = null;
-
-    // private CycleState currentCycleState = null;
-
-    // private void Awake()
-    // {
-    //     levelManager.OnCycleChanged += UpdateCycleState;
-    // }
-
-    // private void UpdateCycleState(CycleState _cycleState)
-    // {
-    //     if (!cycleState) return;
-
-    //     this.currentCycleState = _cycleState;
-
-    //     this.cycleState.text = currentCycleState.Cycle.ToString();
-    // }
-
     private void Update()
     {
         if (!collectedSoulsText) return;
@@ -36,19 +15,4 @@ public class UILevelController : MonoBehaviour
         collectedSoulsText.text = LevelManager.Instance.GatheredRessources.Count.ToString();
 
     }
-
-    // public void ResumeGame()
-    // {
-    //     GameManager.Instance.PauseGame(false);
-    // }
-
-    // public void ReloadGame()
-    // {
-    //     GameManager.Instance.ReloadGame();
-    // }
-
-    // public void SpawnEnemy()
-    // {
-
-    // }
 }

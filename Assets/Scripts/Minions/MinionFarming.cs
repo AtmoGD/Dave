@@ -30,9 +30,6 @@ public class MinionFarming : MinionState
             farmAmount = 0;
         }
 
-        // minion.CurrentFarmAmount += minion.Data.farmSpeed * Time.deltaTime;
-        // minion.CurrentFarmAmount = Mathf.Clamp(minion.CurrentFarmAmount, 0, minion.Data.carryCapacity);
-
         if (minion.CurrentCarryAmount >= minion.Data.carryCapacity)
         {
             if (minion.LevelManager.Crystal)

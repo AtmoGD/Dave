@@ -17,10 +17,6 @@ public class UICycleState : MonoBehaviour
     [SerializeField] private AnimationCurve heightCurve = null;
     [SerializeField] private AnimationCurve volumeHeightCurve = null;
     [SerializeField] private AnimationCurve LightIntensityCurve = null;
-    // [SerializeField] private float fullWidth = 1200f;
-    // [SerializeField] private float fullHeight = 200f;
-    // [SerializeField] private float minHeight = 160f;
-
     private void Update()
     {
 
@@ -32,22 +28,12 @@ public class UICycleState : MonoBehaviour
             float volumeY = volumeHeightCurve.Evaluate(percent);
             float lightIntensity = LightIntensityCurve.Evaluate(percent);
 
-            // float width = fullWidth * percent;
-            // float height = Remap(alpha, 0f, 1f, minHeight, fullHeight);
-            // float height = heightCurve.Evaluate(percent) * fullHeight;
-
             Vector2 size = fillTransform.sizeDelta;
             size.x = widthCurve.Evaluate(percent);
 
             float xScale = xScaleCurve.Evaluate(percent);
             float yScale = yScaleCurve.Evaluate(percent);
 
-            // float width = widthCurve.Evaluate(percent);
-            // float height = heightCurve.Evaluate(percent);
-
-            // fillTransform.sizeDelta = new Vector2(width, height);
-            // fillTransform.sizeDelta = size;
-            // fillTransform.localScale = new Vector3(xScale, 1, 1f);
             fillTransform.localScale = new Vector3(xScale, yScale, 1f);
             fillTransform.anchoredPosition = new Vector2(0f, posY);
             fillImage.color = new Color(fillImage.color.r, fillImage.color.g, fillImage.color.b, alpha);
@@ -58,7 +44,6 @@ public class UICycleState : MonoBehaviour
         }
     }
 
-    //Remap Function
     private float Remap(float value, float from1, float to1, float from2, float to2)
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;

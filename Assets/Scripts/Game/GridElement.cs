@@ -22,7 +22,6 @@ public class GridElement : MonoBehaviour
         {
             animator.SetFloat("Active", 0f);
         }
-        // animator.SetFloat("Active", _active ? 1f : 0f);
     }
 
     public void IndicateIsPlaceable()

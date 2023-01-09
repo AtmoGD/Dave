@@ -21,18 +21,11 @@ public class PathJob
 
 public class Pathfinding : MonoBehaviour
 {
-    // public const int MOVE_STRAIGHT_COST = 10;
-    // public const int MOVE_DIAGONAL_COST = 14;
-
     public const int MOVE_STRAIGHT_COST = 14;
     public const int MOVE_DIAGONAL_COST = 10;
 
     private List<PathJob> pathJobs = new List<PathJob>();
     [SerializeField] private WorldGrid WorldGrid = null;
-    // [SerializeField] private int maxPathJobs = 10;
-    // [SerializeField] private float pathJobUpdateTime = 0.5f;
-    // bool isCalculatingPath = false;
-    // float lastPathJobUpdate = 0f;
 
     public NativeArray<GridStruct> ConvertGridToPathNodes(GridElement[][] _grid)
     {
@@ -55,80 +48,6 @@ public class Pathfinding : MonoBehaviour
 
         return gridElementList;
     }
-
-    // public void AddPathJob(PathJob _pathJob)
-    // {
-    //     pathJobs.Add(_pathJob);
-    // }
-
-    // public void BulkCalculatePaths()
-    // {
-    //     if (pathJobs.Count == 0)
-    //         return;
-
-    //     isCalculatingPath = true;
-    //     lastPathJobUpdate = Time.time;
-
-    //     NativeArray<Pathfinding.GridStruct> gridElems = ConvertGridToPathNodes(WorldGrid.Grid);
-    //     NativeArray<JobHandle> jobHandles = new NativeArray<JobHandle>(maxPathJobs, Allocator.TempJob);
-    //     List<NativeList<int2>> pathLists = new List<NativeList<int2>>();
-
-    //     int counter = 0;
-    //     foreach (PathJob pathJob in pathJobs)
-    //     {
-    //         NativeList<int2> path = new NativeList<int2>(Allocator.TempJob);
-    //         pathLists.Add(path);
-    //         pathJob.index = counter;
-
-    //         FindPathJob findPathJob = new FindPathJob
-    //         {
-    //             startPos = new int2(pathJob.startPos.x, pathJob.startPos.y),
-    //             targetPos = new int2(pathJob.endPos.x, pathJob.endPos.y),
-    //             gridElements = gridElems,
-    //             gridSize = new int2(WorldGrid.GridSize.x, WorldGrid.GridSize.y),
-    //             path = path
-    //         };
-
-    //         jobHandles[counter] = findPathJob.Schedule();
-
-    //         if (counter >= maxPathJobs)
-    //             return;
-
-    //         counter++;
-    //     }
-    //     JobHandle.CompleteAll(jobHandles);
-
-    //     foreach (PathJob pathJob in pathJobs)
-    //     {
-    //         NativeList<int2> path = pathLists[pathJob.index];
-    //         pathJob.path = new List<Vector2Int>();
-    //         for (int i = 0; i < path.Length; i++)
-    //         {
-    //             pathJob.path.Add(new Vector2Int(path[i].x, path[i].y));
-    //         }
-
-    //         pathJob.movementController.TakePath(pathJob.path);
-    //         path.Dispose();
-    //     }
-
-    //     int removeCounter = 0;
-    //     while (removeCounter < counter)
-    //     {
-    //         pathJobs.RemoveAt(0);
-    //         removeCounter++;
-    //     }
-
-    //     jobHandles.Dispose();
-    //     gridElems.Dispose();
-
-    //     isCalculatingPath = false;
-    // }
-
-    // private void Update()
-    // {
-    //     if (!isCalculatingPath && (Time.time - lastPathJobUpdate) > pathJobUpdateTime)
-    //         BulkCalculatePaths();
-    // }
 
     [BurstCompile]
     public struct FindPathJob : IJob
