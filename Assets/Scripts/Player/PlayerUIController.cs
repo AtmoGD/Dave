@@ -82,6 +82,13 @@ public class PlayerUIController : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext _context)
     {
+        print("Interact UI");
+        if (_context.started)
+        {
+            currentMenu.InteractWithSelection();
+        }
+        return;
+
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
 
         lastMenuInput = Time.time;
