@@ -149,14 +149,14 @@ MonoBehaviour:
     Path: event:/Monster/MONSTER_TripleHead_Walk
   Event: 
   PlayEvent: 0
-  StopEvent: 2
+  StopEvent: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 1
+  OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 40
+  OverrideMaxDistance: 20
 --- !u!114 &3061471727999374253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 2050307877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 2921578
+  m_InstanceId: -4436
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0
