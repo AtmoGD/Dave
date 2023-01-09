@@ -2795,7 +2795,7 @@ MonoBehaviour:
     m_ActionId: e29f29a4-1114-43ea-9938-323335488e02
     m_ActionName: BaseMap/ReloadScene[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: BaseMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
