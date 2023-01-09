@@ -2959,7 +2959,7 @@ MonoBehaviour:
     m_ActionId: e29f29a4-1114-43ea-9938-323335488e02
     m_ActionName: BaseMap/ReloadScene[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: BaseMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -4285,7 +4285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2650636640014596890, guid: 9cb289b4b08f0564bb1d61703491d7f3, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Controller
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2650636640014596890, guid: 9cb289b4b08f0564bb1d61703491d7f3, type: 3}
       propertyPath: m_ActionEvents.Array.size
