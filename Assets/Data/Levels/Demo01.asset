@@ -15,12 +15,12 @@ MonoBehaviour:
   cycleStates: []
   cycleStatesLateGame:
   - cycle: 0
-    duration: 60
+    duration: 10
     choosePerk: 0
   - cycle: 1
     duration: 20
     choosePerk: 1
-  levelSize: {x: 100, y: 100}
+  levelSize: {x: 50, y: 100}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
     gridPosition: {x: 10, y: 47}
@@ -28,47 +28,95 @@ MonoBehaviour:
     gridPosition: {x: 7, y: 47}
   - placeable: {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
     gridPosition: {x: 15, y: 47}
-  - placeable: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
-    gridPosition: {x: 11, y: 70}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 14, y: 76}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 8, y: 80}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 28, y: 60}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 30, y: 47}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 21, y: 21}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 16, y: 12}
-  - placeable: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
-    gridPosition: {x: 18, y: 24}
-  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
-    gridPosition: {x: 13, y: 69}
-  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
-    gridPosition: {x: 10, y: 72}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 18, y: 89}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 3, y: 26}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 3, y: 31}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 30, y: 75}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 2, y: 69}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 27, y: 48}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 10, y: 30}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 19, y: 83}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 23, y: 10}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 0, y: 73}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 2, y: 9}
-  - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
-    gridPosition: {x: 33, y: 88}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 0, y: 41}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 2, y: 37}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 4, y: 33}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 6, y: 29}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 8, y: 25}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 10, y: 21}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 0, y: 45}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 2, y: 49}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 4, y: 53}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 6, y: 57}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 8, y: 61}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 10, y: 65}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 12, y: 69}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 14, y: 73}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 16, y: 77}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 18, y: 81}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 20, y: 85}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 22, y: 89}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 12, y: 17}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 14, y: 13}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 16, y: 9}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 18, y: 5}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 20, y: 1}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 22, y: 1}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 24, y: 5}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 26, y: 9}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 28, y: 13}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 30, y: 17}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 32, y: 21}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 34, y: 25}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 36, y: 29}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 38, y: 33}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 24, y: 90}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 26, y: 86}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 28, y: 82}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 30, y: 78}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 32, y: 74}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 34, y: 70}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 36, y: 66}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 38, y: 62}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 40, y: 58}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 42, y: 54}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 40, y: 37}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 42, y: 41}
+  - placeable: {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+    gridPosition: {x: 44, y: 45}
+  - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+    gridPosition: {x: 44, y: 50}

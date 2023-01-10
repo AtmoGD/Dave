@@ -33,7 +33,7 @@ public class MovementController : MonoBehaviour
     {
         if (constantlyUpdatePath)
         {
-            if (Time.time - lastRecalculate > recalculatePathTime)
+            if ((Time.time - lastRecalculate) > recalculatePathTime)
             {
                 UpdatePath();
                 lastRecalculate = Time.time;
@@ -82,6 +82,7 @@ public class MovementController : MonoBehaviour
             return;
         }
 
+        print("Updating path");
         GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition, this);
     }
 

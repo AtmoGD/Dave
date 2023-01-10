@@ -15,4 +15,6 @@ MonoBehaviour:
   id: soulsressource001
   name: Soul
   description: This is a Soul
+  prefab: {fileID: 7973331925786769994, guid: cd391ea4581102f4aa685d0da36d8c44, type: 3}
+  icon: {fileID: 0}
   weight: 1

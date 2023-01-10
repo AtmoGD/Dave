@@ -39,6 +39,7 @@ public class EnemyMoving : EnemyState
     {
         base.FrameUpdate();
 
+        enemy.MoveController.TargetPosition = target.position;
         enemy.MoveController.Move();
     }
 

@@ -275,6 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
   <MoveController>k__BackingField: {fileID: 8355268347544386042}
+  <DiePrefab>k__BackingField: {fileID: 7973331925786769994, guid: cd391ea4581102f4aa685d0da36d8c44, type: 3}
+  <DropRessource>k__BackingField:
+    ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 3
 --- !u!50 &8840412572578489679
 Rigidbody2D:
   serializedVersion: 4
@@ -328,7 +332,7 @@ MonoBehaviour:
   rb: {fileID: 8840412572578489679}
   speed: 1.5
   moveThreshold: 0.1
-  recalculatePathTime: 1
+  recalculatePathTime: 0.5
   constantlyUpdatePath: 1
   smoothenPath: 1
 --- !u!114 &7044322063683810336
