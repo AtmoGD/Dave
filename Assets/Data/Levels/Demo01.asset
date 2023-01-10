@@ -15,10 +15,10 @@ MonoBehaviour:
   cycleStates: []
   cycleStatesLateGame:
   - cycle: 0
-    duration: 5
+    duration: 60
     choosePerk: 0
   - cycle: 1
-    duration: 30
+    duration: 20
     choosePerk: 1
   levelSize: {x: 100, y: 100}
   placedObjects:
