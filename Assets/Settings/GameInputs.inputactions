@@ -419,6 +419,17 @@
                 },
                 {
                     "name": "",
+                    "id": "47223319-6a94-4cc7-918b-e60f8f77047a",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "SecondSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6e7db32f-2431-4bd2-853a-5f2359cd2d69",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",

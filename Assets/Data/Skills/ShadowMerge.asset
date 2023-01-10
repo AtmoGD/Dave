@@ -21,9 +21,9 @@ MonoBehaviour:
     duration: 0.4
   - name: ShadowMergeStack
     duration: 4
-  speed: 80
+  speed: 40
   distance: 6
-  delay: 0.15
+  delay: 0.25
   stackSize: 3
   collisionMask:
     serializedVersion: 2
