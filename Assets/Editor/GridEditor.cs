@@ -153,8 +153,6 @@ public class GridEditor : Editor
         {
             if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
             {
-                Event.current.Use();
-
                 Vector2 mousePosition = Event.current.mousePosition;
                 mousePosition = HandleUtility.GUIPointToWorldRay(mousePosition).origin;
 
@@ -174,6 +172,7 @@ public class GridEditor : Editor
                         }
                     }
                 }
+                Event.current.Use();
             }
         }
     }

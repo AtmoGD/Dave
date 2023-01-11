@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour, IInteractable
+public class Building : PlaceableObject, IInteractable
 {
     public virtual void Interact(Nekromancer _nekromancer)
     {

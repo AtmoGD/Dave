@@ -26,6 +26,7 @@ public class ShootTower : AttackTower
         Transform target = enemiesInRange[Random.Range(0, enemiesInRange.Count)].transform;
         // GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         GameObject projectile = ObjectPool.Instance.Get(projectilePrefab);
+        projectile.transform.position = transform.position;
         ShadowBallController shadowBallController = projectile.GetComponent<ShadowBallController>();
         shadowBallController.UpdateBaseDamage(damage);
 

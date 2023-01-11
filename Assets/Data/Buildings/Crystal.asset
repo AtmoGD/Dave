@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Crystal
   description: Crystal Crystal
   cost: []
-  size: {x: 4, y: 4}
+  size: {x: 2, y: 2}
   prefab: {fileID: 3561387475484682806, guid: 9eca38d6463c5a04480147eff4f365ac, type: 3}
   preview: {fileID: 3561387475484682806, guid: c2470cfac13cb7f4695d2c31d047c714, type: 3}
   health: 100
