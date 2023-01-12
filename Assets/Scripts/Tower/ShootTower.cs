@@ -8,6 +8,7 @@ public class ShootTower : AttackTower
     [SerializeField] private float damage = 1f;
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private GameObject projectilePrefab = null;
+    [field: SerializeField] public List<Transform> ShootPositions { get; private set; } = new List<Transform>();
 
     private List<Enemy> enemiesInRange = new List<Enemy>();
     private float fireTimer = 0f;
@@ -22,15 +23,24 @@ public class ShootTower : AttackTower
 
     private void Shoot()
     {
-        // ShadowBallController bullet = ObjectPool.Instance.Get
         Transform target = enemiesInRange[Random.Range(0, enemiesInRange.Count)].transform;
-        // GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         GameObject projectile = ObjectPool.Instance.Get(projectilePrefab);
-        projectile.transform.position = transform.position;
+
+        Transform nearestShootPosition = ShootPositions[0];
+        foreach (Transform shootPosition in ShootPositions)
+        {
+            if (Vector2.Distance(shootPosition.position, target.position) <
+                Vector2.Distance(nearestShootPosition.position, target.position))
+            {
+                nearestShootPosition = shootPosition;
+            }
+        }
+
+        projectile.transform.position = nearestShootPosition.position;
         ShadowBallController shadowBallController = projectile.GetComponent<ShadowBallController>();
         shadowBallController.UpdateBaseDamage(damage);
 
-        projectile.transform.right = target.position - transform.position;
+        projectile.transform.right = target.position - nearestShootPosition.position;
         fireTimer = 1f / fireRate;
     }
 

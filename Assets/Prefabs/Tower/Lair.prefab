@@ -574,8 +574,8 @@ GameObject:
   - component: {fileID: 411726589307612451}
   - component: {fileID: 701380788807390276}
   - component: {fileID: 9140802686605074086}
-  - component: {fileID: 4429586389289077104}
   - component: {fileID: 138631925603663126}
+  - component: {fileID: 4136788109989809860}
   m_Layer: 8
   m_Name: Lair
   m_TagString: Untagged
@@ -663,31 +663,6 @@ PolygonCollider2D:
       - {x: -3.65194, y: 0.14339298}
       - {x: 0.12002808, y: -1.9554696}
       - {x: 3.5821567, y: -0.03855546}
---- !u!114 &4429586389289077104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2970626068462225346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3e38591844f23d4a86b8c995e6fa889, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerData: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
-  neighbourGridElements:
-  - {fileID: 2060556164967811833}
-  - {fileID: 8138498829688598125}
-  - {fileID: 3410673202434809595}
-  - {fileID: 2800737400598939015}
-  - {fileID: 2337315661536033878}
-  - {fileID: 689589957534767627}
-  - {fileID: 8044632968314233126}
-  - {fileID: 499533432429628838}
-  damage: 3
-  fireRate: 1.8
-  projectilePrefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}
 --- !u!114 &138631925603663126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +689,29 @@ MonoBehaviour:
   - {x: 3.5405226, y: -0.040301085, z: 0}
   m_ShapePathHash: 171269347
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1356176
+  m_InstanceId: 674128
+--- !u!114 &4136788109989809860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970626068462225346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840d2c54dc0a5ce408cfe061ea8a709b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerData: {fileID: 11400000, guid: f9192cef64938ea43bd7ad57cc4abec2, type: 2}
+  neighbourGridElements:
+  - {fileID: 2060556164967811833}
+  - {fileID: 8138498829688598125}
+  - {fileID: 3410673202434809595}
+  - {fileID: 2800737400598939015}
+  - {fileID: 2337315661536033878}
+  - {fileID: 689589957534767627}
+  - {fileID: 8044632968314233126}
+  - {fileID: 499533432429628838}
 --- !u!1 &4091710019628846587
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5376616456855950904
 Transform:
   m_ObjectHideFlags: 0
