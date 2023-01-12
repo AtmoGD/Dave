@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour, IDamagable
     [field: SerializeField] public EnemyData Data { get; private set; } = null;
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
     // [field: SerializeField] public GameObject DiePrefab { get; private set; } = null;
-    [field: SerializeField] public CollectedRessource DropRessource { get; private set; } = null;
+    [field: SerializeField] public List<CollectedRessource> DropRessources { get; private set; } = new List<CollectedRessource>();
 
     public int Health { get; private set; }
     public int MaxHealth { get { return Data.health; } }
@@ -80,15 +80,19 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void Die()
     {
-        if (DropRessource != null)
+        if (DropRessources.Count > 0)
         {
-            for (int i = 0; i < DropRessource.amount; i++)
+            foreach (CollectedRessource DropRessource in DropRessources)
             {
-                Vector2 randomPos = (Vector2)transform.position + new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
-                Instantiate(DropRessource.ressource.prefab, randomPos, Quaternion.identity);
-                LevelManager.Instance.GatherRessource(DropRessource);
+                for (int i = 0; i < DropRessource.amount; i++)
+                {
+                    Vector2 randomPos = (Vector2)transform.position + new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+                    Instantiate(DropRessource.ressource.prefab, randomPos, Quaternion.identity);
+                    LevelManager.Instance.GatherRessource(DropRessource);
+                }
             }
         }
+
         gameObject.SetActive(false);
     }
 
