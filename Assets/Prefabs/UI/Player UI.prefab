@@ -2769,7 +2769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371651703606650191, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
       propertyPath: m_text
-      value: Dont end
+      value: Back to camp
       objectReference: {fileID: 0}
     - target: {fileID: 3371651703606650191, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
       propertyPath: m_fontSize
@@ -2889,11 +2889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8428238674382149848, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
       propertyPath: m_Name
-      value: Resume
+      value: BackToCamp
       objectReference: {fileID: 0}
     - target: {fileID: 8428238674382149848, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1012989581636794922, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
@@ -4271,7 +4271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8428238674382149848, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1012989581636794922, guid: 0f7608281de257c48a98826b1239fb2b, type: 3}
