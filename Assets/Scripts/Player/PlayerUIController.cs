@@ -11,6 +11,9 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController minionMenu = null;
     [SerializeField] private UIMenuController choosePerkMenu = null;
     [SerializeField] private UIMenuController pauseUI = null;
+    [SerializeField] private UIMenuController endGameMenu = null;
+    [SerializeField] private UIMenuController gameOverUI = null;
+    [SerializeField] private UIMenuController gameLostUI = null;
     [SerializeField] private float menuInputDelay = 0.2f;
 
     UIMenuController currentMenu = null;
@@ -72,6 +75,11 @@ public class PlayerUIController : MonoBehaviour
         OpenMenu(pauseUI);
     }
 
+    public void OpenEndGameMenu()
+    {
+        OpenMenu(endGameMenu);
+    }
+
     public void NextItem(InputAction.CallbackContext _context)
     {
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
@@ -107,5 +115,14 @@ public class PlayerUIController : MonoBehaviour
     public void Cancel()
     {
         Player.Cancel();
+    }
+
+    public void EndGame()
+    {
+        LevelManager.Instance.EndGame();
+
+        CloseMenu();
+
+        OpenMenu(gameOverUI);
     }
 }

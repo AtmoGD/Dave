@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : PlaceableObject, IDamagable, IInteractable
+public class Tower : Building, IDamagable
 {
     [SerializeField] protected TowerData towerData = null;
     [SerializeField] protected List<Transform> neighbourGridElements = new List<Transform>();
@@ -57,23 +57,8 @@ public class Tower : PlaceableObject, IDamagable, IInteractable
             BuildPercentage = 1f;
     }
 
-    public void Interact(Nekromancer _nekromancer)
-    {
-
-    }
-
-    public void InteractEnd()
-    {
-
-    }
-
     public virtual void Die()
     {
         Destroy(gameObject);
-    }
-
-    public Transform GetTransform()
-    {
-        return transform;
     }
 }

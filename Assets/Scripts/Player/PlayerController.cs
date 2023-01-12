@@ -71,15 +71,8 @@ public class PlayerController : MonoBehaviour
         if (_context.performed && PerkPoints > 0 && LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day)
         {
             OpenPerksMenu();
-            // ChoosePerk();
         }
     }
-
-    // public void ChoosePerk()
-    // {
-    //     UIController.OpenChoosePerkMenu();
-    // }
-
     public void AddPerk(Perk _perk)
     {
         Perks.Add(_perk);
@@ -161,6 +154,16 @@ public class PlayerController : MonoBehaviour
             if (!stoppedTime) LevelManager.Instance.StopTime();
         }
     }
+
+    public void OpenEndGameMenu()
+    {
+        UIController.OpenEndGameMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
     public void OnCancel()
     {
         Cancel(null);

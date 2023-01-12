@@ -43,6 +43,8 @@ public class LevelManager : MonoBehaviour
     public bool IsDay { get { return CurrentCycleState.Cycle == Cycle.Day; } }
     public bool IsNight { get { return CurrentCycleState.Cycle == Cycle.Night; } }
 
+    public bool GameEnded { get; private set; } = false;
+
     private void Awake()
     {
         if (Instance != null)
@@ -62,20 +64,28 @@ public class LevelManager : MonoBehaviour
         this.CurrentCycleState?.Enter(this);
 
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
+
+        GameEnded = false;
     }
 
     public void Update()
     {
+        if (GameEnded) return;
+
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 
     public void GatherRessource(CollectedRessource _ressource)
     {
+        if (GameEnded) return;
+
         GatheredRessources.Add(_ressource);
     }
 
     public void GatherRessource(List<CollectedRessource> _ressources)
     {
+        if (GameEnded) return;
+
         foreach (CollectedRessource ressource in _ressources)
         {
             GatherRessource(ressource);
@@ -84,6 +94,8 @@ public class LevelManager : MonoBehaviour
 
     public void NextCycle()
     {
+        if (GameEnded) return;
+
         this.CurrentCycleState?.Exit();
 
         this.enemyCount = 0;
@@ -92,15 +104,21 @@ public class LevelManager : MonoBehaviour
 
         if (this.currentCycle >= this.levelData.cycleStates.Count)
         {
-            //TO-DO : End of level
             CrystalFull = true;
-            print("End of level");
-            // return;
         }
 
         this.CurrentCycleState?.Enter(this);
 
         this.OnCycleChanged?.Invoke(this.CurrentCycleState);
+    }
+
+    public void EndGame()
+    {
+        if (GameEnded) return;
+
+        GameEnded = true;
+
+        //To-Do : Save ressources
     }
 
     public void SetCrystal(Crystal crystal)

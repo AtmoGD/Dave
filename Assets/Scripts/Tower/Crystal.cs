@@ -20,4 +20,14 @@ public class Crystal : AttackTower
 
         base.Die();
     }
+
+    public override void Interact(Nekromancer _nekromancer)
+    {
+        base.Interact(_nekromancer);
+
+        if (LevelManager.Instance.CrystalFull)
+        {
+            GameManager.Instance.PlayerController.OpenEndGameMenu();
+        }
+    }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   cycleStates: []
   cycleStatesLateGame:
   - cycle: 0
-    duration: 5
+    duration: 60
     choosePerk: 0
   - cycle: 1
     duration: 20
