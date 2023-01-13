@@ -526,7 +526,6 @@ GameObject:
   - component: {fileID: 6249689040151790192}
   - component: {fileID: 5596523949285164373}
   - component: {fileID: 8607413848096104018}
-  - component: {fileID: 1228175320396099103}
   - component: {fileID: 7176851206423914166}
   m_Layer: 8
   m_Name: TreeSpooky
@@ -578,7 +577,7 @@ MonoBehaviour:
   - {x: -0.56126773, y: -0.52873844, z: 0}
   m_ShapePathHash: 891075560
   m_Mesh: {fileID: 0}
-  m_InstanceId: 907136
+  m_InstanceId: 913606
 --- !u!114 &8607413848096104018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,21 +590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdbef6409b4fb74ebf607d0ba0868d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1228175320396099103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6249689040151790194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d413c54d4e56d047a28160e9df36a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 120
-  runOnlyOnce: 1
-  runInEditor: 1
 --- !u!60 &7176851206423914166
 PolygonCollider2D:
   m_ObjectHideFlags: 0

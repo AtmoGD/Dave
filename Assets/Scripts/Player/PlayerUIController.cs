@@ -13,6 +13,8 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController pauseUI = null;
     [SerializeField] private UIMenuController endGameMenu = null;
     [SerializeField] private UIMenuController gameOverUI = null;
+    [SerializeField] private GameObject GatheredRessourcesContent = null;
+    [SerializeField] private GameObject GatheredRessourcePrefab = null;
     [SerializeField] private UIMenuController gameLostUI = null;
     [SerializeField] private float menuInputDelay = 0.2f;
 
@@ -123,6 +125,22 @@ public class PlayerUIController : MonoBehaviour
 
         CloseMenu();
 
+        UpdateGatheredRessourcesOnGameOverScreen();
+
         OpenMenu(gameOverUI);
+    }
+
+    public void UpdateGatheredRessourcesOnGameOverScreen()
+    {
+        foreach (Transform child in GatheredRessourcesContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (CollectedRessource ressource in LevelManager.Instance.GatheredRessources)
+        {
+            GameObject go = Instantiate(GatheredRessourcePrefab, GatheredRessourcesContent.transform);
+            go.GetComponent<RessourceCard>()?.Init(ressource);
+        }
     }
 }
