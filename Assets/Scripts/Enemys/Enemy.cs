@@ -118,11 +118,25 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void Attack()
     {
+        print("Attack");
 
+        ApplyDamage();
     }
 
     public void ApplyDamage()
     {
+        Nekromancer nekromancer = Target.GetComponent<Nekromancer>();
+        if (nekromancer && (nekromancer.transform.position - transform.position).sqrMagnitude < Data.attackRange * Data.attackRange)
+        {
+            nekromancer.TakeDamage(Damage);
+            return;
+        }
 
+        Tower tower = Target.GetComponent<Tower>();
+        if (tower)
+        {
+            tower.TakeDamage(Damage);
+            return;
+        }
     }
 }

@@ -57,6 +57,8 @@ public class EnemyMoving : EnemyState
     {
         enemy.MoveController.OnPathComplete -= ReachedTarget;
 
+        enemy.MoveController.StopMoving();
+
         enemy.ChangeState(enemy.AttackingState);
     }
 }

@@ -17,6 +17,6 @@ public class NekromancerUIController : MonoBehaviour
     {
         if (!nekromancer || !healthBar) return;
 
-        healthBar.value = (float)nekromancer.CurrentHealth / nekromancer.MaxHealth;
+        healthBar.value = (float)nekromancer.Health / nekromancer.MaxHealth;
     }
 }

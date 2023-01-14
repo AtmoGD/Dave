@@ -82,6 +82,11 @@ public class PlayerUIController : MonoBehaviour
         OpenMenu(endGameMenu);
     }
 
+    public void OpenGameLostMenu()
+    {
+        OpenMenu(gameLostUI);
+    }
+
     public void NextItem(InputAction.CallbackContext _context)
     {
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;

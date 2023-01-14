@@ -9,6 +9,8 @@ public class EnemyAttacking : EnemyState
     public override void Enter(Enemy _enemy)
     {
         base.Enter(_enemy);
+
+        timeSinceLastAttack = enemy.Data.attackSpeed;
     }
 
     public override void FrameUpdate()

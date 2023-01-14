@@ -121,6 +121,17 @@ public class LevelManager : MonoBehaviour
         //To-Do : Save ressources
     }
 
+    public void NekromancerDie()
+    {
+        if (GameEnded) return;
+
+        GameEnded = true;
+
+        GameManager.Instance.PlayerController.UIController.OpenGameLostMenu();
+
+        //To-Do : Save ressources
+    }
+
     public void SetCrystal(Crystal crystal)
     {
         if (this.Crystal != null)

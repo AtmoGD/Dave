@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using Cinemachine;
 
-public class Nekromancer : MonoBehaviour
+public class Nekromancer : MonoBehaviour, IDamagable
 {
     public Action<IInteractable> OnInteract;
     public Action<Vector2> OnMove;
@@ -27,7 +27,7 @@ public class Nekromancer : MonoBehaviour
     #endregion
 
     #region Stats
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public int Health { get; private set; }
     [field: SerializeField] public int MaxHealth { get; private set; }
     [field: SerializeField] public int CurrentMana { get; private set; }
     [field: SerializeField] public float Damage { get; private set; }
@@ -95,7 +95,7 @@ public class Nekromancer : MonoBehaviour
     {
         playerController = _playerController;
 
-        CurrentHealth = stats.health;
+        Health = stats.health;
         MaxHealth = stats.health;
         CurrentMana = stats.mana;
         Damage = stats.damage;
@@ -133,6 +133,23 @@ public class Nekromancer : MonoBehaviour
         if (!InputController || currentInput == null || blocked) return;
 
         currentSkill?.PhysicsUpdate(Time.deltaTime);
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        Health -= _damage;
+        if (Health <= 0)
+        {
+            Health = 0;
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Nekromancer died");
+
+        LevelManager.Instance.NekromancerDie();
     }
 
     #region State Machine
