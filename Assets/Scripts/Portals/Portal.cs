@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour, IDamagable
         SpawnEnemy();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject sender)
     {
         Health -= damage;
         if (Health <= 0)

@@ -14,6 +14,8 @@ public class ShadowBallController : MonoBehaviour
 
     private float lifeTime = 0f;
 
+    public GameObject Sender { get; set; } = null;
+
     private void OnEnable()
     {
         lifeTime = data.bulletLifeTime;
@@ -41,9 +43,9 @@ public class ShadowBallController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamagable damagable = collision.GetComponent<IDamagable>();
-        if (damagable != null)
+        if (damagable != null && Sender != collision.gameObject)
         {
-            damagable.TakeDamage((int)(baseDamage * data.bulletDamage * damageMultiplier));
+            damagable.TakeDamage((int)(baseDamage * data.bulletDamage * damageMultiplier), Sender);
             Die();
         }
     }

@@ -26,7 +26,7 @@ public class Tower : Building, IDamagable
         LevelManager.AddTower(this);
     }
 
-    public virtual void TakeDamage(int _damage)
+    public virtual void TakeDamage(int _damage, GameObject _sender)
     {
         Health -= _damage;
         if (Health <= 0)

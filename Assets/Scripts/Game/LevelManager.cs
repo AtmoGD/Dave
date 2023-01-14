@@ -79,7 +79,20 @@ public class LevelManager : MonoBehaviour
     {
         if (GameEnded) return;
 
-        GatheredRessources.Add(_ressource);
+        // GatheredRessources.Add(_ressource);
+
+        CollectedRessource newRessource = GatheredRessources.Find(x => x.ressource == _ressource.ressource);
+        if (newRessource != null)
+        {
+            newRessource.amount += _ressource.amount;
+        }
+        else
+        {
+            newRessource = new CollectedRessource();
+            newRessource.ressource = _ressource.ressource;
+            newRessource.amount = _ressource.amount;
+            GatheredRessources.Add(newRessource);
+        }
     }
 
     public void GatherRessource(List<CollectedRessource> _ressources)
@@ -118,6 +131,8 @@ public class LevelManager : MonoBehaviour
 
         GameEnded = true;
 
+        GameManager.Instance.PlayerController.AddRessources(GatheredRessources);
+
         //To-Do : Save ressources
     }
 
@@ -127,7 +142,7 @@ public class LevelManager : MonoBehaviour
 
         GameEnded = true;
 
-        GameManager.Instance.PlayerController.UIController.OpenGameLostMenu();
+        // GameManager.Instance.PlayerController.UIController.OpenGameLostMenu();
 
         //To-Do : Save ressources
     }

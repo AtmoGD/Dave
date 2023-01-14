@@ -135,8 +135,10 @@ public class Nekromancer : MonoBehaviour, IDamagable
         currentSkill?.PhysicsUpdate(Time.deltaTime);
     }
 
-    public void TakeDamage(int _damage)
+    public void TakeDamage(int _damage, GameObject _sender)
     {
+        if (_sender == gameObject) return;
+
         Health -= _damage;
         if (Health <= 0)
         {
@@ -150,6 +152,8 @@ public class Nekromancer : MonoBehaviour, IDamagable
         Debug.Log("Nekromancer died");
 
         LevelManager.Instance.NekromancerDie();
+
+        PlayerController.OpenGameLostMenu();
     }
 
     #region State Machine

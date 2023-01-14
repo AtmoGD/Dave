@@ -108,7 +108,7 @@ public class ShadowGun : Skill
     private void Shoot(bool _charged)
     {
         ShadowBallController bullet = ObjectPool.Instance.Get(shadowGunData.bulletPrefab).GetComponent<ShadowBallController>();
-
+        bullet.Sender = nekromancer.gameObject;
         bullet.transform.position = GetCurrentBulletPosition();
         bullet.transform.right = nekromancer.Model.right;
         bullet.Nekromancer = nekromancer;

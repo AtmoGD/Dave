@@ -25,6 +25,7 @@ public class ShootTower : AttackTower
     {
         Transform target = enemiesInRange[Random.Range(0, enemiesInRange.Count)].transform;
         GameObject projectile = ObjectPool.Instance.Get(projectilePrefab);
+        projectile.GetComponent<ShadowBallController>().Sender = gameObject;
 
         Transform nearestShootPosition = ShootPositions[0];
         foreach (Transform shootPosition in ShootPositions)

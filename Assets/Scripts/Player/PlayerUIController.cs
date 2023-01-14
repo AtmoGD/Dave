@@ -142,10 +142,34 @@ public class PlayerUIController : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (CollectedRessource ressource in LevelManager.Instance.GatheredRessources)
+
+        foreach (CollectedRessource ressource in SortRessources(LevelManager.Instance.GatheredRessources))
         {
             GameObject go = Instantiate(GatheredRessourcePrefab, GatheredRessourcesContent.transform);
             go.GetComponent<RessourceCard>()?.Init(ressource);
         }
+    }
+
+    public List<CollectedRessource> SortRessources(List<CollectedRessource> _ressources)
+    {
+        List<CollectedRessource> sortedRessources = new List<CollectedRessource>();
+
+        foreach (CollectedRessource ressource in _ressources)
+        {
+            CollectedRessource newRessource = sortedRessources.Find(x => x.ressource == ressource.ressource);
+            if (newRessource != null)
+            {
+                newRessource.amount += ressource.amount;
+            }
+            else
+            {
+                newRessource = new CollectedRessource();
+                newRessource.ressource = ressource.ressource;
+                newRessource.amount = ressource.amount;
+                sortedRessources.Add(newRessource);
+            }
+        }
+
+        return sortedRessources;
     }
 }

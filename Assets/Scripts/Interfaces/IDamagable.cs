@@ -6,5 +6,5 @@ public interface IDamagable
 {
     int Health { get; }
     int MaxHealth { get; }
-    void TakeDamage(int _damage);
+    void TakeDamage(int _damage, GameObject _sender);
 }

@@ -78,6 +78,19 @@ public class PlayerController : MonoBehaviour
         Perks.Add(_perk);
     }
 
+    public void AddRessources(List<CollectedRessource> _ressources)
+    {
+        foreach (CollectedRessource ressource in _ressources)
+        {
+            for (int i = 0; i < ressource.amount; i++)
+            {
+                playerData.collectables.Add(ressource.ressource.id);
+            }
+        }
+
+        SaveData(dataPath);
+    }
+
     public void StartBuildingMode()
     {
         PlayerInput.SwitchCurrentActionMap(buildActionMap);
@@ -153,6 +166,24 @@ public class PlayerController : MonoBehaviour
 
             if (!stoppedTime) LevelManager.Instance.StopTime();
         }
+    }
+
+    public void OpenEndGameMenu(InputData _input = null)
+    {
+        UIController.OpenEndGameMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
+    public void OpenGameLostMenu(InputData _input = null)
+    {
+        UIController.OpenGameLostMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
     public void OpenEndGameMenu()

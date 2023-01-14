@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public int Health { get; private set; }
     public int MaxHealth { get { return Data.health; } }
+    public bool IsAlive { get { return Health > 0; } }
     public int Damage { get; private set; }
 
     public EnemyState CurrentState { get; private set; } = null;
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour, IDamagable
         CurrentState?.Enter(this);
     }
 
-    public void TakeDamage(int _damage)
+    public void TakeDamage(int _damage, GameObject _sender)
     {
         Health -= _damage;
 
@@ -88,8 +89,9 @@ public class Enemy : MonoBehaviour, IDamagable
                 {
                     Vector2 randomPos = (Vector2)transform.position + new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
                     Instantiate(DropRessource.ressource.prefab, randomPos, Quaternion.identity);
-                    LevelManager.Instance.GatherRessource(DropRessource);
                 }
+
+                LevelManager.Instance.GatherRessource(DropRessource);
             }
         }
 
@@ -125,17 +127,19 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void ApplyDamage()
     {
+        if (!active || !IsAlive) return;
+
         Nekromancer nekromancer = Target.GetComponent<Nekromancer>();
-        if (nekromancer && (nekromancer.transform.position - transform.position).sqrMagnitude < Data.attackRange * Data.attackRange)
+        if (nekromancer && (nekromancer.transform.position - transform.position).magnitude < Data.attackRange)
         {
-            nekromancer.TakeDamage(Damage);
+            nekromancer.TakeDamage(Damage, this.gameObject);
             return;
         }
 
         Tower tower = Target.GetComponent<Tower>();
         if (tower)
         {
-            tower.TakeDamage(Damage);
+            tower.TakeDamage(Damage, this.gameObject);
             return;
         }
     }

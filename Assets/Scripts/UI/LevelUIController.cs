@@ -8,10 +8,19 @@ public class LevelUIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text collectedSoulsText = null;
     [SerializeField] private Ressource soulRessource = null;
+    private CollectedRessource soul = null;
     private void Update()
     {
         if (!collectedSoulsText) return;
 
-        collectedSoulsText.text = LevelManager.Instance.GatheredRessources.Count.ToString();
+        soul = LevelManager.Instance.GatheredRessources.Find(r => r.ressource == soulRessource);
+        if (soul != null)
+        {
+            collectedSoulsText.text = soul.amount.ToString();
+        }
+        else
+        {
+            collectedSoulsText.text = "0";
+        }
     }
 }
