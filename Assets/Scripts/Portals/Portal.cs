@@ -5,6 +5,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour, IDamagable
 {
     [SerializeField] private PortalData data = null;
+    [SerializeField] private DamageVisualizer damageVisualizer = null;
     public int Health { get; set; } = 100;
     public int MaxHealth { get { return data.health; } }
 
@@ -17,9 +18,12 @@ public class Portal : MonoBehaviour, IDamagable
         SpawnEnemy();
     }
 
-    public void TakeDamage(int damage, GameObject sender)
+    public void TakeDamage(int _damage, GameObject _sender)
     {
-        Health -= damage;
+        Health -= _damage;
+
+        DamageVisualizer visualizer = Instantiate(damageVisualizer, transform.position, Quaternion.identity);
+        visualizer.SetText(_damage.ToString());
         if (Health <= 0)
         {
             LevelManager.Instance.RemoveEnemy(this);

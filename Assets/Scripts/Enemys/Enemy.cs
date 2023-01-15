@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     [field: SerializeField] public EnemyData Data { get; private set; } = null;
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
+    [field: SerializeField] public DamageVisualizer DamageVisualizer { get; private set; } = null;
     // [field: SerializeField] public GameObject DiePrefab { get; private set; } = null;
     [field: SerializeField] public List<CollectedRessource> DropRessources { get; private set; } = new List<CollectedRessource>();
 
@@ -75,6 +76,9 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakeDamage(int _damage, GameObject _sender)
     {
         Health -= _damage;
+
+        DamageVisualizer visualizer = Instantiate(DamageVisualizer, transform.position, Quaternion.identity);
+        visualizer.SetText(_damage.ToString());
 
         if (Health <= 0) Die();
     }

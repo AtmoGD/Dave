@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CinemachineShaker;
 
 public class ShadowBallController : MonoBehaviour
 {
     [SerializeField] private ShadowGunData data = null;
+    [SerializeField] private ShakeOptions shakeOptions = null;
 
     [SerializeField] private Nekromancer nekromancer = null;
     public Nekromancer Nekromancer { get { return nekromancer; } set { nekromancer = value; } }
@@ -52,6 +54,12 @@ public class ShadowBallController : MonoBehaviour
 
     private void Die()
     {
+        Vector2 position = transform.position;
+        Vector2 camPosition = Camera.main.transform.position;
+        float distance = Vector2.Distance(position, camPosition);
+
+        // CineShaker.Instance.Shake(shakeOptions);
+        CineShaker.Instance.ShakeWithFallOff(shakeOptions, distance);
         gameObject.SetActive(false);
     }
 }

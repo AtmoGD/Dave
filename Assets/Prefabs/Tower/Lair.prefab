@@ -712,6 +712,7 @@ MonoBehaviour:
   - {fileID: 689589957534767627}
   - {fileID: 8044632968314233126}
   - {fileID: 499533432429628838}
+  damageVisualizerPrefab: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
 --- !u!1 &4091710019628846587
 GameObject:
   m_ObjectHideFlags: 0

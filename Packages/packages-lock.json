@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.dennishawran.cineshaker": {
+      "version": "https://github.com/AtmoGD/CineShaker.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.cinemachine": "2.6.15"
+      },
+      "hash": "9db7449e1291db79219b37aed1fe2bd6a6cdeb9f"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,

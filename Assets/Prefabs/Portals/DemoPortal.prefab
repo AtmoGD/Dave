@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7847476167851f543985f04d4e4b761f, type: 2}
+  damageVisualizer: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
 --- !u!50 &3996061532920296655
 Rigidbody2D:
   serializedVersion: 4

@@ -241,6 +241,7 @@ MonoBehaviour:
   - {fileID: 5474960733273641248}
   - {fileID: 8971936773260703076}
   - {fileID: 3214838693469384568}
+  damageVisualizerPrefab: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
   damage: 1
   fireRate: 1
   projectilePrefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}

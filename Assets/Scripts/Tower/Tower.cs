@@ -6,6 +6,7 @@ public class Tower : Building, IDamagable
 {
     [SerializeField] protected TowerData towerData = null;
     [SerializeField] protected List<Transform> neighbourGridElements = new List<Transform>();
+    [SerializeField] protected DamageVisualizer damageVisualizerPrefab = null;
 
     public int Health { get; private set; }
     public int MaxHealth { get { return towerData.health; } }
@@ -29,6 +30,10 @@ public class Tower : Building, IDamagable
     public virtual void TakeDamage(int _damage, GameObject _sender)
     {
         Health -= _damage;
+
+        DamageVisualizer damageVisualizer = Instantiate(damageVisualizerPrefab, transform.position, Quaternion.identity);
+        damageVisualizer.SetText(_damage.ToString());
+
         if (Health <= 0)
             Die();
     }

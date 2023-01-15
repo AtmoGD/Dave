@@ -17,6 +17,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     [field: SerializeField] public Transform Model { get; private set; } = null;
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
+    [SerializeField] public DamageVisualizer damageVisualizer = null;
     #endregion
 
     #region Data
@@ -140,6 +141,10 @@ public class Nekromancer : MonoBehaviour, IDamagable
         if (_sender == gameObject) return;
 
         Health -= _damage;
+
+        DamageVisualizer visualizer = Instantiate(damageVisualizer, transform.position, Quaternion.identity);
+        visualizer.SetText(_damage.ToString());
+
         if (Health <= 0)
         {
             Health = 0;

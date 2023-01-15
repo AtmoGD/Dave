@@ -1145,11 +1145,12 @@ MonoBehaviour:
   - {fileID: 424090016830337357}
   - {fileID: 5644735647894269479}
   interactPoint: {fileID: 5134688878714503059}
+  damageVisualizer: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
   stats: {fileID: 11400000, guid: 0018e4cec6dcd0b4eaa4412f81dcd1d6, type: 2}
   baseSkillData: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
   firstSkillData: {fileID: 0}
   secondSkillData: {fileID: 0}
-  <CurrentHealth>k__BackingField: 0
+  <Health>k__BackingField: 0
   <MaxHealth>k__BackingField: 0
   <CurrentMana>k__BackingField: 0
   <Damage>k__BackingField: 0

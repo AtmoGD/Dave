@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
+  shakeOptions: {fileID: 11400000, guid: 928604da3f39365489853499246de64d, type: 2}
   nekromancer: {fileID: 0}
   damageMultiplier: 1
 --- !u!58 &3897762472972489508
