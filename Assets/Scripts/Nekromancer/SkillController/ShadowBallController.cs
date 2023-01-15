@@ -7,6 +7,7 @@ public class ShadowBallController : MonoBehaviour
 {
     [SerializeField] private ShadowGunData data = null;
     [SerializeField] private ShakeOptions shakeOptions = null;
+    [SerializeField] private GameObject diePrefab = null;
 
     [SerializeField] private Nekromancer nekromancer = null;
     public Nekromancer Nekromancer { get { return nekromancer; } set { nekromancer = value; } }
@@ -60,6 +61,9 @@ public class ShadowBallController : MonoBehaviour
 
         // CineShaker.Instance.Shake(shakeOptions);
         CineShaker.Instance.ShakeWithFallOff(shakeOptions, distance);
+
+        GameObject die = Instantiate(diePrefab, transform.position, Quaternion.identity);
+
         gameObject.SetActive(false);
     }
 }
