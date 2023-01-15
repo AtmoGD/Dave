@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public Action OnSoulsChanged;
+
     [SerializeField] private string dataPath = "player.dave";
     [SerializeField] private PlayerData playerData = null;
     public PlayerData PlayerData => playerData;
@@ -52,6 +55,8 @@ public class PlayerController : MonoBehaviour
         try
         {
             playerData = DataLoader.LoadData<PlayerData>(_path);
+
+            OnSoulsChanged?.Invoke();
         }
         catch (System.Exception e)
         {
@@ -89,6 +94,8 @@ public class PlayerController : MonoBehaviour
         }
 
         SaveData(dataPath);
+
+        OnSoulsChanged?.Invoke();
     }
 
     public void StartBuildingMode()
@@ -118,7 +125,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlaceMinion(MinionData _minionData)
     {
-        Vector3 position = Nekromancer.CurrentInteractable.GetTransform().position + Random.insideUnitSphere * _minionData.spawnRadiusAroundTower;
+        Vector3 position = Nekromancer.CurrentInteractable.GetTransform().position + UnityEngine.Random.insideUnitSphere * _minionData.spawnRadiusAroundTower;
         GameObject placeableObject = Instantiate(_minionData.prefab, position, Quaternion.identity);
 
         Nekromancer.ResetInteractable();

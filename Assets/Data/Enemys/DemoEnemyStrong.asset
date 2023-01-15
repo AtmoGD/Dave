@@ -18,11 +18,10 @@ MonoBehaviour:
   prefferedAttackTarget: 0
   enemyPrefab: {fileID: 8840412572578489678, guid: 013ae795b5cb63a4892a3cf6f7d5b237, type: 3}
   prefab: {fileID: 8840412572578489673, guid: ec7faa14b8bcaac428a251e124464846, type: 3}
-  updateNekromancerPositionTime: 0.5
   health: 250
   damage: 20
   attackSpeed: 0.7
-  attackRange: 1.5
+  attackRange: 3
   experience: 40
   speed: 0.7
   moveThreshold: 1

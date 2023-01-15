@@ -10,7 +10,7 @@ public class UIMenuController : MonoBehaviour
     [SerializeField] protected List<UIMenuItem> contentItems = new List<UIMenuItem>();
     protected UIMenuItem currentItem = null;
 
-    public void Start()
+    public virtual void Start()
     {
         if (selectOnStart && startingItem)
         {
