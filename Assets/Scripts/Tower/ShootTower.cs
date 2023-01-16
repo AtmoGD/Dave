@@ -39,7 +39,7 @@ public class ShootTower : AttackTower
 
         projectile.transform.position = nearestShootPosition.position;
         ShadowBallController shadowBallController = projectile.GetComponent<ShadowBallController>();
-        shadowBallController.UpdateBaseDamage(damage);
+        shadowBallController.UpdateBaseDamage(damage, gameObject);
 
         projectile.transform.right = target.position - nearestShootPosition.position;
         fireTimer = 1f / fireRate;

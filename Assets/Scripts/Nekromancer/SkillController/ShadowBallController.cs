@@ -33,9 +33,10 @@ public class ShadowBallController : MonoBehaviour
             Die();
     }
 
-    public void UpdateBaseDamage(float _damage)
+    public void UpdateBaseDamage(float _damage, GameObject _sender)
     {
         baseDamage = _damage;
+        Sender = _sender;
     }
 
     private void Move()
@@ -43,14 +44,44 @@ public class ShadowBallController : MonoBehaviour
         transform.position += transform.right * data.bulletSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D _collision)
     {
-        IDamagable damagable = collision.GetComponent<IDamagable>();
-        if (damagable != null && Sender != collision.gameObject)
+        if (Sender == _collision.gameObject)
+        {
+            return;
+        }
+
+        Tower tower = _collision.GetComponent<Tower>();
+        if (tower != null && _collision.isTrigger)
+        {
+            return;
+        }
+
+        IDamagable damagable = _collision.GetComponent<IDamagable>();
+
+        if (damagable != null)
         {
             damagable.TakeDamage((int)(baseDamage * data.bulletDamage * damageMultiplier), Sender);
-            Die();
         }
+
+        Die();
+    }
+
+    private void OnCollisionEnter2D(Collision2D _other)
+    {
+        if (Sender == _other.gameObject)
+        {
+            return;
+        }
+
+        IDamagable damagable = _other.collider.GetComponent<IDamagable>();
+
+        if (damagable != null)
+        {
+            damagable.TakeDamage((int)(baseDamage * data.bulletDamage * damageMultiplier), Sender);
+        }
+
+        Die();
     }
 
     private void Die()

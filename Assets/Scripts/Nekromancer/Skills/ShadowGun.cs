@@ -112,7 +112,7 @@ public class ShadowGun : Skill
         bullet.transform.position = GetCurrentBulletPosition();
         bullet.transform.right = nekromancer.Model.right;
         bullet.Nekromancer = nekromancer;
-        bullet.UpdateBaseDamage(nekromancer.Damage);
+        bullet.UpdateBaseDamage(nekromancer.Damage, nekromancer.gameObject);
 
         Cooldown cooldown;
         if (_charged)

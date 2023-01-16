@@ -29,6 +29,9 @@ public class Tower : Building, IDamagable
 
     public virtual void TakeDamage(int _damage, GameObject _sender)
     {
+        if (_sender == GameManager.Instance.PlayerController.Nekromancer.gameObject) return;
+
+
         Health -= _damage;
 
         DamageVisualizer damageVisualizer = Instantiate(damageVisualizerPrefab, transform.position, Quaternion.identity);
