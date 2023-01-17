@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 001BookOfBuildings
   name: Book of Buildings
   description: The mighty book of buildings
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
   cost: []
   size: {x: 2, y: 2}
   prefab: {fileID: 4735450863373788536, guid: 6379e9d2837265a42bc6503dd9f48dfb, type: 3}

@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 001BookofMinions
   name: Book of Minions
   description: The mighty book of minions
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
   cost: []
   size: {x: 2, y: 2}
   prefab: {fileID: 4735450863373788536, guid: 834cab93eeb16e044b85882155f520dc, type: 3}

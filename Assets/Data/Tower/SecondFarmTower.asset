@@ -15,6 +15,7 @@ MonoBehaviour:
   id: SecondFarmTower001
   name: A second demo FarmTower tower
   description: Farm farm farm!!!!!! 222222
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
   cost: []
   size: {x: 2, y: 2}
   prefab: {fileID: 6771092046683064759, guid: f33871106cce12547b078bea6bdeb9b2, type: 3}

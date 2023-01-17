@@ -14,8 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: SkullAttackTower001
   name: Attack Tower
-  description: '-'
-  cost: []
+  description: Attention! The Skulls are aggressive!
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  cost:
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
   size: {x: 2, y: 2}
   prefab: {fileID: 5312879994759832196, guid: 4affd9c668768db46b66ba4cf1c62dc8, type: 3}
   preview: {fileID: 4587961254155360883, guid: f148cabfceee9644ba00418a0d525628, type: 3}

@@ -8,6 +8,7 @@ public class Placeable : ScriptableObject
     public string id = "";
     public new string name = "";
     public string description = "";
+    public Sprite image = null;
     public List<Ressource> cost = new List<Ressource>();
     public Vector2Int size = new Vector2Int(1, 1);
     public GameObject prefab = null;

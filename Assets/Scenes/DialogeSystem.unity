@@ -1146,16 +1146,20 @@ MonoBehaviour:
     - sprite: {fileID: 0}
       name: 
       text: Whats uuuup
-      typingSpeed: 0.1
+      typingSpeed: 0.05
     - sprite: {fileID: 0}
       name: 
       text: This is a really normal text for stuff like this isn't it? It's slow
         to...
-      typingSpeed: 0.15
+      typingSpeed: 0.05
     - sprite: {fileID: 0}
       name: 
       text: Okay this time it is really slow!
-      typingSpeed: 0.2
+      typingSpeed: 0.05
+    - sprite: {fileID: 0}
+      name: 
+      text: Okay this time it is really slow!
+      typingSpeed: 0.05
   continueButton: {fileID: 1220331388}
   isTyping: 0
 --- !u!1 &2096188692

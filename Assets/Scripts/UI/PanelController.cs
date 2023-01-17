@@ -8,6 +8,7 @@ public class PanelController : UIMenuItem
 {
     [SerializeField] protected Placeable data;
     [SerializeField] protected TMP_Text placeableName;
+    [SerializeField] protected Image placeableImage;
     [SerializeField] protected TMP_Text placeableDescription;
     [SerializeField] protected TMP_Text placeableCost;
     [SerializeField] protected Button placeButton;
@@ -27,7 +28,9 @@ public class PanelController : UIMenuItem
     {
         placeableName.text = data.name;
         placeableDescription.text = data.description;
-        placeableCost.text = data.cost.ToString();
+        if (data.image)
+            placeableImage.sprite = data.image;
+        placeableCost.text = data.cost.Count.ToString();
     }
 
     public virtual void PlaceObject()

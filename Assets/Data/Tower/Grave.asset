@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Grave001
   name: Grave
-  description: '-'
-  cost: []
+  description: A Grave where Nekrolytes can farm souls
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  cost:
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
   size: {x: 2, y: 2}
   prefab: {fileID: 9132539994694248924, guid: 0b3c3a1b1257467449c8979f42257c04, type: 3}
   preview: {fileID: 8371365873896107099, guid: d59c5a483c7011a499a03c8c81c69cd0, type: 3}

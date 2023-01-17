@@ -14,8 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Lair001
   name: Lair
-  description: '-'
-  cost: []
+  description: The Lair of the Nekromancer. This is the place where you condese your
+    power
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  cost:
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+  - {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
   size: {x: 4, y: 4}
   prefab: {fileID: 2970626068462225346, guid: 8a31f812d517977458d047757f105018, type: 3}
   preview: {fileID: 8725996357093393627, guid: 6ebbd01f66e9ec84f994703b265bf2ea, type: 3}

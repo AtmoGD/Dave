@@ -15,6 +15,7 @@ MonoBehaviour:
   id: Crystal001
   name: Crystal
   description: Crystal Crystal
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
   cost: []
   size: {x: 2, y: 2}
   prefab: {fileID: 3561387475484682806, guid: 9eca38d6463c5a04480147eff4f365ac, type: 3}
