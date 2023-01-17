@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4215857242302200082, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 33.4
       objectReference: {fileID: 0}
     - target: {fileID: 5697610678158836466, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
       propertyPath: m_Name
@@ -132,6 +132,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8149514996580902854, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 145.2161
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149514996580902854, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -162
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3736115409456944674, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
@@ -140,25 +148,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5697610678158836466, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
   m_PrefabInstance: {fileID: 6992804413409296740}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4983181396348160082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3322130583134061462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a6627bb7eae0b459e6a8886e430440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedVizualizer: {fileID: 8863253896284782320}
-  selectSpeed: 2
-  perkCardAnimator: {fileID: 7982505989523920588}
-  perkMenuController: {fileID: 0}
-  perkIcon: {fileID: 3904812550773376750}
-  perkName: {fileID: 8369668460270829057}
-  perkDescription: {fileID: 6596319091234289782}
 --- !u!95 &7982505989523920588
 Animator:
   serializedVersion: 4
@@ -179,6 +168,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4983181396348160082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3322130583134061462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a6627bb7eae0b459e6a8886e430440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedVizualizer: {fileID: 8863253896284782320}
+  selectSpeed: 2
+  up: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+  perkCardAnimator: {fileID: 7982505989523920588}
+  perkMenuController: {fileID: 0}
+  perkIcon: {fileID: 3904812550773376750}
+  perkName: {fileID: 8369668460270829057}
+  perkDescription: {fileID: 6596319091234289782}
 --- !u!114 &3904812550773376750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6285829648917858186, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
