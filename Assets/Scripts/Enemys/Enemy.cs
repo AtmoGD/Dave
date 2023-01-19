@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public EnemyIdle IdleState { get; private set; } = new EnemyIdle();
     public EnemyMoving MovingState { get; private set; } = new EnemyMoving();
     public EnemyAttacking AttackingState { get; private set; } = new EnemyAttacking();
+    public EnemyGetHit GetHitState { get; private set; } = new EnemyGetHit();
 
     public LevelManager LevelManager { get; private set; } = null;
     public Transform Target { get; set; } = null;
@@ -79,6 +80,8 @@ public class Enemy : MonoBehaviour, IDamagable
 
         DamageVisualizer visualizer = Instantiate(DamageVisualizer, transform.position, Quaternion.identity);
         visualizer.SetText(_damage.ToString());
+
+        ChangeState(GetHitState);
 
         if (Health <= 0) Die();
     }

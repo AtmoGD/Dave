@@ -18,6 +18,7 @@ public class EnemyData : ScriptableObject
     public int damage = 10;
     public float attackSpeed = 1f;
     public float attackRange = 1f;
+    public float getHitTime = 0.1f;
     public int experience = 10;
     public float speed = 3f;
     public float moveThreshold = 1f;
