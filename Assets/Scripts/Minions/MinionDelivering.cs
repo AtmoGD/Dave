@@ -18,15 +18,24 @@ public class MinionDelivering : MinionState
         timer += Time.deltaTime;
 
         if (timer >= minion.Data.deliverSpeed)
-        {
-            // TO DO: Deliver the goods
-            LevelManager.Instance.GatherRessource(minion.Ressources);
-            minion.RemoveRessources();
+            DeliverResource();
 
+        if (minion.Ressources.Count == 0)
+        {
             minion.CurrentFarmAmount = 0;
             minion.TargetTower = minion.TargetFarmTower;
             minion.ChangeState(minion.MovingState);
         }
+    }
+
+    public void DeliverResource()
+    {
+        List<CollectedRessource> ressources = new List<CollectedRessource>();
+        ressources.Add(minion.Ressources[0]);
+        minion.Ressources.RemoveAt(0);
+        minion.SpawnObject(ressources[0].ressource.prefab, minion.SpawnRessourcePoint.position);
+        LevelManager.Instance.GatherRessource(ressources);
+        timer = 0f;
     }
 
     public override void PhysicsUpdate()

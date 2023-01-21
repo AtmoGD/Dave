@@ -7,6 +7,7 @@ public class Minion : MonoBehaviour, IInteractable
     [field: SerializeField] public MinionData Data { get; private set; } = null;
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
     [field: SerializeField] public FMODUnity.StudioEventEmitter SoundEmitter { get; private set; } = null;
+    [field: SerializeField] public Transform SpawnRessourcePoint { get; private set; } = null;
 
     public MinionState CurrentState = null;
     public MinionIdle IdleState { get; private set; } = new MinionIdle();
@@ -114,6 +115,11 @@ public class Minion : MonoBehaviour, IInteractable
     {
         Master.OnInteract -= MasterInteracted;
         print("Stopped interacting with minion");
+    }
+
+    public void SpawnObject(GameObject _object, Vector3 _position)
+    {
+        Instantiate(_object, _position, Quaternion.identity);
     }
 
     public FarmTower FindFarmTower()

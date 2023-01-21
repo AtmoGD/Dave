@@ -13,6 +13,8 @@ public class EnemyGetHit : EnemyState
         getHitTimer = 0f;
 
         enemy.MoveController.StopMoving();
+
+        enemy.Animator.SetTrigger("GetHit");
     }
 
     public override void FrameUpdate()

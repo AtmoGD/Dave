@@ -91,7 +91,7 @@ public class ShadowBallController : MonoBehaviour
         float distance = Vector2.Distance(position, camPosition);
 
         // CineShaker.Instance.Shake(shakeOptions);
-        CineShaker.Instance.ShakeWithFallOff(shakeOptions, distance);
+        CineShaker.Instance.Shake(new Shake(shakeOptions, distance));
 
         GameObject die = Instantiate(diePrefab, transform.position, Quaternion.identity);
 
