@@ -6,4 +6,5 @@ using UnityEngine;
 public class AttackTowerData : TowerData
 {
     public int damage = 10;
+    public float attackSpeed = 1f;
 }

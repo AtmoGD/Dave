@@ -39,8 +39,15 @@ public class EnemyMoving : EnemyState
     {
         base.FrameUpdate();
 
+        if (!target) enemy.ChangeState(enemy.IdleState);
+
         enemy.MoveController.TargetPosition = target.position;
         enemy.MoveController.Move();
+
+        if ((target.transform.position - enemy.transform.position).magnitude < enemy.Data.attackRange)
+        {
+            ReachedTarget();
+        }
     }
 
     public override void PhysicsUpdate()

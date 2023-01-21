@@ -16,7 +16,7 @@ MonoBehaviour:
   lookSpeed: 5
   health: 100
   mana: 100
-  damage: 10
+  damage: 27
   attackSpeed: 1
   attackRange: 1
   interactRadius: 1

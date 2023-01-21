@@ -16,5 +16,5 @@ public class Ressource : Collectable
 {
     public GameObject prefab;
     public Sprite icon;
-    public float weight = 1f;
+    // public float weight = 1f;
 }

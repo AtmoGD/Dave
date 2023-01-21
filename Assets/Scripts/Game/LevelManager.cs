@@ -15,17 +15,17 @@ public class LevelManager : MonoBehaviour
     [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
+    public int EnemyCount { get { return activeEnemies.Count; } }
+    [SerializeField] private int debugCount = 0;
     public List<PlaceableObject> placedObjects = new List<PlaceableObject>();
     public List<Tower> Tower { get { return placedObjects.FindAll(x => x is Tower).ConvertAll(x => x as Tower); } }
     public List<FarmTower> FarmTower { get { return placedObjects.FindAll(x => x is FarmTower).ConvertAll(x => x as FarmTower); } }
     public List<AttackTower> AttackTower { get { return placedObjects.FindAll(x => x is AttackTower).ConvertAll(x => x as AttackTower); } }
     [field: SerializeField] public List<CollectedRessource> GatheredRessources { get; private set; } = new List<CollectedRessource>();
 
-
-    private int enemyCount = 0;
     private int currentCycle = 0;
 
-    public float PercentOfActiveEnemies { get { return (float)activeEnemies.Count / (float)enemyCount; } }
+    public float PercentOfActiveEnemies { get { return (float)activeEnemies.Count / (float)EnemyCount; } }
 
     [field: SerializeField] public bool CrystalFull { get; private set; } = false;
 
@@ -72,6 +72,8 @@ public class LevelManager : MonoBehaviour
     {
         if (GameEnded) return;
 
+        debugCount = activeEnemies.Count;
+
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 
@@ -95,6 +97,56 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public bool HasEnoughRessources(Ressource _ressource, int _amount)
+    {
+        if (GameEnded) return false;
+
+        List<CollectedRessource> list = GatheredRessources.FindAll(x => x.ressource == _ressource);
+        if (list.Count == 0) return false;
+
+        int amount = 0;
+        foreach (CollectedRessource ressource in list)
+        {
+            amount += ressource.amount;
+        }
+
+        return amount >= _amount;
+    }
+
+    public void RemoveRessources(Ressource _ressource, int _amount)
+    {
+        if (GameEnded) return;
+
+        List<CollectedRessource> list = GatheredRessources.FindAll(x => x.ressource == _ressource);
+        if (list.Count == 0) return;
+
+        int amount = 0;
+        foreach (CollectedRessource ressource in list)
+        {
+            amount += ressource.amount;
+        }
+
+        if (amount < _amount) return;
+
+        foreach (CollectedRessource ressource in list)
+        {
+            if (ressource.amount > _amount)
+            {
+                ressource.amount -= _amount;
+                _amount = 0;
+            }
+            else
+            {
+                _amount -= ressource.amount;
+                ressource.amount = 0;
+            }
+
+            if (_amount == 0) break;
+        }
+
+        GatheredRessources.RemoveAll(x => x.amount <= 0);
+    }
+
     public void GatherRessource(List<CollectedRessource> _ressources)
     {
         if (GameEnded) return;
@@ -110,8 +162,6 @@ public class LevelManager : MonoBehaviour
         if (GameEnded) return;
 
         this.CurrentCycleState?.Exit();
-
-        this.enemyCount = 0;
 
         this.currentCycle++;
 
@@ -175,7 +225,6 @@ public class LevelManager : MonoBehaviour
     public void AddEnemy(IDamagable enemy)
     {
         this.activeEnemies.Add(enemy);
-        this.enemyCount++;
     }
 
     public void RemoveEnemy(IDamagable enemy)

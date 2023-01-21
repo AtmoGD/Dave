@@ -5,8 +5,8 @@ using UnityEngine;
 public class ShootTower : AttackTower
 {
 
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private float fireRate = 1f;
+    // [SerializeField] private float damage = 1f;
+    // [SerializeField] private float fireRate = 1f;
     [SerializeField] private GameObject projectilePrefab = null;
     [field: SerializeField] public List<Transform> ShootPositions { get; private set; } = new List<Transform>();
 
@@ -39,10 +39,10 @@ public class ShootTower : AttackTower
 
         projectile.transform.position = nearestShootPosition.position;
         ShadowBallController shadowBallController = projectile.GetComponent<ShadowBallController>();
-        shadowBallController.UpdateBaseDamage(damage, gameObject);
+        shadowBallController.UpdateBaseDamage(((AttackTowerData)towerData).damage, gameObject);
 
         projectile.transform.right = target.position - nearestShootPosition.position;
-        fireTimer = 1f / fireRate;
+        fireTimer = 1f / ((AttackTowerData)towerData).attackSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

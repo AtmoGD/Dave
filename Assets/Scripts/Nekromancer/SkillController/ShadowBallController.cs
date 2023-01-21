@@ -74,6 +74,12 @@ public class ShadowBallController : MonoBehaviour
             return;
         }
 
+        ShadowBallController shadowBallController = _other.gameObject.GetComponent<ShadowBallController>();
+        if (shadowBallController != null)
+        {
+            return;
+        }
+
         IDamagable damagable = _other.collider.GetComponent<IDamagable>();
 
         if (damagable != null)

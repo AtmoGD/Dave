@@ -10,7 +10,7 @@ public class EnemyAttacking : EnemyState
     {
         base.Enter(_enemy);
 
-        timeSinceLastAttack = enemy.Data.attackSpeed;
+        timeSinceLastAttack = enemy.Data.attackSpeed / 2;
     }
 
     public override void FrameUpdate()
@@ -23,13 +23,14 @@ public class EnemyAttacking : EnemyState
             return;
         }
 
+        timeSinceLastAttack += Time.deltaTime;
+
         if ((enemy.Target.transform.position - enemy.transform.position).magnitude > enemy.Data.attackRange)
         {
             enemy.ChangeState(enemy.MovingState);
             return;
         }
 
-        timeSinceLastAttack += Time.deltaTime;
 
         if (timeSinceLastAttack > enemy.Data.attackSpeed)
         {

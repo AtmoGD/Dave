@@ -15,5 +15,5 @@ MonoBehaviour:
   perkIcon: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
   id: speed02
   perkName: Speed Perk Fast
-  perkDescription: Attack Speed + 2
-  attackSpeedIncrease: 2
+  perkDescription: Attack Speed + 0,6
+  attackSpeedIncrease: 0.6

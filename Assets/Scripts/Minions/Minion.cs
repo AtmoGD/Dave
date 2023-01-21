@@ -30,7 +30,7 @@ public class Minion : MonoBehaviour, IInteractable
         {
             float amount = 0;
             foreach (CollectedRessource ressource in Ressources)
-                amount += ressource.ressource.weight * ressource.amount;
+                amount += ressource.amount;
             return amount;
         }
     }
