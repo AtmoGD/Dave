@@ -11,6 +11,8 @@ public class EnemyMoving : EnemyState
     {
         base.Enter(_enemy);
 
+        if (!enemy.Target) enemy.ChangeState(enemy.IdleState);
+
         Tower tower = enemy.Target.GetComponent<Tower>();
         if (tower)
         {

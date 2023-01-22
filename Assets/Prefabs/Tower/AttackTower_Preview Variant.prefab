@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5312879994759832196, guid: 4affd9c668768db46b66ba4cf1c62dc8, type: 3}
       propertyPath: m_Name
-      value: AttackTower_Preview
+      value: AttackTower_Preview Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5312879994759832198, guid: 4affd9c668768db46b66ba4cf1c62dc8, type: 3}
       propertyPath: m_RootOrder
@@ -61,3 +61,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4affd9c668768db46b66ba4cf1c62dc8, type: 3}
+--- !u!1 &4587961254155360883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5312879994759832196, guid: 4affd9c668768db46b66ba4cf1c62dc8, type: 3}
+  m_PrefabInstance: {fileID: 8507460529892096247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1989182478168311246
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587961254155360883}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b5143c3e6bfb794d99cb5cf76b95149, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

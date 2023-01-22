@@ -226,14 +226,21 @@ public class Nekromancer : MonoBehaviour, IDamagable
             InteractWithSelection();
     }
 
-    private void UpdateCanInteractWith()
+    public void UpdateCanInteractWith()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(interactPoint.position, stats.interactRadius);
         foreach (Collider2D col in collider)
         {
-            IInteractable interactable = col.GetComponent<IInteractable>();
-            if (interactable != null)
-                CanInteractWith = interactable;
+            if (!col.isTrigger)
+            {
+                IInteractable interactable = col.GetComponent<IInteractable>();
+                if (interactable != null)
+                {
+                    CanInteractWith = interactable;
+                    return;
+                }
+            }
+
         }
     }
 
