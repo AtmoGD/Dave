@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 8840412572527688721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalScale: {x: 0.09000001, y: 0.09000001, z: 0.09000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8840412572578489672}
@@ -196,7 +196,7 @@ Animator:
   m_GameObject: {fileID: 8840412572527688721}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e93e6cd9d5662e4581937a6af780afd, type: 2}
+  m_Controller: {fileID: 22100000, guid: 397192ec6170bd645a9d5ecda0408293, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1ab2eccae65134eb4a26f7651caba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 11400000, guid: 4676f33a6938c5b488d92f3b4bc92841, type: 2}
+  <Data>k__BackingField: {fileID: 11400000, guid: 413c73662472ace4a88d468148978253, type: 2}
   <MoveController>k__BackingField: {fileID: 8355268347544386042}
   <DamageVisualizer>k__BackingField: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
   <Animator>k__BackingField: {fileID: 8840412572527688727}
@@ -314,8 +314,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_Size: {x: 0.7, y: 1.5}
+  m_Offset: {x: 0.12328702, y: 0.057364047}
+  m_Size: {x: 0.8438349, y: 1.5154108}
   m_Direction: 0
 --- !u!114 &8355268347544386042
 MonoBehaviour:
@@ -362,7 +362,7 @@ MonoBehaviour:
   - {x: 0.30816603, y: -0.4947122, z: 0}
   m_ShapePathHash: 469765997
   m_Mesh: {fileID: 0}
-  m_InstanceId: 3298890
+  m_InstanceId: 5509306
 --- !u!114 &6880819612061768194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,11 +449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.041
       objectReference: {fileID: 0}
     - target: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.4
+      value: 1.652
       objectReference: {fileID: 0}
     - target: {fileID: 305711703800326593, guid: 6f54190dbd8118849a88b5fbfd3866ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

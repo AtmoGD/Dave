@@ -66,7 +66,6 @@ public class MovementController : MonoBehaviour
 
     public void StopMoving()
     {
-        print("Stop moving");
         path.Clear();
         rb.velocity = Vector2.zero;
     }
@@ -82,7 +81,6 @@ public class MovementController : MonoBehaviour
             return;
         }
 
-        print("Updating path");
         GameManager.Instance.WorldGrid.FindPath(currentGrid.gridPosition, targetGrid.gridPosition, this);
     }
 

@@ -183,6 +183,11 @@ public class Nekromancer : MonoBehaviour, IDamagable
 
     #region Update Stats
     public void AddMaxHealth(int _amount) { stats.health += _amount; }
+    public void AddHealth(int _amount)
+    {
+        Health += _amount;
+        if (Health > stats.health) Health = stats.health;
+    }
     public void AddMaxMana(int _amount) { stats.mana += _amount; }
     public void AddDamage(float _damage) { Damage += _damage; }
     public void AddSpeed(float _speed) { Speed += _speed; }
@@ -212,11 +217,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
 
     private void CheckInteraction()
     {
-        if (HasCooldown("Interact"))
-        {
-            Debug.Log("Has Interact cooldown");
-            return;
-        }
+        if (HasCooldown("Interact")) return;
 
         if (LevelManager && LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             UpdateCanInteractWith();
@@ -262,7 +263,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     #region Movement
     public void Move()
     {
-        Vector2 newVelocity = currentInput.MoveDir * stats.moveSpeed * LevelManager.TimeScale;
+        Vector2 newVelocity = currentInput.MoveDir * Speed * LevelManager.TimeScale;
         newVelocity = Vector2.Lerp(rb.velocity, newVelocity, stats.accleleration * Time.deltaTime);
         rb.velocity = newVelocity;
 
