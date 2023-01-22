@@ -690,7 +690,7 @@ MonoBehaviour:
   - {x: 3.5405226, y: -0.040301085, z: 0}
   m_ShapePathHash: 171269347
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1269102
+  m_InstanceId: 198708
 --- !u!114 &4136788109989809860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5539,7 +5539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332b55f837edfbb4994530baa60d3bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 500
+  offset: 350
   runOnlyOnce: 0
   runInEditor: 0
 --- !u!1 &4091710019628846587
