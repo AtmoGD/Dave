@@ -331,9 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualizePath: 1
   rb: {fileID: 8840412572578489679}
-  speed: 1.5
+  speed: 1
   moveThreshold: 0.1
-  recalculatePathTime: 1
+  recalculatePathTime: 1.5
   constantlyUpdatePath: 1
   smoothenPath: 1
 --- !u!114 &7044322063683810336

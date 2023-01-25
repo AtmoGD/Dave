@@ -630,7 +630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831454587181068364}
   m_LocalRotation: {x: -0.70700103, y: 0.012230516, z: -0.012230529, w: 0.70700103}
-  m_LocalPosition: {x: 0.01, y: 1.255, z: -0.003}
+  m_LocalPosition: {x: -0.105, y: 0.9100001, z: -0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5458,7 +5458,7 @@ Transform:
   m_GameObject: {fileID: 3926431052614429297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1394348098287923802}
@@ -5685,9 +5685,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4390597483720784754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.73, z: 0}
-  m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.014999993, y: 0.38500005, z: 0}
+  m_LocalScale: {x: -0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 662781614556425923}
   m_Father: {fileID: 1394348098287923802}
@@ -5856,10 +5856,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.037449673, y: 0.2902828}
-      - {x: -0.6564317, y: -0.15978794}
-      - {x: 0.056412704, y: -0.5533038}
-      - {x: 0.71322846, y: -0.19510034}
+    - - {x: 0.014480427, y: 0.3993867}
+      - {x: -0.65068936, y: 0.018223599}
+      - {x: -0.006752722, y: -0.42697304}
+      - {x: 0.70748603, y: 0.0058804452}
 --- !u!1 &5153601102197055671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,7 +6139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6469502887869300409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.9, z: 0}
+  m_LocalPosition: {x: -0.125, y: 0.555, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

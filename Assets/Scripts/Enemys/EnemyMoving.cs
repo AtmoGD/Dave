@@ -13,20 +13,23 @@ public class EnemyMoving : EnemyState
 
         if (!enemy.Target) enemy.ChangeState(enemy.IdleState);
 
-        Tower tower = enemy.Target.GetComponent<Tower>();
-        if (tower)
-        {
-            target = tower.GetFreeNeighbour();
-            constantlyUpdatePath = false;
-        }
-        else
-        {
-            target = enemy.Target;
-            constantlyUpdatePath = true;
-        }
+        // Tower tower = enemy.Target.GetComponent<Tower>();
+        // if (tower)
+        // {
+        //     target = tower.GetFreeNeighbour();
+        //     constantlyUpdatePath = false;
+        // }
+        // else
+        // {
+        //     target = enemy.Target;
+        //     constantlyUpdatePath = true;
+        // }
+
+        target = enemy.Target;
 
         if (target)
         {
+            constantlyUpdatePath = true;
             enemy.MoveController.TargetPosition = target.position;
             enemy.MoveController.UpdatePath();
             enemy.MoveController.OnPathComplete += ReachedTarget;

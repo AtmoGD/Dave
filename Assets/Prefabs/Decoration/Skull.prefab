@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: -2689281042663719943}
   - component: {fileID: 4383469855727258548}
   - component: {fileID: 5640512570720174877}
+  - component: {fileID: 4671013186144468713}
   m_Layer: 8
   m_Name: Skull
   m_TagString: Untagged
@@ -734,7 +735,7 @@ MonoBehaviour:
   - {x: -2.913432, y: -0.9298827, z: 0}
   m_ShapePathHash: -1185114036
   m_Mesh: {fileID: 0}
-  m_InstanceId: 392572
+  m_InstanceId: 208514
 --- !u!114 &-2689281042663719943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,3 +794,24 @@ PolygonCollider2D:
       - {x: 1.915339, y: 0.79624057}
       - {x: 2.127469, y: 0.11704236}
       - {x: -0.29171717, y: -2.4662027}
+--- !u!50 &4671013186144468713
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891574029840525273}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
