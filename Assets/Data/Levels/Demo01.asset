@@ -38,7 +38,7 @@ MonoBehaviour:
   - cycle: 1
     duration: 3
     choosePerk: 1
-  levelSize: {x: 48, y: 93}
+  levelSize: {x: 48, y: 95}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
     gridPosition: {x: 0, y: 41}
@@ -194,8 +194,6 @@ MonoBehaviour:
     gridPosition: {x: 10, y: 54}
   - placeable: {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
     gridPosition: {x: 39, y: 43}
-  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
-    gridPosition: {x: 24, y: 53}
   - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
     gridPosition: {x: 32, y: 64}
   - placeable: {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
