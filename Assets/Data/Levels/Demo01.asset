@@ -38,7 +38,7 @@ MonoBehaviour:
   - cycle: 1
     duration: 3
     choosePerk: 1
-  levelSize: {x: 48, y: 95}
+  levelSize: {x: 48, y: 97}
   placedObjects:
   - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
     gridPosition: {x: 0, y: 41}
