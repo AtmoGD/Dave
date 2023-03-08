@@ -11,7 +11,10 @@ public class LevelManager : MonoBehaviour
 
 
     [Header("Level Manager")]
-    private LevelData levelData = null;
+    // private LevelData levelData = null;
+    [SerializeField] private LevelData levelData = null;
+    public LevelData LevelData { get { return levelData; } }
+
     [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
     public List<IDamagable> activeEnemies = new List<IDamagable>();
@@ -56,7 +59,7 @@ public class LevelManager : MonoBehaviour
     }
     public void Start()
     {
-        levelData = GameManager.Instance.WorldGrid.LevelData;
+        // levelData = GameManager.Instance.WorldGrid.LevelData;
         GameManager.Instance.WorldGrid.LoadLevel();
 
 

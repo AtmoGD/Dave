@@ -71,6 +71,11 @@ public class PlayerController : MonoBehaviour
         DataLoader.SaveData<PlayerData>(playerData, _path);
     }
 
+    public void DeleteData(string _path)
+    {
+        DataLoader.DeleteData(_path);
+    }
+
     public void ChoosePerkInput(InputAction.CallbackContext _context)
     {
         if (_context.performed && PerkPoints > 0 && LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day)

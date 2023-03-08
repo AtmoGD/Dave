@@ -9,8 +9,8 @@ using Unity.Jobs;
 [Serializable]
 public class WorldGrid : MonoBehaviour
 {
-    [field: SerializeField] public LevelData LevelData { get; private set; } = null;
-    [field: SerializeField] public LevelManager LevelManager { get; private set; } = null;
+    // [field: SerializeField] public LevelData LevelData { get; private set; } = null;
+    // [field: SerializeField] public LevelManager LevelManager { get; private set; } = null;
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
@@ -21,25 +21,36 @@ public class WorldGrid : MonoBehaviour
     [SerializeField] private bool logErrors = true;
 
     public GridElement[][] Grid { get; private set; } = null;
-    public Vector2Int GridSize => LevelData.levelSize;
+    public Vector2Int GridSize
+    {
+        get
+        {
+            if (!LevelManager.Instance)
+                return FindObjectOfType<LevelManager>().LevelData.levelSize;
+            // return new Vector2Int(10, 10);
+            else
+                return LevelManager.Instance.LevelData.levelSize;
+        }
+    }
     public int ElementCount { get; private set; }
     public Vector2 ElementSize => new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
 
     private void Start()
     {
-        LevelManager = LevelManager.Instance;
+        // LevelManager = LevelManager.Instance;
 
-        if (LevelManager == null)
-        {
-            Debug.LogError("LevelManager is null");
-            return;
-        }
+        // if (LevelManager == null)
+        // {
+        //     Debug.LogError("LevelManager is null");
+        //     return;
+        // }
 
         LoadLevel();
     }
 
     public void FindPath(Vector2Int _startPos, Vector2Int _targetPos, MovementController _controller)
     {
+
         NativeArray<Pathfinding.GridStruct> gridElems = Pathfinder.ConvertGridToPathNodes(Grid);
         NativeList<int2> pathList = new NativeList<int2>(gridElems.Length, Allocator.Persistent);
 
@@ -108,10 +119,38 @@ public class WorldGrid : MonoBehaviour
     [ExecuteAlways]
     public void PlaceLevelObjects()
     {
-        foreach (PlacedObject placedObject in LevelData.placedObjects)
+        GameManager gameManager = GameManager.Instance;
+        if (!gameManager)
+            gameManager = FindObjectOfType<GameManager>();
+
+        if (gameManager && gameManager.GameState == GameState.Camp)
+        {
+            foreach (CampObjectData campObject in gameManager.PlayerController.PlayerData.placedObjects)
+            {
+                Placeable placeable = gameManager.DataList.GetPlaceable(campObject.id);
+                Vector2Int gridPosition = new Vector2Int(campObject.posX, campObject.posY);
+                PlaceObject(placeable, gridPosition);
+            }
+            return;
+        }
+
+        LevelManager levelManager = LevelManager.Instance;
+        if (!levelManager)
+            levelManager = FindObjectOfType<LevelManager>();
+
+
+        foreach (PlacedObject placedObject in levelManager.LevelData.placedObjects)
         {
             PlaceObject(placedObject.placeable, placedObject.gridPosition);
         }
+        // switch (GameManager.Instance.GameState)
+        // {
+        //     case GameState.Level:
+        //         break;
+        //     case GameState.Camp:
+
+        //         break;
+        // }
     }
 
     [ExecuteAlways]

@@ -6,6 +6,8 @@ using System;
 [Serializable]
 public class CampObjectData
 {
-    public string id = "";
-    public Vector2 position = Vector2.zero;
+    [SerializeField] public string id = "";
+    [SerializeField] public int posX = 0;
+    [SerializeField] public int posY = 0;
+    // [SerializeField] public Vector2 position = Vector2.zero;
 }

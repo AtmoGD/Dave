@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; protected set; }
     [Header("Game Manager")]
     [SerializeField] private GameState gameState = GameState.Level;
+    public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
     public PlayerController PlayerController { get { return playerController; } }

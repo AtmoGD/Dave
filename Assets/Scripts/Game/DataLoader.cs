@@ -16,7 +16,7 @@ public static class DataLoader
         catch (Exception e)
         {
             Debug.LogError("CAN'T SAVE DATA! - REASON: " + e.Message);
-            DeleteData(_path);
+            // DeleteData(_path);
         }
     }
 

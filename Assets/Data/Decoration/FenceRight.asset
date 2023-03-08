@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b7a5754f305c1449084a6c1456bb41, type: 3}
   m_Name: FenceRight
   m_EditorClassIdentifier: 
-  id: Fence001
-  name: Fence Left
+  id: Fence002
+  name: Fence Right
   description: A Fence of bones
+  image: {fileID: 0}
   cost: []
   size: {x: 4, y: 4}
   prefab: {fileID: 8891574029840525273, guid: 7e8140a9487411a42998562de52a9335, type: 3}

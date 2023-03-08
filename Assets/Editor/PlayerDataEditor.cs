@@ -30,6 +30,11 @@ public class PlayerDataEditor : Editor
             playerController.SaveData(path);
         }
 
+        if (GUILayout.Button("Delete Data"))
+        {
+            playerController.DeleteData(path);
+        }
+
         base.OnInspectorGUI();
 
     }

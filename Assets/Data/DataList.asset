@@ -20,6 +20,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
   - {fileID: 11400000, guid: 4035402a93ba81348a7c86c8eb7967c0, type: 2}
   - {fileID: 11400000, guid: 1dc1676ed68626f498b5891bf4fa93a3, type: 2}
+  - {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
+  - {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
+  - {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
+  - {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
+  - {fileID: 11400000, guid: c4ace9f2e68c5794481aa150343cf15d, type: 2}
+  - {fileID: 11400000, guid: af4b6066f5ab51144ae6f8e95fb40564, type: 2}
   <Minions>k__BackingField:
   - {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
   <Skills>k__BackingField:
