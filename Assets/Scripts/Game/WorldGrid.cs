@@ -14,6 +14,7 @@ public class WorldGrid : MonoBehaviour
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
+    [field: SerializeField] public Transform backgroundParent { get; private set; } = null;
     [field: SerializeField] public Pathfinding Pathfinder { get; private set; } = null;
     [SerializeField] private GameObject gridElementPrefab = null;
     [SerializeField] private Vector2 gridElementSize = new Vector2(2f, 1f);
@@ -25,11 +26,56 @@ public class WorldGrid : MonoBehaviour
     {
         get
         {
-            if (!LevelManager.Instance)
-                return FindObjectOfType<LevelManager>().LevelData.levelSize;
-            // return new Vector2Int(10, 10);
+            if (currentGameManager.GameState == GameState.Camp)
+                return currentCampManager.CampSize;
             else
-                return LevelManager.Instance.LevelData.levelSize;
+                return currentLevelManager.LevelData.levelSize;
+            // {
+            //     if (GameManager.Instance.GameState == GameState.Camp)
+            //         return CampManager.Instance.CampSize;
+            //     else
+            //         return LevelManager.Instance.LevelData.levelSize;
+            // }
+            // else
+            //     return new Vector2Int(1, 1);
+            // if (!LevelManager.Instance)
+            //     return FindObjectOfType<LevelManager>().LevelData.levelSize;
+            // // return new Vector2Int(10, 10);
+            // else
+            //     return LevelManager.Instance.LevelData.levelSize;
+        }
+    }
+
+    public GameManager currentGameManager
+    {
+        get
+        {
+            if (!GameManager.Instance)
+                return FindObjectOfType<GameManager>();
+            else
+                return GameManager.Instance;
+        }
+    }
+
+    public LevelManager currentLevelManager
+    {
+        get
+        {
+            if (!LevelManager.Instance)
+                return FindObjectOfType<LevelManager>();
+            else
+                return LevelManager.Instance;
+        }
+    }
+
+    public CampManager currentCampManager
+    {
+        get
+        {
+            if (!CampManager.Instance)
+                return FindObjectOfType<CampManager>();
+            else
+                return CampManager.Instance;
         }
     }
     public int ElementCount { get; private set; }
@@ -119,30 +165,37 @@ public class WorldGrid : MonoBehaviour
     [ExecuteAlways]
     public void PlaceLevelObjects()
     {
-        GameManager gameManager = GameManager.Instance;
-        if (!gameManager)
-            gameManager = FindObjectOfType<GameManager>();
+        // GameManager gameManager = GameManager.Instance;
+        // if (!gameManager)
+        //     gameManager = FindObjectOfType<GameManager>();
 
-        if (gameManager && gameManager.GameState == GameState.Camp)
+        // CampManager campManager = CampManager.Instance;
+        // if (!campManager)
+        //     campManager = FindObjectOfType<CampManager>();
+
+        // LevelManager levelManager = LevelManager.Instance;
+        // if (!levelManager)
+        //     levelManager = FindObjectOfType<LevelManager>();
+
+        if (currentGameManager.GameState == GameState.Camp)
         {
-            foreach (CampObjectData campObject in gameManager.PlayerController.PlayerData.placedObjects)
+            foreach (CampObjectData campObject in currentGameManager.PlayerController.PlayerData.placedObjects)
             {
-                Placeable placeable = gameManager.DataList.GetPlaceable(campObject.id);
+                Placeable placeable = currentGameManager.DataList.GetPlaceable(campObject.id);
                 Vector2Int gridPosition = new Vector2Int(campObject.posX, campObject.posY);
                 PlaceObject(placeable, gridPosition);
             }
+
+            Instantiate(currentCampManager.campPrefab, backgroundParent);
             return;
         }
 
-        LevelManager levelManager = LevelManager.Instance;
-        if (!levelManager)
-            levelManager = FindObjectOfType<LevelManager>();
-
-
-        foreach (PlacedObject placedObject in levelManager.LevelData.placedObjects)
+        foreach (PlacedObject placedObject in currentLevelManager.LevelData.placedObjects)
         {
             PlaceObject(placedObject.placeable, placedObject.gridPosition);
         }
+
+        Instantiate(currentLevelManager.LevelData.levelPrefab, backgroundParent);
         // switch (GameManager.Instance.GameState)
         // {
         //     case GameState.Level:
@@ -210,7 +263,10 @@ public class WorldGrid : MonoBehaviour
         catch (Exception e)
         {
             if (logErrors)
+            {
                 Debug.LogError("Error during InitGrid: " + e);
+                Debug.LogError("GridSize: " + GridSize);
+            }
 
             LoadLevel();
         }
@@ -357,6 +413,11 @@ public class WorldGrid : MonoBehaviour
         for (int i = ObjectParent.transform.childCount - 1; i >= 0; i--)
         {
             DestroyImmediate(ObjectParent.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = backgroundParent.transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(backgroundParent.transform.GetChild(i).gameObject);
         }
 
         Grid = null;

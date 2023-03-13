@@ -138,3 +138,4 @@ MonoBehaviour:
     gridPosition: {x: 13, y: 42}
   - placeable: {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
     gridPosition: {x: 16, y: 42}
+  levelPrefab: {fileID: 4656439448969638968, guid: c8247b23e540ed140982807c024e7e00, type: 3}
