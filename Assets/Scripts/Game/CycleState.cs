@@ -16,31 +16,32 @@ public class CycleState
     public float PercentOfTimeLeft => timeLeft / duration;
     public float TimeInCycle => duration - timeLeft;
 
-    private LevelManager levelManager = null;
     private float timeLeft = 0f;
 
     public virtual void Enter(LevelManager _gameManager)
     {
-        this.levelManager = _gameManager;
+        if (this.cycle == Cycle.Day)
+            this.duration *= GameManager.Instance.PlayerController.Nekromancer.DayTimeMultiplier;
+
         this.timeLeft = this.duration;
     }
 
     public virtual void FrameUpdate(float _deltaTime)
     {
-        this.timeLeft -= _deltaTime * this.levelManager.TimeScale;
+        this.timeLeft -= _deltaTime * LevelManager.Instance.TimeScale;
 
         if (this.cycle == Cycle.Night)
         {
-            if (levelManager.activeEnemies.Count <= 0 && this.timeLeft <= 0)
+            if (LevelManager.Instance.activeEnemies.Count <= 0 && this.timeLeft <= 0)
             {
-                this.levelManager.NextCycle();
+                LevelManager.Instance.NextCycle();
             }
         }
         else
         {
             if (this.timeLeft <= 0f)
             {
-                this.levelManager.NextCycle();
+                LevelManager.Instance.NextCycle();
             }
         }
     }
@@ -49,7 +50,5 @@ public class CycleState
     {
         if (choosePerk)
             GameManager.Instance.PlayerController.PerkPoints++;
-
-        this.levelManager = null;
     }
 }
