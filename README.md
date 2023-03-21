@@ -7,7 +7,7 @@ ___
 
 > * Benjamin Kailde
 >   * [Stuff]()
-> * Anna Tribuslowski
+> * Anna Tribulowski
 >   * [Stuff]()
 >* Joschua Hank
 >   * [Stuff]()
@@ -22,11 +22,4 @@ ___
 ### Music
 * [FMOD](https://assetstore.unity.com/packages/tools/audio/fmod-for-unity-161631)
 
-### Editor Tools
-
-* [Hierarchy2](https://assetstore.unity.com/packages/tools/utilities/hierarchy-2-166483)
-* [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
-
-
 ___
-## Credits
