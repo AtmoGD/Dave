@@ -72,7 +72,8 @@ public class Minion : MonoBehaviour
 
         if (roll < chance)
         {
-            Instantiate(Data.portal.prefab, transform.position, Quaternion.identity);
+            // Instantiate(Data.portal.prefab, transform.position, Quaternion.identity);
+            Instantiate(Data.spawnEnemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

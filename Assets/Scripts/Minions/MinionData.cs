@@ -13,6 +13,7 @@ public enum WorkType
 public class MinionData : Placeable
 {
     public PortalData portal = null;
+    public GameObject spawnEnemy = null;
     public WorkType preferredWork = WorkType.Farming;
 
     public float moveSpeed = 5f;
