@@ -36,6 +36,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     [field: SerializeField] public float LookSpeed { get; private set; }
     [field: SerializeField] public float AttackSpeed { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
+    [field: SerializeField] public float SoulMultiplikator { get; private set; }
     #endregion
 
     #region Private Variables
@@ -104,6 +105,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
         LookSpeed = stats.lookSpeed;
         AttackSpeed = stats.attackSpeed;
         AttackRange = stats.attackRange;
+        SoulMultiplikator = stats.soulMultiplikator;
 
         baseSkill = baseSkillData.GetSkillInstance();
 
@@ -195,6 +197,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     public void AddAttackSpeed(float _attackSpeed) { AttackSpeed += _attackSpeed; }
     public void AddAttackRange(float _attackRange) { AttackRange += _attackRange; }
     public void BlockNekromancer(bool _block) { blocked = _block; }
+    public void AddSoulMultiplikator(float _multiplikator) { SoulMultiplikator += _multiplikator; }
     #endregion
 
     #region Check Methods

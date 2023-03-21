@@ -90,13 +90,31 @@ public class PlayerController : MonoBehaviour
 
     public void AddRessources(List<CollectedRessource> _ressources)
     {
+        int amount = 0;
         foreach (CollectedRessource ressource in _ressources)
         {
-            for (int i = 0; i < ressource.amount; i++)
-            {
-                playerData.collectables.Add(ressource.ressource.id);
-            }
+            amount += ressource.amount;
         }
+
+        amount = Mathf.FloorToInt(amount * Nekromancer.SoulMultiplikator);
+
+        for (int i = 0; i < amount; i++)
+        {
+            playerData.collectables.Add(_ressources[0].ressource.id);
+        }
+
+        // foreach (CollectedRessource ressource in _ressources)
+        // {
+        //     int amount = 0;
+        //     foreach (CollectedRessource ressource in list)
+        //     {
+        //         amount += ressource.amount;
+        //     }
+        //     for (int i = 0; i < ressource.amount; i++)
+        //     {
+        //         playerData.collectables.Add(ressource.ressource.id);
+        //     }
+        // }
 
         SaveData(dataPath);
 

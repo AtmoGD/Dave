@@ -13,6 +13,7 @@ public class NekromancerData : ScriptableObject
     public float damage = 10f;
     public float attackSpeed = 1f;
     public float attackRange = 1f;
+    public float soulMultiplikator = 1f;
 
     public float interactRadius = 1f;
     public float moveThreshold = 0.1f;

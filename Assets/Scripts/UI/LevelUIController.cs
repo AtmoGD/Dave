@@ -16,7 +16,7 @@ public class LevelUIController : MonoBehaviour
         soul = LevelManager.Instance.GatheredRessources.Find(r => r.ressource == soulRessource);
         if (soul != null)
         {
-            collectedSoulsText.text = soul.amount.ToString();
+            collectedSoulsText.text = (Mathf.FloorToInt(soul.amount * GameManager.Instance.PlayerController.Nekromancer.SoulMultiplikator)).ToString();
         }
         else
         {
