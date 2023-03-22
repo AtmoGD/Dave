@@ -38,10 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _LerpSpeed: 0.3
+    - _NoiseLerpSpeed: 0.4
     - _NoiseScale: 250
+    - _Rotaion: 1
+    - _SecondNoiseScale: 350
+    - _SecondVoronoyDensity: 10
+    - _SmallVoronoiDensity: 25
     - _Variety: 0.5
-    - _VoronoiDensity: 10
+    - _VoronoiDensity: 20
+    - _VoronoiLerpSpeed: 0.6
+    - _VoronoiRotaionSpeed: 0.5
     m_Colors:
-    - _Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0}
-    - _MoveSpeed: {r: 0.0005, g: 0.0005, b: 0, a: 0}
+    - _Color: {r: 0.15147735, g: 0.3559528, b: 0.6509434, a: 0}
+    - _MoveSpeed: {r: 0.0008, g: 0.0006, b: 0, a: 0}
   m_BuildTextureStacks: []
