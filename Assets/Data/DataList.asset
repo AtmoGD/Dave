@@ -30,6 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c222be97a180fb419d7de1e0ac6974b, type: 2}
   <Skills>k__BackingField:
   - {fileID: 11400000, guid: a134ca918f7423e4ca0d1808d91df346, type: 2}
+  - {fileID: 11400000, guid: 9bc5d476ffb8af745979f9189df324ce, type: 2}
   <Perks>k__BackingField:
   - {fileID: 11400000, guid: 83b7f4649f16d5843ac953ec502d185b, type: 2}
   - {fileID: 11400000, guid: f661333e3c0a6de4995143001c2f15a5, type: 2}

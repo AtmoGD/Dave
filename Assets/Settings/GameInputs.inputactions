@@ -397,6 +397,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b3c8bade-aab0-4134-a0b9-e6b965f40a3d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "FirstSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a37ef3d8-ae53-473c-bb4c-a6df60bd0347",
                     "path": "<Keyboard>/shift",
                     "interactions": "",

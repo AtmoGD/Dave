@@ -32,7 +32,7 @@ public class PlayerData
         unlockedSkills.Add("nekro002");
         equippedSkills = new List<string>();
         equippedSkills.Add("nekro002");
-        equippedSkills.Add("nekro002");
+        equippedSkills.Add("nekro003");
         unlockedMinions = new List<string>();
         unlockedRecipes = new List<string>();
         placedObjects = new List<CampObjectData>();
