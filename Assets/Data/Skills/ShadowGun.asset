@@ -25,7 +25,7 @@ MonoBehaviour:
   bulletSpeed: 15
   bulletLifeTime: 5
   bulletDamage: 1
-  canMoveWhileCharging: 1
+  canMoveWhileCharging: 0
   canMoveWhileReleasing: 1
   maxChargeAmount: 10
   chargeTime: 0.1

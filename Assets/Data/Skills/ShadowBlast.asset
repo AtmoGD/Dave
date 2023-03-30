@@ -19,8 +19,9 @@ MonoBehaviour:
   cooldowns:
   - name: ShadowBlastCooldown
     duration: 3
-  skillTime: 1.6
+  skillTime: 1.3
   bulletPrefab: {fileID: 3897762472972489505, guid: 9f075fc2f893c3b4ba02fc56e00f007e, type: 3}
   bulletDamage: 1
-  bulletAmountMin: 12
-  bulletAmountMax: 18
+  bulletAmountMin: 21
+  bulletAmountMax: 25
+  stopSpeed: 10

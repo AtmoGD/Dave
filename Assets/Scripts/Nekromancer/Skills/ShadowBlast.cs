@@ -43,6 +43,8 @@ public class ShadowBlast : Skill
     public override void PhysicsUpdate(float _deltaTime)
     {
         base.PhysicsUpdate(_deltaTime);
+
+        nekromancer.rb.velocity = Vector2.Lerp(nekromancer.rb.velocity, Vector2.zero, shadowBlastData.stopSpeed * _deltaTime);
     }
 
     public override void Exit()
