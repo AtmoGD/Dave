@@ -46,7 +46,7 @@ public class ShadowBallController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D _collision)
     {
-        if (Sender == _collision.gameObject || nekromancer.gameObject == _collision.gameObject)
+        if (!Sender || !nekromancer || Sender == _collision.gameObject || nekromancer.gameObject == _collision.gameObject)
         {
             return;
         }
