@@ -14,18 +14,24 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; protected set; }
     [Header("Game Manager")]
+    [SerializeField] private bool dontDestroyOnLoad = true;
     [SerializeField] private GameState gameState = GameState.Level;
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
-    public PlayerController PlayerController { get { return playerController; } }
+    public PlayerController PlayerController { 
+        get { 
+            if (playerController == null) playerController = FindObjectOfType<PlayerController>();
+            return playerController; 
+            } 
+            }
     [SerializeField] private DataList dataList = null;
     public DataList DataList { get { return dataList; } }
 
-    [SerializeField] private WorldGrid worldGrid = null;
-    public WorldGrid WorldGrid { get { return worldGrid; } }
+    // [SerializeField] private WorldGrid worldGrid = null;
+    // public WorldGrid WorldGrid { get { return worldGrid; } }
 
-    [SerializeField] public bool startOnLoad = true;
+    // [SerializeField] public bool startOnLoad = true;
     [Space(20)]
 
     GridElement lastHoveredGridElement = null;
@@ -39,12 +45,17 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+
         Instance = this;
+
+        if (dontDestroyOnLoad) DontDestroyOnLoad(gameObject);
     }
 
     protected void Start()
     {
-        if (startOnLoad) StartGame();
+        // print("Game Manager Start");
+        // if (startOnLoad) StartGame();
     }
 
     public void Update()
@@ -54,7 +65,12 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        playerController.Init();
+        // playerController.Init();
+    }
+
+    public void ChangeGameState(GameState _state) {
+        WorldGrid.Instance.DeleteAllChildren();
+        gameState = _state;
     }
 
     // public void PauseGame(InputAction.CallbackContext _context)

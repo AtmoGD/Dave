@@ -74,6 +74,18 @@ public class GameUIController : MonoBehaviour
         loadingScreen.SetTrigger("StartLoading");
     }
 
+    public void StartLevel()
+    {
+        GameManager.Instance.ChangeGameState(GameState.Level);
+        StartLoadGame();
+    }
+
+    public void StartCampLevel()
+    {
+        GameManager.Instance.ChangeGameState(GameState.Camp);
+        StartLoadGame();
+    }
+
     // public void LoadNewGame()
     // {
     //     GameManager.Instance.ReloadGame();

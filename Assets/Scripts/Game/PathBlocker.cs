@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathBlocker : MonoBehaviour
 {
-    public WorldGrid Grid { get; private set; } = null;
+    // public WorldGrid Grid { get; private set; } = null;
     [field: SerializeField] private float UpdateTime { get; set; } = 0.5f;
 
     private GridElement lastElement = null;
@@ -13,7 +13,7 @@ public class PathBlocker : MonoBehaviour
 
     private void Start()
     {
-        Grid = GameManager.Instance.WorldGrid;
+        // Grid = WorldGrid.Instance;
         lastUpdate = Time.time;
     }
 
@@ -23,7 +23,7 @@ public class PathBlocker : MonoBehaviour
         {
             lastUpdate = Time.time;
 
-            GridElement currentElement = Grid.GetGridElement(transform.position);
+            GridElement currentElement = WorldGrid.Instance.GetGridElement(transform.position);
 
             if (currentElement && currentElement != lastElement && currentElement.ObjectOnGrid == null)
             {

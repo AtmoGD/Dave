@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
     public void Start()
     {
         // levelData = GameManager.Instance.WorldGrid.LevelData;
-        GameManager.Instance.WorldGrid.LoadLevel();
+        WorldGrid.Instance.LoadLevel();
 
 
         this.currentCycle = 0;

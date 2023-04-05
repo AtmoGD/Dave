@@ -8,7 +8,7 @@ public class PlayerBuildController : MonoBehaviour
     [SerializeField] private float moveTimeout = 0.1f;
 
     public PlayerController Player { get; private set; } = null;
-    public WorldGrid WorldGrid { get; private set; } = null;
+    // public WorldGrid WorldGrid { get; private set; } = null;
 
     public GridElement CurrentGridElement { get; private set; } = null;
     public Placeable CurrentPlaceable { get; private set; } = null;
@@ -21,7 +21,7 @@ public class PlayerBuildController : MonoBehaviour
     public void Init(PlayerController _player)
     {
         this.Player = _player;
-        this.WorldGrid = GameManager.Instance.WorldGrid;
+        // this.WorldGrid = WorldGrid.Instance;
     }
 
     public void FinalPlaceObject(InputAction.CallbackContext _context)
@@ -32,9 +32,9 @@ public class PlayerBuildController : MonoBehaviour
         {
             if (CurrentPlaceable &&
             CurrentGridElement &&
-            WorldGrid.IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
+            WorldGrid.Instance.IsObjectPlaceable(CurrentPlaceable, CurrentPlaceableGridElements))
             {
-                Vector3 objectOffset = WorldGrid.GetObjectOffset(CurrentPlaceable);
+                Vector3 objectOffset = WorldGrid.Instance.GetObjectOffset(CurrentPlaceable);
 
                 GameObject newObject = Instantiate(CurrentPlaceable.prefab, CurrentGridElement.transform.position + objectOffset, Quaternion.identity);
 
@@ -63,9 +63,9 @@ public class PlayerBuildController : MonoBehaviour
         LevelManager.Instance.StopTime();
 
         CurrentPlaceable = _object;
-        Vector3 objectOffset = WorldGrid.GetObjectOffset(CurrentPlaceable);
+        Vector3 objectOffset = WorldGrid.Instance.GetObjectOffset(CurrentPlaceable);
 
-        CurrentGridElement = WorldGrid.GetGridElement(Player.Nekromancer.transform.position);
+        CurrentGridElement = WorldGrid.Instance.GetGridElement(Player.Nekromancer.transform.position);
 
         CurrentPlaceableVizualizer = Instantiate(CurrentPlaceable.preview, CurrentGridElement.transform.position + objectOffset, Quaternion.identity);
         VizualizerAnimator = CurrentPlaceableVizualizer.GetComponent<Animator>();
@@ -95,17 +95,17 @@ public class PlayerBuildController : MonoBehaviour
         else if (input.y < -0.5f) input.y = -1;
         else input.y = 0;
 
-        CurrentGridElement = WorldGrid.GetGridElement(CurrentGridElement, input);
+        CurrentGridElement = WorldGrid.Instance.GetGridElement(CurrentGridElement, input);
 
         if (CurrentPlaceable)
         {
-            Vector3 objectOffset = WorldGrid.GetObjectOffset(CurrentPlaceable);
+            Vector3 objectOffset = WorldGrid.Instance.GetObjectOffset(CurrentPlaceable);
 
             CurrentPlaceableVizualizer.transform.position = CurrentGridElement.transform.position + objectOffset;
 
-            List<GridElement> newGridElements = WorldGrid.GetGridElements(CurrentGridElement.transform.position, CurrentPlaceable.size);
+            List<GridElement> newGridElements = WorldGrid.Instance.GetGridElements(CurrentGridElement.transform.position, CurrentPlaceable.size);
 
-            bool isPlaceable = WorldGrid.IsObjectPlaceable(CurrentPlaceable, newGridElements);
+            bool isPlaceable = WorldGrid.Instance.IsObjectPlaceable(CurrentPlaceable, newGridElements);
 
             VizualizerAnimator.SetBool("IsPlaceable", isPlaceable);
 

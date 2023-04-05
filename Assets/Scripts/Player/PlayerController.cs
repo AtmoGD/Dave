@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     bool stoppedTime = false;
 
+    private void Start() {
+        Init();
+    }
+
     public void Init()
     {
         LoadData(dataPath);

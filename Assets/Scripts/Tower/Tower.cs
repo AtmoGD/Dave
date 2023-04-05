@@ -47,7 +47,7 @@ public class Tower : Building, IDamagable
 
         foreach (Transform neighbour in freeNeighbours)
         {
-            GridElement gridElement = GameManager.Instance.WorldGrid.GetGridElement(neighbour.position);
+            GridElement gridElement = WorldGrid.Instance.GetGridElement(neighbour.position);
             if (gridElement != null && gridElement.ObjectOnGrid == null)
                 return neighbour;
         }

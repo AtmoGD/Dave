@@ -11,6 +11,7 @@ public class WorldGrid : MonoBehaviour
 {
     // [field: SerializeField] public LevelData LevelData { get; private set; } = null;
     // [field: SerializeField] public LevelManager LevelManager { get; private set; } = null;
+    public static WorldGrid Instance { get; protected set; }
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
@@ -80,7 +81,14 @@ public class WorldGrid : MonoBehaviour
     }
     public int ElementCount { get; private set; }
     public Vector2 ElementSize => new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
+private void Awake() {
+        if (Instance != null) {
+            Destroy(gameObject);
+            return;
+        }
 
+        Instance = this;
+}
     private void Start()
     {
         // LevelManager = LevelManager.Instance;

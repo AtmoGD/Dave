@@ -1019,8 +1019,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902175459590244371}
   m_HandleRect: {fileID: 7794890155504105413}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1926,8 +1926,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5429364707441074224}
   m_HandleRect: {fileID: 7808004804965664993}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6195,17 +6195,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 839645858072069265}
-    - target: {fileID: 3667870511198835835, guid: 490b7b9e30627274ea3f452c61dc1cff, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerUIController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7817395094594836976, guid: 490b7b9e30627274ea3f452c61dc1cff, type: 3}
       propertyPath: m_Name
       value: PauseUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817395094594836976, guid: 490b7b9e30627274ea3f452c61dc1cff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 490b7b9e30627274ea3f452c61dc1cff, type: 3}
