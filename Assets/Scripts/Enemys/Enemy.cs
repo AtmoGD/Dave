@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour, IDamagable
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
     [field: SerializeField] public DamageVisualizer DamageVisualizer { get; private set; } = null;
     [field: SerializeField] public Animator Animator { get; private set; } = null;
-    // [field: SerializeField] public GameObject DiePrefab { get; private set; } = null;
     [field: SerializeField] public List<CollectedRessource> DropRessources { get; private set; } = new List<CollectedRessource>();
 
     public int Health { get; private set; }

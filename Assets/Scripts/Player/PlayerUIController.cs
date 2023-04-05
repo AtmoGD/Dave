@@ -26,12 +26,8 @@ public class PlayerUIController : MonoBehaviour
 
     public void Init()
     {
-        // Player = _player;
-
         buildMenu.SetIsActive(false);
         minionMenu.SetIsActive(false);
-        // choosePerkMenu.SetIsActive(false);
-        // pauseUI.SetIsActive(false);
     }
 
     public void OpenMenu(UIMenuController _menu)

@@ -68,9 +68,7 @@ public class ShadowBlast : Skill
         bullet.Sender = nekromancer.gameObject;
         bullet.transform.position = nekromancer.transform.position;
 
-        // Random Rotation
         bullet.transform.Rotate(0f, 0f, Random.Range(0f, 360f));
-        // bullet.transform.right = nekromancer.Model.right;
 
         bullet.Nekromancer = nekromancer;
         bullet.UpdateBaseDamage(nekromancer.Damage, nekromancer.gameObject);

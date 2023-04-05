@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ShootTower : AttackTower
 {
-
-    // [SerializeField] private float damage = 1f;
-    // [SerializeField] private float fireRate = 1f;
     [SerializeField] private GameObject projectilePrefab = null;
     [field: SerializeField] public List<Transform> ShootPositions { get; private set; } = new List<Transform>();
 

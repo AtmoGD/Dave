@@ -19,8 +19,6 @@ public class PerkMenuController : UIMenuController
 
     public void UpdatePerkCards()
     {
-        // currentIndex = 0;
-
         choosedPerk = false;
 
         unperkPanel.InstantVanish();

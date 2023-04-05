@@ -9,8 +9,6 @@ using Unity.Jobs;
 [Serializable]
 public class WorldGrid : MonoBehaviour
 {
-    // [field: SerializeField] public LevelData LevelData { get; private set; } = null;
-    // [field: SerializeField] public LevelManager LevelManager { get; private set; } = null;
     public static WorldGrid Instance { get; protected set; }
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
@@ -31,19 +29,6 @@ public class WorldGrid : MonoBehaviour
                 return currentCampManager.CampSize;
             else
                 return currentLevelManager.LevelData.levelSize;
-            // {
-            //     if (GameManager.Instance.GameState == GameState.Camp)
-            //         return CampManager.Instance.CampSize;
-            //     else
-            //         return LevelManager.Instance.LevelData.levelSize;
-            // }
-            // else
-            //     return new Vector2Int(1, 1);
-            // if (!LevelManager.Instance)
-            //     return FindObjectOfType<LevelManager>().LevelData.levelSize;
-            // // return new Vector2Int(10, 10);
-            // else
-            //     return LevelManager.Instance.LevelData.levelSize;
         }
     }
 
@@ -81,24 +66,18 @@ public class WorldGrid : MonoBehaviour
     }
     public int ElementCount { get; private set; }
     public Vector2 ElementSize => new Vector2(gridElementSize.x * isometricRatio.x, gridElementSize.y * isometricRatio.y);
-private void Awake() {
-        if (Instance != null) {
+    private void Awake()
+    {
+        if (Instance != null)
+        {
             Destroy(gameObject);
             return;
         }
 
         Instance = this;
-}
+    }
     private void Start()
     {
-        // LevelManager = LevelManager.Instance;
-
-        // if (LevelManager == null)
-        // {
-        //     Debug.LogError("LevelManager is null");
-        //     return;
-        // }
-
         LoadLevel();
     }
 
@@ -173,18 +152,6 @@ private void Awake() {
     [ExecuteAlways]
     public void PlaceLevelObjects()
     {
-        // GameManager gameManager = GameManager.Instance;
-        // if (!gameManager)
-        //     gameManager = FindObjectOfType<GameManager>();
-
-        // CampManager campManager = CampManager.Instance;
-        // if (!campManager)
-        //     campManager = FindObjectOfType<CampManager>();
-
-        // LevelManager levelManager = LevelManager.Instance;
-        // if (!levelManager)
-        //     levelManager = FindObjectOfType<LevelManager>();
-
         if (currentGameManager.GameState == GameState.Camp)
         {
             foreach (CampObjectData campObject in currentGameManager.PlayerController.PlayerData.placedObjects)
@@ -204,14 +171,6 @@ private void Awake() {
         }
 
         Instantiate(currentLevelManager.LevelData.levelPrefab, backgroundParent);
-        // switch (GameManager.Instance.GameState)
-        // {
-        //     case GameState.Level:
-        //         break;
-        //     case GameState.Camp:
-
-        //         break;
-        // }
     }
 
     [ExecuteAlways]

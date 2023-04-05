@@ -19,19 +19,17 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
-    public PlayerController PlayerController { 
-        get { 
+    public PlayerController PlayerController
+    {
+        get
+        {
             if (playerController == null) playerController = FindObjectOfType<PlayerController>();
-            return playerController; 
-            } 
-            }
+            return playerController;
+        }
+    }
     [SerializeField] private DataList dataList = null;
     public DataList DataList { get { return dataList; } }
 
-    // [SerializeField] private WorldGrid worldGrid = null;
-    // public WorldGrid WorldGrid { get { return worldGrid; } }
-
-    // [SerializeField] public bool startOnLoad = true;
     [Space(20)]
 
     GridElement lastHoveredGridElement = null;
@@ -52,52 +50,11 @@ public class GameManager : MonoBehaviour
         if (dontDestroyOnLoad) DontDestroyOnLoad(gameObject);
     }
 
-    protected void Start()
+    public void ChangeGameState(GameState _state)
     {
-        // print("Game Manager Start");
-        // if (startOnLoad) StartGame();
-    }
-
-    public void Update()
-    {
-
-    }
-
-    private void StartGame()
-    {
-        // playerController.Init();
-    }
-
-    public void ChangeGameState(GameState _state) {
         WorldGrid.Instance.DeleteAllChildren();
         gameState = _state;
     }
-
-    // public void PauseGame(InputAction.CallbackContext _context)
-    // {
-    //     print("Pause Game");
-
-    //     if (_context.performed)
-    //     {
-    //         PauseGame(!IsPaused);
-    //     }
-    // }
-
-    // public void PauseGame(bool _pause)
-    // {
-    //     if (_pause)
-    //     {
-    //         IsPaused = true;
-    //         LevelManager.Instance.StopTime();
-    //         // gameUIController.Pause(true);
-    //     }
-    //     else
-    //     {
-    //         IsPaused = false;
-    //         LevelManager.Instance.StartTime();
-    //         // gameUIController.Pause(false);
-    //     }
-    // }
 
     public void ReloadScene(InputAction.CallbackContext _context)
     {

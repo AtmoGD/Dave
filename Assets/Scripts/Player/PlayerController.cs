@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
 
     bool stoppedTime = false;
 
-    private void Start() {
+    private void Start()
+    {
         Init();
     }
 
@@ -106,19 +107,6 @@ public class PlayerController : MonoBehaviour
         {
             playerData.collectables.Add(_ressources[0].ressource.id);
         }
-
-        // foreach (CollectedRessource ressource in _ressources)
-        // {
-        //     int amount = 0;
-        //     foreach (CollectedRessource ressource in list)
-        //     {
-        //         amount += ressource.amount;
-        //     }
-        //     for (int i = 0; i < ressource.amount; i++)
-        //     {
-        //         playerData.collectables.Add(ressource.ressource.id);
-        //     }
-        // }
 
         SaveData(dataPath);
 

@@ -59,7 +59,6 @@ public class LevelManager : MonoBehaviour
     }
     public void Start()
     {
-        // levelData = GameManager.Instance.WorldGrid.LevelData;
         WorldGrid.Instance.LoadLevel();
 
 
@@ -83,8 +82,6 @@ public class LevelManager : MonoBehaviour
     public void GatherRessource(CollectedRessource _ressource)
     {
         if (GameEnded) return;
-
-        // GatheredRessources.Add(_ressource);
 
         CollectedRessource newRessource = GatheredRessources.Find(x => x.ressource == _ressource.ressource);
         if (newRessource != null)

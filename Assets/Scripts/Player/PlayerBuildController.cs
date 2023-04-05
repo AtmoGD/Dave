@@ -8,8 +8,6 @@ public class PlayerBuildController : MonoBehaviour
     [SerializeField] private float moveTimeout = 0.1f;
 
     public PlayerController Player { get; private set; } = null;
-    // public WorldGrid WorldGrid { get; private set; } = null;
-
     public GridElement CurrentGridElement { get; private set; } = null;
     public Placeable CurrentPlaceable { get; private set; } = null;
     public GameObject CurrentPlaceableVizualizer { get; private set; } = null;
@@ -21,7 +19,6 @@ public class PlayerBuildController : MonoBehaviour
     public void Init(PlayerController _player)
     {
         this.Player = _player;
-        // this.WorldGrid = WorldGrid.Instance;
     }
 
     public void FinalPlaceObject(InputAction.CallbackContext _context)

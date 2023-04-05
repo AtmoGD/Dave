@@ -15,8 +15,6 @@ public class NekromancerArrow : MonoBehaviour
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected VizualizationType vizualizationType = VizualizationType.None;
 
-    // [SerializeField] protected float maxDistance = 10f;
-
     private void Update()
     {
         if (!active) return;
@@ -45,14 +43,5 @@ public class NekromancerArrow : MonoBehaviour
                 transform.localScale = Vector3.zero;
                 break;
         }
-
-        // if (lookDir != Vector2.zero)
-        // {
-        //     transform.right = lookDir;
-        // }
-        // else if (moveDir != Vector2.zero)
-        // {
-        //     transform.right = moveDir;
-        // }
     }
 }

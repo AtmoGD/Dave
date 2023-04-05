@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// public class Minion : MonoBehaviour, IInteractable
+
 public class Minion : MonoBehaviour
 {
     [field: SerializeField] public MinionData Data { get; private set; } = null;
@@ -72,7 +72,6 @@ public class Minion : MonoBehaviour
 
         if (roll < chance)
         {
-            // Instantiate(Data.portal.prefab, transform.position, Quaternion.identity);
             Instantiate(Data.spawnEnemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -92,32 +91,6 @@ public class Minion : MonoBehaviour
     {
         Ressources = new List<CollectedRessource>();
     }
-
-    // public void Interact(Nekromancer _nekromancer)
-    // {
-    //     Master = _nekromancer;
-
-    //     Master.OnInteract += MasterInteracted;
-    //     print("Interacting with minion");
-    // }
-
-    // public void MasterInteracted(IInteractable _interactable)
-    // {
-    //     print("Master interacted");
-    //     if (_interactable is FarmTower)
-    //     {
-    //         print("Master interacted with farm tower");
-    //         TargetTower = (FarmTower)_interactable;
-    //         Master.OnInteract -= MasterInteracted;
-    //     }
-    // }
-
-    // public void InteractEnd()
-    // {
-    //     Master.OnInteract -= MasterInteracted;
-    //     print("Stopped interacting with minion");
-    // }
-
     public void SpawnObject(GameObject _object, Vector3 _position)
     {
         Instantiate(_object, _position, Quaternion.identity);
