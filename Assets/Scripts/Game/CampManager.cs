@@ -11,6 +11,7 @@ public class CampManager : MonoBehaviour
     public Vector2Int CampSize { get { return campSize; } }
     [field: SerializeField] public GameObject campPrefab { get; private set; } = null;
     [SerializeField] public Vector2 NekromancerSpawnPosition = Vector2.zero;
+    // [SerializeField] private GameObject chooseLevelUI = null;
 
     private void Awake()
     {
@@ -21,4 +22,19 @@ public class CampManager : MonoBehaviour
         }
         Instance = this;
     }
+
+    // public void Start()
+    // {
+    //     if (chooseLevelUI) chooseLevelUI.SetActive(false);
+    // }
+
+    // public void OpenChooseLevelUI()
+    // {
+    //     chooseLevelUI.SetActive(true);
+    // }
+
+    // public void CloseChooseLevelUI()
+    // {
+    //     chooseLevelUI.SetActive(false);
+    // }
 }

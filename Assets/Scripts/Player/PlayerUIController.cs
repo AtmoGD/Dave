@@ -13,6 +13,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController pauseUI = null;
     [SerializeField] private UIMenuController endGameMenu = null;
     [SerializeField] private UIMenuController gameOverUI = null;
+    [SerializeField] private UIMenuController chooseLevelUI = null;
     [SerializeField] private GameObject GatheredRessourcesContent = null;
     [SerializeField] private GameObject GatheredRessourcePrefab = null;
     [SerializeField] private UIMenuController gameLostUI = null;
@@ -81,6 +82,11 @@ public class PlayerUIController : MonoBehaviour
     public void OpenGameLostMenu()
     {
         OpenMenu(gameLostUI);
+    }
+
+    public void OpenChooseLevelMenu()
+    {
+        OpenMenu(chooseLevelUI);
     }
 
     public void NextItem(InputAction.CallbackContext _context)

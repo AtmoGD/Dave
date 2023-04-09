@@ -19,28 +19,37 @@ public class UICycleState : MonoBehaviour
     [SerializeField] private AnimationCurve LightIntensityCurve = null;
     private void Update()
     {
-
-        if (LevelManager.Instance.IsDay)
+        if (GameManager.Instance.GameState == GameState.Level)
         {
-            float percent = LevelManager.Instance.CurrentCycleState.PercentOfTimeLeft;
-            float alpha = alphaCurve.Evaluate(percent);
-            float posY = heightCurve.Evaluate(percent);
-            float volumeY = volumeHeightCurve.Evaluate(percent);
-            float lightIntensity = LightIntensityCurve.Evaluate(percent);
+            if (LevelManager.Instance.IsDay)
+            {
+                float percent = LevelManager.Instance.CurrentCycleState.PercentOfTimeLeft;
+                float alpha = alphaCurve.Evaluate(percent);
+                float posY = heightCurve.Evaluate(percent);
+                float volumeY = volumeHeightCurve.Evaluate(percent);
+                float lightIntensity = LightIntensityCurve.Evaluate(percent);
 
-            Vector2 size = fillTransform.sizeDelta;
-            size.x = widthCurve.Evaluate(percent);
+                Vector2 size = fillTransform.sizeDelta;
+                size.x = widthCurve.Evaluate(percent);
 
-            float xScale = xScaleCurve.Evaluate(percent);
-            float yScale = yScaleCurve.Evaluate(percent);
+                float xScale = xScaleCurve.Evaluate(percent);
+                float yScale = yScaleCurve.Evaluate(percent);
 
-            fillTransform.localScale = new Vector3(xScale, yScale, 1f);
-            fillTransform.anchoredPosition = new Vector2(0f, posY);
-            fillImage.color = new Color(fillImage.color.r, fillImage.color.g, fillImage.color.b, alpha);
+                fillTransform.localScale = new Vector3(xScale, yScale, 1f);
+                fillTransform.anchoredPosition = new Vector2(0f, posY);
+                fillImage.color = new Color(fillImage.color.r, fillImage.color.g, fillImage.color.b, alpha);
 
-            volumeTransform.position = new Vector3(volumeTransform.position.x, volumeY, volumeTransform.position.z);
+                volumeTransform.position = new Vector3(volumeTransform.position.x, volumeY, 0f);
 
-            light2D.intensity = lightIntensity;
+                light2D.intensity = lightIntensity;
+            }
+        }
+        else
+        {
+            fillTransform.localScale = Vector3.zero;
+            volumeTransform.localScale = Vector3.zero;
+            light2D.intensity = 0f;
+            volumeTransform.position = new Vector3(volumeTransform.position.x, volumeTransform.position.y, 100f);
         }
     }
 
