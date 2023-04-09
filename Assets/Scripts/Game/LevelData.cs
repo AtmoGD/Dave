@@ -24,4 +24,5 @@ public class LevelData : ScriptableObject
     [SerializeField] public Vector2Int levelSize = new Vector2Int(10, 10);
     [SerializeField] public List<PlacedObject> placedObjects = new List<PlacedObject>();
     [SerializeField] public GameObject levelPrefab = null;
+    [SerializeField] public Vector2 NekromancerSpawnPosition = Vector2.zero;
 }

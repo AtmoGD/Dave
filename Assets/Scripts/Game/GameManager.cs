@@ -19,6 +19,20 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
+    public Vector2 SpawnPosition
+    {
+        get
+        {
+            if (gameState == GameState.Camp)
+            {
+                return CampManager.Instance.NekromancerSpawnPosition;
+            }
+            else
+            {
+                return LevelManager.Instance.LevelData.NekromancerSpawnPosition;
+            }
+        }
+    }
     public PlayerController PlayerController
     {
         get

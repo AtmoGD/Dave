@@ -98,6 +98,8 @@ public class Nekromancer : MonoBehaviour, IDamagable
     {
         playerController = _playerController;
 
+        transform.position = GameManager.Instance.SpawnPosition;
+
         Health = stats.health;
         MaxHealth = stats.health;
         CurrentMana = stats.mana;

@@ -10,6 +10,7 @@ public class CampManager : MonoBehaviour
     [SerializeField] private Vector2Int campSize = new Vector2Int(10, 10);
     public Vector2Int CampSize { get { return campSize; } }
     [field: SerializeField] public GameObject campPrefab { get; private set; } = null;
+    [SerializeField] public Vector2 NekromancerSpawnPosition = Vector2.zero;
 
     private void Awake()
     {
