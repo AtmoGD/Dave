@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SlowUIMenuController
+  m_Controller: {fileID: 9100000, guid: a6924306c0da22848bb545d72bb51fbe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 95966a0143a0738419e94a8f32199e85, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c750312f9c923b548ac38fd7ba532784, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 481555cf0eb3f3344b1139cbb69607af, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 481555cf0eb3f3344b1139cbb69607af, type: 2}
