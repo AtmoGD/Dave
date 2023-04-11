@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedVizualizer: {fileID: 4479601218835584097}
-  selectSpeed: 2
+  selectSpeed: 4
   up: {fileID: 0}
   down: {fileID: 0}
   left: {fileID: 0}

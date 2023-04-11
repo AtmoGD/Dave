@@ -199,6 +199,15 @@ public class PlayerController : MonoBehaviour
         if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
+    public void OpenChooseLevelMenu(InputData _input = null)
+    {
+        UIController.OpenChooseLevelMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
     public void OpenGameLostMenu(InputData _input = null)
     {
         UIController.OpenGameLostMenu();

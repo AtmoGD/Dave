@@ -9,7 +9,7 @@ public class LevelPortalController : MonoBehaviour
         Nekromancer nekromancer = other.GetComponent<Nekromancer>();
         if (nekromancer)
         {
-            nekromancer.PlayerController.UIController.OpenChooseLevelMenu();
+            nekromancer.PlayerController.OpenChooseLevelMenu();
         }
     }
 }
