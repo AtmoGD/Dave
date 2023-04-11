@@ -11,6 +11,7 @@ public class LevelPortalController : MonoBehaviour
         if (nekromancer)
         {
             nekromancer.PlayerController.OpenChooseLevelMenu();
+            nekromancer.CurrentInput.MoveDir = Vector2.zero;
             portalParticles.Play();
         }
     }
