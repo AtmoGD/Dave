@@ -10226,6 +10226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ade939410242c4db080e96d5935e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyeSprite: {fileID: 7829415472294403490}
   eyeEmissionCurve:
     serializedVersion: 2
     m_Curve:

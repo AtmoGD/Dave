@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrystalUpdateEyeEmission : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer eyeSprite = null;
     [SerializeField] private AnimationCurve eyeEmissionCurve = null;
     [SerializeField] private List<ParticleSystem> eyeParticles = new List<ParticleSystem>();
 
@@ -21,6 +22,15 @@ public class CrystalUpdateEyeEmission : MonoBehaviour
         {
             var emission = particle.emission;
             emission.rateOverTime = emissionAmount;
+        }
+
+        if (LevelManager.Instance.CrystalFull)
+        {
+            eyeSprite.color = new Color(1f, 1f, 1f, 1f);
+        }
+        else
+        {
+            eyeSprite.color = new Color(1f, 1f, 1f, 0.0f);
         }
     }
 }
