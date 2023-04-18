@@ -127,7 +127,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.3
 --- !u!1 &30515259325649566
 GameObject:
   m_ObjectHideFlags: 0
@@ -5081,7 +5081,7 @@ MonoBehaviour:
   - {x: 0.2328546, y: 0.37901878, z: 0}
   m_ShapePathHash: -1276566351
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457640
+  m_InstanceId: 62654
 --- !u!1 &92841184941951093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,7 +6642,7 @@ MonoBehaviour:
   - {x: 2.1538558, y: -0.73806304, z: 0}
   m_ShapePathHash: 1142344512
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457668
+  m_InstanceId: 62682
 --- !u!1 &2448791341359943906
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,9 +6929,9 @@ MonoBehaviour:
   - {fileID: 770874730698425494}
   centerPoint: {fileID: 6481868077054678060}
   minIntensity: 1.3
+  maxIntensity: 0.4
   minDistance: 1
-  maxIntensity: 0.2
-  maxDistance: 6
+  maxDistance: 9
 --- !u!1 &3073450464354493456
 GameObject:
   m_ObjectHideFlags: 0
@@ -12029,7 +12029,7 @@ MonoBehaviour:
   - {x: 0.29479924, y: -1.7244728, z: 0}
   m_ShapePathHash: -27837703
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457832
+  m_InstanceId: 62846
 --- !u!1 &3954564964831612207
 GameObject:
   m_ObjectHideFlags: 0
@@ -12320,7 +12320,7 @@ MonoBehaviour:
   - {x: -1.7096261, y: -0.5093496, z: 0}
   m_ShapePathHash: -1586802171
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457744
+  m_InstanceId: 62758
 --- !u!1 &4543984231775103318
 GameObject:
   m_ObjectHideFlags: 0
@@ -13501,7 +13501,7 @@ MonoBehaviour:
   - {x: -2.0543437, y: -0.5296364, z: 0}
   m_ShapePathHash: -653769579
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457790
+  m_InstanceId: 62804
 --- !u!1 &6786102280613262308
 GameObject:
   m_ObjectHideFlags: 0
@@ -14335,7 +14335,7 @@ MonoBehaviour:
   - {x: -1.6483417, y: -0.3598643, z: 0}
   m_ShapePathHash: -997017324
   m_Mesh: {fileID: 0}
-  m_InstanceId: 457636
+  m_InstanceId: 62650
 --- !u!1001 &1197548457384561463
 PrefabInstance:
   m_ObjectHideFlags: 0

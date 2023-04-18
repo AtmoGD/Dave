@@ -13,14 +13,18 @@ public class LevelUIController : MonoBehaviour
     {
         if (!collectedSoulsText) return;
 
-        soul = LevelManager.Instance.GatheredRessources.Find(r => r.ressource == soulRessource);
-        if (soul != null)
+        if (GameManager.Instance.GameState == GameState.Level)
         {
-            collectedSoulsText.text = (Mathf.FloorToInt(soul.amount * GameManager.Instance.PlayerController.Nekromancer.SoulMultiplikator)).ToString();
+            soul = LevelManager.Instance.GatheredRessources.Find(r => r.ressource == soulRessource);
+
+            if (soul != null)
+                collectedSoulsText.text = (Mathf.FloorToInt(soul.amount * GameManager.Instance.PlayerController.Nekromancer.SoulMultiplikator)).ToString();
+            else
+                collectedSoulsText.text = "0";
         }
         else
         {
-            collectedSoulsText.text = "0";
+            collectedSoulsText.text = GameManager.Instance.PlayerController.PlayerData.collectables.Count.ToString();
         }
     }
 }
