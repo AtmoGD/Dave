@@ -15,6 +15,8 @@ public class ShadowMerge : Skill
         shadowMergeData = (ShadowMergeData)_skillData;
 
         direction = nekromancer.CurrentInput.MoveDir.normalized;
+        // nekromancer.Cols.ForEach(x => x.isTrigger = true);#
+        nekromancer.col.enabled = false;
         nekromancer.col.isTrigger = true;
 
         CheckTargetPosition();
@@ -57,6 +59,8 @@ public class ShadowMerge : Skill
     public override void Exit()
     {
         nekromancer.col.isTrigger = false;
+        nekromancer.col.enabled = true;
+        // nekromancer.Cols.ForEach(x => { x.isTrigger = false;  x.enabled = true; });
 
         nekromancer.IsInputBlocked = false;
 

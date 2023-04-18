@@ -13,6 +13,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     #region References
     [SerializeField] public Rigidbody2D rb = null;
     [SerializeField] public Collider2D col = null;
+    // [field: SerializeField] public List<Collider2D> Cols { get; private set; } = new List<Collider2D>();
     [SerializeField] public Animator skinAnimator = null;
     [field: SerializeField] public Transform Model { get; private set; } = null;
     [SerializeField] public List<Transform> gunPoints = null;
