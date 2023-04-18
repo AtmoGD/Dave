@@ -7,6 +7,8 @@ public class MinionIdle : MinionState
     public override void Enter(Minion _minion)
     {
         base.Enter(_minion);
+
+        minion.Animator.SetFloat("Velocity", 0f);
     }
 
     public override void FrameUpdate()

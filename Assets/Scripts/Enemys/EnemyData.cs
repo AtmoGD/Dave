@@ -22,4 +22,5 @@ public class EnemyData : ScriptableObject
     public int experience = 10;
     public float speed = 3f;
     public float moveThreshold = 1f;
+    public float flipSpeed = 5f;
 }

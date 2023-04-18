@@ -72,6 +72,12 @@ public class MovementController : MonoBehaviour
 
     public void UpdatePath()
     {
+        if (WorldGrid.Instance == null)
+        {
+            Debug.LogError("WorldGrid is null");
+            return;
+        }
+
         GridElement currentGrid = WorldGrid.Instance.GetGridElement(transform.position, true);
         GridElement targetGrid = WorldGrid.Instance.GetGridElement(TargetPosition, false);
 

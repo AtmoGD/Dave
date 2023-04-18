@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cycleStates:
   - cycle: 0
-    duration: 15
+    duration: 45
     choosePerk: 0
   - cycle: 1
     duration: 10

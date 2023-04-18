@@ -41,6 +41,10 @@ public class EnemyMoving : EnemyState
         {
             ReachedTarget();
         }
+
+        enemy.Animator.SetFloat("Velocity", 1f);
+
+        Flip();
     }
 
     public override void PhysicsUpdate()
@@ -51,6 +55,9 @@ public class EnemyMoving : EnemyState
     public override void Exit()
     {
         base.Exit();
+
+        float targetX = enemy.MoveController.TargetPosition.x > enemy.transform.position.x ? 1f : -1f;
+        enemy.transform.localScale = new Vector3(targetX, 1f, 1f);
     }
 
     public void ReachedTarget()
@@ -60,5 +67,13 @@ public class EnemyMoving : EnemyState
         enemy.MoveController.StopMoving();
 
         enemy.ChangeState(enemy.AttackingState);
+    }
+
+    public void Flip()
+    {
+        float targetX = enemy.MoveController.TargetPosition.x > enemy.transform.position.x ? 1f : -1f;
+        float currentX = enemy.transform.localScale.x;
+        float newX = Mathf.Lerp(currentX, targetX, enemy.Data.flipSpeed * Time.deltaTime);
+        enemy.transform.localScale = new Vector3(newX, 1f, 1f);
     }
 }

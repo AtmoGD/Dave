@@ -8,6 +8,7 @@ public class Minion : MonoBehaviour
     [field: SerializeField] public MovementController MoveController { get; private set; } = null;
     [field: SerializeField] public FMODUnity.StudioEventEmitter SoundEmitter { get; private set; } = null;
     [field: SerializeField] public Transform SpawnRessourcePoint { get; private set; } = null;
+    [field: SerializeField] public Animator Animator { get; private set; } = null;
 
     public MinionState CurrentState = null;
     public MinionIdle IdleState { get; private set; } = new MinionIdle();

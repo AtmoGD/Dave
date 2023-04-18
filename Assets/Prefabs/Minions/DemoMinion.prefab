@@ -57,6 +57,7 @@ MonoBehaviour:
   <MoveController>k__BackingField: {fileID: 4932949136714485088}
   <SoundEmitter>k__BackingField: {fileID: 8809048431418530860}
   <SpawnRessourcePoint>k__BackingField: {fileID: 3325237708413377498}
+  <Animator>k__BackingField: {fileID: 3203909175836727963}
   <TargetFarmTower>k__BackingField: {fileID: 0}
   <TargetTower>k__BackingField: {fileID: 0}
 --- !u!114 &4932949136714485088
@@ -184,7 +185,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 2050307877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 193112
+  m_InstanceId: 98674
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +282,7 @@ Animator:
   m_GameObject: {fileID: 3203909175836727965}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2ff913a99b004548bf18d37e71f6042, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

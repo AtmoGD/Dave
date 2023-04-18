@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  amplitudeMultiplier: 1.2
+  amplitudeMultiplier: 0.9
   shakeFrequency:
     serializedVersion: 2
     m_Curve:
@@ -62,7 +62,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  frequencyMultiplier: 15
+  frequencyMultiplier: 25
   useFallOff: 1
   fallOff:
     serializedVersion: 2

@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public EnemyAttacking AttackingState { get; private set; } = new EnemyAttacking();
     public EnemyGetHit GetHitState { get; private set; } = new EnemyGetHit();
 
-    public LevelManager LevelManager { get; private set; } = null;
+    // public LevelManager LevelManager { get; private set; } = null;
     public Transform Target { get; set; } = null;
 
     bool active = false;
@@ -36,8 +36,8 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health = Data.health;
         Damage = Data.damage;
-        LevelManager = LevelManager.Instance;
-        LevelManager.AddEnemy(this);
+        // LevelManager = LevelManager.Instance;
+        LevelManager.Instance.AddEnemy(this);
 
         ChangeState(IdleState);
 
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void OnDisable()
     {
-        LevelManager.RemoveEnemy(this);
+        LevelManager.Instance.RemoveEnemy(this);
 
         active = false;
     }
@@ -111,24 +111,36 @@ public class Enemy : MonoBehaviour, IDamagable
 
         float nearestDistance = Mathf.Infinity;
 
-        foreach (Tower tower in _tower)
+        print(_tower.Count);
+        if (_tower.Count == 0) return null;
+
+        for (int i = 0; i < _tower.Count; i++)
         {
-            float distance = Vector3.Distance(transform.position, tower.transform.position);
+            float distance = Vector3.Distance(transform.position, _tower[i].transform.position);
 
             if (distance < nearestDistance)
             {
                 nearestDistance = distance;
-                nearestTower = tower;
+                nearestTower = _tower[i];
             }
         }
+
+        // foreach (Tower tower in _tower)
+        // {
+        //     float distance = Vector3.Distance(transform.position, tower.transform.position);
+
+        //     if (distance < nearestDistance)
+        //     {
+        //         nearestDistance = distance;
+        //         nearestTower = tower;
+        //     }
+        // }
 
         return nearestTower;
     }
 
     public void Attack()
     {
-        print("Attack");
-
         ApplyDamage();
     }
 

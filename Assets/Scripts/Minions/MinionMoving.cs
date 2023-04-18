@@ -29,7 +29,20 @@ public class MinionMoving : MinionState
         base.FrameUpdate();
 
         minion.MoveController.Move();
+
+        minion.Animator.SetFloat("Velocity", 1f);
+
+        Flip();
     }
+
+    public void Flip()
+    {
+        float targetX = minion.MoveController.TargetPosition.x > minion.transform.position.x ? 1f : -1f;
+        float currentX = minion.transform.localScale.x;
+        float newX = Mathf.Lerp(currentX, targetX, minion.Data.flipSpeed * Time.deltaTime);
+        minion.transform.localScale = new Vector3(newX, 1f, 1f);
+    }
+
 
     public override void PhysicsUpdate()
     {

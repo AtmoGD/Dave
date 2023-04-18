@@ -26,6 +26,8 @@ public class MinionDelivering : MinionState
             minion.TargetTower = minion.TargetFarmTower;
             minion.ChangeState(minion.MovingState);
         }
+
+        minion.Animator.SetFloat("Velocity", 0f);
     }
 
     public void DeliverResource()

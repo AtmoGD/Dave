@@ -43,6 +43,8 @@ public class MinionFarming : MinionState
                 Debug.Log("No Crystal");
             }
         }
+
+        minion.Animator.SetFloat("Velocity", 0f);
     }
 
     public override void PhysicsUpdate()
