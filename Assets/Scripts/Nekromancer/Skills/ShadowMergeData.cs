@@ -11,6 +11,8 @@ public class ShadowMergeData : SkillData
     public int stackSize = 3;
     public LayerMask collisionMask;
     public float collisionRadius = 0.5f;
+    public GameObject shadowMergePrefab = null;
+    public Vector2 mergePrefabOffset = Vector2.zero;
 
     public override bool CanBeUsed(Nekromancer _nekromancer)
     {

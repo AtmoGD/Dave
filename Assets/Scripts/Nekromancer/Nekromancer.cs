@@ -43,6 +43,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     #region Private Variables
     private PlayerController playerController = null;
     private InputData currentInput = null;
+    private bool isInputBlocked = false;
     private Skill baseSkill = null;
     private Skill baseChargeSkill = null;
     private Skill firstSkill = null;
@@ -54,6 +55,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     #endregion
 
     #region Properties
+    public bool IsInputBlocked { get => isInputBlocked; set => isInputBlocked = value; }
     private LevelManager levelManager { get; set; }
     public LevelManager LevelManager
     {
@@ -127,7 +129,8 @@ public class Nekromancer : MonoBehaviour, IDamagable
 
         if (!InputController || blocked) return;
 
-        currentInput = InputController.InputData;
+        if (!isInputBlocked)
+            currentInput = InputController.InputData;
 
         if (LevelManager.CurrentCycleState != null && LevelManager.CurrentCycleState.Cycle == Cycle.Day)
             CheckInteraction();

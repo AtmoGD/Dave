@@ -18,6 +18,19 @@ public class ShadowMerge : Skill
         nekromancer.col.isTrigger = true;
 
         CheckTargetPosition();
+
+        nekromancer.IsInputBlocked = true;
+        nekromancer.CurrentInput.MoveDir = Vector2.zero;
+
+        nekromancer.skinAnimator.gameObject.SetActive(false);
+
+        nekromancer.rb.velocity = Vector2.zero;
+
+        Vector2 origin = nekromancer.transform.position + (Vector3)shadowMergeData.mergePrefabOffset;
+        Vector2 target = origin + ((Vector2)direction * distanceLeft);
+
+        GameObject shadowMergeOrigin = GameObject.Instantiate(shadowMergeData.shadowMergePrefab, origin, Quaternion.identity);
+        GameObject shadowMergeTarget = GameObject.Instantiate(shadowMergeData.shadowMergePrefab, target, Quaternion.identity);
     }
 
     public override void FrameUpdate(float _deltaTime)
@@ -44,6 +57,10 @@ public class ShadowMerge : Skill
     public override void Exit()
     {
         nekromancer.col.isTrigger = false;
+
+        nekromancer.IsInputBlocked = false;
+
+        nekromancer.skinAnimator.gameObject.SetActive(true);
 
         base.Exit();
     }
