@@ -14,6 +14,13 @@ public class ShootTower : AttackTower
     {
         fireTimer -= Time.deltaTime;
 
+        //Remove inactive enemies
+        for (int i = enemiesInRange.Count - 1; i >= 0; i--)
+        {
+            if (!enemiesInRange[i].gameObject.activeSelf)
+                enemiesInRange.RemoveAt(i);
+        }
+
         if (enemiesInRange.Count > 0 && fireTimer <= 0f)
             Shoot();
     }
