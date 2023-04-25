@@ -14,6 +14,10 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController endGameMenu = null;
     [SerializeField] private UIMenuController gameOverUI = null;
     [SerializeField] private UIMenuController chooseLevelUI = null;
+    [SerializeField] private UIMenuController titlescreenUI = null;
+    [SerializeField] private UIMenuController chooseDataPathUI = null;
+    [SerializeField] private UIMenuController creditsUI = null;
+    [SerializeField] private UIMenuController optionsUI = null;
     [SerializeField] private GameObject GatheredRessourcesContent = null;
     [SerializeField] private GameObject GatheredRessourcePrefab = null;
     [SerializeField] private UIMenuController gameLostUI = null;
