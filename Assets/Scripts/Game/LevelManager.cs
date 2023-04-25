@@ -61,6 +61,7 @@ public class LevelManager : MonoBehaviour
     {
         WorldGrid.Instance.LoadLevel();
 
+        GatherRessource(LevelData.startRessources);
 
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);

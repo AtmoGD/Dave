@@ -22,55 +22,20 @@ MonoBehaviour:
     amount: 1
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
     amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
-  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 1
   size: {x: 1, y: 1}
   prefab: {fileID: 3203909175382115269, guid: 5fc6d5ee246128d4597f6d9ea79f33e0, type: 3}
   preview: {fileID: 0}
   portal: {fileID: 11400000, guid: 7847476167851f543985f04d4e4b761f, type: 2}
   spawnEnemy: {fileID: 8840412572578489673, guid: b0653f3168a03f942ba5f3228e979506, type: 3}
   preferredWork: 0
-  moveSpeed: 10
-  farmSpeed: 6
+  moveSpeed: 12
+  farmSpeed: 2
   buildSpeed: 1
-  deliverSpeed: 0.75
-  carryCapacity: 20
+  deliverSpeed: 1.5
+  carryCapacity: 5
   distanceThreshold: 1.5
   spawnRadiusAroundTower: 3
+  flipSpeed: 5
   chanceToTurnIntoPortal:
     serializedVersion: 2
     m_Curve:

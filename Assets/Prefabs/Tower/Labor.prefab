@@ -454,7 +454,6 @@ GameObject:
   - component: {fileID: 701380788807390276}
   - component: {fileID: 9140802686605074086}
   - component: {fileID: 4136788109989809860}
-  - component: {fileID: 5090887948852923369}
   m_Layer: 8
   m_Name: Labor
   m_TagString: Untagged
@@ -576,19 +575,6 @@ MonoBehaviour:
   - {fileID: 8044632968314233126}
   - {fileID: 499533432429628838}
   damageVisualizerPrefab: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
---- !u!114 &5090887948852923369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2970626068462225346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a013fe1043fbc84439a379dcee71e854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portalParticles: {fileID: 0}
 --- !u!1 &4091710019628846587
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +869,7 @@ MonoBehaviour:
   - {x: -0.1355319, y: -1.3367043, z: 0}
   m_ShapePathHash: 1999724912
   m_Mesh: {fileID: 0}
-  m_InstanceId: 95090
+  m_InstanceId: 164804
 --- !u!1 &6132006319296102695
 GameObject:
   m_ObjectHideFlags: 0

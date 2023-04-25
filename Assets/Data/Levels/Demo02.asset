@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec74cb2d6ebbe349932101d5b77fb27, type: 3}
   m_Name: Demo02
   m_EditorClassIdentifier: 
+  startRessources:
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 40
   cycleStates:
   - cycle: 0
     duration: 45

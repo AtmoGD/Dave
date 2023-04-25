@@ -19,6 +19,7 @@ public class PlacedObject
 [CreateAssetMenu(fileName = "Level", menuName = "Game/Level"), Serializable]
 public class LevelData : ScriptableObject
 {
+    [SerializeField] public List<CollectedRessource> startRessources = new List<CollectedRessource>();
     [SerializeField] public List<CycleState> cycleStates = new List<CycleState>();
     [SerializeField] public List<CycleState> cycleStatesLateGame = new List<CycleState>();
     [SerializeField] public Vector2Int levelSize = new Vector2Int(10, 10);

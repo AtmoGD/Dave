@@ -52,5 +52,5 @@ MonoBehaviour:
   preview: {fileID: 4587961254155360883, guid: f148cabfceee9644ba00418a0d525628, type: 3}
   health: 100
   buildTime: 5
-  damage: 7
-  attackSpeed: 2
+  damage: 13
+  attackSpeed: 3

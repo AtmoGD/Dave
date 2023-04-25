@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec74cb2d6ebbe349932101d5b77fb27, type: 3}
   m_Name: DemoLevel
   m_EditorClassIdentifier: 
+  startRessources:
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 40
   cycleStates:
   - cycle: 0
     duration: 40
@@ -128,3 +131,4 @@ MonoBehaviour:
   - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
     gridPosition: {x: 20, y: 67}
   levelPrefab: {fileID: 4656439448969638968, guid: c8247b23e540ed140982807c024e7e00, type: 3}
+  NekromancerSpawnPosition: {x: 0, y: 0}

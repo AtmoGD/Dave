@@ -364,7 +364,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 8840412572527688727}
   <DropRessources>k__BackingField:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 5
+    amount: 2
 --- !u!50 &8840412572578489679
 Rigidbody2D:
   serializedVersion: 4
