@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.8
-    - _Flatten: 0.61
+    - _Flatten: 0.3
     - _NoiseScale: 80
     - _StepThreshold: 0.5
     - _VoronoiScale: 10

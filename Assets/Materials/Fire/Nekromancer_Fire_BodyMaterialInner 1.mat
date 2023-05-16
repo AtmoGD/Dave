@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Nekromancer_Fire_BodyMaterialInner
+  m_Name: Nekromancer_Fire_BodyMaterialInner 1
   m_Shader: {fileID: -6465566751694194690, guid: 3ff0b5d48f0a34a4c876431bf17237fa, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,11 +43,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.8
-    - _Flatten: 0.9
+    - _Flatten: 0.5
     - _NoiseScale: 40
     - _StepThreshold: 0.5
     - _VoronoiScale: 10
     m_Colors:
     - _BaseColor: {r: 1.9663254, g: 1.9766746, b: 0.37256694, a: 1}
-    - _Speed: {r: 0, g: -0.2, b: 0, a: 0}
+    - _Speed: {r: 0, g: -0.25, b: 0, a: 0}
   m_BuildTextureStacks: []
