@@ -297,6 +297,12 @@ public class Nekromancer : MonoBehaviour, IDamagable
         }
     }
 
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+        CurrentInput.MoveDir = Vector2.zero;
+    }
+
     public void Look()
     {
         Vector2 lookDirection = GetLookDirection();
@@ -304,7 +310,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
         if (lookDirection.magnitude < stats.lookThreshold) return;
 
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rotation = Quaternion.Slerp(Model.rotation, rotation, stats.lookSpeed * Time.deltaTime);
 
         Model.rotation = rotation;

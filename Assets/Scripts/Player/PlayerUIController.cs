@@ -14,6 +14,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController endGameMenu = null;
     [SerializeField] private UIMenuController gameOverUI = null;
     [SerializeField] private UIMenuController chooseLevelUI = null;
+    [SerializeField] private UIMenuController ritualUI = null;
     [SerializeField] private UIMenuController titlescreenUI = null;
     [SerializeField] private UIMenuController chooseDataPathUI = null;
     [SerializeField] private UIMenuController creditsUI = null;
@@ -91,6 +92,11 @@ public class PlayerUIController : MonoBehaviour
     public void OpenChooseLevelMenu()
     {
         OpenMenu(chooseLevelUI);
+    }
+
+    public void OpenRitualMenu()
+    {
+        OpenMenu(ritualUI);
     }
 
     public void NextItem(InputAction.CallbackContext _context)

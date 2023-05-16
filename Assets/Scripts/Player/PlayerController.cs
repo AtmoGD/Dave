@@ -208,6 +208,15 @@ public class PlayerController : MonoBehaviour
         if (!stoppedTime) LevelManager.Instance.StopTime();
     }
 
+    public void OpenRitualMenu(InputData _input = null)
+    {
+        UIController.OpenRitualMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
     public void OpenGameLostMenu(InputData _input = null)
     {
         UIController.OpenGameLostMenu();

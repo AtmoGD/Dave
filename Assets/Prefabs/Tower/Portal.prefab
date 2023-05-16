@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11950712771671108}
   m_LocalRotation: {x: -0, y: -0, z: 0.3381882, w: -0.94107854}
-  m_LocalPosition: {x: -0.0981, y: 0.0871, z: 0}
+  m_LocalPosition: {x: 0.207, y: 0.438, z: 0}
   m_LocalScale: {x: 1.4042168, y: 0.8538161, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   - {x: -0.37961578, y: 0.5129967, z: 0}
   m_ShapePathHash: 298243125
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292344
+  m_InstanceId: 222476
 --- !u!1 &205731980977348689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,7 +6196,7 @@ MonoBehaviour:
   - {x: 1.1458321, y: -0.5083866, z: 0}
   m_ShapePathHash: -1668852187
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292366
+  m_InstanceId: 222498
 --- !u!1 &2970626068462225346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6210,7 +6210,7 @@ GameObject:
   - component: {fileID: 9140802686605074086}
   - component: {fileID: 138631925603663126}
   - component: {fileID: 4136788109989809860}
-  - component: {fileID: 5090887948852923369}
+  - component: {fileID: 1218138920890789710}
   m_Layer: 8
   m_Name: Portal
   m_TagString: Untagged
@@ -6350,7 +6350,7 @@ MonoBehaviour:
   - {x: 1.5901989, y: -0.08391857, z: 0}
   m_ShapePathHash: 664214446
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292252
+  m_InstanceId: 222382
 --- !u!114 &4136788109989809860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6374,7 +6374,7 @@ MonoBehaviour:
   - {fileID: 8044632968314233126}
   - {fileID: 499533432429628838}
   damageVisualizerPrefab: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
---- !u!114 &5090887948852923369
+--- !u!114 &1218138920890789710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6383,10 +6383,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2970626068462225346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a013fe1043fbc84439a379dcee71e854, type: 3}
+  m_Script: {fileID: 11500000, guid: 18a9038b041b7cf4b93eaa21a6c28db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalParticles: {fileID: 5898648446655110213}
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1218138920890789710}
+        m_TargetAssemblyTypeName: BuildingEnterController, Assembly-CSharp
+        m_MethodName: OpenLevelMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  particles: {fileID: 5898648446655110213}
 --- !u!1 &3073450464354493456
 GameObject:
   m_ObjectHideFlags: 0
@@ -11383,7 +11398,7 @@ MonoBehaviour:
   - {x: 0.40963745, y: -0.94612503, z: 0}
   m_ShapePathHash: 1176743573
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292486
+  m_InstanceId: 222616
 --- !u!1 &3954564964831612207
 GameObject:
   m_ObjectHideFlags: 0
@@ -11674,7 +11689,7 @@ MonoBehaviour:
   - {x: -1.7989445, y: -0.030857086, z: 0}
   m_ShapePathHash: 409663189
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292418
+  m_InstanceId: 222548
 --- !u!1 &4662536373027366840
 GameObject:
   m_ObjectHideFlags: 0
@@ -12243,7 +12258,7 @@ MonoBehaviour:
   - {x: 2.0611, y: 0.0023059845, z: 0}
   m_ShapePathHash: 2107424285
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292528
+  m_InstanceId: 222658
 --- !u!1 &6117813697894024707
 GameObject:
   m_ObjectHideFlags: 0
@@ -12544,7 +12559,7 @@ MonoBehaviour:
   - {x: -1.3015156, y: 0.27423096, z: 0}
   m_ShapePathHash: -1390203355
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292454
+  m_InstanceId: 222584
 --- !u!1 &7808419735494569681
 GameObject:
   m_ObjectHideFlags: 0
@@ -13156,7 +13171,7 @@ MonoBehaviour:
   - {x: -0.021467209, y: -1.1318321, z: 0}
   m_ShapePathHash: -656554283
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292340
+  m_InstanceId: 222472
 --- !u!1001 &1197548457384561463
 PrefabInstance:
   m_ObjectHideFlags: 0

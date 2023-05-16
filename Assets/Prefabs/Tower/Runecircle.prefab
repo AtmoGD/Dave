@@ -5081,7 +5081,7 @@ MonoBehaviour:
   - {x: 0.2328546, y: 0.37901878, z: 0}
   m_ShapePathHash: -1276566351
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62654
+  m_InstanceId: -473074
 --- !u!1 &92841184941951093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5896,8 +5896,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 998530805
-  m_SortingLayer: 1
+  m_SortingLayerID: -199049563
+  m_SortingLayer: 2
   m_SortingOrder: 22
   m_Sprite: {fileID: 21300000, guid: 8ea39bd75837b7645aff991dfa18025a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6642,7 +6642,7 @@ MonoBehaviour:
   - {x: 2.1538558, y: -0.73806304, z: 0}
   m_ShapePathHash: 1142344512
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62682
+  m_InstanceId: -473104
 --- !u!1 &2448791341359943906
 GameObject:
   m_ObjectHideFlags: 0
@@ -6714,8 +6714,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 998530805
-  m_SortingLayer: 1
+  m_SortingLayerID: -199049563
+  m_SortingLayer: 2
   m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: 809ac10ed5c2e4c4d8357d6f07de04ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6755,8 +6755,8 @@ GameObject:
   - component: {fileID: 701380788807390276}
   - component: {fileID: 9140802686605074086}
   - component: {fileID: 4136788109989809860}
-  - component: {fileID: 5090887948852923369}
   - component: {fileID: 4111434070406703441}
+  - component: {fileID: 2972259536274083906}
   m_Layer: 8
   m_Name: Runecircle
   m_TagString: Untagged
@@ -6773,8 +6773,8 @@ Transform:
   m_GameObject: {fileID: 2970626068462225346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8827164927018188032}
   - {fileID: 3177936597871403656}
@@ -6898,19 +6898,6 @@ MonoBehaviour:
   - {fileID: 8044632968314233126}
   - {fileID: 499533432429628838}
   damageVisualizerPrefab: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
---- !u!114 &5090887948852923369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2970626068462225346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a013fe1043fbc84439a379dcee71e854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portalParticles: {fileID: 5898648446655110213}
 --- !u!114 &4111434070406703441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6932,6 +6919,34 @@ MonoBehaviour:
   maxIntensity: 0.4
   minDistance: 1
   maxDistance: 9
+--- !u!114 &2972259536274083906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970626068462225346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a9038b041b7cf4b93eaa21a6c28db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2972259536274083906}
+        m_TargetAssemblyTypeName: BuildingEnterController, Assembly-CSharp
+        m_MethodName: OpenRitualMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  particles: {fileID: 5898648446655110213}
 --- !u!1 &3073450464354493456
 GameObject:
   m_ObjectHideFlags: 0
@@ -12029,7 +12044,7 @@ MonoBehaviour:
   - {x: 0.29479924, y: -1.7244728, z: 0}
   m_ShapePathHash: -27837703
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62846
+  m_InstanceId: -473098
 --- !u!1 &3954564964831612207
 GameObject:
   m_ObjectHideFlags: 0
@@ -12320,7 +12335,7 @@ MonoBehaviour:
   - {x: -1.7096261, y: -0.5093496, z: 0}
   m_ShapePathHash: -1586802171
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62758
+  m_InstanceId: -473080
 --- !u!1 &4543984231775103318
 GameObject:
   m_ObjectHideFlags: 0
@@ -12697,8 +12712,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 998530805
-  m_SortingLayer: 1
+  m_SortingLayerID: -199049563
+  m_SortingLayer: 2
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 046ad75372ebf964f8abcbbc7321f9aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13501,7 +13516,7 @@ MonoBehaviour:
   - {x: -2.0543437, y: -0.5296364, z: 0}
   m_ShapePathHash: -653769579
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62804
+  m_InstanceId: -473086
 --- !u!1 &6786102280613262308
 GameObject:
   m_ObjectHideFlags: 0
@@ -14335,7 +14350,7 @@ MonoBehaviour:
   - {x: -1.6483417, y: -0.3598643, z: 0}
   m_ShapePathHash: -997017324
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62650
+  m_InstanceId: -473092
 --- !u!1001 &1197548457384561463
 PrefabInstance:
   m_ObjectHideFlags: 0
