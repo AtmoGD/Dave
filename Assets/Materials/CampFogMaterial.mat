@@ -39,10 +39,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _LerpSpeed: 0.3
-    - _NoiseLerpSpeed: 0.2
+    - _NoiseLerpSpeed: 0.5
     - _NoiseScale: 200
     - _Rotaion: 1
-    - _SecondNoiseScale: 400
+    - _SecondNoiseScale: 500
     - _SecondVoronoyDensity: 1
     - _SmallVoronoiDensity: 25
     - _Variety: 0.5
@@ -50,6 +50,6 @@ Material:
     - _VoronoiLerpSpeed: 0.6
     - _VoronoiRotaionSpeed: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 0.73039955, b: 0.31760997, a: 0}
-    - _MoveSpeed: {r: 0.0008, g: 0.0006, b: 0, a: 0}
+    - _Color: {r: 1.2842244, g: 0.27257654, b: 1.8640718, a: 0}
+    - _MoveSpeed: {r: 0.0005, g: 0.0006, b: 0, a: 0}
   m_BuildTextureStacks: []

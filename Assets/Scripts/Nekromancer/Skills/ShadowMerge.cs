@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShadowMerge : Skill
 {
     private ShadowMergeData shadowMergeData = null;
+    private Vector2 lastInput = Vector2.zero;
     private Vector3 direction = Vector3.zero;
     private float distanceLeft = 0f;
 
@@ -14,7 +15,8 @@ public class ShadowMerge : Skill
 
         shadowMergeData = (ShadowMergeData)_skillData;
 
-        direction = nekromancer.CurrentInput.MoveDir.normalized;
+        lastInput = nekromancer.CurrentInput.MoveDir;
+        direction = lastInput.normalized;
         // nekromancer.Cols.ForEach(x => x.isTrigger = true);#
         nekromancer.col.enabled = false;
         nekromancer.col.isTrigger = true;
@@ -58,6 +60,8 @@ public class ShadowMerge : Skill
 
     public override void Exit()
     {
+        nekromancer.CurrentInput.MoveDir = lastInput;
+
         nekromancer.col.isTrigger = false;
         nekromancer.col.enabled = true;
         // nekromancer.Cols.ForEach(x => { x.isTrigger = false;  x.enabled = true; });

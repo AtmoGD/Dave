@@ -1329,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
+      propertyPath: m_InstanceId
+      value: -1097206
+      objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
       value: Nekromancer
