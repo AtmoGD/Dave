@@ -37,7 +37,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _FresnelPower: 2
+    - _LerpOffset: 8
+    - _LerpSpeed: 0.1
+    - _SmallNoiseScale: 40
+    - _VoronoiDensity: 4
     m_Colors:
-    - _Color: {r: 1.1946241, g: 1.7167332, b: 0.15385814, a: 1}
+    - _Color: {r: 0.18469268, g: 0.7252566, b: 0.10360809, a: 1}
+    - _SmallNoiseSpeed: {r: -0.01, g: -0.005, b: 0, a: 0}
+    - _VoronoiSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _WaveColor: {r: 0.65350926, g: 1.9766746, b: 0.18628347, a: 0}
   m_BuildTextureStacks: []
