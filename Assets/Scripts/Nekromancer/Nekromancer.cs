@@ -15,6 +15,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
     [SerializeField] public Collider2D col = null;
     // [field: SerializeField] public List<Collider2D> Cols { get; private set; } = new List<Collider2D>();
     [SerializeField] public Animator skinAnimator = null;
+    [SerializeField] public Animator handAnimator = null;
     [field: SerializeField] public Transform Model { get; private set; } = null;
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;

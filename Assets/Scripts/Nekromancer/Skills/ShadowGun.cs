@@ -114,6 +114,8 @@ public class ShadowGun : Skill
         bullet.Nekromancer = nekromancer;
         bullet.UpdateBaseDamage(nekromancer.Damage, nekromancer.gameObject);
 
+        nekromancer.handAnimator.SetTrigger((currentGun == 0 ? "HandLeftShoot" : "HandRightShoot"));
+
         Cooldown cooldown;
         if (_charged)
         {
