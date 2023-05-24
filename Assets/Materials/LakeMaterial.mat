@@ -41,11 +41,11 @@ Material:
     - _FresnelPower: 2
     - _LerpOffset: 8
     - _LerpSpeed: 0.1
-    - _SmallNoiseScale: 40
-    - _VoronoiDensity: 4
+    - _SmallNoiseScale: 30
+    - _VoronoiDensity: 2
     m_Colors:
-    - _Color: {r: 0.18469268, g: 0.7252566, b: 0.10360809, a: 1}
-    - _SmallNoiseSpeed: {r: -0.01, g: -0.005, b: 0, a: 0}
+    - _Color: {r: 1.0978664, g: 1.6971121, b: 0.15209962, a: 1}
+    - _SmallNoiseSpeed: {r: -0.005, g: -0.005, b: 0, a: 0}
     - _VoronoiSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
-    - _WaveColor: {r: 0.65350926, g: 1.9766746, b: 0.18628347, a: 0}
+    - _WaveColor: {r: 0.4433962, g: 0.4433962, b: 0.05228728, a: 0}
   m_BuildTextureStacks: []
