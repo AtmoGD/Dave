@@ -23,6 +23,12 @@ public class CampManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(NekromancerSpawnPosition, new Vector3(1, 1, 0));
+    }
+
     // public void Start()
     // {
     //     if (chooseLevelUI) chooseLevelUI.SetActive(false);
