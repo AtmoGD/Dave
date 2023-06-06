@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Follow: {fileID: 4807954931287481406}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 15
     Dutch: 0
@@ -1329,10 +1329,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
-      propertyPath: m_InstanceId
-      value: -1097206
-      objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
       value: Nekromancer
@@ -1442,6 +1438,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2302242881104226390, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2753832261629008868, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1462,9 +1462,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2827354683889130903, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012588501
+      objectReference: {fileID: 0}
     - target: {fileID: 3305570913695704313, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462693136007283869, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_fontSize
+      value: 67.7
       objectReference: {fileID: 0}
     - target: {fileID: 3703902996179825318, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1501,6 +1509,14 @@ PrefabInstance:
     - target: {fileID: 5181376183649868551, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181376183649868551, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012397766
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706078192350263317, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863333708625832166, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchorMax.y
