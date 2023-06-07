@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using FMODUnity;
 public class PlayerUIController : MonoBehaviour
 {
     [field: SerializeField] public PlayerController Player { get; private set; } = null;
+
+    [SerializeField] private FMODUnity.StudioEventEmitter titleScreenMusic = null;
 
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
@@ -15,7 +17,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController gameOverUI = null;
     [SerializeField] private UIMenuController chooseLevelUI = null;
     [SerializeField] private UIMenuController ritualUI = null;
-    [SerializeField] private UIMenuController titlescreenUI = null;
+    [SerializeField] public UIMenuController titlescreenUI = null;
     [SerializeField] private UIMenuController chooseDataPathUI = null;
     [SerializeField] private UIMenuController creditsUI = null;
     [SerializeField] private UIMenuController optionsUI = null;
@@ -97,6 +99,13 @@ public class PlayerUIController : MonoBehaviour
     public void OpenRitualMenu()
     {
         OpenMenu(ritualUI);
+    }
+
+    public void OpenTitleScreen()
+    {
+        OpenMenu(titlescreenUI);
+        print("OpenTitleScreen");
+        titleScreenMusic.Play();
     }
 
     public void NextItem(InputAction.CallbackContext _context)

@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
         Nekromancer.Init(this);
 
         StartCombatMode();
+
+        if (GameManager.Instance.GameState == GameState.MainMenu)
+            UIController.OpenTitleScreen();
     }
 
     public void LoadData(string _path)
@@ -229,6 +232,15 @@ public class PlayerController : MonoBehaviour
     public void OpenEndGameMenu()
     {
         UIController.OpenEndGameMenu();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
+    public void OpenTitleScreenMenu()
+    {
+        UIController.OpenTitleScreen();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
 

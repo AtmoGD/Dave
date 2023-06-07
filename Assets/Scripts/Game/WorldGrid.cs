@@ -144,6 +144,12 @@ public class WorldGrid : MonoBehaviour
     [ExecuteAlways]
     public void LoadLevel()
     {
+        if (GameManager.Instance.GameState == GameState.MainMenu)
+        {
+            DeleteAllChildren();
+            return;
+        }
+
         DeleteAllChildren();
         CreateGrid();
         PlaceLevelObjects();

@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
     {
         WorldGrid.Instance.DeleteAllChildren();
         gameState = _state;
+
+        // if (gameState == GameState.MainMenu)
+        //     PlayerController.UIController.OpenMenu(PlayerController.UIController.titlescreenUI);
     }
 
     public void ReloadScene(InputAction.CallbackContext _context)
