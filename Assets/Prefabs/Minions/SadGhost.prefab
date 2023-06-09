@@ -178,7 +178,7 @@ MonoBehaviour:
       Data2: 1282303052
       Data3: 1489000378
       Data4: 750395603
-    Path: event:/Monster/MONSTER_TripleHead_Walk
+    Path: event:/MONSTER/TripleHead/MONSTER_TripleHead_Move
   Event: 
   PlayEvent: 0
   StopEvent: 12

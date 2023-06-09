@@ -148,7 +148,7 @@ MonoBehaviour:
       Data2: 1282303052
       Data3: 1489000378
       Data4: 750395603
-    Path: event:/Monster/MONSTER_TripleHead_Walk
+    Path: event:/MONSTER/TripleHead/MONSTER_TripleHead_Move
   Event: 
   PlayEvent: 0
   StopEvent: 12
@@ -185,7 +185,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 2050307877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 98674
+  m_InstanceId: 323788
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0
