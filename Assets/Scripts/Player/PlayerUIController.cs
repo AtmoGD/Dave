@@ -38,6 +38,14 @@ public class PlayerUIController : MonoBehaviour
         minionMenu.SetIsActive(false);
     }
 
+# if UNITY_WEBGL
+    private void Update()
+    {
+        if (currentMenu == titlescreenUI && !titleScreenMusic.IsPlaying())
+            titleScreenMusic.Play();
+    }
+# endif
+
     public void OpenMenu(UIMenuController _menu)
     {
         _menu.SetIsActive(true);
