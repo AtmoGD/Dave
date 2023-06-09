@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         StartCombatMode();
 
         if (GameManager.Instance.GameState == GameState.MainMenu)
-            UIController.OpenTitleScreen();
+            OpenTitleScreenMenu();
     }
 
     public void LoadData(string _path)

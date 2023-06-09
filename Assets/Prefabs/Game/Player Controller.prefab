@@ -1329,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
+      propertyPath: m_InstanceId
+      value: -196204
+      objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
       value: Nekromancer
@@ -1468,7 +1472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827354683889130903, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000099658966
+      value: 0.00011873245
       objectReference: {fileID: 0}
     - target: {fileID: 2827354683889130903, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1516,7 +1520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181376183649868551, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000099658966
+      value: 0.00011873245
       objectReference: {fileID: 0}
     - target: {fileID: 5181376183649868551, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.y
