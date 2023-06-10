@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class GameUIController : MonoBehaviour
 {
     [SerializeField] private Animator loadingScreen = null;
+    [SerializeField] private float campLevelDelay = 1f;
 
     public void StartLoadGame()
     {
@@ -22,5 +23,16 @@ public class GameUIController : MonoBehaviour
     {
         GameManager.Instance.ChangeGameState(GameState.Camp);
         StartLoadGame();
+    }
+
+    public void StartCampLevelWithDelay()
+    {
+        StartCoroutine(StartCampLevelWithDelay(campLevelDelay));
+    }
+
+    IEnumerator StartCampLevelWithDelay(float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        StartCampLevel();
     }
 }
