@@ -80,6 +80,8 @@ public class LevelManager : MonoBehaviour
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 
+
+
     public void GatherRessource(CollectedRessource _ressource)
     {
         if (GameEnded) return;

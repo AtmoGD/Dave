@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public enum GameState
 {
@@ -19,6 +20,11 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
+    [SerializeField] private float nightMusicOffset = 4f;
+    [SerializeField] private float menuMusicOffset = 4f;
+    [SerializeField] private FMODUnity.StudioEventEmitter levelMusic = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter campMusic = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter menuMusic = null;
     public Vector2 SpawnPosition
     {
         get
@@ -48,7 +54,8 @@ public class GameManager : MonoBehaviour
 
     GridElement lastHoveredGridElement = null;
 
-    [field: SerializeField] public bool IsPaused { get; private set; } = false;
+    [field: SerializeField] public bool IsPaused { get; set; } = false;
+    [field: SerializeField] public float TimeInGame { get; private set; } = 0f;
 
     private void Awake()
     {
@@ -64,6 +71,13 @@ public class GameManager : MonoBehaviour
         if (dontDestroyOnLoad) DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+        TimeInGame += Time.deltaTime;
+
+        UpdateMusic();
+    }
+
     public void ChangeGameState(GameState _state)
     {
         WorldGrid.Instance.DeleteAllChildren();
@@ -71,6 +85,49 @@ public class GameManager : MonoBehaviour
 
         // if (gameState == GameState.MainMenu)
         //     PlayerController.UIController.OpenMenu(PlayerController.UIController.titlescreenUI);
+    }
+
+    public void UpdateMusic()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", IsPaused ? 1 : 0);
+
+        switch (GameState)
+        {
+            case GameState.MainMenu:
+                if (TimeInGame < menuMusicOffset) break;
+
+                if (levelMusic.IsPlaying())
+                    levelMusic.Stop();
+                if (campMusic.IsPlaying())
+                    campMusic.Stop();
+                if (!menuMusic.IsPlaying())
+                    menuMusic.Play();
+                break;
+            case GameState.Camp:
+                if (levelMusic.IsPlaying())
+                    levelMusic.Stop();
+                if (!campMusic.IsPlaying())
+                    campMusic.Play();
+                if (menuMusic.IsPlaying())
+                    menuMusic.Stop();
+                break;
+            case GameState.Level:
+                if (campMusic.IsPlaying())
+                    campMusic.Stop();
+                if (!levelMusic.IsPlaying())
+                    levelMusic.Play();
+                if (menuMusic.IsPlaying())
+                    menuMusic.Stop();
+
+                if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day &&
+                LevelManager.Instance.CurrentCycleState.TimeLeft > nightMusicOffset)
+                    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 0f);
+                else
+                    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1f);
+
+
+                break;
+        }
     }
 
     public void ReloadScene(InputAction.CallbackContext _context)

@@ -189,6 +189,8 @@ public class PlayerController : MonoBehaviour
 
             PlayerInput.SwitchCurrentActionMap(uiActionMap);
 
+            GameManager.Instance.IsPaused = true;
+
             if (!stoppedTime) LevelManager.Instance.StopTime();
         }
     }
@@ -258,6 +260,9 @@ public class PlayerController : MonoBehaviour
         Nekromancer.ResetInteractable();
 
         PlayerInput.SwitchCurrentActionMap(combatActionMap);
+
+        if (GameManager.Instance.IsPaused)
+            GameManager.Instance.IsPaused = false;
 
         if (stoppedTime) LevelManager.Instance.StartTime();
     }

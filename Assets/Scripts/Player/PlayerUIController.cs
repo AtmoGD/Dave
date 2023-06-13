@@ -7,7 +7,7 @@ public class PlayerUIController : MonoBehaviour
 {
     [field: SerializeField] public PlayerController Player { get; private set; } = null;
 
-    [SerializeField] private FMODUnity.StudioEventEmitter titleScreenMusic = null;
+    // [SerializeField] private FMODUnity.StudioEventEmitter titleScreenMusic = null;
 
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
@@ -38,13 +38,13 @@ public class PlayerUIController : MonoBehaviour
         minionMenu.SetIsActive(false);
     }
 
-# if UNITY_WEBGL
-    private void Update()
-    {
-        if (currentMenu == titlescreenUI && !titleScreenMusic.IsPlaying())
-            titleScreenMusic.Play();
-    }
-# endif
+    // # if UNITY_WEBGL
+    //     private void Update()
+    //     {
+    //         if (currentMenu == titlescreenUI && !titleScreenMusic.IsPlaying())
+    //             titleScreenMusic.Play();
+    //     }
+    // # endif
 
     public void OpenMenu(UIMenuController _menu)
     {
@@ -112,8 +112,8 @@ public class PlayerUIController : MonoBehaviour
     public void OpenTitleScreen()
     {
         OpenMenu(titlescreenUI);
-        print("OpenTitleScreen");
-        titleScreenMusic.Play();
+        // print("OpenTitleScreen");
+        // titleScreenMusic.Play();
     }
 
     public void NextItem(InputAction.CallbackContext _context)
