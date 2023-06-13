@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
-    [SerializeField] private float nightMusicOffset = 4f;
+    // [SerializeField] private float nightMusicOffset = 4f;
     [SerializeField] private float menuMusicOffset = 4f;
     [SerializeField] private FMODUnity.StudioEventEmitter levelMusic = null;
     [SerializeField] private FMODUnity.StudioEventEmitter campMusic = null;
@@ -126,13 +126,10 @@ public class GameManager : MonoBehaviour
                 if (menuMusic.IsPlaying())
                     menuMusic.Stop();
 
-                if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day &&
-                LevelManager.Instance.CurrentCycleState.TimeLeft > nightMusicOffset)
-                    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 0f);
+                if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day)
+                    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1 - LevelManager.Instance.CurrentCycleState.PercentOfTimeLeft);
                 else
                     FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1f);
-
-
                 break;
         }
     }
