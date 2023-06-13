@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec74cb2d6ebbe349932101d5b77fb27, type: 3}
+  m_Name: Demo03
+  m_EditorClassIdentifier: 
+  startRessources:
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 40
+  cycleStates:
+  - cycle: 0
+    duration: 45
+    choosePerk: 0
+  - cycle: 1
+    duration: 10
+    choosePerk: 1
+  - cycle: 0
+    duration: 55
+    choosePerk: 0
+  - cycle: 1
+    duration: 10
+    choosePerk: 1
+  - cycle: 0
+    duration: 65
+    choosePerk: 0
+  - cycle: 1
+    duration: 10
+    choosePerk: 1
+  cycleStatesLateGame:
+  - cycle: 0
+    duration: 75
+    choosePerk: 0
+  - cycle: 1
+    duration: 3
+    choosePerk: 1
+  levelSize: {x: 30, y: 70}
+  placedObjects: []
+  levelPrefab: {fileID: 4656439448969638968, guid: 79dd5ecc9c3fffb40bd39b9fa96042ba, type: 3}
+  NekromancerSpawnPosition: {x: 30, y: 20}

@@ -28,7 +28,7 @@ public class WorldGrid : MonoBehaviour
             if (currentGameManager.GameState == GameState.Camp)
                 return currentCampManager.CampSize;
             else
-                return currentLevelManager.LevelData.levelSize;
+                return GameManager.Instance.CurrentLevelData.levelSize;
         }
     }
 
@@ -171,12 +171,12 @@ public class WorldGrid : MonoBehaviour
             return;
         }
 
-        foreach (PlacedObject placedObject in currentLevelManager.LevelData.placedObjects)
+        foreach (PlacedObject placedObject in GameManager.Instance.CurrentLevelData.placedObjects)
         {
             PlaceObject(placedObject.placeable, placedObject.gridPosition);
         }
 
-        Instantiate(currentLevelManager.LevelData.levelPrefab, backgroundParent);
+        Instantiate(GameManager.Instance.CurrentLevelData.levelPrefab, backgroundParent);
     }
 
     [ExecuteAlways]

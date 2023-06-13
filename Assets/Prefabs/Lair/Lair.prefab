@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4237076047703205436}
   - component: {fileID: 4724295409856932766}
   - component: {fileID: 96185614020915022}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5276445898200676959}
   - component: {fileID: 1421426865507952492}
   - component: {fileID: 4706554569242908950}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2378384060642069734}
   - component: {fileID: 4603343976354092431}
   - component: {fileID: 1200581701564437613}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 2908244113329013196}
   - component: {fileID: 4799854895737177422}
   - component: {fileID: 4069517129476935338}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 5117325979143339449}
   - component: {fileID: 5550488533478770372}
   - component: {fileID: 8546699561752105655}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 4165005504957607931}
   - component: {fileID: 1340670329360061055}
   - component: {fileID: 2475435812976545366}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Stones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 3693968561363015663}
   - component: {fileID: 808886828700813873}
   - component: {fileID: 6286678555787026033}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lair World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4443569051741865327}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,6 +891,18 @@ PrefabInstance:
     - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
       propertyPath: m_Name
       value: Flame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129340350687800414, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176173772066485314, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
@@ -1065,6 +1077,18 @@ PrefabInstance:
     - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
       propertyPath: m_Name
       value: Flame Smaller
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129340350687800414, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176173772066485314, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
@@ -1292,6 +1316,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129340350687800414, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176173772066485314, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
 --- !u!4 &7553547482353532517 stripped
@@ -1517,6 +1553,18 @@ PrefabInstance:
     - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
       propertyPath: m_Name
       value: Torch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819775745412479748, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129340350687800414, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176173772066485314, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397963f6f0b99144a88aa6d0dd4ff3b, type: 3}

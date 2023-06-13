@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [Header("Game Manager")]
     [SerializeField] private bool dontDestroyOnLoad = true;
     [SerializeField] private GameState gameState = GameState.Level;
+    [field: SerializeField] public LevelData CurrentLevelData { get; set; } = null;
+
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
     [SerializeField] private PlayerController playerController = null;
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                return LevelManager.Instance.LevelData.NekromancerSpawnPosition;
+                return CurrentLevelData.NekromancerSpawnPosition;
             }
         }
     }
@@ -76,6 +78,11 @@ public class GameManager : MonoBehaviour
         TimeInGame += Time.deltaTime;
 
         UpdateMusic();
+    }
+
+    public void SetCurrentLevelData(LevelData _levelData)
+    {
+        CurrentLevelData = _levelData;
     }
 
     public void ChangeGameState(GameState _state)

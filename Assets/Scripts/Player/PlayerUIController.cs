@@ -116,6 +116,11 @@ public class PlayerUIController : MonoBehaviour
         // titleScreenMusic.Play();
     }
 
+    public void SetCurrentLevelData(LevelData _levelData)
+    {
+        GameManager.Instance.CurrentLevelData = _levelData;
+    }
+
     public void NextItem(InputAction.CallbackContext _context)
     {
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;

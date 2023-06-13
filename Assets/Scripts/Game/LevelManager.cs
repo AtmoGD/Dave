@@ -10,10 +10,10 @@ public class LevelManager : MonoBehaviour
     public Action AddedTower;
 
 
-    [Header("Level Manager")]
+    // [Header("Level Manager")]
     // private LevelData levelData = null;
-    [SerializeField] private LevelData levelData = null;
-    public LevelData LevelData { get { return levelData; } }
+    // [SerializeField] private LevelData levelData = null;
+    // public LevelData LevelData { get { return levelData; } }
 
     [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
@@ -36,10 +36,10 @@ public class LevelManager : MonoBehaviour
     {
         get
         {
-            if (currentCycle < levelData.cycleStates.Count)
-                return levelData.cycleStates[currentCycle];
+            if (currentCycle < GameManager.Instance.CurrentLevelData.cycleStates.Count)
+                return GameManager.Instance.CurrentLevelData.cycleStates[currentCycle];
             else
-                return levelData.cycleStatesLateGame[currentCycle % levelData.cycleStatesLateGame.Count];
+                return GameManager.Instance.CurrentLevelData.cycleStatesLateGame[currentCycle % GameManager.Instance.CurrentLevelData.cycleStatesLateGame.Count];
         }
     }
 
@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
     {
         WorldGrid.Instance.LoadLevel();
 
-        GatherRessource(LevelData.startRessources);
+        GatherRessource(GameManager.Instance.CurrentLevelData.startRessources);
 
         this.currentCycle = 0;
         this.CurrentCycleState?.Enter(this);
@@ -80,7 +80,10 @@ public class LevelManager : MonoBehaviour
         CurrentCycleState?.FrameUpdate(Time.deltaTime);
     }
 
-
+    public void SetLevelData(LevelData _levelData)
+    {
+        GameManager.Instance.CurrentLevelData = _levelData;
+    }
 
     public void GatherRessource(CollectedRessource _ressource)
     {
@@ -168,7 +171,7 @@ public class LevelManager : MonoBehaviour
 
         this.currentCycle++;
 
-        if (this.currentCycle >= this.levelData.cycleStates.Count)
+        if (this.currentCycle >= GameManager.Instance.CurrentLevelData.cycleStates.Count)
         {
             CrystalFull = true;
         }

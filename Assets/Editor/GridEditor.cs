@@ -141,7 +141,7 @@ public class GridEditor : Editor
                     if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
                     {
                         worldGrid.PlaceObject(PlaceObject, gridPosition);
-                        levelManager.LevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
+                        GameManager.Instance.CurrentLevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
                         Event.current.Use();
                     }
                 }
@@ -165,10 +165,10 @@ public class GridEditor : Editor
                     PlaceableObject placeableObject = gridElement.ObjectOnGrid.GetComponent<PlaceableObject>();
                     if (placeableObject)
                     {
-                        PlacedObject placed = levelManager.LevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
+                        PlacedObject placed = GameManager.Instance.CurrentLevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
                         if (placed != null)
                         {
-                            levelManager.LevelData.placedObjects.Remove(placed);
+                            GameManager.Instance.CurrentLevelData.placedObjects.Remove(placed);
                             DestroyImmediate(placeableObject.gameObject);
                             worldGrid.LoadLevel();
                         }
