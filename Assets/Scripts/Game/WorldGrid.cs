@@ -10,6 +10,9 @@ using Unity.Jobs;
 public class WorldGrid : MonoBehaviour
 {
     public static WorldGrid Instance { get; protected set; }
+    // #if UNITY_EDITOR
+    //     [SerializeField] public GameManager gameManagerRef { get; private set; }
+    // #endif
     [field: SerializeField] public List<GameObject> PlacedObjects { get; private set; } = new List<GameObject>();
     [field: SerializeField] public Transform GridElementsParent { get; private set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; private set; } = null;
@@ -25,10 +28,17 @@ public class WorldGrid : MonoBehaviour
     {
         get
         {
+            // #if UNITY_EDITOR
+            //             if (!gameManagerRef)
+            //                 gameManagerRef = FindObjectOfType<GameManager>();
+
+            //             if (gameManagerRef)
+            //                 return gameManagerRef.CurrentLevelData.levelSize;
+            // #endif
             if (currentGameManager.GameState == GameState.Camp)
                 return currentCampManager.CampSize;
             else
-                return GameManager.Instance.CurrentLevelData.levelSize;
+                return currentGameManager.CurrentLevelData.levelSize;
         }
     }
 
@@ -36,10 +46,10 @@ public class WorldGrid : MonoBehaviour
     {
         get
         {
-            if (!GameManager.Instance)
-                return FindObjectOfType<GameManager>();
-            else
-                return GameManager.Instance;
+            // if (!GameManager.Instance)
+            //     return FindObjectOfType<GameManager>();
+            // else
+            return GameManager.Instance ? GameManager.Instance : FindObjectOfType<GameManager>();
         }
     }
 
@@ -170,13 +180,16 @@ public class WorldGrid : MonoBehaviour
             Instantiate(currentCampManager.campPrefab, backgroundParent);
             return;
         }
+#if UNITY_EDITOR
+#else
+#endif
 
-        foreach (PlacedObject placedObject in GameManager.Instance.CurrentLevelData.placedObjects)
+        foreach (PlacedObject placedObject in currentGameManager.CurrentLevelData.placedObjects)
         {
             PlaceObject(placedObject.placeable, placedObject.gridPosition);
         }
 
-        Instantiate(GameManager.Instance.CurrentLevelData.levelPrefab, backgroundParent);
+        Instantiate(currentGameManager.CurrentLevelData.levelPrefab, backgroundParent);
     }
 
     [ExecuteAlways]

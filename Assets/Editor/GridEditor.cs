@@ -10,6 +10,7 @@ public class GridEditor : Editor
     [field: SerializeField] public bool IsPlacing { get; private set; } = false;
     [field: SerializeField] public bool IsDeleting { get; private set; } = false;
     [SerializeField] private GameObject objectToPlace = null;
+    private bool wasLocked = false;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -64,6 +65,9 @@ public class GridEditor : Editor
                 {
                     IsDeleting = false;
                     objectToPlace = Instantiate(((Placeable)source).prefab, worldGrid.transform);
+
+                    wasLocked = ActiveEditorTracker.sharedTracker.isLocked;
+                    ActiveEditorTracker.sharedTracker.isLocked = true;
                 }
                 else
                 {
@@ -72,6 +76,7 @@ public class GridEditor : Editor
                         DestroyImmediate(objectToPlace);
                         objectToPlace = null;
                     }
+                    ActiveEditorTracker.sharedTracker.isLocked = wasLocked;
                 }
             }
         }
@@ -83,6 +88,13 @@ public class GridEditor : Editor
             if (IsDeleting)
             {
                 IsPlacing = false;
+
+                wasLocked = ActiveEditorTracker.sharedTracker.isLocked;
+                ActiveEditorTracker.sharedTracker.isLocked = true;
+            }
+            else
+            {
+                ActiveEditorTracker.sharedTracker.isLocked = wasLocked;
             }
         }
 
@@ -96,7 +108,7 @@ public class GridEditor : Editor
             GUILayout.Label("DELETING ACTIVE");
         }
 
-        ActiveEditorTracker.sharedTracker.isLocked = IsPlacing || IsDeleting;
+        // ActiveEditorTracker.sharedTracker.isLocked = IsPlacing || IsDeleting;
     }
 
     public void OnSceneGUI()
@@ -141,7 +153,11 @@ public class GridEditor : Editor
                     if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
                     {
                         worldGrid.PlaceObject(PlaceObject, gridPosition);
+#if UNITY_EDITOR
+                        worldGrid.currentGameManager.CurrentLevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
+#else
                         GameManager.Instance.CurrentLevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
+#endif
                         Event.current.Use();
                     }
                 }
@@ -165,10 +181,19 @@ public class GridEditor : Editor
                     PlaceableObject placeableObject = gridElement.ObjectOnGrid.GetComponent<PlaceableObject>();
                     if (placeableObject)
                     {
+#if UNITY_EDITOR
+                        PlacedObject placed = worldGrid.currentGameManager.CurrentLevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
+#else
                         PlacedObject placed = GameManager.Instance.CurrentLevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
+#endif
+
                         if (placed != null)
                         {
+#if UNITY_EDITOR
+                            worldGrid.currentGameManager.CurrentLevelData.placedObjects.Remove(placed);
+#else
                             GameManager.Instance.CurrentLevelData.placedObjects.Remove(placed);
+#endif
                             DestroyImmediate(placeableObject.gameObject);
                             worldGrid.LoadLevel();
                         }
