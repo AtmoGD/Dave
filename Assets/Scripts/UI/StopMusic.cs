@@ -7,13 +7,13 @@ public class StopMusic : MonoBehaviour
 {
     [SerializeField] private StudioEventEmitter musicEmitter = null;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            musicEmitter.Stop();
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         musicEmitter.Stop();
+    //     }
+    // }
 
     public void Stop()
     {
