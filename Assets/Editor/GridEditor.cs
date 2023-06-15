@@ -154,6 +154,7 @@ public class GridEditor : Editor
                     {
                         worldGrid.PlaceObject(PlaceObject, gridPosition);
 #if UNITY_EDITOR
+                        EditorUtility.SetDirty(worldGrid.currentGameManager.CurrentLevelData);
                         worldGrid.currentGameManager.CurrentLevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
 #else
                         GameManager.Instance.CurrentLevelData.placedObjects.Add(new PlacedObject(PlaceObject, gridPosition));
@@ -182,6 +183,7 @@ public class GridEditor : Editor
                     if (placeableObject)
                     {
 #if UNITY_EDITOR
+                        EditorUtility.SetDirty(worldGrid.currentGameManager.CurrentLevelData);
                         PlacedObject placed = worldGrid.currentGameManager.CurrentLevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
 #else
                         PlacedObject placed = GameManager.Instance.CurrentLevelData.placedObjects.Find(x => x.gridPosition == placeableObject.GridElement.gridPosition);
@@ -190,6 +192,7 @@ public class GridEditor : Editor
                         if (placed != null)
                         {
 #if UNITY_EDITOR
+                            EditorUtility.SetDirty(worldGrid.currentGameManager.CurrentLevelData);
                             worldGrid.currentGameManager.CurrentLevelData.placedObjects.Remove(placed);
 #else
                             GameManager.Instance.CurrentLevelData.placedObjects.Remove(placed);

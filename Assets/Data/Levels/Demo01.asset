@@ -99,30 +99,10 @@ MonoBehaviour:
     gridPosition: {x: 24, y: 42}
   - placeable: {fileID: 11400000, guid: 9d906a8a17d8b0a4a961e807a187d9a7, type: 2}
     gridPosition: {x: 26, y: 38}
-  - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
-    gridPosition: {x: 14, y: 46}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 5, y: 37}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 6, y: 39}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 7, y: 41}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 8, y: 43}
   - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
     gridPosition: {x: 9, y: 45}
   - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 14, y: 22}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 15, y: 24}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 16, y: 26}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
     gridPosition: {x: 17, y: 28}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 19, y: 42}
-  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
-    gridPosition: {x: 20, y: 44}
   - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
     gridPosition: {x: 21, y: 46}
   - placeable: {fileID: 11400000, guid: af4b6066f5ab51144ae6f8e95fb40564, type: 2}
@@ -131,15 +111,45 @@ MonoBehaviour:
     gridPosition: {x: 9, y: 26}
   - placeable: {fileID: 11400000, guid: af4b6066f5ab51144ae6f8e95fb40564, type: 2}
     gridPosition: {x: 23, y: 35}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 14, y: 32}
-  - placeable: {fileID: 11400000, guid: 577c0f5be44cfcf43a819f4e4c8daed3, type: 2}
-    gridPosition: {x: 7, y: 32}
-  - placeable: {fileID: 11400000, guid: 9b64d17e1a862724e9f5488c499adff8, type: 2}
-    gridPosition: {x: 21, y: 36}
-  - placeable: {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
-    gridPosition: {x: 13, y: 42}
+  - placeable: {fileID: 11400000, guid: 2c02841dd92bffe46b7742e12fc42ac3, type: 2}
+    gridPosition: {x: 14, y: 36}
   - placeable: {fileID: 11400000, guid: 1ed343fb52ca26c4eae09c9012f71412, type: 2}
-    gridPosition: {x: 16, y: 42}
+    gridPosition: {x: 15, y: 31}
+  - placeable: {fileID: 11400000, guid: befd6756e2203294d8d06d7aa42b769a, type: 2}
+    gridPosition: {x: 13, y: 31}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 11, y: 42}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 9, y: 46}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 7, y: 35}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 6, y: 38}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 8, y: 33}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 18, y: 26}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 19, y: 24}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 22, y: 44}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 23, y: 42}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 15, y: 55}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 16, y: 53}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 13, y: 59}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 15, y: 16}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 13, y: 19}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 12, y: 22}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 19, y: 38}
+  - placeable: {fileID: 11400000, guid: 724422b4d11219c4dbd2bd39d1263d82, type: 2}
+    gridPosition: {x: 13, y: 50}
   levelPrefab: {fileID: 4656439448969638968, guid: 06c0b0118839f4c4dbb2b0b11d549a86, type: 3}
   NekromancerSpawnPosition: {x: 30, y: 20}
