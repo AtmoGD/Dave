@@ -23,7 +23,7 @@ public class PerkVisualizer : MonoBehaviour
 
     private void Update()
     {
-        perkVisualizer.SetActive(playerController.PerkPoints > 0);
+        perkVisualizer.SetActive(playerController.PerkPoints > 0 && GameManager.Instance.GameState == GameState.Level);
         perkPointsText.text = CurrentPerkControll;
     }
 }
