@@ -116,6 +116,11 @@ public class PlayerUIController : MonoBehaviour
         // titleScreenMusic.Play();
     }
 
+    public void OpenCreditsMenu()
+    {
+        OpenMenu(creditsUI);
+    }
+
     public void SetCurrentLevelData(LevelData _levelData)
     {
         GameManager.Instance.CurrentLevelData = _levelData;
@@ -143,8 +148,13 @@ public class PlayerUIController : MonoBehaviour
 
     public void Cancel(InputAction.CallbackContext _context)
     {
-        if (_context.started)
-            Cancel();
+        if (_context.started && AnyMenuOpen)
+        {
+            if (currentMenu.CanBeCanceled)
+                Cancel();
+            else
+                currentMenu.TryToCancel();
+        }
     }
 
     public void OpenPauseMenu(InputAction.CallbackContext _context)
