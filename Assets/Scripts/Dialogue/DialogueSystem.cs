@@ -112,5 +112,6 @@ public class DialogueSystem : UIMenuController
     {
         SetIsActive(false);
         isTyping = false;
+        currentSentenceIndex = 0;
     }
 }
