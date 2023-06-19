@@ -107,8 +107,8 @@ public class GameManager : MonoBehaviour
                     levelMusic.Stop();
                 if (campMusic.IsPlaying())
                     campMusic.Stop();
-                if (!menuMusic.IsPlaying())
-                    menuMusic.Play();
+                // if (!menuMusic.IsPlaying())
+                //     menuMusic.Play();
                 break;
             case GameState.Camp:
                 if (levelMusic.IsPlaying())
@@ -132,6 +132,13 @@ public class GameManager : MonoBehaviour
                     FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1f);
                 break;
         }
+    }
+
+    public void PlayTitleMusic()
+    {
+        if (menuMusic.IsPlaying()) return;
+
+        menuMusic.Play();
     }
 
     public void ReloadScene(InputAction.CallbackContext _context)

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f3a7091aebd844f9a9872692f75d37, type: 3}
+  m_Name: Colossus
+  m_EditorClassIdentifier: 
+  id: Colossus001
+  name: Colossus
+  description: Can carry a lot of souls. Cuz its strong
+  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  cost:
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
+    amount: 1
+  size: {x: 1, y: 1}
+  prefab: {fileID: 3203909175382115269, guid: a5d364ac1bdd1d34eaa8c184180a5e0e, type: 3}
+  preview: {fileID: 0}
+  portal: {fileID: 11400000, guid: 7847476167851f543985f04d4e4b761f, type: 2}
+  spawnEnemy: {fileID: 8840412572578489673, guid: 105257681434d344f8d1f8a107082eee, type: 3}
+  preferredWork: 0
+  moveSpeed: 6
+  farmSpeed: 10
+  buildSpeed: 1
+  deliverSpeed: 0.5
+  carryCapacity: 25
+  distanceThreshold: 1.5
+  spawnRadiusAroundTower: 3
+  flipSpeed: 5
+  chanceToTurnIntoPortal:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

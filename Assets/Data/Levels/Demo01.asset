@@ -14,29 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRessources:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 40
+    amount: 150
   cycleStates:
   - cycle: 0
-    duration: 45
+    duration: 60
     choosePerk: 0
   - cycle: 1
     duration: 10
     choosePerk: 1
   - cycle: 0
-    duration: 55
-    choosePerk: 0
-  - cycle: 1
-    duration: 10
-    choosePerk: 1
-  - cycle: 0
-    duration: 65
+    duration: 70
     choosePerk: 0
   - cycle: 1
     duration: 10
     choosePerk: 1
   cycleStatesLateGame:
   - cycle: 0
-    duration: 75
+    duration: 90
     choosePerk: 0
   - cycle: 1
     duration: 3
