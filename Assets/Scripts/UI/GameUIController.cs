@@ -13,6 +13,12 @@ public class GameUIController : MonoBehaviour
         loadingScreen.SetTrigger("StartLoading");
     }
 
+    public void StartMainMenu()
+    {
+        GameManager.Instance.ChangeGameState(GameState.MainMenu);
+        StartLoadGame();
+    }
+
     public void StartLevel()
     {
         GameManager.Instance.ChangeGameState(GameState.Level);

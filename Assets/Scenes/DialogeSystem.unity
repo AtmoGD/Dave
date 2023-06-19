@@ -1136,6 +1136,10 @@ MonoBehaviour:
   startingItem: {fileID: 1220331393}
   contentItems:
   - {fileID: 1220331393}
+  <CanBeCanceled>k__BackingField: 0
+  onTryCancelEvents:
+    m_PersistentCalls:
+      m_Calls: []
   textDisplay: {fileID: 1463519853}
   dialogue:
     sentences:
@@ -1161,7 +1165,7 @@ MonoBehaviour:
       text: Okay this time it is really slow!
       typingSpeed: 0.05
   continueButton: {fileID: 1220331388}
-  isTyping: 0
+  isTyping: 1
 --- !u!1 &2096188692
 GameObject:
   m_ObjectHideFlags: 0
