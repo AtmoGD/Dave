@@ -27,6 +27,7 @@ public class ShadowMerge : Skill
         nekromancer.CurrentInput.MoveDir = Vector2.zero;
 
         nekromancer.skinAnimator.gameObject.SetActive(false);
+        nekromancer.Model.gameObject.SetActive(false);
 
         nekromancer.rb.velocity = Vector2.zero;
 
@@ -69,6 +70,7 @@ public class ShadowMerge : Skill
         nekromancer.IsInputBlocked = false;
 
         nekromancer.skinAnimator.gameObject.SetActive(true);
+        nekromancer.Model.gameObject.SetActive(true);
 
         base.Exit();
     }

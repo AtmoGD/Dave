@@ -19,7 +19,9 @@ MonoBehaviour:
   damage: 27
   attackSpeed: 1
   attackRange: 1
-  interactRadius: 1
+  soulMultiplikator: 1
+  dayTimeMultiplier: 1
+  interactRadius: 1.1
   moveThreshold: 0.1
   velocityActionThreshold: 0.1
   lookThreshold: 0.1
