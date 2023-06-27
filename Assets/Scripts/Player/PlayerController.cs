@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     public void StartTutorial()
     {
         PlayerData.firstStart = false;
-        // SaveData(dataPath);
+        SaveData(dataPath);
         StartCoroutine(OpenDialogeDelayed(tutorialDelay));
     }
 
@@ -94,6 +94,11 @@ public class PlayerController : MonoBehaviour
     public void SaveData(string _path)
     {
         DataLoader.SaveData<PlayerData>(playerData, _path);
+    }
+
+    public void DeleteData()
+    {
+        DataLoader.DeleteData(dataPath);
     }
 
     public void DeleteData(string _path)

@@ -753,6 +753,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteData",
+                    "type": "Button",
+                    "id": "3f956333-a218-436c-b183-9ec5fe011df3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -868,6 +877,17 @@
                 },
                 {
                     "name": "",
+                    "id": "718dd6ba-5d81-4dac-b22d-6cfb9663c3d9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c45c94b2-c303-482f-bb54-929970e88885",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -907,6 +927,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "MoveMenuLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45c1b758-f7dc-4bbe-8628-960b79043f67",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "DeleteData",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8aa49a76-89b7-4d5e-8ecc-b3ec5ba35c07",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteData",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
