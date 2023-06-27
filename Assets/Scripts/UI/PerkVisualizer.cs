@@ -14,7 +14,7 @@ public class PerkVisualizer : MonoBehaviour
     {
         get
         {
-            if (playerController.PlayerInput.currentActionMap.name == "Controller")
+            if (playerController.PlayerInput.currentControlScheme == "Controller")
                 return "X";
             else
                 return "T";

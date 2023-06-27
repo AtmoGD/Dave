@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ed72f5c9bbb5468fbecbdc536c826, type: 3}
   m_Name: DayMultiplierMiddle
   m_EditorClassIdentifier: 
-  perkIcon: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  perkIcon: {fileID: 21300000, guid: acb2b13ee6d22484d81550672529e231, type: 3}
   id: DayMultiplier002
   perkName: Increase day length
   perkDescription: Increases the length of the day by 20%

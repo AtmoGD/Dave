@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5699569a76c664a478852ff07abbb2ce, type: 3}
   m_Name: SpeedPerk
   m_EditorClassIdentifier: 
-  perkIcon: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  perkIcon: {fileID: 21300000, guid: acb2b13ee6d22484d81550672529e231, type: 3}
   id: speed01
   perkName: Speed Perk
   perkDescription: Attack Speed + 0,3

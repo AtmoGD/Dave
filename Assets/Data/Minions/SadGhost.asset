@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Sad Ghost
   description: A small Ghost. Fast in Movement but you will get damage if it is near
     you
-  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  image: {fileID: 21300000, guid: 4585614efac503c4bb9a77b519a7a76c, type: 3}
   cost:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
     amount: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5091bb632e1489641b15f8097171f837, type: 3}
   m_Name: AddHealthPerkHigh
   m_EditorClassIdentifier: 
-  perkIcon: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  perkIcon: {fileID: 21300000, guid: acb2b13ee6d22484d81550672529e231, type: 3}
   id: addHealth003
   perkName: Add Health
   perkDescription: 'Health Recover + 60 '

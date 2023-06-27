@@ -15,7 +15,7 @@ MonoBehaviour:
   id: Magician001
   name: Magician
   description: Extrem fast, extreme strong
-  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  image: {fileID: 21300000, guid: 027c39f7c7e6eb04385a2b81a64455a6, type: 3}
   cost:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
     amount: 1

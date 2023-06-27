@@ -15,7 +15,7 @@ MonoBehaviour:
   id: Colossus001
   name: Colossus
   description: Can carry a lot of souls. Cuz its strong
-  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  image: {fileID: 21300000, guid: 8e4261dc702e2274cac2fe57d59ffd7b, type: 3}
   cost:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
     amount: 1

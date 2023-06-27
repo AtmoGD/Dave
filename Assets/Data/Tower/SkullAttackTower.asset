@@ -15,7 +15,7 @@ MonoBehaviour:
   id: SkullAttackTower001
   name: Attack Tower
   description: Attention! The Skulls are aggressive!
-  image: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  image: {fileID: 21300000, guid: 84be29f1573b6a243bf4cf3fbdc226c0, type: 3}
   cost:
   - ressource: {fileID: 0}
     amount: 0

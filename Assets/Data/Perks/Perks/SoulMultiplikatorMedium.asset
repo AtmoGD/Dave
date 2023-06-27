@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af25f082ed721b45bae931375d1a40f, type: 3}
   m_Name: SoulMultiplikatorMedium
   m_EditorClassIdentifier: 
-  perkIcon: {fileID: 21300000, guid: c60c8d40bc752f142be0f733a578bcfd, type: 3}
+  perkIcon: {fileID: 21300000, guid: acb2b13ee6d22484d81550672529e231, type: 3}
   id: SoulMultiply002
   perkName: Soul Multiplikator
   perkDescription: Get 20% more souls!
