@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool dontDestroyOnLoad = true;
     [SerializeField] private GameState gameState = GameState.Level;
     [field: SerializeField] public LevelData CurrentLevelData { get; set; } = null;
+    [field: SerializeField] private DialogueSystem Tutorial { get; set; } = null;
+
 
     public GameState GameState { get { return gameState; } }
     [SerializeField] private GameUIController gameUIController = null;
@@ -89,9 +91,6 @@ public class GameManager : MonoBehaviour
     {
         WorldGrid.Instance.DeleteAllChildren();
         gameState = _state;
-
-        // if (gameState == GameState.MainMenu)
-        //     PlayerController.UIController.OpenMenu(PlayerController.UIController.titlescreenUI);
     }
 
     public void UpdateMusic()

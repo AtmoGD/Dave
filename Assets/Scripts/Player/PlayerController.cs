@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerUIController UIController { get; private set; } = null;
     [field: SerializeField] public PlayerBuildController BuildController { get; private set; } = null;
     [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
+    [SerializeField] private float tutorialDelay = 3f;
 
     public int PerkPoints { get; set; } = 0;
     public List<Perk> Perks { get; private set; } = new List<Perk>();
@@ -38,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Init();
+
+        if (GameManager.Instance.GameState == GameState.Camp && PlayerData.firstStart)
+            StartTutorial();
     }
 
     public void Init()
@@ -56,6 +60,19 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.Instance.GameState == GameState.MainMenu)
             OpenTitleScreenMenu();
+    }
+
+    public void StartTutorial()
+    {
+        PlayerData.firstStart = false;
+        // SaveData(dataPath);
+        StartCoroutine(OpenDialogeDelayed(tutorialDelay));
+    }
+
+    IEnumerator OpenDialogeDelayed(float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        UIController.OpenFistTimeTutorial();
     }
 
     public void LoadData(string _path)
@@ -243,6 +260,15 @@ public class PlayerController : MonoBehaviour
     public void OpenTitleScreenMenu()
     {
         UIController.OpenTitleScreen();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
+    public void OpenFirstTutorialMenu()
+    {
+        UIController.OpenFistTimeTutorial();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
 

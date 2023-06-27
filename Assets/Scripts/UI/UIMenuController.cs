@@ -13,7 +13,7 @@ public class UIMenuController : MonoBehaviour
     [SerializeField] protected UnityEvent onTryCancelEvents = new UnityEvent();
     protected UIMenuItem currentItem = null;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         if (selectOnStart && startingItem)
         {

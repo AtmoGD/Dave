@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3885870553147130012}
   - component: {fileID: 3885870553147130015}
+  - component: {fileID: 1605276152}
+  - component: {fileID: 1605276153}
+  - component: {fileID: 1605276154}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,10 +47,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789e3e88ce7baa9469a1ba6be5020939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
+  dontDestroyOnLoad: 1
+  gameState: 0
+  <CurrentLevelData>k__BackingField: {fileID: 11400000, guid: 762187b962e060543b9eeb7eed0f830c, type: 2}
+  <Tutorial>k__BackingField: {fileID: 0}
+  tutorialDelay: 3
   gameUIController: {fileID: 0}
   playerController: {fileID: 0}
+  menuMusicOffset: 0.5
+  levelMusic: {fileID: 1605276154}
+  campMusic: {fileID: 1605276153}
+  menuMusic: {fileID: 1605276152}
   dataList: {fileID: 11400000, guid: f6574da3c7b0285449798a41cfc01ca0, type: 2}
-  worldGrid: {fileID: 0}
-  startOnLoad: 1
   <IsPaused>k__BackingField: 0
+  <TimeInGame>k__BackingField: 0
+--- !u!114 &1605276152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885870553147130013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -940556196
+      Data2: 1325529337
+      Data3: 1942701740
+      Data4: -1034913059
+    Path: event:/MUSIC/Menu-Music
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1605276153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885870553147130013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 918525128
+      Data2: 1265904475
+      Data3: 1697930633
+      Data4: 398471876
+    Path: event:/MUSIC/Homecamp_Music
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1605276154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885870553147130013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 97588076
+      Data2: 1109231520
+      Data3: -165385043
+      Data4: 1539860456
+    Path: event:/MUSIC/Level_Music
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

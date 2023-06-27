@@ -21,6 +21,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController chooseDataPathUI = null;
     [SerializeField] private UIMenuController creditsUI = null;
     [SerializeField] private UIMenuController optionsUI = null;
+    [SerializeField] private DialogueSystem startGameTutorialUI = null;
     [SerializeField] private GameObject GatheredRessourcesContent = null;
     [SerializeField] private GameObject GatheredRessourcePrefab = null;
     [SerializeField] private UIMenuController gameLostUI = null;
@@ -119,6 +120,13 @@ public class PlayerUIController : MonoBehaviour
     public void OpenCreditsMenu()
     {
         OpenMenu(creditsUI);
+    }
+
+    public void OpenFistTimeTutorial()
+    {
+        OpenMenu(startGameTutorialUI);
+
+        startGameTutorialUI.StartDialogue();
     }
 
     public void SetCurrentLevelData(LevelData _levelData)

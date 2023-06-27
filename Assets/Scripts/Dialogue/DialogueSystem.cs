@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -35,9 +36,17 @@ public class Dialogue
 }
 
 [Serializable]
+public enum DialogeSide
+{
+    Left,
+    Right
+}
+
+[Serializable]
 public class Sentence
 {
     public Sprite sprite;
+    public DialogeSide side;
     public string name;
     public string text;
     public float typingSpeed;
@@ -46,8 +55,12 @@ public class Sentence
 public class DialogueSystem : UIMenuController
 {
     public TextMeshProUGUI textDisplay = null;
+    public TextMeshProUGUI nameDisplay = null;
+    public Image imageLeft = null;
+    public Image imageRight = null;
     public Dialogue dialogue = null;
-    public GameObject continueButton;
+    public UIMenuItem continueButton;
+    public TMP_Text continueButtonText;
 
     private int currentSentenceIndex = 0;
     private int currentLetterIndex = 0;
@@ -55,12 +68,16 @@ public class DialogueSystem : UIMenuController
 
     public bool isTyping = false;
 
-    public override void Start()
+    [SerializeField] private UnityEngine.Events.UnityEvent onDialogueEnd = null;
+
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         textDisplay.text = "";
-        continueButton.SetActive(false);
+        // continueButton.gameObject.SetActive(false);
+        imageLeft.gameObject.SetActive(false);
+        imageRight.gameObject.SetActive(false);
         isTyping = false;
     }
 
@@ -75,7 +92,26 @@ public class DialogueSystem : UIMenuController
     public void StartDialogue()
     {
         SetIsActive(true);
+        currentSentenceIndex = 0;
+        nameDisplay.text = dialogue.sentences[currentSentenceIndex].name;
+        UpdateImage();
         isTyping = true;
+    }
+
+    public void UpdateImage()
+    {
+        if (dialogue.sentences[currentSentenceIndex].side == DialogeSide.Left)
+        {
+            imageLeft.sprite = dialogue.sentences[currentSentenceIndex].sprite;
+            imageLeft.gameObject.SetActive(true);
+            imageRight.gameObject.SetActive(false);
+        }
+        else
+        {
+            imageRight.sprite = dialogue.sentences[currentSentenceIndex].sprite;
+            imageRight.gameObject.SetActive(true);
+            imageLeft.gameObject.SetActive(false);
+        }
     }
 
     public void Type()
@@ -85,10 +121,14 @@ public class DialogueSystem : UIMenuController
             currentTime = 0f;
             textDisplay.text += dialogue.sentences[currentSentenceIndex].text[currentLetterIndex];
             currentLetterIndex++;
+            continueButton.Deselect();
+            continueButtonText.text = "";
 
             if (textDisplay.text == dialogue.sentences[currentSentenceIndex].text)
             {
-                continueButton.SetActive(true);
+                continueButton.Select();
+                continueButtonText.text = "Next...";
+                continueButton.gameObject.SetActive(true);
                 isTyping = false;
             }
         }
@@ -96,22 +136,28 @@ public class DialogueSystem : UIMenuController
 
     public void NextSentence()
     {
-        continueButton.SetActive(false);
+        // continueButton.gameObject.SetActive(false);
         currentLetterIndex = 0;
         textDisplay.text = "";
         isTyping = true;
 
         if (currentSentenceIndex < dialogue.sentences.Count - 1)
+        {
             currentSentenceIndex++;
+            nameDisplay.text = dialogue.sentences[currentSentenceIndex].name;
+            UpdateImage();
+        }
         else
             EndDialogue();
-
     }
 
     public void EndDialogue()
     {
+        imageRight.gameObject.SetActive(false);
+        imageLeft.gameObject.SetActive(false);
         SetIsActive(false);
         isTyping = false;
         currentSentenceIndex = 0;
+        onDialogueEnd?.Invoke();
     }
 }
