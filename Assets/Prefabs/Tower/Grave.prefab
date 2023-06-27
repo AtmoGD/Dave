@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 4953350818265659152}
   - component: {fileID: 2980859086275391672}
   - component: {fileID: 3609569224678811801}
+  - component: {fileID: 5431922041358122876}
   m_Layer: 8
   m_Name: Grave
   m_TagString: Untagged
@@ -778,7 +779,27 @@ MonoBehaviour:
   - {x: 0.82191706, y: 0.019751579, z: 0}
   m_ShapePathHash: -1897338368
   m_Mesh: {fileID: 0}
-  m_InstanceId: 82010
+  m_InstanceId: 291070
+--- !u!114 &5431922041358122876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132539994694248924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4852452684aaf284bb9889c6471d34ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - sprite: {fileID: 21300000, guid: 68e73dbbde5637643b847d8faf8b474d, type: 3}
+    size: {x: 0.35, y: 0.35}
+  - sprite: {fileID: 21300000, guid: 8fdda2d59dfd6f44cbcaab3af47408db, type: 3}
+    size: {x: 0.35, y: 0.35}
+  - sprite: {fileID: 21300000, guid: a9f6c506694ae504c972e0417225c0a0, type: 3}
+    size: {x: 0.35, y: 0.35}
+  spriteRenderer: {fileID: 4447389150935253863}
 --- !u!1001 &3981652732473157263
 PrefabInstance:
   m_ObjectHideFlags: 0
