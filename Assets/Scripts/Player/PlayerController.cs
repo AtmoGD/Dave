@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.Instance.GameState == GameState.Camp && PlayerData.firstStart)
             StartTutorial();
+
+        if (GameManager.Instance.GameState == GameState.Level && PlayerData.firstLevelStart)
+            StartLevelTutorial();
     }
 
     public void Init()
@@ -64,15 +67,29 @@ public class PlayerController : MonoBehaviour
 
     public void StartTutorial()
     {
+        print("Start Tutorial");
         PlayerData.firstStart = false;
         SaveData(dataPath);
         StartCoroutine(OpenDialogeDelayed(tutorialDelay));
     }
 
+    public void StartLevelTutorial()
+    {
+        PlayerData.firstLevelStart = false;
+        SaveData(dataPath);
+        StartCoroutine(OpenLevelDialogeDelayed(tutorialDelay));
+    }
+
     IEnumerator OpenDialogeDelayed(float _delay)
     {
-        yield return new WaitForSeconds(_delay);
-        UIController.OpenFistTimeTutorial();
+        yield return new WaitForSecondsRealtime(_delay);
+        OpenFirstTutorialMenu();
+    }
+
+    IEnumerator OpenLevelDialogeDelayed(float _delay)
+    {
+        yield return new WaitForSecondsRealtime(_delay);
+        OpenLevelTutorialMenu();
     }
 
     public void LoadData(string _path)
@@ -274,6 +291,15 @@ public class PlayerController : MonoBehaviour
     public void OpenFirstTutorialMenu()
     {
         UIController.OpenFistTimeTutorial();
+
+        PlayerInput.SwitchCurrentActionMap(uiActionMap);
+
+        if (!stoppedTime) LevelManager.Instance.StopTime();
+    }
+
+    public void OpenLevelTutorialMenu()
+    {
+        UIController.OpenLevelTutorial();
 
         PlayerInput.SwitchCurrentActionMap(uiActionMap);
 

@@ -7,7 +7,10 @@ public class PlayerUIController : MonoBehaviour
 {
     [field: SerializeField] public PlayerController Player { get; private set; } = null;
 
-    // [SerializeField] private FMODUnity.StudioEventEmitter titleScreenMusic = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter menuOpen = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter menuClose = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter menuNavigate = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter menuSelect = null;
 
     [SerializeField] private UIMenuController buildMenu = null;
     [SerializeField] private UIMenuController minionMenu = null;
@@ -22,6 +25,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private UIMenuController creditsUI = null;
     [SerializeField] private UIMenuController optionsUI = null;
     [SerializeField] private DialogueSystem startGameTutorialUI = null;
+    [SerializeField] private DialogueSystem levelTutorialUI = null;
     [SerializeField] private GameObject GatheredRessourcesContent = null;
     [SerializeField] private GameObject GatheredRessourcePrefab = null;
     [SerializeField] private UIMenuController gameLostUI = null;
@@ -49,6 +53,8 @@ public class PlayerUIController : MonoBehaviour
 
     public void OpenMenu(UIMenuController _menu)
     {
+        menuOpen.Play();
+
         _menu.SetIsActive(true);
 
         currentMenu = _menu;
@@ -60,6 +66,8 @@ public class PlayerUIController : MonoBehaviour
 
     public void CloseMenu()
     {
+        menuClose.Play();
+
         currentMenu?.SetIsActive(false);
 
         currentMenu = null;
@@ -129,6 +137,13 @@ public class PlayerUIController : MonoBehaviour
         startGameTutorialUI.StartDialogue();
     }
 
+    public void OpenLevelTutorial()
+    {
+        OpenMenu(levelTutorialUI);
+
+        levelTutorialUI.StartDialogue();
+    }
+
     public void SetCurrentLevelData(LevelData _levelData)
     {
         GameManager.Instance.CurrentLevelData = _levelData;
@@ -137,6 +152,8 @@ public class PlayerUIController : MonoBehaviour
     public void NextItem(InputAction.CallbackContext _context)
     {
         if (!AnyMenuOpen || (Time.time - lastMenuInput) < menuInputDelay) return;
+
+        menuNavigate.Play();
 
         lastMenuInput = Time.time;
 
@@ -151,7 +168,11 @@ public class PlayerUIController : MonoBehaviour
     public void Interact(InputAction.CallbackContext _context)
     {
         if (_context.started)
+        {
+            menuSelect.Play();
+
             currentMenu.InteractWithSelection();
+        }
     }
 
     public void Cancel(InputAction.CallbackContext _context)

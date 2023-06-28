@@ -10,6 +10,7 @@ public class PlayerData
     [SerializeField] public int level = 1;
     [SerializeField] public int experience = 0;
     [SerializeField] public bool firstStart = true;
+    [SerializeField] public bool firstLevelStart = true;
     [SerializeField] public List<string> collectables = new List<string>();
     [SerializeField] public List<string> equippedItems = new List<string>();
     [SerializeField] public List<string> upgrades = new List<string>();
@@ -26,6 +27,7 @@ public class PlayerData
         level = 1;
         experience = 0;
         firstStart = true;
+        firstLevelStart = true;
         collectables = new List<string>();
         equippedItems = new List<string>();
         upgrades = new List<string>();
