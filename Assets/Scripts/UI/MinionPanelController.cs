@@ -5,27 +5,31 @@ public class MinionPanelController : PanelController
 
     public override void PlaceObject()
     {
-        MinionData minionData = (MinionData)data;
-        if (minionData)
+        int amount = GameManager.Instance.debugging ? GameManager.Instance.fastSpawnAmount : 1;
+        for (int i = 0; i < amount; i++)
         {
-            bool hasEnoughRessources = true;
-            foreach (CollectedRessource ressource in minionData.cost)
+            MinionData minionData = (MinionData)data;
+            if (minionData)
             {
-                if (!LevelManager.Instance.HasEnoughRessources(ressource.ressource, ressource.amount))
+                bool hasEnoughRessources = true;
+                foreach (CollectedRessource ressource in minionData.cost)
                 {
-                    hasEnoughRessources = false;
-                    break;
+                    if (!LevelManager.Instance.HasEnoughRessources(ressource.ressource, ressource.amount))
+                    {
+                        hasEnoughRessources = false;
+                        break;
+                    }
                 }
-            }
-            if (!hasEnoughRessources)
-                return;
+                if (!hasEnoughRessources)
+                    return;
 
-            playerController.PlaceMinion(minionData);
-            playerUIController.CloseMenu();
+                playerController.PlaceMinion(minionData);
+                playerUIController.CloseMenu();
 
-            foreach (CollectedRessource ressource in minionData.cost)
-            {
-                LevelManager.Instance.RemoveRessources(ressource.ressource, ressource.amount);
+                foreach (CollectedRessource ressource in minionData.cost)
+                {
+                    LevelManager.Instance.RemoveRessources(ressource.ressource, ressource.amount);
+                }
             }
         }
     }

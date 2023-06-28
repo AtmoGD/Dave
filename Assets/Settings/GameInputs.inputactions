@@ -762,6 +762,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpawnMore",
+                    "type": "Button",
+                    "id": "4400229f-b0b4-48d7-9372-169425223785",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -949,6 +958,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DeleteData",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e6c057d-5382-4da9-bd44-c4d5bfb64f22",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SpawnMore",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d6f6b2b-6f35-40c8-a8a1-7df577f736f0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "SpawnMore",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,12 +8,11 @@ public class LevelUIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text collectedSoulsText = null;
     [SerializeField] private Ressource soulRessource = null;
-    [SerializeField] private bool debugging = false;
     [SerializeField] private TMP_Text enemyAmountText = null;
     private CollectedRessource soul = null;
     private void Update()
     {
-        if (debugging && enemyAmountText)
+        if (GameManager.Instance.debugging && enemyAmountText)
         {
             if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Night)
                 enemyAmountText.text = LevelManager.Instance.EnemyCount.ToString();

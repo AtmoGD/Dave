@@ -16149,7 +16149,7 @@ Camera:
   far clip plane: 15
   field of view: 34
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16173,7 +16173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.7, y: 21.27, z: -10}
+  m_LocalPosition: {x: 2.925, y: 2.9499998, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160315,6 +160315,10 @@ PrefabInstance:
     - target: {fileID: 3885870553147130013, guid: ffaf09b466decf4469667a91a24fad39, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885870553147130015, guid: ffaf09b466decf4469667a91a24fad39, type: 3}
+      propertyPath: debugging
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3885870553147130015, guid: ffaf09b466decf4469667a91a24fad39, type: 3}
       propertyPath: gameUIController
