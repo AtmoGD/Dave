@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     [Header("Game Manager")]
     [SerializeField] private bool dontDestroyOnLoad = true;
     [SerializeField] public bool debugging = false;
-    [SerializeField] public int fastSpawnAmount = 10;
     [SerializeField] private GameState gameState = GameState.Level;
     [field: SerializeField] public LevelData CurrentLevelData { get; set; } = null;
     [field: SerializeField] private DialogueSystem Tutorial { get; set; } = null;

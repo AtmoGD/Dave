@@ -19,6 +19,11 @@ public class LevelUIController : MonoBehaviour
             else
                 enemyAmountText.text = LevelManager.Instance.MinionCount.ToString();
         }
+        else
+        {
+            if (enemyAmountText)
+                enemyAmountText.text = "";
+        }
 
         if (!collectedSoulsText) return;
 

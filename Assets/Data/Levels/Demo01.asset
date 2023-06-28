@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRessources:
   - ressource: {fileID: 11400000, guid: a3db5116e45d0fb47bc860cf8db96ba2, type: 2}
-    amount: 80000
+    amount: 150
   cycleStates:
   - cycle: 0
-    duration: 1000
+    duration: 60
     choosePerk: 0
   - cycle: 1
     duration: 10
