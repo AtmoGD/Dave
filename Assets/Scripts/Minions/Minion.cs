@@ -39,6 +39,8 @@ public class Minion : MonoBehaviour
     {
         LevelManager = LevelManager.Instance;
 
+        LevelManager.AddMinion(this);
+
         MoveController = GetComponent<MovementController>();
 
         ChangeState(IdleState);
@@ -73,6 +75,7 @@ public class Minion : MonoBehaviour
 
         if (roll < chance)
         {
+            LevelManager.RemoveMinion(this);
             Instantiate(Data.spawnEnemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

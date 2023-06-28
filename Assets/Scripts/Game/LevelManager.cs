@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
 
     [field: SerializeField] public float TimeScale { get; private set; } = 1f;
     public Crystal Crystal { get; private set; } = null;
+    public List<Minion> activeMinions = new List<Minion>();
+    public int MinionCount { get { return activeMinions.Count; } }
     public List<IDamagable> activeEnemies = new List<IDamagable>();
     public int EnemyCount { get { return activeEnemies.Count; } }
     [SerializeField] private int debugCount = 0;
@@ -220,6 +222,16 @@ public class LevelManager : MonoBehaviour
     public void RemoveCrystal(Crystal crystal)
     {
         this.Crystal = null;
+    }
+
+    public void AddMinion(Minion minion)
+    {
+        this.activeMinions.Add(minion);
+    }
+
+    public void RemoveMinion(Minion minion)
+    {
+        this.activeMinions.Remove(minion);
     }
 
     public void AddEnemy(IDamagable enemy)
