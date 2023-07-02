@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 207632233211461828}
   - component: {fileID: 8809048431418530860}
   - component: {fileID: 3061471727999374253}
+  - component: {fileID: 3338063976608076441}
   m_Layer: 8
   m_Name: Magician
   m_TagString: Untagged
@@ -158,6 +159,7 @@ MonoBehaviour:
   <SoundEmitter>k__BackingField: {fileID: 8809048431418530860}
   <SpawnRessourcePoint>k__BackingField: {fileID: 3325237708413377498}
   <Animator>k__BackingField: {fileID: 3203909175836727963}
+  <SpawnRessourceEmitter>k__BackingField: {fileID: 3338063976608076441}
   <TargetFarmTower>k__BackingField: {fileID: 0}
   <TargetTower>k__BackingField: {fileID: 0}
 --- !u!114 &4932949136714485088
@@ -285,7 +287,37 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 2050307877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1116630
+  m_InstanceId: 546530
+--- !u!114 &3338063976608076441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203909175382115269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1522423587
+      Data2: 1335116727
+      Data3: -302479218
+      Data4: 400142287
+    Path: event:/GAME/get-Souls
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3203909175836727965
 GameObject:
   m_ObjectHideFlags: 0

@@ -130,11 +130,28 @@ public class ShadowGun : Skill
 
         cooldown.SetDuration(cooldown.duration / nekromancer.AttackSpeed);
         nekromancer.AddCooldown(cooldown);
+
+        // if (_charged)
+        // {
+        //     if (!nekromancer.skillEmitter.IsPlaying())
+        //         nekromancer.skillEmitter.Play();
+        // }
+        // else
+        nekromancer.shootEmitter.Play();
     }
 
     private Vector3 GetCurrentBulletPosition()
     {
         currentGun = (currentGun + 1) % nekromancer.gunPoints.Count;
         return nekromancer.gunPoints[currentGun].position;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        // nekromancer.skillEmitter.Stop();
+
+        // nekromancer.shootEmitter.Stop();
     }
 }

@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -162
       objectReference: {fileID: 0}
+    - target: {fileID: 8380543350883133267, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 72.29443
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3736115409456944674, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}
@@ -191,6 +195,49 @@ MonoBehaviour:
   perkIcon: {fileID: 3904812550773376750}
   perkName: {fileID: 8369668460270829057}
   perkDescription: {fileID: 6596319091234289782}
+--- !u!114 &7404483227350466979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3322130583134061462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e0526bf46f65c43989efa5559eaba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 6203497964478321011}
+--- !u!114 &6203497964478321011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3322130583134061462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1291205777
+      Data2: 1117920834
+      Data3: -499385697
+      Data4: 1102974542
+    Path: event:/UI/MENU/GENERAL/MENU_General_Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &3904812550773376750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6285829648917858186, guid: 8c0a4fe9fcd05a04b980c08501292bad, type: 3}

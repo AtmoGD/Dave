@@ -1093,7 +1093,7 @@ MonoBehaviour:
   - {x: 0.18583107, y: -0.40092468, z: 0}
   m_ShapePathHash: -1998327659
   m_Mesh: {fileID: 0}
-  m_InstanceId: 572570
+  m_InstanceId: 346306
 --- !u!1 &5402133771090986432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2678,11 @@ GameObject:
   - component: {fileID: 8789931070289155576}
   - component: {fileID: 8789931070289155577}
   - component: {fileID: 3257639211561037810}
+  - component: {fileID: 1262202150686698352}
+  - component: {fileID: 6359194614557780106}
+  - component: {fileID: 2178406924994492173}
+  - component: {fileID: 2521965667980207148}
+  - component: {fileID: 2808571794578760191}
   m_Layer: 8
   m_Name: Nekromancer
   m_TagString: Untagged
@@ -2733,6 +2738,11 @@ MonoBehaviour:
   - {fileID: 5644735647894269479}
   interactPoint: {fileID: 5134688878714503059}
   damageVisualizer: {fileID: 7754715002599610348, guid: 07dc471b1ed249a4487228b96716cfe4, type: 3}
+  teleportEmitter: {fileID: 1262202150686698352}
+  moveEmitter: {fileID: 6359194614557780106}
+  shootEmitter: {fileID: 2178406924994492173}
+  takeDamageEmitter: {fileID: 2521965667980207148}
+  skillEmitter: {fileID: 2808571794578760191}
   stats: {fileID: 11400000, guid: 0018e4cec6dcd0b4eaa4412f81dcd1d6, type: 2}
   baseSkillData: {fileID: 11400000, guid: 035773b2a4468e74baff1a50134ffc54, type: 2}
   firstSkillData: {fileID: 0}
@@ -2785,6 +2795,156 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1.12}
   m_Size: {x: 0.5, y: 0.4}
   m_Direction: 1
+--- !u!114 &1262202150686698352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931070289155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1422990341
+      Data2: 1340679723
+      Data3: 1798573487
+      Data4: 1786706868
+    Path: event:/NECROMANCER/NECRO_Dash
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &6359194614557780106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931070289155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1743901890
+      Data2: 1132357415
+      Data3: -947404409
+      Data4: -444117785
+    Path: event:/NECROMANCER/NECRO_Move
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2178406924994492173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931070289155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 531791695
+      Data2: 1182233805
+      Data3: 1661768352
+      Data4: -307161962
+    Path: event:/NECROMANCER/NECRO_Shoot
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2521965667980207148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931070289155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -52000180
+      Data2: 1196548186
+      Data3: 1827091355
+      Data4: 518172443
+    Path: event:/NECROMANCER/NECRO_Take-Damage
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2808571794578760191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789931070289155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 124529012
+      Data2: 1117574972
+      Data3: 434902415
+      Data4: 907845577
+    Path: event:/NECROMANCER/NECRO_Ult
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8789931070898562531
 GameObject:
   m_ObjectHideFlags: 0

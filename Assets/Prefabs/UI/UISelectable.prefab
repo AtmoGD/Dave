@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab34cc6c94ea5894a88c74c521b9cdc3, type: 2}
-  m_sharedMaterial: {fileID: 5647442011145614546, guid: ab34cc6c94ea5894a88c74c521b9cdc3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
+  m_sharedMaterial: {fileID: -9160476092161509435, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

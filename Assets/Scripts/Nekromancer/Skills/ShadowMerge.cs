@@ -36,6 +36,8 @@ public class ShadowMerge : Skill
 
         GameObject shadowMergeOrigin = GameObject.Instantiate(shadowMergeData.shadowMergePrefab, origin, Quaternion.identity);
         GameObject shadowMergeTarget = GameObject.Instantiate(shadowMergeData.shadowMergePrefab, target, Quaternion.identity);
+
+        nekromancer.teleportEmitter.Play();
     }
 
     public override void FrameUpdate(float _deltaTime)

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FMODUnity.StudioEventEmitter levelMusic = null;
     [SerializeField] private FMODUnity.StudioEventEmitter campMusic = null;
     [SerializeField] private FMODUnity.StudioEventEmitter menuMusic = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter dayAmbience = null;
     public Vector2 SpawnPosition
     {
         get
@@ -126,10 +127,19 @@ public class GameManager : MonoBehaviour
                 if (menuMusic.IsPlaying())
                     menuMusic.Stop();
 
+                // if (PlayerController.Nekromancer.IsAlive)
+                // {
                 if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Day)
+                {
                     FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1 - LevelManager.Instance.CurrentCycleState.PercentOfTimeLeft);
+                    if (!dayAmbience.IsPlaying()) dayAmbience.Play();
+                }
                 else
+                {
+                    if (dayAmbience.IsPlaying()) dayAmbience.Stop();
                     FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Daily-cycle", 1f);
+                }
+                // }
                 break;
         }
     }
@@ -153,6 +163,7 @@ public class GameManager : MonoBehaviour
 
     public void ReloadGame()
     {
+        // FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", 0);
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }

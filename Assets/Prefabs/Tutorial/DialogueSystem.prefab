@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
-  m_sharedMaterial: {fileID: -3277047033023414523, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
+  m_sharedMaterial: {fileID: -9160476092161509435, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -300,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2409600435403236927}
   - component: {fileID: 7980147992832288183}
+  - component: {fileID: 146765753007175293}
   m_Layer: 0
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -363,25 +364,31 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: d75ec1bb1909d35438ad808a0027d807, type: 3}
       side: 1
       name: ???
-      text: What do you think are you doing here??
+      text: What do you think you're doing here?
       typingSpeed: 0.05
     - sprite: {fileID: 21300000, guid: ed2f3cb38f6aecd4093a2566a116ab82, type: 3}
       side: 0
       name: Nekro Boy
-      text: Oh common
-      typingSpeed: 0.05
-    - sprite: {fileID: 21300000, guid: ed2f3cb38f6aecd4093a2566a116ab82, type: 3}
-      side: 0
-      name: Nekro Boy
-      text: Is there no place in this universe where you won't bother me?
+      text: Oh c'mon... Don't make a fool outta yourself.
       typingSpeed: 0.05
     - sprite: {fileID: 21300000, guid: d75ec1bb1909d35438ad808a0027d807, type: 3}
       side: 1
       name: ???
-      text: You know im everywhere...
+      text: Pff... You have the audacity to try to invade my empire... AGAIN?
+      typingSpeed: 0.05
+    - sprite: {fileID: 21300000, guid: ed2f3cb38f6aecd4093a2566a116ab82, type: 3}
+      side: 0
+      name: Nekro Boy
+      text: Imma kick your ass this time...
+      typingSpeed: 0.05
+    - sprite: {fileID: 21300000, guid: d75ec1bb1909d35438ad808a0027d807, type: 3}
+      side: 1
+      name: ???
+      text: Uhu... sure you will..
       typingSpeed: 0.05
   continueButton: {fileID: 1849531030}
   continueButtonText: {fileID: 7980147994362343627}
+  dialogueSoundEmitter: {fileID: 146765753007175293}
   isTyping: 1
   onDialogueEnd:
     m_PersistentCalls:
@@ -398,6 +405,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &146765753007175293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980147992832288181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1358358196
+      Data2: 1274825139
+      Data3: -635171451
+      Data4: 100361311
+    Path: event:/UI/UI_DIALOG_Typewriter
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7980147992901631901
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,8 +734,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
-  m_sharedMaterial: {fileID: -3277047033023414523, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
+  m_sharedMaterial: {fileID: -9160476092161509435, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1007,8 +1044,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
-  m_sharedMaterial: {fileID: -3277047033023414523, guid: d025335d1ed3a0b4a835af23f529338b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
+  m_sharedMaterial: {fileID: -9160476092161509435, guid: a120cae8cd6b7cf45a7036766d906f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

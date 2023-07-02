@@ -12,9 +12,9 @@ public class LevelUIController : MonoBehaviour
     private CollectedRessource soul = null;
     private void Update()
     {
-        if (GameManager.Instance.debugging && enemyAmountText)
+        if (GameManager.Instance.debugging)
         {
-            if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Night)
+            if (LevelManager.Instance.CurrentCycleState.Cycle == Cycle.Night && enemyAmountText)
                 enemyAmountText.text = LevelManager.Instance.EnemyCount.ToString();
             else
                 enemyAmountText.text = LevelManager.Instance.MinionCount.ToString();

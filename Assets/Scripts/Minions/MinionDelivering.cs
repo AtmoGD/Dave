@@ -38,6 +38,9 @@ public class MinionDelivering : MinionState
         minion.SpawnObject(ressources[0].ressource.prefab, minion.SpawnRessourcePoint.position);
         LevelManager.Instance.GatherRessource(ressources);
         timer = 0f;
+
+        if (!minion.SpawnRessourceEmitter.IsPlaying())
+            minion.SpawnRessourceEmitter.Play();
     }
 
     public override void PhysicsUpdate()

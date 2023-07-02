@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class PlayerBuildController : MonoBehaviour
 {
     [SerializeField] private float moveTimeout = 0.1f;
+    [SerializeField] private FMODUnity.StudioEventEmitter placeObjectSound = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter cancelPlaceObjectSound = null;
+    [SerializeField] private FMODUnity.StudioEventEmitter moveObjectSound = null;
 
     public PlayerController Player { get; private set; } = null;
     public GridElement CurrentGridElement { get; private set; } = null;
@@ -51,6 +55,12 @@ public class PlayerBuildController : MonoBehaviour
                 Player.StartCombatMode();
 
                 LevelManager.Instance.StartTime();
+
+                placeObjectSound.Play();
+            }
+            else
+            {
+                cancelPlaceObjectSound.Play();
             }
         }
     }
@@ -72,6 +82,8 @@ public class PlayerBuildController : MonoBehaviour
         Player.BuildingCamera.Follow = CurrentPlaceableVizualizer.transform;
 
         Player.StartBuildingMode();
+
+        placeObjectSound.Play();
     }
 
     public void MovePlaceable(InputAction.CallbackContext _context)
@@ -109,6 +121,8 @@ public class PlayerBuildController : MonoBehaviour
             CurrentPlaceableGridElements.Clear();
 
             CurrentPlaceableGridElements = newGridElements;
+
+            moveObjectSound.Play();
         }
     }
 

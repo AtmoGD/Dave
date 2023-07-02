@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Minion : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Minion : MonoBehaviour
     [field: SerializeField] public FMODUnity.StudioEventEmitter SoundEmitter { get; private set; } = null;
     [field: SerializeField] public Transform SpawnRessourcePoint { get; private set; } = null;
     [field: SerializeField] public Animator Animator { get; private set; } = null;
+    [field: SerializeField] public FMODUnity.StudioEventEmitter SpawnRessourceEmitter { get; private set; } = null;
 
     public MinionState CurrentState = null;
     public MinionIdle IdleState { get; private set; } = new MinionIdle();

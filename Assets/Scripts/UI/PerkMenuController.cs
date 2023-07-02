@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PerkMenuController : UIMenuController
 {
@@ -12,6 +13,7 @@ public class PerkMenuController : UIMenuController
     [SerializeField] protected float unPerkCardSpawnDelay = 0.8f;
     [SerializeField] protected bool closeMenuOnPerkChose = true;
     [SerializeField] protected float closeMenuDelay = 4f;
+    [SerializeField] protected StudioEventEmitter perkSound = null;
 
     public PlayerController PlayerController { get { return playerUIController.Player; } }
 

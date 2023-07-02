@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using FMODUnity;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -61,6 +62,7 @@ public class DialogueSystem : UIMenuController
     public Dialogue dialogue = null;
     public UIMenuItem continueButton;
     public TMP_Text continueButtonText;
+    public StudioEventEmitter dialogueSoundEmitter;
 
     private int currentSentenceIndex = 0;
     private int currentLetterIndex = 0;
@@ -86,7 +88,23 @@ public class DialogueSystem : UIMenuController
         currentTime += Time.deltaTime;
 
         if (textDisplay.text != dialogue.sentences[currentSentenceIndex].text && isTyping)
+        {
             Type();
+
+            if (dialogue.sentences[currentSentenceIndex].side == DialogeSide.Left)
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("UI_DIALOG_Speaker", 0);
+            else
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("UI_DIALOG_Speaker", 1);
+
+
+            if (!dialogueSoundEmitter.IsPlaying())
+                dialogueSoundEmitter.Play();
+        }
+        else
+        {
+            if (dialogueSoundEmitter.IsPlaying())
+                dialogueSoundEmitter.Stop();
+        }
     }
 
     public void StartDialogue()
@@ -132,6 +150,8 @@ public class DialogueSystem : UIMenuController
                 isTyping = false;
             }
         }
+
+
     }
 
     public void NextSentence()
@@ -159,5 +179,7 @@ public class DialogueSystem : UIMenuController
         isTyping = false;
         currentSentenceIndex = 0;
         onDialogueEnd?.Invoke();
+
+
     }
 }

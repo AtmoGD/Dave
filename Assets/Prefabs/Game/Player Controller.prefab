@@ -81,6 +81,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5862868172546906761}
   - component: {fileID: 3504213900379381252}
+  - component: {fileID: 920025004}
+  - component: {fileID: 920025005}
+  - component: {fileID: 920025006}
   m_Layer: 0
   m_Name: PlayerBuildController
   m_TagString: Untagged
@@ -116,6 +119,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTimeout: 0.05
+  placeObjectSound: {fileID: 920025006}
+  cancelPlaceObjectSound: {fileID: 920025005}
+  moveObjectSound: {fileID: 920025004}
+--- !u!114 &920025004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520270348105973050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1171047603
+      Data2: 1139111387
+      Data3: -2049176667
+      Data4: 2035347699
+    Path: event:/UI/MENU/BUILDING/BUILD_Move
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &920025005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520270348105973050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1130827908
+      Data2: 1266504445
+      Data3: -839049797
+      Data4: 1223337816
+    Path: event:/UI/MENU/BUILDING/BUILD_Place-impossible
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &920025006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520270348105973050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1650599308
+      Data2: 1215836109
+      Data3: -591124035
+      Data4: 1247081059
+    Path: event:/UI/MENU/BUILDING/BUILD_Place
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4807954931303665714
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,340 +270,8 @@ MonoBehaviour:
     level: 1
     experience: 0
     firstStart: 1
-    collectables:
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
-    - soulsressource001
+    firstLevelStart: 1
+    collectables: []
     equippedItems: []
     upgrades: []
     unlockedObjects: []
@@ -981,6 +745,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3f956333-a218-436c-b183-9ec5fe011df3
     m_ActionName: UI/DeleteData
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4400229f-b0b4-48d7-9372-169425223785
+    m_ActionName: UI/SpawnMore[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -1349,7 +1117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621127563069604729, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_InstanceId
-      value: 1208632
+      value: -2921328
       objectReference: {fileID: 0}
     - target: {fileID: 8789931070289155575, guid: 8c2bae83aebe26143af740211e7a37bd, type: 3}
       propertyPath: m_Name
@@ -1424,14 +1192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4807954931303665724}
     m_Modifications:
-    - target: {fileID: 435194703251927741, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435194703251927741, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 839645858072069265, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: <Player>k__BackingField
       value: 
@@ -1482,22 +1242,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753832261629008868, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778218916997254500, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778218916997254500, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778218916997254500, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778218916997254500, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2827354683889130903, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
@@ -1592,14 +1336,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6268037105591699886, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268037105591699886, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6995045275958127435, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1614,42 +1350,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6995045275958127435, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7157311064300716643, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7157311064300716643, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318881913979423768, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4807954931303665715}
-    - target: {fileID: 7318881913979423768, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DeleteData
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318881913979423768, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390489887137152475, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390489887137152475, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390489887137152475, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390489887137152475, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501649963547453451, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
@@ -1738,14 +1438,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7628708859989876296, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132533995106503600, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132533995106503600, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8254609910294753342, guid: 8e96bcbc896a2ad4fa5b4ab2de9b54d7, type: 3}

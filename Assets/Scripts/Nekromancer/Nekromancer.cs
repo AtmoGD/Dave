@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using System;
 using Cinemachine;
+using FMODUnity;
 
 public class Nekromancer : MonoBehaviour, IDamagable
 {
@@ -20,6 +21,14 @@ public class Nekromancer : MonoBehaviour, IDamagable
     [SerializeField] public List<Transform> gunPoints = null;
     [SerializeField] public Transform interactPoint = null;
     [SerializeField] public DamageVisualizer damageVisualizer = null;
+    #endregion
+
+    #region Sounds
+    [SerializeField] public StudioEventEmitter teleportEmitter = null;
+    [SerializeField] public StudioEventEmitter moveEmitter = null;
+    [SerializeField] public StudioEventEmitter shootEmitter = null;
+    [SerializeField] public StudioEventEmitter takeDamageEmitter = null;
+    [SerializeField] public StudioEventEmitter skillEmitter = null;
     #endregion
 
     #region Data
@@ -76,6 +85,8 @@ public class Nekromancer : MonoBehaviour, IDamagable
             return levelManager;
         }
     }
+
+    public bool IsAlive { get => Health > 0; }
     public PlayerController PlayerController { get { return playerController; } }
     public InputController InputController { get; set; }
     public InputData CurrentInput { get => currentInput; }
@@ -170,6 +181,8 @@ public class Nekromancer : MonoBehaviour, IDamagable
         LevelManager.Instance.NekromancerDie();
 
         PlayerController.OpenGameLostMenu();
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", 1);
     }
 
     #region State Machine
@@ -288,7 +301,17 @@ public class Nekromancer : MonoBehaviour, IDamagable
         rb.velocity = newVelocity;
 
         if (rb.velocity.magnitude > stats.velocityActionThreshold)
+        {
             OnMove?.Invoke(rb.velocity);
+
+            if (!moveEmitter.IsPlaying())
+                moveEmitter.Play();
+        }
+        else
+        {
+            if (moveEmitter.IsPlaying())
+                moveEmitter.Stop();
+        }
 
         if (skinAnimator)
         {
