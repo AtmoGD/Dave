@@ -26,4 +26,4 @@ MonoBehaviour:
   experience: 30
   speed: 0.7
   moveThreshold: 1.5
-  flipSpeed: 1000000
+  flipSpeed: 1e+19

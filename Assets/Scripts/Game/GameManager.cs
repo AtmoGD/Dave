@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool debugging = false;
     [SerializeField] private GameState gameState = GameState.Level;
     [field: SerializeField] public LevelData CurrentLevelData { get; set; } = null;
-    [field: SerializeField] private DialogueSystem Tutorial { get; set; } = null;
+    // [field: SerializeField] private DialogueSystem Tutorial { get; set; } = null;
 
 
     public GameState GameState { get { return gameState; } }
@@ -97,7 +97,10 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMusic()
     {
+        // if (PlayerController.Nekromancer.IsAlive)
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", IsPaused ? 1 : 0);
+        // else
+        //     FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", 0);
 
         switch (GameState)
         {

@@ -71,9 +71,11 @@ public class EnemyMoving : EnemyState
 
     public void Flip()
     {
-        float targetX = enemy.MoveController.TargetPosition.x > enemy.transform.position.x ? 1f : -1f;
-        float currentX = enemy.transform.localScale.x;
-        float newX = Mathf.Lerp(currentX, targetX, enemy.Data.flipSpeed * Time.deltaTime);
-        enemy.transform.localScale = new Vector3(newX, 1f, 1f);
+        // float targetX = enemy.MoveController.TargetPosition.x > enemy.transform.position.x ? 1f : -1f;
+        // float currentX = enemy.transform.localScale.x;
+        // float newX = Mathf.Lerp(currentX, targetX, enemy.Data.flipSpeed * Time.deltaTime);
+        // enemy.transform.localScale = new Vector3(newX, 1f, 1f);
+
+        enemy.transform.localScale = new Vector3(enemy.MoveController.TargetPosition.x > enemy.transform.position.x ? 1f : -1f, 1f, 1f);
     }
 }

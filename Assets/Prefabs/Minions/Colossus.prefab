@@ -246,11 +246,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -819094135
-      Data2: 1282303052
-      Data3: 1489000378
-      Data4: 750395603
-    Path: event:/MONSTER/TripleHead/MONSTER_TripleHead_Move
+      Data1: -633337936
+      Data2: 1093804633
+      Data3: 1144789142
+      Data4: -1080227421
+    Path: event:/MONSTER/Colossus/MONSTER_Colossus_Move
   Event: 
   PlayEvent: 0
   StopEvent: 12
@@ -260,7 +260,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 15
 --- !u!114 &3061471727999374253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 2050307877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 546720
+  m_InstanceId: 108482
 --- !u!114 &4413243865135236485
 MonoBehaviour:
   m_ObjectHideFlags: 0

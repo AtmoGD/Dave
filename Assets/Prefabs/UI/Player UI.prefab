@@ -2921,7 +2921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00010681152, y: 0}
+  m_AnchoredPosition: {x: 0.00013327599, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6612461224030417128
@@ -8942,7 +8942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00010681152, y: 0}
+  m_AnchoredPosition: {x: 0.00013327599, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5160218983835815626
@@ -9592,6 +9592,7 @@ MonoBehaviour:
   unPerkCardSpawnDelay: 1.5
   closeMenuOnPerkChose: 1
   closeMenuDelay: 4
+  perkSound: {fileID: 0}
 --- !u!95 &2630232907705468978
 Animator:
   serializedVersion: 4

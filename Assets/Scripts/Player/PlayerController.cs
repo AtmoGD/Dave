@@ -182,8 +182,11 @@ public class PlayerController : MonoBehaviour
 
     public void PlaceMinion(MinionData _minionData)
     {
-        Vector3 position = Nekromancer.CurrentInteractable.GetTransform().position + UnityEngine.Random.insideUnitSphere * _minionData.spawnRadiusAroundTower;
-        GameObject placeableObject = Instantiate(_minionData.prefab, position, Quaternion.identity);
+        for (int i = 0; i < (GameManager.Instance.debugging ? 10 : 1); i++)
+        {
+            Vector3 position = Nekromancer.CurrentInteractable.GetTransform().position + UnityEngine.Random.insideUnitSphere * _minionData.spawnRadiusAroundTower;
+            GameObject placeableObject = Instantiate(_minionData.prefab, position, Quaternion.identity);
+        }
 
         Nekromancer.ResetInteractable();
 
@@ -191,7 +194,6 @@ public class PlayerController : MonoBehaviour
 
         Cancel(null);
     }
-
 
     public void OpenBuildingsMenu(InputData _input = null)
     {

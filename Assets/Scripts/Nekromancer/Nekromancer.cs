@@ -182,7 +182,7 @@ public class Nekromancer : MonoBehaviour, IDamagable
 
         PlayerController.OpenGameLostMenu();
 
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", 1);
+        // FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Game_Paused", 1);
     }
 
     #region State Machine
